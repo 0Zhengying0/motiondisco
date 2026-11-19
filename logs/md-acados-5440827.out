@@ -1,0 +1,592 @@
+-- The C compiler identification is GNU 15.3.0
+-- The CXX compiler identification is GNU 15.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/bin/x86_64-conda-linux-gnu-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/bin/x86_64-conda-linux-gnu-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Build type is Release
+-- Found OpenMP_C: -fopenmp (found version "4.5")
+-- Found OpenMP_CXX: -fopenmp (found version "4.5")
+-- Found OpenMP: TRUE (found version "4.5")
+-- OpenMP_CXX_FLAGS: -fopenmp, OpenMP_C_FLAGS: -fopenmp
+-- The ASM compiler identification is GNU
+-- Found assembler: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/bin/x86_64-conda-linux-gnu-gcc
+-- Using linear algebra: HIGH_PERFORMANCE
+-- Using matrix format: PANELMAJ
+-- Using external BLAS: 0
+-- Testing target X64_INTEL_HASWELL: assembly compilation [success]
+-- Testing target X64_INTEL_HASWELL: assembly run [success]
+-- Testing target X64_INTEL_HASWELL: intrinsic compilation [success]
+-- Testing target X64_INTEL_HASWELL: intrinsic run [success]
+-- Detected target X64_INTEL_HASWELL
+-- HPIPM Target is AVX
+-- Using BLASFEO path: 
+-- Installation directory: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados
+--  
+-- Target: BLASFEO is X64_AUTOMATIC, HPIPM is AVX
+-- Linear algebra: HIGH_PERFORMANCE
+-- Octave MEX (OFF)
+-- System name:version Linux:4.18.0-553.148.1.el8_10.x86_64
+-- Build type is Release
+-- Installation directory is /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados
+-- BUILD_SHARED_LIBS is ON
+-- OpenMP parallelization is ON
+-- Number of threads for acados with openMP (ACADOS_NUM_THREADS) 10
+--  
+-- Git commit is 47b961bca
+-- Configuring done (4.7s)
+-- Generating done (0.2s)
+-- Build files have been written to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/build-karolina
+[1/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/blasfeo_processor_features.c.o
+[2/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/memory.c.o
+[3/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/sse3/kernel_align_x64.S.o
+[4/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/d_aux_common.c.o
+[5/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_d_aux_lib.S.o
+[6/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/s_aux_common.c.o
+[7/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_dgemm_diag_lib4.c.o
+[8/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_dgetr_lib.S.o
+[9/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_dpack_lib4.S.o
+[10/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgebp_lib4.S.o
+[11/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgelqf_4_lib4.S.o
+[12/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgemm_12x4_lib4.S.o
+[13/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgemm_4x4_lib4.S.o
+[14/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgemm_8x4_lib4.S.o
+[15/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgemm_8x8_lib4.S.o
+[16/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgemv_4_lib4.S.o
+[17/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgemv_8_lib4.S.o
+[18/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dger_lib4.S.o
+[19/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_dgecp_lib4.c.o
+[20/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgetr_lib4.c.o
+[21/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dsymv_6_lib4.S.o
+[22/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_daxpy_lib.c.o
+[23/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_ddot_lib.c.o
+[24/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_dgemv_4_lib4.c.o
+[25/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_dger_lib4.c.o
+[26/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_dpack_buffer_lib4.c.o
+[27/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_dsymv_4_lib4.c.o
+[28/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_sgead_lib8.S.o
+[29/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_sgecpsc_lib8.S.o
+[30/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_dgetrf_pivot_lib4.c.o
+[31/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_sgemv_4_lib8.S.o
+[32/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_sgemv_8_lib8.S.o
+[33/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_sgetr_lib8.S.o
+[34/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_spack_lib8.S.o
+[35/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_sgemm_16x4_lib8.S.o
+[36/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_sgemm_24x4_lib8.S.o
+[37/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_sgemm_8x4_lib8.S.o
+[38/258] Building ASM object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx2/kernel_sgemm_8x8_lib8.S.o
+[39/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_saxpy_lib.c.o
+[40/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_sgemm_diag_lib8.c.o
+[41/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_sdot_lib.c.o
+[42/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_sgemm_8x4_lib8.c.o
+[43/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_sgemm_4x4_lib4.c.o
+[44/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/avx/kernel_dgeqrf_4_lib4.c.o
+[45/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/kernel/generic/kernel_spack_lib4.c.o
+[46/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/d_blas2_diag_lib.c.o
+[47/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/d_blas1_lib4.c.o
+[48/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/d_blas3_diag_lib4.c.o
+[49/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/d_blas2_lib4.c.o
+[50/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/d_aux_lib4.c.o
+[51/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/d_blas3_lib4.c.o
+[52/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/d_lapack_lib4.c.o
+[53/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/s_blas1_lib8.c.o
+[54/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/s_blas2_diag_lib.c.o
+[55/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/s_blas3_diag_lib8.c.o
+[56/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/s_blas2_lib8.c.o
+[57/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/s_blas3_lib8.c.o
+[58/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/s_aux_lib8.c.o
+[59/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_hp_pm/s_lapack_lib8.c.o
+[60/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/d_blas1_ref.c.o
+[61/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/d_blas2_diag_ref.c.o
+[62/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/d_blas3_diag_ref.c.o
+[63/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/d_aux_ref.c.o
+[64/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/d_blas2_ref.c.o
+[65/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/s_aux_ref.c.o
+[66/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/s_blas1_ref.c.o
+[67/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/s_blas2_diag_ref.c.o
+[68/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/d_lapack_ref.c.o
+[69/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/s_blas3_diag_ref.c.o
+[70/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/s_blas2_ref.c.o
+[71/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/d_blas3_ref.c.o
+[72/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/i_aux_ext_dep_lib.c.o
+[73/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/timing.c.o
+[74/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/v_aux_ext_dep_lib.c.o
+[75/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/d_aux_ext_dep.c.o
+[76/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/d_aux_ext_dep_common.c.o
+[77/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/s_aux_ext_dep.c.o
+[78/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/s_aux_ext_dep_common.c.o
+[79/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/d_cast_qcqp.c.o
+[80/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/d_cond.c.o
+[81/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/d_cond_aux.c.o
+[82/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/s_lapack_ref.c.o
+[83/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/d_cond_qcqp.c.o
+[84/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/d_part_cond.c.o
+[85/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/d_part_cond_qcqp.c.o
+[86/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/s_cast_qcqp.c.o
+[87/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/s_cond.c.o
+[88/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/blasfeo_ref/s_blas3_ref.c.o
+[89/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/s_cond_qcqp.c.o
+[90/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/s_part_cond.c.o
+[91/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/s_part_cond_qcqp.c.o
+[92/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qcqp_dim.c.o
+[93/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qcqp.c.o
+[94/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qcqp_res.c.o
+[95/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qcqp_sol.c.o
+[96/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qcqp_utils.c.o
+[97/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qcqp_ipm.c.o
+[98/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/cond/s_cond_aux.c.o
+[99/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp_dim.c.o
+[100/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp.c.o
+[101/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp_kkt.c.o
+[102/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp_ipm.c.o
+[103/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp_res.c.o
+[104/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp_seed.c.o
+[105/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp_sol.c.o
+[106/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qcqp_dim.c.o
+[107/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/d_dense_qp_utils.c.o
+[108/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qcqp_res.c.o
+[109/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qcqp.c.o
+[110/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qcqp_sol.c.o
+[111/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qcqp_utils.c.o
+[112/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp_dim.c.o
+[113/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qcqp_ipm.c.o
+[114/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp.c.o
+[115/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp_kkt.c.o
+[116/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp_res.c.o
+[117/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp_ipm.c.o
+[118/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp_seed.c.o
+[119/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp_sol.c.o
+[120/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ipm_core/d_core_qp_ipm.c.o
+[121/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ipm_core/s_core_qp_ipm.c.o
+[122/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/dense_qp/s_dense_qp_utils.c.o
+[123/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ipm_core/s_core_qp_ipm_aux_avx.c.o
+[124/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qcqp_dim.c.o
+[125/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ipm_core/d_core_qp_ipm_aux_avx.c.o
+[126/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qcqp.c.o
+[127/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qcqp_sol.c.o
+[128/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qcqp_ipm.c.o
+[129/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qcqp_res.c.o
+[130/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_dim.c.o
+[131/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qcqp_utils.c.o
+[132/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp.c.o
+[133/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_red.c.o
+[134/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_ipm.c.o
+[135/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_seed.c.o
+[136/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_kkt.c.o
+[137/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_res.c.o
+[138/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_sol.c.o
+[139/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qcqp_dim.c.o
+[140/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/d_ocp_qp_utils.c.o
+[141/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qcqp_ipm.c.o
+[142/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qcqp.c.o
+[143/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qcqp_sol.c.o
+[144/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qcqp_res.c.o
+[145/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_dim.c.o
+[146/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qcqp_utils.c.o
+[147/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp.c.o
+[148/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_red.c.o
+[149/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_kkt.c.o
+[150/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_ipm.c.o
+[151/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_seed.c.o
+[152/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_res.c.o
+[153/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_sol.c.o
+[154/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qcqp_dim.c.o
+[155/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qcqp.c.o
+[156/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qcqp_ipm.c.o
+[157/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/ocp_qp/s_ocp_qp_utils.c.o
+[158/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qcqp_res.c.o
+[159/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qcqp_sol.c.o
+[160/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qcqp_utils.c.o
+[161/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qp_dim.c.o
+[162/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qp.c.o
+[163/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qp_ipm.c.o
+[164/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qp_kkt.c.o
+[165/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qp_res.c.o
+[166/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qp_utils.c.o
+[167/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/d_tree_ocp_qp_sol.c.o
+[168/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qcqp_dim.c.o
+[169/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qcqp.c.o
+[170/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qcqp_res.c.o
+[171/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qcqp_sol.c.o
+[172/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qcqp_ipm.c.o
+[173/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qcqp_utils.c.o
+[174/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qp_dim.c.o
+[175/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qp.c.o
+[176/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qp_kkt.c.o
+[177/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qp_ipm.c.o
+[178/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qp_res.c.o
+[179/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qp_sol.c.o
+[180/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/s_tree_ocp_qp_utils.c.o
+[181/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/auxiliary/aux_string.c.o
+[182/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/tree_ocp_qp/scenario_tree.c.o
+[183/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/auxiliary/timing.c.o
+[184/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/interfaces/c/d_ocp_qp_solver.c.o
+[185/258] Building C object acados/CMakeFiles/acados.dir/dense_qp/dense_qp_hpipm.c.o
+[186/258] Building C object acados/CMakeFiles/acados.dir/dense_qp/dense_qp_common.c.o
+[187/258] Building C object external/hpipm/CMakeFiles/hpipm.dir/auxiliary/aux_mem.c.o
+[188/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_constraints_bgh.c.o
+[189/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_constraints_common.c.o
+[190/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_cost_common.c.o
+[191/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_constraints_bgp.c.o
+[192/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_cost_conl.c.o
+[193/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_cost_external.c.o
+[194/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_cost_ls.c.o
+[195/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_cost_nls.c.o
+[196/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_dynamics_common.c.o
+[197/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_ddp.c.o
+[198/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_dynamics_cont.c.o
+[199/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_globalization_common.c.o
+[200/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_dynamics_disc.c.o
+[201/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_globalization_fixed_step.c.o
+[202/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_common.c.o
+[203/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_globalization_funnel.c.o
+[204/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_reg_common.c.o
+[205/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_qpscaling.c.o
+[206/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_globalization_merit_backtracking.c.o
+[207/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_reg_glm.c.o
+[208/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_reg_mirror.c.o
+[209/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_reg_noreg.c.o
+[210/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_reg_project.c.o
+[211/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_reg_convexify.c.o
+[212/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_reg_project_reduc_hess.c.o
+[213/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_sqp.c.o
+[214/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_sqp_rti.c.o
+[215/258] Building C object acados/CMakeFiles/acados.dir/ocp_qp/ocp_qp_common.c.o
+[216/258] Building C object acados/CMakeFiles/acados.dir/ocp_qp/ocp_qp_full_condensing.c.o
+[217/258] Building C object acados/CMakeFiles/acados.dir/ocp_nlp/ocp_nlp_sqp_with_feasible_qp.c.o
+[218/258] Building C object acados/CMakeFiles/acados.dir/ocp_qp/ocp_qp_common_frontend.c.o
+[219/258] Building C object acados/CMakeFiles/acados.dir/ocp_qp/ocp_qp_hpipm.c.o
+[220/258] Building C object acados/CMakeFiles/acados.dir/ocp_qp/ocp_qp_partial_condensing.c.o
+[221/258] Building C object acados/CMakeFiles/acados.dir/ocp_qp/ocp_qp_xcond_solver.c.o
+[222/258] Building C object acados/CMakeFiles/acados.dir/sim/sim_common.c.o
+[223/258] Building C object acados/CMakeFiles/acados.dir/sim/sim_collocation_utils.c.o
+[224/258] Building C object acados/CMakeFiles/acados.dir/sim/sim_erk_integrator.c.o
+[225/258] Building C object acados/CMakeFiles/acados.dir/sim/sim_lifted_irk_integrator.c.o
+[226/258] Building C object acados/CMakeFiles/acados.dir/sim/sim_gnsf.c.o
+[227/258] Building C object acados/CMakeFiles/acados.dir/sim/sim_irk_integrator.c.o
+[228/258] Building C object acados/CMakeFiles/acados.dir/utils/mem.c.o
+[229/258] Building C object acados/CMakeFiles/acados.dir/utils/external_function_generic.c.o
+[230/258] Building C object acados/CMakeFiles/acados.dir/utils/timing.c.o
+[231/258] Building C object acados/CMakeFiles/acados.dir/__/interfaces/acados_c/external_function_interface.c.o
+[232/258] Building C object acados/CMakeFiles/acados.dir/__/interfaces/acados_c/dense_qp_interface.c.o
+[233/258] Building C object acados/CMakeFiles/acados.dir/utils/print.c.o
+[234/258] Building C object acados/CMakeFiles/acados.dir/__/interfaces/acados_c/ocp_qp_interface.c.o
+[235/258] Building C object acados/CMakeFiles/acados.dir/__/interfaces/acados_c/condensing_interface.c.o
+[236/258] Building C object acados/CMakeFiles/acados.dir/utils/math.c.o
+[237/258] Building C object external/blasfeo/examples/CMakeFiles/getting_started.dir/getting_started.c.o
+[238/258] Building C object acados/CMakeFiles/acados.dir/__/interfaces/acados_c/sim_interface.c.o
+[239/258] Building C object external/blasfeo/examples/CMakeFiles/example_d_lu_factorization.dir/example_d_lu_factorization.c.o
+[240/258] Building C object external/blasfeo/examples/CMakeFiles/example_d_lq_factorization.dir/example_d_lq_factorization.c.o
+[241/258] Building C object acados/CMakeFiles/acados.dir/__/interfaces/acados_c/ocp_nlp_interface.c.o
+[242/258] Building C object external/blasfeo/examples/CMakeFiles/example_d_riccati_recursion.dir/example_d_riccati_recursion.c.o
+[243/258] Building C object external/blasfeo/examples/CMakeFiles/example_s_lu_factorization.dir/example_s_lu_factorization.c.o
+[244/258] Building C object external/blasfeo/examples/CMakeFiles/example_s_riccati_recursion.dir/example_s_riccati_recursion.c.o
+[245/258] Building C object external/blasfeo/examples/CMakeFiles/example_d_riccati_recursion.dir/tools.c.o
+[246/258] Building C object external/blasfeo/examples/CMakeFiles/example_s_riccati_recursion.dir/tools.c.o
+[247/258] Building C object external/blasfeo/CMakeFiles/blasfeo.dir/auxiliary/blasfeo_stdlib.c.o
+[248/258] Linking C shared library external/blasfeo/libblasfeo.so.0.1.4.2
+[249/258] Creating library symlink external/blasfeo/libblasfeo.so.0 external/blasfeo/libblasfeo.so
+[250/258] Linking C executable external/blasfeo/examples/getting_started
+[251/258] Linking C executable external/blasfeo/examples/example_d_lq_factorization
+[252/258] Linking C executable external/blasfeo/examples/example_d_lu_factorization
+[253/258] Linking C executable external/blasfeo/examples/example_d_riccati_recursion
+[254/258] Linking C executable external/blasfeo/examples/example_s_riccati_recursion
+[255/258] Linking C executable external/blasfeo/examples/example_s_lu_factorization
+[256/258] Linking C shared library external/hpipm/libhpipm.so
+[257/258] Linking C shared library acados/libacados.so
+[257/258] Install the project...
+-- Install configuration: "Release"
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/lib/libacados.so
+-- Set non-toolchain portion of runtime path of "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/lib/libacados.so" to ""
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/sim
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/sim/sim_erk_integrator.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/sim/sim_lifted_irk_integrator.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/sim/sim_irk_integrator.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/sim/sim_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/sim/sim_gnsf.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/sim/sim_collocation_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils/timing.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils/strsep.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils/mem.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils/print.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils/math.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils/types.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/utils/external_function_generic.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/dense_qp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/dense_qp/dense_qp_daqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/dense_qp/dense_qp_qore.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/dense_qp/dense_qp_hpipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/dense_qp/dense_qp_qpoases.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/dense_qp/dense_qp_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/dense_qp/dense_qp_ooqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_partial_condensing.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_hpmpc.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_qpdunes.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_common_frontend.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_clarabel.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_xcond_solver.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_full_condensing.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_hpipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_osqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_qp/ocp_qp_ooqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_cost_ls.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_constraints_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_reg_convexify.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_reg_mirror.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_cost_nls.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_qpscaling.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_globalization_merit_backtracking.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_globalization_fixed_step.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_cost_external.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_reg_noreg.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_reg_project.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_reg_project_reduc_hess.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_dynamics_disc.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_dynamics_cont.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_constraints_bgh.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_dynamics_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_reg_glm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_cost_conl.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_constraints_bgp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_globalization_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_reg_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_sqp_with_feasible_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_cost_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_sqp_rti.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_ddp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_globalization_funnel.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados/ocp_nlp/ocp_nlp_sqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/cmake/acadosTargets.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/cmake/acadosTargets-release.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/cmake/acadosConfig.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados_c
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados_c/external_function_interface.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados_c/ocp_qp_interface.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados_c/dense_qp_interface.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados_c/condensing_interface.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados_c/ocp_nlp_interface.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/acados_c/sim_interface.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/lib/libblasfeo.so.0.1.4.2
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/lib/libblasfeo.so.0
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/lib/libblasfeo.so
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/share/cmake/blasfeo/blasfeoConfig.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/share/cmake/blasfeo/blasfeoConfig-release.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_align.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_block_size.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_aux.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_aux_ext_dep.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_aux_ext_dep_ref.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_aux_old.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_aux_ref.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_aux_test.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_blas.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_blas_api.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_blasfeo_api.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_blasfeo_api_ref.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_blasfeo_hp_api.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_blasfeo_ref_api.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_d_kernel.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_i_aux_ext_dep.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_m_aux.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_memory.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_naming.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_processor_features.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_aux.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_aux_ext_dep.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_aux_ext_dep_ref.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_aux_old.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_aux_ref.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_aux_test.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_blas.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_blas_api.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_blasfeo_api.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_blasfeo_api_ref.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_blasfeo_ref_api.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_s_kernel.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_stdlib.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_target.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_timing.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/blasfeo_v_aux_ext_dep.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/d_blas.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/d_blas_64.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/s_blas.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/blasfeo/include/s_blas_64.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/lib/libhpipm.so
+-- Set non-toolchain portion of runtime path of "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/lib/libhpipm.so" to ""
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/cmake/hpipmConfig.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/cmake/hpipmConfig-release.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_aux_mem.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_aux_string.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_common.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_cast_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_cond.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_cond_aux.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_cond_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_core_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_core_qp_ipm_aux.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qcqp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qcqp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qcqp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qcqp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qcqp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp_kkt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp_seed.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_dense_qp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qcqp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qcqp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qcqp_red.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qcqp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qcqp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qcqp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_kkt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_red.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_seed.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_solver.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_ocp_qp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_part_cond.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_part_cond_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_sim_erk.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_sim_rk.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qcqp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qcqp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qcqp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qcqp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qcqp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qp_kkt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_d_tree_ocp_qp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_m_dense_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_m_dense_qp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_m_ocp_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_m_ocp_qp_ipm_hard.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_m_ocp_qp_kkt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_cast_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_cond.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_cond_aux.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_cond_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_core_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_core_qp_ipm_aux.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qcqp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qcqp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qcqp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qcqp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qcqp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp_kkt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp_seed.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_dense_qp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qcqp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qcqp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qcqp_red.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qcqp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qcqp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qcqp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_kkt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_red.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_seed.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_ocp_qp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_part_cond.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_part_cond_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_sim_erk.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_sim_rk.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qcqp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qcqp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qcqp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qcqp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qcqp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qcqp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qp.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qp_dim.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qp_ipm.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qp_kkt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qp_res.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qp_sol.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_s_tree_ocp_qp_utils.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_scenario_tree.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_timing.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/include/hpipm/include/hpipm_tree.h
+Processing ./interfaces/acados_template
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from acados_template==0.5.1) (2.5.3)
+Requirement already satisfied: scipy in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from acados_template==0.5.1) (1.18.1)
+Requirement already satisfied: casadi in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from acados_template==0.5.1) (3.7.2)
+Requirement already satisfied: matplotlib in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from acados_template==0.5.1) (3.11.2)
+Collecting cython (from acados_template==0.5.1)
+  Downloading cython-3.3.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)
+Collecting Deprecated (from acados_template==0.5.1)
+  Downloading deprecated-3.0.1-py3-none-any.whl.metadata (6.5 kB)
+Collecting wrapt<3,>=1.16 (from Deprecated->acados_template==0.5.1)
+  Downloading wrapt-2.5.2-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.6 kB)
+Requirement already satisfied: contourpy>=1.0.1 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (1.4.0)
+Requirement already satisfied: cycler>=0.10 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (0.12.1)
+Requirement already satisfied: fonttools>=4.28.2 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (4.66.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (1.5.1)
+Requirement already satisfied: packaging>=20.0 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (26.3)
+Requirement already satisfied: pillow>=9 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (12.3.0)
+Requirement already satisfied: pyparsing>=3 in /home/it4i-dianyu/.local/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->acados_template==0.5.1) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib->acados_template==0.5.1) (1.17.0)
+Downloading cython-3.3.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 71.0 MB/s  0:00:00
+Downloading deprecated-3.0.1-py3-none-any.whl (22 kB)
+Downloading wrapt-2.5.2-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (250 kB)
+Building wheels for collected packages: acados_template
+  Building wheel for acados_template (pyproject.toml): started
+  Building wheel for acados_template (pyproject.toml): finished with status 'done'
+  Created wheel for acados_template: filename=acados_template-0.5.1-py3-none-any.whl size=412522 sha256=02371077d8ce570e340a33e5a60c30b9a4e782373f7f1f9ed14751f96bef641a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ixe2qgl5/wheels/6b/42/3d/2cc6671d533dbbba7ec18076bd5ab37e30a17d93cf59869984
+Successfully built acados_template
+Installing collected packages: wrapt, cython, Deprecated, acados_template
+
+Successfully installed Deprecated-3.0.1 acados_template-0.5.1 cython-3.3.1 wrapt-2.5.2
+Acados Python package installed
+Acados build and Python installation completed successfully

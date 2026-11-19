@@ -1,0 +1,15 @@
+curl: (7) Failed to connect to 127.0.0.1 port 11434: Connection refused
+INFO:    Environment variable SINGULARITY_BINDPATH is set, but APPTAINER_BINDPATH is preferred
+INFO:    Environment variable SINGULARITYENV_LD_PRELOAD is set, but APPTAINERENV_LD_PRELOAD is preferred
+Error executing job with overrides: ['task@_global_=loco_manipulation', 'variant@_global_=ollama_local', 'cluster@_global_=local', 'task.scene=example_scene', 'evo_config.num_generations=2', 'max_evaluation_jobs=1', 'max_proposal_jobs=1']
+Traceback (most recent call last):
+  File "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/shinka/launch_hydra.py", line 49, in main
+    run_with_cfg(cfg)
+  File "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/shinka/launch_hydra.py", line 18, in run_with_cfg
+    print(OmegaConf.to_yaml(cfg, resolve=True))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+omegaconf.errors.InterpolationResolutionError: ModuleNotFoundError raised while resolving interpolation: No module named 'examples'
+    full_key: evo_config.task_sys_msg
+    object_type=dict
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

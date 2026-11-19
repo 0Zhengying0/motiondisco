@@ -1,0 +1,10 @@
+scene	nodes	description
+motiondisco.banana_real	27	Reach and grasp the banana.
+motiondisco.box_stacking	11	Stack the boxes as high as possible on the table.
+motiondisco.climb_table_with_box	13	Climb onto the table and hold the white box at the end.
+motiondisco.climb_table_up_down_with_box	21	Place the box on the other side of the table.
+motiondisco.long_dist_pick_place	20	Pick the yellow box and place it on the distant table.
+motiondisco.move_through_clutter	15	Navigate through the cluttered environment to the far side.
+motiondisco.parkour_pick_place_1	40	Pick the white box and place it on the elevated table.
+motiondisco.parkour_pick_place_2	34	Pick the white box and place it on the elevated table.
+motiondisco.under_table_pick_place	14	Pick the white box from under the table and place it on top.

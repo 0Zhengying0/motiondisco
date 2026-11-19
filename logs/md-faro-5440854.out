@@ -1,0 +1,39 @@
+Obtaining file:///mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from faro==0.1.0) (2.5.3)
+Requirement already satisfied: mujoco in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from faro==0.1.0) (3.13.0)
+Requirement already satisfied: matplotlib in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from faro==0.1.0) (3.11.2)
+Requirement already satisfied: contourpy>=1.0.1 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (1.4.0)
+Requirement already satisfied: cycler>=0.10 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.28.2 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (4.66.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (1.5.1)
+Requirement already satisfied: packaging>=20.0 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (26.3)
+Requirement already satisfied: pillow>=9 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (12.3.0)
+Requirement already satisfied: pyparsing>=3 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (3.3.3)
+Requirement already satisfied: python-dateutil>=2.7 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from matplotlib->faro==0.1.0) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib->faro==0.1.0) (1.17.0)
+Requirement already satisfied: absl-py in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from mujoco->faro==0.1.0) (2.5.0)
+Requirement already satisfied: etils[epath] in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from mujoco->faro==0.1.0) (1.13.0)
+Requirement already satisfied: glfw in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from mujoco->faro==0.1.0) (2.10.2)
+Requirement already satisfied: pyopengl in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from mujoco->faro==0.1.0) (3.1.10)
+Requirement already satisfied: fsspec in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from etils[epath]->mujoco->faro==0.1.0) (2026.9.0)
+Requirement already satisfied: importlib_resources in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from etils[epath]->mujoco->faro==0.1.0) (7.1.0)
+Requirement already satisfied: typing_extensions in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from etils[epath]->mujoco->faro==0.1.0) (4.16.0)
+Requirement already satisfied: zipp in /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages (from etils[epath]->mujoco->faro==0.1.0) (4.1.0)
+Building wheels for collected packages: faro
+  Building editable for faro (pyproject.toml): started
+  Building editable for faro (pyproject.toml): finished with status 'done'
+  Created wheel for faro: filename=faro-0.1.0-0.editable-py3-none-any.whl size=5639 sha256=7fa7c7546e2fb446bf050e9f0d4fe781f3fa89f3b09d112c6e0d25b674e76e15
+  Stored in directory: /tmp/pip-ephem-wheel-cache-ez16_4gk/wheels/86/74/23/dce8a9fb9fa2057f6b88019e75e75efa9fc6f5ed657338c66a
+Successfully built faro
+Installing collected packages: faro
+Successfully installed faro-0.1.0
+FARO check passed: example_scene, 1 robot(s)
+FARO installation and basic check completed successfully

@@ -1,0 +1,228 @@
+-- The CXX compiler identification is GNU 15.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/bin/x86_64-conda-linux-gnu-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Could NOT find ccache (missing: CCACHE_PROGRAM) 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5")
+-- Found OpenMP: TRUE (found version "4.5")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Found nlohmann_json: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.12.0")
+-- Found OpenSSL: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libcrypto.so (found version "3.6.4")
+-- Found BLASFEO via config target: blasfeo
+-- Using -march=native for compilation
+-- Using system malloc
+-- Building multibody module
+-- Found Python: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/bin/python (found suitable version "3.12.14", minimum required is "3.8") found components: Interpreter Development.Module
+-- Performing Test NB_HAS_MTLS_GNU2
+-- Performing Test NB_HAS_MTLS_GNU2 - Success
+-- Packaged version of Catch will be used.
+-- Found Python: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/bin/python (found suitable version "3.12.14", minimum required is "3.8") found components: Interpreter
+-- Configuring done (2.6s)
+-- Generating done (0.3s)
+-- Build files have been written to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/moto/build-karolina
+[1/99] Building CXX object CMakeFiles/moto.dir/src/core/external_function.cpp.o
+[2/99] Building CXX object CMakeFiles/moto.dir/src/core/expr.cpp.o
+[3/99] Building CXX object CMakeFiles/moto.dir/src/core/sparse_matrix.cpp.o
+[4/99] Building CXX object CMakeFiles/moto.dir/src/ocp/constr.cpp.o
+[5/99] Building CXX object CMakeFiles/moto.dir/src/ocp/cost.cpp.o
+[6/99] Building CXX object CMakeFiles/moto.dir/src/ocp/dynamics.cpp.o
+[7/99] Building CXX object CMakeFiles/moto.dir/src/ocp/dynamics/dense_dynamics.cpp.o
+[8/99] Building CXX object CMakeFiles/moto.dir/src/ocp/dynamics/semi_implicit_euler.cpp.o
+[9/99] Building CXX object CMakeFiles/moto.dir/src/ocp/func_data.cpp.o
+[10/99] Building CXX object CMakeFiles/moto.dir/src/ocp/func_impl.cpp.o
+[11/99] Building CXX object CMakeFiles/moto.dir/src/ocp/graph_composer.cpp.o
+[12/99] Building CXX object CMakeFiles/moto.dir/src/core/casadi_mx_graph_translator.cpp.o
+[13/99] Building CXX object CMakeFiles/moto.dir/src/ocp/graph_model.cpp.o
+[14/99] Building CXX object CMakeFiles/moto.dir/src/ocp/ineq_constr.cpp.o
+[15/99] Building CXX object CMakeFiles/moto.dir/src/ocp/ineq_soft_constr.cpp.o
+[16/99] Building CXX object CMakeFiles/moto.dir/src/core/linear_backend.cpp.o
+[17/99] Building CXX object CMakeFiles/moto.dir/src/ocp/merit_data.cpp.o
+[18/99] Building CXX object CMakeFiles/moto.dir/src/ocp/lifted.cpp.o
+[19/99] Building CXX object CMakeFiles/moto.dir/src/ocp/node_data.cpp.o
+[20/99] Building CXX object CMakeFiles/moto.dir/src/ocp/pre_comp.cpp.o
+[21/99] Building CXX object CMakeFiles/moto.dir/src/ocp/shared_data.cpp.o
+[22/99] Building CXX object CMakeFiles/moto.dir/src/solver/data_base.cpp.o
+[23/99] Building CXX object CMakeFiles/moto.dir/src/ocp/problem.cpp.o
+[24/99] Building CXX object CMakeFiles/moto.dir/src/ocp/sym_impl.cpp.o
+[25/99] Building CXX object CMakeFiles/moto.dir/src/solver/equality_init/eq_init_overlay.cpp.o
+[26/99] Building CXX object CMakeFiles/moto.dir/src/solver/ipm_impl/adaptive_mu.cpp.o
+[27/99] Building CXX object CMakeFiles/moto.dir/src/solver/ineq_soft_impl.cpp.o
+[28/99] Building CXX object CMakeFiles/moto.dir/src/solver/ineq_soft_reflect.cpp.o
+[29/99] Building CXX object CMakeFiles/moto.dir/src/solver/nsp_impl/linesearch.cpp.o
+[30/99] Building CXX object CMakeFiles/moto.dir/src/solver/ipm_impl/ipm_constr.cpp.o
+[31/99] Building CXX object CMakeFiles/moto.dir/src/solver/nsp_impl/backward.cpp.o
+[32/99] Building CXX object CMakeFiles/moto.dir/src/solver/nsp_impl/postsolve.cpp.o
+[33/99] Building CXX object CMakeFiles/moto.dir/src/solver/nsp_impl/helper.cpp.o
+[34/99] Building CXX object CMakeFiles/moto.dir/src/solver/nsp_impl/ns_riccati_data.cpp.o
+[35/99] Building CXX object CMakeFiles/moto.dir/src/solver/nsp_impl/presolve.cpp.o
+[36/99] Building CXX object CMakeFiles/moto.dir/src/solver/nsp_impl/rollout.cpp.o
+[37/99] Building CXX object CMakeFiles/moto.dir/src/solver/restoration/resto_overlay.cpp.o
+[38/99] Building CXX object CMakeFiles/moto.dir/src/solver/soft_impl/pmm_constr.cpp.o
+[39/99] Building CXX object CMakeFiles/moto.dir/src/solver/restoration/resto_overlay_runtime.cpp.o
+[40/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/equality_multiplier_init.cpp.o
+[41/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/direction.cpp.o
+[42/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/iterative_refinement.cpp.o
+[43/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/line_search.cpp.o
+[44/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/ns_sqp.cpp.o
+[45/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/print_stat.cpp.o
+[46/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/ns_sqp_impl.cpp.o
+[47/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/restoration.cpp.o
+[48/99] Building CXX object CMakeFiles/moto.dir/src/utils/md5.cpp.o
+[49/99] Building CXX object CMakeFiles/moto.dir/src/utils/runtime_compiler.cpp.o
+[50/99] Building CXX object CMakeFiles/moto.dir/src/solver/sqp_impl/scaling.cpp.o
+[51/99] Building CXX object CMakeFiles/moto.dir/src/utils/field_conversion.cpp.o
+[52/99] Building CXX object CMakeFiles/moto_multibody.dir/src/multibody/impl/euler_from_urdf.cpp.o
+[53/99] Building CXX object CMakeFiles/moto_multibody.dir/src/multibody/pinocchio_utils.cpp.o
+[54/99] Building CXX object CMakeFiles/moto.dir/src/utils/timed_block.cpp.o
+[55/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/nb_internals.cpp.o
+[56/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/nb_func.cpp.o
+[57/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/nb_type.cpp.o
+[58/99] Building CXX object CMakeFiles/moto_multibody.dir/src/multibody/casadi_manifold.cpp.o
+[59/99] Linking CXX shared library libmoto_multibody.so.2.3.1
+[60/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/nb_enum.cpp.o
+[61/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/nb_ndarray.cpp.o
+[62/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/nb_static_property.cpp.o
+[63/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/trampoline.cpp.o
+[64/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/error.cpp.o
+[65/99] Creating library symlink libmoto_multibody.so.2 libmoto_multibody.so
+[66/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/common.cpp.o
+[67/99] Building CXX object bindings/CMakeFiles/nanobind-static.dir/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/nanobind/src/implicit.cpp.o
+[68/99] Building CXX object CMakeFiles/moto.dir/src/utils/codegen.cpp.o
+[69/99] Linking CXX shared library libmoto.so.2.3.1
+[70/99] Creating library symlink libmoto.so.2 libmoto.so
+[71/99] Building CXX object bindings/CMakeFiles/moto_pywrap.dir/definition/fields.cpp.o
+[72/99] Building CXX object bindings/CMakeFiles/moto_pywrap.dir/definition/node_data.cpp.o
+[73/99] Building CXX object bindings/CMakeFiles/moto_pywrap.dir/definition/multibody.cpp.o
+[74/99] Linking CXX static library bindings/libnanobind-static.a
+[75/99] Building CXX object bindings/CMakeFiles/moto_pywrap.dir/setup_bindings.cpp.o
+[76/99] Building CXX object bindings/CMakeFiles/moto_pywrap.dir/definition/functional.cpp.o
+[77/99] Building CXX object unittests/CMakeFiles/sym_test_test.dir/sym_test.cpp.o
+[78/99] Building CXX object bindings/CMakeFiles/moto_pywrap.dir/definition/ns_sqp.cpp.o
+[79/99] Linking CXX shared module bindings/moto_pywrap.cpython-312-x86_64-linux-gnu.so
+[80/99] Building CXX object unittests/CMakeFiles/equality_multiplier_init_test.dir/equality_multiplier_init.cpp.o
+[81/99] Building CXX object unittests/CMakeFiles/ineq_jac_sparsity_test.dir/ineq_jac_sparsity.cpp.o
+[82/99] Building CXX object unittests/CMakeFiles/blasfeo_factorization_test.dir/blasfeo_factorization.cpp.o
+[83/99] Building CXX object unittests/CMakeFiles/restoration_test.dir/restoration.cpp.o
+[84/99] Building CXX object unittests/CMakeFiles/codegen_context_test.dir/codegen_context.cpp.o
+[85/99] Building CXX object unittests/CMakeFiles/direction_regularization_test.dir/direction_regularization.cpp.o
+[86/99] Generating moto_pywrap.pyi
+[87/99] Linking CXX executable unittests/sym_test_test
+[88/99] Linking CXX executable unittests/ineq_jac_sparsity_test
+[89/99] Linking CXX executable unittests/equality_multiplier_init_test
+[90/99] Linking CXX executable unittests/restoration_test
+[91/99] Linking CXX executable unittests/codegen_context_test
+[92/99] Linking CXX executable unittests/blasfeo_factorization_test
+[93/99] Building CXX object unittests/CMakeFiles/linear_backend_test.dir/linear_backend.cpp.o
+[94/99] Linking CXX executable unittests/direction_regularization_test
+[95/99] Linking CXX executable unittests/linear_backend_test
+[96/99] Building CXX object unittests/CMakeFiles/graph_model_compose_test.dir/graph_model_compose.cpp.o
+[97/99] Linking CXX executable unittests/graph_model_compose_test
+[98/99] Building CXX object unittests/CMakeFiles/semi_implicit_euler_test.dir/semi_implicit_euler.cpp.o
+[99/99] Linking CXX executable unittests/semi_implicit_euler_test
+-- Install configuration: "Release"
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto.so.2.3.1
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto.so.2
+-- Set non-toolchain portion of runtime path of "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto.so.2.3.1" to "$ORIGIN"
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto.so
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto_multibody.so.2.3.1
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto_multibody.so.2
+-- Set non-toolchain portion of runtime path of "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto_multibody.so.2.3.1" to "$ORIGIN"
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/libmoto_multibody.so
+-- Up-to-date: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/array.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/expr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/parallel_job.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/fwd.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/linear_backend.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/workspace_data.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/field_layout_store.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/fields.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/external_function.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/codegen_context.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/sparse.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/sparse_matrix.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/core/sparse_panel.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/linesearch_config.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ns_riccati
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ns_riccati/generic_solver.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ns_riccati/ns_riccati_data.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/data_base.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/overlay_common.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/soft_constr
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/soft_constr/pmm_constr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/equality_init
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/equality_init/eq_init_overlay.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ns_sqp.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/restoration
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/restoration/resto_overlay.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ineq_soft.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/linear_runtime_graph.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ipm
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ipm/positivity_step.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ipm/ipm_config.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/solver/ipm/ipm_constr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/timed_block.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/unique_id.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/shared.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/movable_ptr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/optional_boolean.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/clone_traits.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/field_conversion.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/unique.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/eigen_fmt.h
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/codegen.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/func_traits.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/blasfeo_factorizer
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/blasfeo_factorizer/blasfeo_llt.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/blasfeo_factorizer/blasfeo_qr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/blasfeo_factorizer/blasfeo_lu.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/utils/blasfeo_factorizer/blasfeo_buffer.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/pre_comp.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/dynamics
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/dynamics/semi_implicit_euler.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/dynamics/dense_dynamics.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/lifted.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/impl
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/impl/node_data.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/impl/func.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/impl/custom_func.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/impl/func_data.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/impl/lag_data.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/impl/sym_data.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/problem.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/ineq_constr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/constr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/graph_model.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/soft_constr.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/sym.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/cost.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/usr_func.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/dynamics.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/ocp/graph_composer.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/multibody
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/multibody/casadi_manifold.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/multibody/fwd.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/include/moto/multibody/state.hpp
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/cmake/moto/motoTargets.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/cmake/moto/motoTargets-release.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/cmake/moto/motoConfig.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/cmake/moto/motoConfigVersion.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/cmake/moto/FindBLASFEO.cmake
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/moto_pywrap.cpython-312-x86_64-linux-gnu.so
+-- Set non-toolchain portion of runtime path of "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/moto_pywrap.cpython-312-x86_64-linux-gnu.so" to "$ORIGIN/../../.."
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/definition/canonical_reuse.py
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/definition/public_api.py
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/definition/var.py
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/__init__.py
+-- Installing: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/moto_pywrap.pyi
+Moto installed: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/envs/motiondisco/lib/python3.12/site-packages/moto/__init__.py
+Moto build and installation completed successfully

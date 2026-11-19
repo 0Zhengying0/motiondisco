@@ -1,0 +1,7 @@
+Scene: motiondisco.parkour_pick_place_1 | nodes: 40 | array: 5453323_6
+MotionDisco commit: 0df8eab8623f58b447cd8402836ceffcdd472360
+FARO commit: 458afa0cef22b498a68aaccb232e08942880f333
+NAME                     ID              SIZE      MODIFIED   
+embeddinggemma:latest    85462619ee72    621 MB    2 days ago    
+qwen2.5-coder:7b         dae161e27b0e    4.7 GB    2 days ago    
+qwen2.5-coder:14b        9ec8897f747e    9.0 GB    2 days ago    

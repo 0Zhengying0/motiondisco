@@ -1,0 +1,3 @@
+[replay] requested video size 1280x720 exceeds model offscreen buffer 640x480; clamping. Bump <visual><global offwidth="..." offheight="..."/></visual> in the scene XML for higher-res output.
+video saved: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.17082902_ollama/best/results/to_run.mp4 (575 frames from 301 qpos samples, fps=30, 640x480)
+Rendered 301 trajectory frames to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.17082902_ollama/best/results/to_run.mp4

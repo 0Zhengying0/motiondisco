@@ -1,0 +1,8 @@
+INFO:    Environment variable SINGULARITY_BINDPATH is set, but APPTAINER_BINDPATH is preferred
+INFO:    Environment variable SINGULARITYENV_LD_PRELOAD is set, but APPTAINERENV_LD_PRELOAD is preferred
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/examples/loco_manipulation/_task_loader.py", line 65, in <module>
+    from _run_common import NONE_STRS, TASK_ENV_VARS  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named '_run_common'

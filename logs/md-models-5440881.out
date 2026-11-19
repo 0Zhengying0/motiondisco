@@ -1,0 +1,5 @@
+NAME                     ID              SIZE      MODIFIED               
+embeddinggemma:latest    85462619ee72    621 MB    Less than a second ago    
+qwen2.5-coder:7b         dae161e27b0e    4.7 GB    53 seconds ago            
+qwen2.5-coder:14b        9ec8897f747e    9.0 GB    6 minutes ago             
+Local models downloaded successfully to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/models/ollama

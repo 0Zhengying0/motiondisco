@@ -1,0 +1,7 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 7860k  100 7860k    0     0  10.8M      0 --:--:-- --:--:-- --:--:-- 10.8M
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/bin/t_renderer: /lib64/libc.so.6: version `GLIBC_2.32' not found (required by /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/bin/t_renderer)
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/bin/t_renderer: /lib64/libc.so.6: version `GLIBC_2.33' not found (required by /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/bin/t_renderer)
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/bin/t_renderer: /lib64/libc.so.6: version `GLIBC_2.34' not found (required by /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/submodules/faro/extern/acados/bin/t_renderer)
