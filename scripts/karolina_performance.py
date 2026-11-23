@@ -130,6 +130,13 @@ def main():
     launch.add_argument("seed_source")
     launch.add_argument("motiondisco_commit")
     launch.add_argument("faro_commit")
+    generated = sub.add_parser("start-generated")
+    generated.add_argument("path")
+    generated.add_argument("job_id")
+    generated.add_argument("motiondisco_commit")
+    generated.add_argument("faro_commit")
+    generated.add_argument("seed", type=int)
+    generated.add_argument("seed_source")
     end = sub.add_parser("end")
     end.add_argument("path")
     end.add_argument("job_id")
@@ -151,6 +158,10 @@ def main():
                    scene=args.scene, budget=args.budget, configured_seed=args.seed,
                    seed_source=args.seed_source, motiondisco_commit=args.motiondisco_commit,
                    faro_commit=args.faro_commit)
+        elif args.operation == "start-generated":
+            append(args.path, "job_start", job_id=args.job_id, raw_job_id=os.getenv("SLURM_JOB_ID"),
+                   workflow="qwen_scene_generation", motiondisco_commit=args.motiondisco_commit,
+                   faro_commit=args.faro_commit, configured_seed=args.seed, seed_source=args.seed_source)
         elif args.operation == "end":
             append(args.path, "job_end", job_id=args.job_id, exit_code=args.exit_code)
         elif args.operation == "models":

@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "source": {
+    "file": "motiondisco_object_catalog.json",
+    "sha256": "8c78b267c62cf6b945327b3ee34da79d2d50d20b43f40928586e7388da4ca93c",
+    "faro": {
+      "commit": "458afa0cef22b498a68aaccb232e08942880f333",
+      "source_tree_dirty": false
+    }
+  },
+  "units": {
+    "half_extents": "m",
+    "full_size": "m",
+    "mass": "kg"
+  },
+  "contact_type_codes": {
+    "1": {
+      "name": "unilateral_sticking",
+      "solver_supported": true
+    },
+    "2": {
+      "name": "sliding",
+      "solver_supported": true
+    },
+    "3": {
+      "name": "bilateral",
+      "solver_supported": false
+    }
+  },
+  "contact_permissions": "contact_types apply to every surface. face_contact_types add permissions to named surfaces. surface_allowed_contact_types is the effective union from FARO.",
+  "floor_defaults": {
+    "faro_type": "Plane",
+    "mass": null,
+    "color_rgba": [
+      0.8,
+      0.8,
+      0.8,
+      1.0
+    ],
+    "contact_types": [
+      1
+    ],
+    "face_contact_types": {},
+    "surfaces": [
+      "surface"
+    ],
+    "surface_allowed_contact_types": {
+      "surface": [
+        1
+      ]
+    }
+  },
+  "assets": {
+    "table_short": {
+      "name": "Short solid platform",
+      "category": "platform",
+      "movable": false,
+      "source_id": "fixedbox-6202fea8a3169b58",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.35,
+        0.7,
+        0.365
+      ],
+      "full_size": [
+        0.7,
+        1.4,
+        0.73
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      }
+    },
+    "table_tall": {
+      "name": "Tall solid platform",
+      "category": "platform",
+      "movable": false,
+      "source_id": "fixedbox-b0595ceb7c9b68f2",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.395,
+        0.395,
+        0.565
+      ],
+      "full_size": [
+        0.79,
+        0.79,
+        1.13
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      }
+    },
+    "green_box": {
+      "name": "Green box",
+      "category": "movable_box",
+      "movable": true,
+      "source_id": "movablebox-6e17c796b699bf9b",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.1025,
+        0.095,
+        0.115
+      ],
+      "full_size": [
+        0.205,
+        0.19,
+        0.23
+      ],
+      "mass": 0.626,
+      "color_rgba": [
+        0.23,
+        0.23,
+        0.09,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      }
+    },
+    "white_box": {
+      "name": "White box",
+      "category": "movable_box",
+      "movable": true,
+      "source_id": "movablebox-3bb12f88b0280aba",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.1325,
+        0.1275,
+        0.135
+      ],
+      "full_size": [
+        0.265,
+        0.255,
+        0.27
+      ],
+      "mass": 1.18,
+      "color_rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      }
+    },
+    "yellow_box": {
+      "name": "Yellow box",
+      "category": "movable_box",
+      "movable": true,
+      "source_id": "movablebox-0f7d3360e73aedd1",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.175,
+        0.175,
+        0.185
+      ],
+      "full_size": [
+        0.35,
+        0.35,
+        0.37
+      ],
+      "mass": 1.12,
+      "color_rgba": [
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      }
+    },
+    "crate": {
+      "name": "Wooden-colored crate",
+      "category": "movable_box",
+      "movable": true,
+      "source_id": "movablebox-ab993ec7d50081e2",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.15,
+        0.2,
+        0.15
+      ],
+      "full_size": [
+        0.3,
+        0.4,
+        0.3
+      ],
+      "mass": 2.078,
+      "color_rgba": [
+        0.58,
+        0.29,
+        0.0,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      }
+    }
+  }
+}

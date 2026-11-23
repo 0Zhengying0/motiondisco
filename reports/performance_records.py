@@ -20,6 +20,7 @@ PHASE_COLUMNS = {
     "to_solve_work_s": ("to_solve",),
     "to_polish_s": ("to_polish",),
     "physical_check_work_s": ("physical_check",),
+    "task_completion_check_s": ("task_completion_check",),
 }
 TIMES = tuple(PHASE_COLUMNS) + ("to_exclusive_s", "kso_native_profiled_s", "kso_native_initialization_s")
 COUNTS = ("telemetry_candidates", "timed_evaluations", "timed_kso_candidates", "timed_to_candidates",
@@ -34,6 +35,7 @@ RUN_FIELDS = (
     "configured_job_seed_source", "gpu_sample_count", "gpu_sample_interval_s", "gpu_sampled_util_mean_pct",
     "gpu_sampled_util_peak_pct", "gpu_sampled_vram_mean_mib", "gpu_sampled_vram_peak_mib",
     "gpu_sampled_vram_total_mib", "gpu_sampled_devices", "gpu_util_source", "gpu_vram_source",
+    "gpu_sampling_status", "gpu_sampler_error_records",
 )
 
 
@@ -148,12 +150,70 @@ def candidate_record(folder, results):
     return values
 
 
-def run_record(directory, job_path, gpu_path, raw, candidates):
+SCENE_PHASE_COLUMNS = {
+    "scene_generation_s": "scene_generation",
+    "scene_ollama_generate_s": "scene_ollama_generate",
+    "scene_validation_registration_s": "scene_validation_registration",
+    "mujoco_scene_build_s": "mujoco_scene_build",
+    "mujoco_scene_geometry_s": "mujoco_scene_geometry",
+    "mujoco_standing_s": "mujoco_standing",
+    "mujoco_static_s": "mujoco_static",
+    "scene_motiondisco_search_s": "scene_motiondisco_search",
+}
+
+
+def scene_generation_record(rows):
+    if not rows:
+        return {}
+    config = last_event(rows, "scene_generation_config")
+    starts = {row["span"]: row["stage"] for row in rows if row["event"] == "phase_start"}
+    completed = set()
+    phase_seconds = defaultdict(list)
+    for row in rows:
+        if row["event"] == "phase_end" and row["span"] in starts and row["span"] not in completed:
+            completed.add(row["span"])
+            phase_seconds[row["stage"]].append(row["seconds"])
+    requests = [row for row in rows if row["event"] == "scene_llm_request"]
+    responses = [row for row in rows if row["event"] == "scene_llm_response"]
+    errors = [row for row in rows if row["event"] == "scene_llm_error"]
+    validations = [row for row in rows if row["event"] == "scene_validation_result"]
+    record = {
+        column: round(sum(phase_seconds[stage]), 6) if phase_seconds[stage] else None
+        for column, stage in SCENE_PHASE_COLUMNS.items()
+    }
+    record.update(
+        scene_generation_model=config.get("model"),
+        scene_generation_seed=config.get("generation_seed"),
+        scene_generation_seed_source=config.get("generation_seed_source"),
+        scene_llm_attempts=len(requests),
+        scene_llm_responses=len(responses),
+        scene_llm_errors=len(errors),
+        scene_llm_request_seeds=compact([row.get("seed") for row in requests]) if requests else None,
+        scene_validation_failures=sum(not row["accepted"] for row in validations),
+        scene_validation_error_codes=compact(dict(Counter(code for row in validations for code in row["error_codes"]))),
+        scene_open_timing_stages=compact(dict(Counter(stage for span, stage in starts.items() if span not in completed))),
+        scene_open_timing_spans=len(starts) - len(completed),
+    )
+    for key in ("prompt_eval_count", "eval_count"):
+        values = [row[key] for row in responses if isinstance(row.get(key), int)]
+        record["scene_llm_" + key] = sum(values) if values else None
+    for key in ("total_duration", "load_duration", "prompt_eval_duration", "eval_duration"):
+        values = [row[key + "_ns"] for row in responses if isinstance(row.get(key + "_ns"), int)]
+        record["scene_llm_" + key + "_s"] = round(sum(values) / 1e9, 6) if values else None
+    return record
+
+
+def run_record(directory, job_path, gpu_path, raw, candidates, generation_config=None):
     job = events(job_path)
     start, end = last_event(job, "job_start"), last_event(job, "job_end")
     seed = last_event(events(directory / "run_performance.jsonl") if directory else [], "run_config")
     gpu = events(gpu_path)
     samples = [rec for rec in gpu if rec["event"] == "gpu_sample"]
+    errors = [rec for rec in gpu if rec["event"] == "sampler_error"]
+    sampling_status = (
+        "partial" if samples and errors else "sampled" if samples else
+        "failed" if errors else "no_samples" if gpu else "unrecorded"
+    )
     utils = [rec["gpu_util_pct"] for rec in samples if rec["gpu_util_pct"] is not None]
     vram = [rec["vram_used_mib"] for rec in samples if rec["vram_used_mib"] is not None]
     totals = [rec["vram_total_mib"] for rec in samples if rec["vram_total_mib"] is not None]
@@ -166,6 +226,8 @@ def run_record(directory, job_path, gpu_path, raw, candidates):
         "ollama_model_digests": (compact(last_event(job, "ollama_models")["model_digests"])
                                  if last_event(job, "ollama_models") else None),
         "gpu_sample_count": len(samples) if gpu else None,
+        "gpu_sampling_status": sampling_status,
+        "gpu_sampler_error_records": len(errors) if gpu else None,
         "gpu_sample_interval_s": last_event(gpu, "sampler_start").get("interval_s"),
         "gpu_sampled_devices": compact(dict(sorted({(rec["uuid"], rec["gpu_model"]) for rec in samples}))) if samples else None,
         "gpu_sampled_util_mean_pct": round(fmean(utils), 6) if utils else None,
@@ -183,7 +245,7 @@ def run_record(directory, job_path, gpu_path, raw, candidates):
                       seed_consumers=compact(seed.get("seed_consumers", [])), seed_ollama_enabled=seed.get("ollama_seed_enabled"),
                       python_hash_seed=seed.get("python_hash_seed"))
     for key in ("motiondisco", "faro"):
-        version = seed.get(key) or {}
+        version = seed.get(key) or (generation_config or {}).get(key) or {}
         if bool(version):
             result[key + "_dirty"] = version.get("dirty")
             result[key + "_working_source_changes_sha256"] = version.get("working_source_changes_sha256")

@@ -3,6 +3,7 @@ import importlib
 import json
 import os
 from pathlib import Path
+import pickle
 import random
 import signal
 import subprocess
@@ -16,7 +17,7 @@ from unittest.mock import AsyncMock, patch
 import numpy as np
 import openai
 
-from reports import performance_records
+from reports import extract_motiondisco_performance, performance_records
 from scripts import karolina_performance
 from shinka import performance
 from shinka.llm.providers.local_openai import query_local_openai, query_local_openai_async
@@ -204,6 +205,80 @@ fi
         self.assertEqual(error["exit_code"], 6)
         self.assertEqual(error["stdout"], "No devices were found\n")
         self.assertEqual(error["stderr"], "diagnostic stderr\n")
+
+    def test_generated_search_reports_http_budget_and_saved_reach_evidence(self):
+        extractor = extract_motiondisco_performance
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            outputs = root / "results"
+            workflow = outputs / "qwen_generated" / "audit_scene"
+            solver = workflow / "motiondisco"
+            (solver / ".hydra").mkdir(parents=True)
+            scene = "generated.audit_scene"
+            (outputs / "md-qwen-generate-42.out").write_text(f"Run artifacts: {workflow}\nBudget exhausted\n")
+            (outputs / "md-qwen-generate-server-42.log").write_text(
+                '[GIN] now | 200 | 2.0s | localhost | POST "/api/generate"\n'
+                '[GIN] now | 200 | 3.0s | localhost | POST "/v1/chat/completions"\n'
+                '[GIN] now | 500 | 0.5s | localhost | POST "/v1/embeddings"\n'
+            )
+            for name, payload in {
+                "result.json": {"status": "solved", "scene": scene, "launcher_exit_code": 0},
+                "validation.json": {"pass": True, "target_xyz_m": [1, 0, 0.775]},
+                "task_catalog.json": {"tasks": {"reach_position": {"completion_check": {"maximum_error_m": 0.10}}}},
+            }.items():
+                (workflow / name).write_text(json.dumps(payload))
+            (solver / ".hydra/config.yaml").write_text(f"task:\n  scene: {scene}\nevo_config:\n  num_generations: 3\n")
+            for generation, terminal_x in enumerate((0.95, 0.87)):
+                result = solver / f"gen_{generation}/results"
+                result.mkdir(parents=True)
+                verdict = {"to_valid": True, "to_converged": True, "to_cost": 1.0, "goal_match": True,
+                           "ik_feasible": True}
+                (result / "metrics.json").write_text(json.dumps({"combined_score": 0.5, "public": verdict}))
+                (result / "extra.json").write_text(json.dumps({
+                    **verdict, "to_physical": {"pass": True}, "contact_mode_seq": {"left_sole": [[1, 1], []]},
+                    "task_completion": {"met": True, "target_xyz_m": [0.87, 0, 0.775], "maximum_error_m": 0.15},
+                }))
+                states = np.array([[0, 0, 0.775], [terminal_x, 0, 0.775]])
+                (result / "to_run.pkl").write_bytes(pickle.dumps(
+                    {"results": {"robot_xs": {"robot": states}}}, protocol=pickle.HIGHEST_PROTOCOL
+                ))
+            jobs = {"42": {"JobName": "md-qwen-generate", "State": "COMPLETED",
+                           "ElapsedRaw": "3600", "AllocTRES": "cpu=8,gres/gpu=1"}}
+            run, = extractor.discover(root, jobs, [])
+            record, candidates = extractor.run_record(root, jobs, [], run, True)
+            scene_record, = extractor.summarize([record], {record["results_path"]: candidates})
+            self.assertEqual(record["scene_workflow_status"], "solved")
+            self.assertEqual(record["scene_search_status"], "budget_underfilled")
+            self.assertEqual(record["scene_generate_request_s"], 2)
+            self.assertEqual(record["llm_chat_request_s"], 3)
+            self.assertEqual(record["embedding_http_errors"], 1)
+            self.assertEqual(record["task_completed"], 1)
+            self.assertEqual(record["distinct_usable_contact_plans"], 1)
+            self.assertEqual(scene_record["alloc_gpu_h_per_usable"], 0.5)
+            self.assertEqual(scene_record["alloc_gpu_h_per_completed"], 1)
+            self.assertFalse(candidates[1]["task_values"]["agrees_with_evaluator"])
+            self.assertAlmostEqual(candidates[1]["task_values"]["error_m"], 0.13)
+            (solver / "gen_0/results/to_run.pkl").unlink()
+            self.assertEqual(extractor.run_record(root, jobs, [], run, True)[1][0]["semantic_basis"],
+                             "trajectory_missing")
+
+    def test_gpu_sampling_status_distinguishes_unrecorded_failed_and_measured_zero(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "gpu.jsonl"
+
+            def summarize():
+                return performance_records.run_record(None, None, path, {}, [])
+
+            self.assertEqual(summarize()["gpu_sampling_status"], "unrecorded")
+            performance.append_event(path, "sampler_error")
+            self.assertEqual(summarize()["gpu_sampling_status"], "failed")
+            self.assertEqual(summarize()["gpu_sample_count"], 0)
+            performance.append_event(path, "gpu_sample", uuid="GPU-test", gpu_model="A100",
+                                     gpu_util_pct=0, vram_used_mib=0, vram_total_mib=40960)
+            summary = summarize()
+            self.assertEqual(summary["gpu_sampling_status"], "partial")
+            self.assertEqual(summary["gpu_sampled_util_mean_pct"], 0)
+            self.assertEqual(summary["gpu_sampler_error_records"], 1)
 
 
 if __name__ == "__main__":

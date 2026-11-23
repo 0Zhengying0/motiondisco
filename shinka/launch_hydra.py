@@ -1,39 +1,18 @@
 #!/usr/bin/env python3
 # Modified by the MotionDisco authors from ShinkaEvolve (Sakana AI, Apache-2.0); see NOTICE.
-import hashlib
 import os
 from pathlib import Path
-import subprocess
 
 import hydra
 from omegaconf import DictConfig, OmegaConf
 from shinka.env import load_shinka_dotenv
 from shinka.core import ShinkaEvolveRunner
 from shinka.configs import register_resolvers
-from shinka.performance import capture, configured_seed, enabled, event, phase, seed_python_numpy
+from shinka.performance import capture, configured_seed, enabled, event, phase, seed_python_numpy, source_revision
 
 # Register custom OmegaConf resolvers (e.g. ${py:...}) before
 # @hydra.main composes any config that uses them. Idempotent.
 register_resolvers()
-
-
-def _revision(path, *source_paths):
-    try:
-        def git(*args):
-            return subprocess.check_output(["git", "-C", str(path), *args], stderr=subprocess.DEVNULL)
-
-        commit = git("rev-parse", "HEAD").decode().strip()
-        dirty = bool(git("status", "--porcelain"))
-        digest = hashlib.sha256(git("diff", "--binary", "--no-ext-diff", "--no-textconv", "HEAD", "--", *source_paths))
-        names = git("ls-files", "--others", "--exclude-standard", "-z", "--", *source_paths)
-        for name in sorted(names.split(b"\0")):
-            if name:
-                file = path / os.fsdecode(name)
-                if file.is_file():
-                    digest.update(name + b"\0" + hashlib.sha256(file.read_bytes()).digest())
-        return {"commit": commit, "dirty": dirty, "working_source_changes_sha256": digest.hexdigest()}
-    except (OSError, subprocess.CalledProcessError):
-        return {}
 
 
 def run_with_cfg(cfg: DictConfig) -> None:
@@ -57,8 +36,8 @@ def run_with_cfg(cfg: DictConfig) -> None:
             seed_consumers=["python.random", "numpy.random"] if seed is not None else [],
             python_hash_seed=os.environ.get("PYTHONHASHSEED"),
             ollama_seed_enabled=os.environ.get("MOTIONDISCO_OLLAMA_SEED") == "1" and seed is not None,
-            motiondisco=_revision(root, "shinka", "examples/loco_manipulation", "scripts", "pyproject.toml"),
-            faro=_revision(root / "submodules/faro", "src", "extern", "pyproject.toml"),
+            motiondisco=source_revision(root, "shinka", "examples/loco_manipulation", "scripts", "pyproject.toml"),
+            faro=source_revision(root / "submodules/faro", "src", "extern", "pyproject.toml"),
             node_budget=OmegaConf.select(cfg, "evo_config.num_generations"),
             model_names=list(OmegaConf.select(cfg, "evo_config.llm_models") or []),
             initial_condition=OmegaConf.select(cfg, "task.initial_condition"),

@@ -11,6 +11,7 @@ import logging
 import os
 from pathlib import Path
 import random
+import subprocess
 from time import monotonic_ns, time
 
 PERFORMANCE_ENV = "MOTIONDISCO_PERFORMANCE"
@@ -126,6 +127,25 @@ def observation(fn):
         except Exception as exc:
             _log.warning("Could not record %s: %s", fn.__name__, exc)
     return observe
+
+
+def source_revision(path, *source_paths):
+    try:
+        def git(*args):
+            return subprocess.check_output(["git", "-C", str(path), *args], stderr=subprocess.DEVNULL)
+
+        commit = git("rev-parse", "HEAD").decode().strip()
+        dirty = bool(git("status", "--porcelain"))
+        digest = hashlib.sha256(git("diff", "--binary", "--no-ext-diff", "--no-textconv", "HEAD", "--", *source_paths))
+        names = git("ls-files", "--others", "--exclude-standard", "-z", "--", *source_paths)
+        for name in sorted(names.split(b"\0")):
+            if name:
+                file = path / os.fsdecode(name)
+                if file.is_file():
+                    digest.update(name + b"\0" + hashlib.sha256(file.read_bytes()).digest())
+        return {"commit": commit, "dirty": dirty, "working_source_changes_sha256": digest.hexdigest()}
+    except (OSError, subprocess.CalledProcessError):
+        return {}
 
 
 def configured_seed():

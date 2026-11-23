@@ -525,12 +525,27 @@ def aggregate_planning_metrics(
         # A usable trajectory: converged, or physically valid without
         # converging (to_eval / trajectory_check); scoring and feedback use it.
         to_valid = None if to_solve is None else getattr(to_solve, "valid", to_solve.converged)
+        task_completion = None
+        completion_check = getattr(task, "task_completion", None)
+        if to_solve is not None and completion_check is not None:
+            with phase("task_completion_check"):
+                task_completion = completion_check(to_results_data)
+            if to_solve.physical is None and to_solve.converged:
+                try:
+                    import trajectory_check
+
+                    to_solve.physical = trajectory_check.check(
+                        task, contact_plan, to_results_data, to_solve.num_nodes // to_solve.num_modes
+                    )
+                except Exception as exc:
+                    print(f"Independent physical check failed: {type(exc).__name__}: {exc}", flush=True)
+            to_valid = bool(to_valid and to_solve.physically_valid and task_completion["met"])
         ik_diagnosis = ik_diagnosis_raw
         kso_task_quality: Optional[float] = None
         to_task_quality: Optional[float] = None
         to_quality_value: Optional[float] = None
         if _score_mode == "legacy":
-            combined_score = legacy_score(to_cost)
+            combined_score = (0.0 if task_completion is not None and not to_valid else legacy_score(to_cost))
         else:
             if ik_feasible:
                 kso_task_quality = task_quality(task, ik_results_data)
@@ -632,6 +647,8 @@ def aggregate_planning_metrics(
             "to_cost": to_cost,
             "violations": scored["violations"][:20],
         }
+        if task_completion is not None:
+            public_metrics["task_completion"] = task_completion
         if ik_mode == "hard" or ik_hard_failed:
             public_metrics["kso_goal_mode"] = (
                 "hard" if ik_mode == "hard" else "soft (hard target missed)"
@@ -799,6 +816,7 @@ def aggregate_planning_metrics(
                 "to_status": None if to_solve is None else to_solve.status,
                 "to_violations": None if to_solve is None else to_solve.violations,
                 "to_valid": to_valid,
+                "task_completion": task_completion,
                 "to_physical": None if to_solve is None else _physical_record(to_solve),
                 "to_goal": None if to_solve is None else getattr(to_solve, "goal", None),
                 "to_fail_reason": None if to_solve is None else getattr(to_solve, "fail_reason", "") or None,

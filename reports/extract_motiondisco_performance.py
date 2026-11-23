@@ -33,12 +33,14 @@ SACCT_FIELDS = (
 LOG_KINDS = {
     "campaign": "campaign", "search": "standalone_search", "box-smoke": "standalone_search",
     "instrumented": "standalone_search",
+    "qwen-generate": "generated_scene",
     "kso-retest": "kso_retest", "render": "render", "llm-test": "model_probe",
     **dict.fromkeys(("env", "acados", "moto", "faro", "install", "ollama-install", "models", "tera"), "setup"),
 }
 JOB_KINDS = {
     "md-qwen-campaign": "campaign", "motiondisco-first-search": "search",
     "motiondisco-box-smoke": "box-smoke", "motiondisco-render-best": "render",
+    "md-qwen-generate": "qwen-generate",
 }
 BOX_HALF_EXTENTS = {
     "green_box": (0.1025, 0.095, 0.115), "white_box": (0.1325, 0.1275, 0.135),
@@ -56,8 +58,8 @@ candidate_system_errors contact_conversion_errors evaluation_interrupted evaluat
 RUN_TIMES = """
 llm_chat_request_s embedding_request_s kso_s kso_diagnosis_s to_s to_segment_build_s
 to_segment_solve_s to_polish_s planner_function_s proposal_sampling_s evaluation_pipeline_s
-render_s render_job_wall_s
-""".split()
+render_s render_job_wall_s scene_generate_request_s
+""".split() + list(telemetry.SCENE_PHASE_COLUMNS)
 
 
 @dataclass
@@ -66,10 +68,14 @@ class Run:
     log_kind: str
     scene: str = ""
     directory: Path = None
+    workflow_directory: Path = None
 
     @property
     def group(self):
         return LOG_KINDS[self.log_kind]
+
+    def logs(self, root):
+        return root / ("results" if self.group == "generated_scene" else "logs")
 
 
 def read_text(path):
@@ -125,7 +131,10 @@ def gib(value):
 def accounting_source(args, root):
     snapshot = args.sacct or args.output_dir / "karolina_sacct.psv"
     if args.refresh_sacct:
-        result = subprocess.run(["sacct", "-S", args.since, "-u", getpass.getuser(), "-P", "-o", SACCT_FIELDS],
+        command = ["sacct", "-S", args.since, "-u", getpass.getuser(), "-P", "-o", SACCT_FIELDS]
+        if args.job_id:
+            command += ["-j", args.job_id]
+        result = subprocess.run(command,
                                 check=True, stdout=subprocess.PIPE, universal_newlines=True)
         lines = result.stdout.splitlines()
         reader = csv.DictReader(lines, delimiter="|")
@@ -170,9 +179,13 @@ def discover(root, jobs, campaign):
         match = re.fullmatch(r"md-(.+)-(\d+(?:_\d+)?)\.(out|err|performance\.jsonl)", log.name)
         if match and match[1] in LOG_KINDS:
             runs.setdefault(match[2], Run(match[2], match[1]))
+    for log in sorted((root / "results").glob("md-qwen-generate-*")):
+        match = re.fullmatch(r"md-qwen-generate-(\d+)\.(out|err|performance\.jsonl)", log.name)
+        if match:
+            runs.setdefault(match[1], Run(match[1], "qwen-generate"))
 
     for run in runs.values():
-        out = read_text(root / "logs" / f"md-{run.log_kind}-{run.job_id}.out")
+        out = read_text(run.logs(root) / f"md-{run.log_kind}-{run.job_id}.out")
         if run.group == "campaign" and "_" in run.job_id:
             index = int(run.job_id.split("_")[1])
             entry = campaign[index] if index < len(campaign) else {}
@@ -185,6 +198,15 @@ def discover(root, jobs, campaign):
         output = scalar(out, "output_dir")
         if output and "${" not in output:
             run.directory = root / output
+        if run.group == "generated_scene":
+            artifact = first(out, r"^Run artifacts: (.+)$")
+            if artifact:
+                run.workflow_directory = root / artifact.strip()
+                record = read_json(run.workflow_directory / "result.json") or {}
+                run.scene = record.get("scene") or ""
+                solver_dir = run.workflow_directory / "motiondisco"
+                if solver_dir.is_dir():
+                    run.directory = solver_dir
         if run.log_kind == "kso-retest":
             run.directory = root / "results/diagnostics" / f"kso_retest_{run.job_id}"
         if run.log_kind == "search" and run.directory is None:
@@ -214,7 +236,12 @@ def discover(root, jobs, campaign):
     for directory, meta in instrumented_runs(root):
         if directory not in linked:
             job_id = meta.get("job_id") or ""
-            runs[str(directory)] = Run(job_id, "instrumented", meta.get("scene") or "", directory)
+            run = runs.get(job_id)
+            if run is not None and run.group == "generated_scene" and run.directory is None:
+                run.directory, run.scene = directory, meta.get("scene") or ""
+                run.workflow_directory = directory.parent
+            else:
+                runs[str(directory)] = Run(job_id, "instrumented", meta.get("scene") or "", directory)
     return sorted(runs.values(), key=lambda r: (not r.job_id, tuple(int(i) for i in r.job_id.split("_")) if r.job_id else (), str(r.directory)))
 
 
@@ -236,12 +263,16 @@ def read_program_db(directory):
         return {}
 
 
-def request_times(log):
+def request_times(log, *, separate_scene_generation=False):
     values = defaultdict(list)
     urls = {
         "/v1/chat/completions": "llm_chat", "/api/chat": "llm_chat", "/api/generate": "llm_chat",
         "/v1/embeddings": "embedding", "/api/embed": "embedding", "/api/embeddings": "embedding",
     }
+    groups = ("llm_chat", "embedding")
+    if separate_scene_generation:
+        urls["/api/generate"] = "scene_generate"
+        groups += ("scene_generate",)
     units = {"s": 1, "ms": 1e-3, "µs": 1e-6, "μs": 1e-6, "us": 1e-6, "ns": 1e-9, "m": 60, "h": 3600}
     for status, latency, url in re.findall(
         r'^\[GIN\][^|]*\|\s*(\d+)\s*\|\s*([^ |]+)\s*\|[^|]*\|\s*POST\s+"([^"]+)"', log, re.M
@@ -252,7 +283,7 @@ def request_times(log):
                                    re.findall(r"([0-9.]+)(ms|µs|μs|us|ns|s|m|h)", latency)))
             if int(status) >= 400:
                 values[key + "_error"].append(status)
-    return {field: value for key in ("llm_chat", "embedding") for field, value in (
+    return {field: value for key in groups for field, value in (
         (key + "_request_s", recorded_sum(values[key])),
         (key + "_requests", len(values[key]) if log else None),
         (key + "_http_errors", len(values[key + "_error"]) if log else None),
@@ -284,10 +315,48 @@ class TrajectoryReader(pickle.Unpickler):
             return getattr(np, name)
         if module in ("numpy.core.multiarray", "numpy._core.multiarray") and name in ("_reconstruct", "scalar"):
             return super().find_class(module, name)
+        if module in ("numpy.core.numeric", "numpy._core.numeric") and name == "_frombuffer":
+            return super().find_class(module, name)
         raise pickle.UnpicklingError(f"unsupported trajectory global {module}.{name}")
 
 
+def inspect_reach_trajectory(record, path, inspect_saved):
+    completion = record.get("completion") or {}
+    if not path.is_file():
+        return None, "trajectory_missing", {}
+    if not inspect_saved:
+        if isinstance(completion.get("met"), bool):
+            return completion["met"], "scene_spec_completion", completion
+        return None, None, {}
+
+    try:
+        import numpy as np
+
+        target = np.asarray(record.get("validated_target_xyz") or completion["target_xyz_m"], dtype=float)
+        tolerance = float(record["completion_tolerance_m"] if record.get("completion_tolerance_m") is not None
+                          else completion["maximum_error_m"])
+        with path.open("rb") as stream:
+            trajectory = np.asarray(TrajectoryReader(stream).load()["results"]["robot_xs"]["robot"], dtype=float)
+        if (target.shape != (3,) or not np.isfinite(target).all() or not math.isfinite(tolerance) or tolerance <= 0
+                or trajectory.ndim != 2 or trajectory.shape[0] < 2 or trajectory.shape[1] < 3
+                or not np.isfinite(trajectory).all()):
+            raise ValueError("non-finite or malformed saved robot states or target")
+        final = trajectory[-1, :3]
+        error = math.dist(final, target)
+        met = error <= tolerance
+        return met, "saved_reach_trajectory", {
+            "target_xyz_m": target.tolist(), "final_xyz_m": final.tolist(), "error_m": error,
+            "maximum_error_m": tolerance, "agrees_with_evaluator": (
+                met == completion["met"] if isinstance(completion.get("met"), bool) else None
+            ),
+        }
+    except (ImportError, OSError, EOFError, TypeError, ValueError, AttributeError, KeyError, pickle.UnpicklingError) as error:
+        return None, "trajectory_audit_failed", {"audit_error": str(error)}
+
+
 def inspect_task(scene, record, path, inspect_saved):
+    if record.get("generated_scene") or record.get("completion"):
+        return inspect_reach_trajectory(record, path, inspect_saved)
     goal = record["goal"]
     if goal.get("met") is not None and goal.get("targets"):
         # Scene terminal targets, independent of the numerical TO status.
@@ -335,6 +404,14 @@ def candidate_records(run, out, db, inspect_saved):
     generations = {int(p.name[4:]): p for p in run.directory.glob("gen_*") if p.name[4:].isdigit()}
     if run.group == "kso_retest" and (run.directory / "metrics.json").is_file():
         generations[4] = run.directory
+    target = tolerance = None
+    if run.group == "generated_scene" and run.workflow_directory:
+        validation = read_json(run.workflow_directory / "validation.json") or {}
+        task_catalog = read_json(run.workflow_directory / "task_catalog.json") or {}
+        if validation.get("pass") is True:
+            target = validation.get("target_xyz_m")
+        tolerance = (task_catalog.get("tasks", {}).get("reach_position", {})
+                     .get("completion_check", {}).get("maximum_error_m"))
     proposed_failures = {int(n) for n in re.findall(r"Failed to generate proposal for generation (\d+)", out)}
     for generation in sorted(generations.keys() | db.keys() | proposed_failures):
         folder = generations.get(generation, run.directory / f"gen_{generation}")
@@ -386,12 +463,15 @@ def candidate_records(run, out, db, inspect_saved):
         record = dict(verdict, generation=generation, found=found, provisional=provisional,
                       proposal_failed=proposal_failed, not_novel="NOT_NOVEL" in str((failure or {}).get("failure_reason", "")),
                       source=source, started=started, score=score, plan=plan, goal=goal, physics=physics,
+                      completion=x.get("task_completion") or public.get("task_completion"),
+                      generated_scene=run.group == "generated_scene",
+                      validated_target_xyz=target, completion_tolerance_m=tolerance,
                       contact_legal=contact_legal, schedule_rejected=schedule_rejected,
                       contact_conversion_error=contact_conversion_error, contact_gate=verdict["goal_match"] is True and
                       (verdict["ik_feasible"] is not None or to_attempted) and not schedule_rejected,
                       program_error=program_error, solver_error=solver_error, to_attempted=to_attempted, returned=returned,
                       violation=violation, diagnosis=diagnosis, error=error,
-                      to_fail_reason=x.get("to_fail_reason"), segments=segment_data,
+                      to_fail_reason=x.get("to_fail_reason"), to_status=x.get("to_status"), segments=segment_data,
                       polish=(x.get("to_polish") or {}).get("time_s"), metadata=metadata,
                       program_time=(metrics or {}).get("execution_time_mean"), saved=(result / "to_run.pkl").is_file())
         record["semantic"], record["semantic_basis"], record["task_values"] = (
@@ -514,6 +594,10 @@ def aggregate_candidates(records, db, eval_limit):
     )
     valid = [r for r in records if r["to_valid"] is True]
     summary["usable_trajectory_files"] = sum(r["saved"] for r in valid)
+    summary["distinct_usable_contact_plans"] = len({plan_hash(r["plan"]) for r in valid if r["plan"]})
+    summary["distinct_completed_contact_plans"] = len({
+        plan_hash(r["plan"]) for r in valid if r["semantic"] is True and r["plan"]
+    })
     if counts["task_completed"]:
         summary["task_outcome"] = "confirmed_completed"
     elif valid and counts["task_failed"] == len(valid):
@@ -590,7 +674,7 @@ def terminal_status(run, state, out, err, budget, complete, records):
         return "completed_solver_environment_error", "system", "missing solver build dependency"
     if state in {"PENDING", "RUNNING", "COMPLETING"}:
         return state.lower(), None, None
-    if run.group in {"campaign", "standalone_search"} and budget and complete < budget:
+    if run.group in {"campaign", "standalone_search", "generated_scene"} and budget and complete < budget:
         if "API cost budget reached:" in out:
             return "cost_budget_early_stop", "configuration", "API cost budget reached before the node budget"
         if "budget exhausted" in out.lower():
@@ -607,7 +691,7 @@ def terminal_status(run, state, out, err, budget, complete, records):
 def run_record(root, jobs, campaign, run, inspect_saved):
     cfg_path = run.directory / ".hydra/config.yaml" if run.directory else None
     cfg = read_text(cfg_path)
-    stem = root / "logs" / f"md-{run.log_kind}-{run.job_id}"
+    stem = run.logs(root) / f"md-{run.log_kind}-{run.job_id}"
     out_path, err_path = stem.with_suffix(".out"), stem.with_suffix(".err")
     out, err = read_text(out_path), read_text(err_path)
     job = jobs.get(run.job_id, {})
@@ -615,13 +699,19 @@ def run_record(root, jobs, campaign, run, inspect_saved):
     if not batch and job.get("JobIDRaw"):
         batch = jobs.get(job["JobIDRaw"] + ".batch", {})
     job_events = stem.with_suffix(".performance.jsonl")
-    job_start = telemetry.last_event(telemetry.events(job_events), "job_start")
+    job_rows = telemetry.events(job_events)
+    job_start = telemetry.last_event(job_rows, "job_start")
     raw_id = job.get("JobIDRaw") or job_start.get("raw_job_id") or run.job_id
-    server_path = root / "logs" / f"md-{run.log_kind}-server-{raw_id}.log"
+    server_path = run.logs(root) / f"md-{run.log_kind}-server-{raw_id}.log"
     server = read_text(server_path)
+    workflow = (read_json(run.workflow_directory / "result.json") or {}) if run.workflow_directory else {}
+    generation_rows = telemetry.events(run.workflow_directory / "scene_generation_performance.jsonl") if run.workflow_directory else []
+    generation_config = telemetry.last_event(generation_rows, "scene_generation_config")
     budget = scalar(cfg, "num_generations") or first(out, r"^Scene: .*\| nodes: (\d+)")
     if not budget and job_start.get("budget") is not None:
         budget = str(job_start["budget"])
+    if not budget and generation_config.get("node_budget") is not None:
+        budget = str(generation_config["node_budget"])
     entry = next((item for item in campaign if item["scene"] == run.scene), {})
     if not budget and run.group == "campaign":
         budget = entry.get("nodes")
@@ -631,7 +721,9 @@ def run_record(root, jobs, campaign, run, inspect_saved):
     scene = scalar(cfg, "scene") or run.scene
     run.scene = scene
     evaluation_limit = seconds(scalar(cfg, "time"))
-    search = run.group in {"campaign", "standalone_search"}
+    search = run.group in {"campaign", "standalone_search"} or (
+        run.group == "generated_scene" and run.directory is not None
+    )
     stats = {}
     db = read_program_db(run.directory) if search else {}
     candidates = candidate_records(run, out, db, inspect_saved)
@@ -640,12 +732,10 @@ def run_record(root, jobs, campaign, run, inspect_saved):
         if run.group == "kso_retest":
             for key in ("candidate_generated", "initial_programs", "candidate_proposed", "program_files_written", "db_programs"):
                 stats[key] = None
-    if server and run.group == "model_probe":
-        stats.update(request_times(server))
-    if search:
-        stats.update(request_times(server))
+    if search or run.group in {"generated_scene", "model_probe"}:
+        stats.update(request_times(server, separate_scene_generation=run.group == "generated_scene"))
     slurm = slurm_fields(job, batch)
-    job_end = telemetry.last_event(telemetry.events(job_events), "job_end")
+    job_end = telemetry.last_event(job_rows, "job_end")
     run_end = telemetry.last_event(
         telemetry.events(run.directory / "run_performance.jsonl") if run.directory else [], "phase_end"
     )
@@ -659,6 +749,19 @@ def run_record(root, jobs, campaign, run, inspect_saved):
     status, failure_class, reason = terminal_status(
         run, reported_state, out, err, budget, stats.get("evaluations_completed", 0), candidates
     )
+    if run.group == "generated_scene" and reported_state in (None, "COMPLETED", "FAILED"):
+        if workflow.get("status") in ("validation_exhausted", "no_valid_trajectory"):
+            status = workflow["status"]
+            failure_class, reason = "algorithm", status
+    search_status = None
+    if run.group == "generated_scene" and search:
+        launcher_code = workflow.get("launcher_exit_code")
+        search_state = reported_state
+        if launcher_code is not None:
+            search_state = "COMPLETED" if launcher_code == 0 else "FAILED"
+        search_status, _, _ = terminal_status(
+            run, search_state, out, err, budget, stats.get("evaluations_completed", 0), candidates
+        )
     stamps = re.findall(r"(?m)^\[(\d{4}-\d\d-\d\d \d\d:\d\d:\d\d,\d+)", out)
     settings = {}
     if cfg:
@@ -668,13 +771,18 @@ def run_record(root, jobs, campaign, run, inspect_saved):
             settings[key] = scalar(cfg, key)
         settings["max_novelty_attempts"] = scalar(cfg, "max_novelty_attempts") or "3 (code default)"
     model_manifest = dict(re.findall(r"(?m)^(qwen\S+|embeddinggemma:\S+)\s+([0-9a-f]{12})\s", out))
+    if not model_manifest and run.group == "generated_scene":
+        digests = telemetry.last_event(job_rows, "ollama_models").get("model_digests", {})
+        model_manifest = {name: digest.removeprefix("sha256:")[:12]
+                          for name, digest in digests.items()}
     planner_model = first(cfg, r"llm_models:\s+- local/([^@\s]+)")
     helper_model = first(cfg, r"novelty_llm_models:\s+- local/([^@\s]+)")
     embedding_model = first(cfg, r"embedding_model: local/([^@\s]+)")
     if run.group == "campaign" and model_manifest and not cfg:
         planner_model, helper_model, embedding_model = "qwen2.5-coder:14b", "qwen2.5-coder:7b", "embeddinggemma"
+    identified_dir = run.workflow_directory or run.directory
     fields = dict(run_group=run.group, scene=scene, job_id=run.job_id,
-                  run_id=run.directory.name if run.directory else run.job_id,
+                  run_id=identified_dir.name if identified_dir else run.job_id,
                   status=status, job_failure_class=failure_class, job_failure_reason=reason,
                   node_budget=budget, eval_limit_s=evaluation_limit,
                   motiondisco_commit=first(out, r"^MotionDisco commit: (\w+)"),
@@ -685,6 +793,7 @@ def run_record(root, jobs, campaign, run, inspect_saved):
                   model_manifest_ids=compact(model_manifest) if model_manifest else None,
                   ollama_version=first(server, r"Listening on [^\n]+\(version ([^)]+)\)"),
                   ollama_max_loaded_models=first(server, r"OLLAMA_MAX_LOADED_MODELS:(\d+)"),
+                  cpu_model=first(server, r"- CPU\s+: ([^\r\n(]+?)\s*\("),
                   gpu_model=first(server, r' msg="inference compute"[^\n]+description="([^"]+)"'),
                   database=first(read_text(run.directory / ".hydra/overrides.yaml") if run.directory else "", r"database(?:@_global_)?=(\S+)"),
                   evolution=first(read_text(run.directory / ".hydra/overrides.yaml") if run.directory else "", r"evolution(?:@_global_)?=(\S+)"),
@@ -702,7 +811,13 @@ def run_record(root, jobs, campaign, run, inspect_saved):
                       render_source_qpos=first(out, r"frames from (\d+) qpos samples"),
                       render_resolution=first(out, r"fps=\d+, (\d+x\d+)"))
     fields.update(stats)
-    fields.update(telemetry.run_record(run.directory, job_events, stem.with_suffix(".gpu.jsonl"), slurm, candidates))
+    fields.update(telemetry.run_record(run.directory, job_events, stem.with_suffix(".gpu.jsonl"),
+                                       slurm, candidates, generation_config))
+    if run.group == "generated_scene":
+        fields.update(scene_workflow_status=workflow.get("status"), scene_search_status=search_status,
+                      scene_workflow_error=workflow.get("error"), search_launcher_exit_code=workflow.get("launcher_exit_code"),
+                      scene_artifacts_path=str(run.workflow_directory) if run.workflow_directory else None,
+                      **telemetry.scene_generation_record(generation_rows))
     return fields, candidates
 
 
@@ -739,6 +854,8 @@ def summarize(rows, candidates_by_run):
                       runs_with_usable_trajectory=sum(bool(row.get("to_valid")) for row in members),
                       runs_with_task_completed=sum(bool(row.get("task_completed")) for row in members),
                       distinct_usable_contact_plans=len({plan_hash(c["plan"]) for c in valid if c["plan"]}) if valid else 0,
+                      distinct_completed_contact_plans=len({plan_hash(c["plan"]) for c in valid
+                                                            if c["plan"] and c["semantic"] is True}),
                       usable_plan_hash_coverage=sum(bool(c["plan"]) for c in valid),
                       wall_s_total=recorded_sum(wall), wall_s_min=min(wall, default=None),
                       wall_s_median=median(wall) if wall else None, wall_s_max=max(wall, default=None),
@@ -755,7 +872,8 @@ def summarize(rows, candidates_by_run):
                       best_valid_score=best.get("best_valid_score"), best_valid_to_cost=best.get("best_valid_to_cost"),
                       best_task_score=top_task[0], best_task_job_id=top_task[1],
                       best_task_generation=top_task[2], best_task_to_cost=top_task[3])
-        for key in ["node_budget", "usable_trajectory_files", "gpu_sample_count"] + CANDIDATE_COUNTS + list(telemetry.COUNTS):
+        for key in (["node_budget", "usable_trajectory_files", "gpu_sample_count", "scene_llm_attempts",
+                     "scene_llm_responses", "scene_validation_failures"] + CANDIDATE_COUNTS + list(telemetry.COUNTS)):
             values = [row[key] for row in members if row.get(key) is not None]
             result[key + "_total"] = sum(values) if values else None
         for key in dict.fromkeys(RUN_TIMES + list(telemetry.TIMES)):
@@ -769,6 +887,10 @@ def summarize(rows, candidates_by_run):
         summary_observed = result["metrics_records_total"]
         result["usable_per_metrics_record"] = round(len(valid) / summary_observed, 6) if summary_observed else None
         result["alloc_gpu_h_per_usable"] = round(result["alloc_gpu_h"] / len(valid), 6) if valid and result["alloc_gpu_h"] is not None else None
+        completed = result["task_completed_total"]
+        result["alloc_gpu_h_per_completed"] = (
+            round(result["alloc_gpu_h"] / completed, 6) if completed and result["alloc_gpu_h"] is not None else None
+        )
         summaries.append(result)
     return summaries
 
@@ -788,6 +910,7 @@ def main():
     parser.add_argument("--sacct", type=Path, help="read an existing pipe-delimited Slurm snapshot")
     parser.add_argument("--refresh-sacct", action="store_true", help="query Slurm and save a new snapshot")
     parser.add_argument("--since", default="2026-11-01", help="accounting query start date")
+    parser.add_argument("--job-id", help="report on one Slurm job or array task")
     parser.add_argument("--skip-trajectory-audit", action="store_true", help="skip offline NumPy trajectory diagnostics")
     args = parser.parse_args()
     root = args.root.resolve()
@@ -796,15 +919,32 @@ def main():
     jobs = accounting_source(args, root)
     rows, records, candidate_rows = [], {}, []
     for run in discover(root, jobs, campaign):
+        if args.job_id and run.job_id != args.job_id:
+            continue
         row, candidates = run_record(root, jobs, campaign, run, not args.skip_trajectory_audit)
         rows.append(row)
         records[row["results_path"] or row["job_id"]] = candidates
         for candidate in candidates:
-            if candidate.get("performance"):
+            if candidate.get("performance") or run.group == "generated_scene":
                 candidate_rows.append(dict(
                     run_id=row["run_id"], job_id=row["job_id"], scene=row["scene"],
                     generation=candidate["generation"], failure_category=candidate["category"],
                     to_valid=candidate["to_valid"], to_converged=candidate["to_converged"],
+                    failure_detail=(candidate["error"] or candidate["solver_error"] or
+                                    candidate["to_fail_reason"] or candidate["violation"]),
+                    candidate_started=candidate["started"], metrics_present=candidate["found"],
+                    provisional=candidate["provisional"], contact_legal=candidate["contact_legal"],
+                    discrete_goal_match=candidate["goal_match"], kso_pass=candidate["ik_feasible"],
+                    to_attempted=candidate["to_attempted"], to_returned=candidate["returned"], to_status=candidate["to_status"],
+                    combined_score=candidate["score"], to_cost=candidate["to_cost"],
+                    to_physical_pass=candidate["physics"].get("pass"),
+                    to_physical_fails=compact(candidate["physics"]["fails"]) if "fails" in candidate["physics"] else None,
+                    to_terminal_goal_met=candidate["goal"].get("met"),
+                    trajectory_saved=candidate["saved"], task_audit_met=candidate["semantic"],
+                    task_audit_basis=candidate["semantic_basis"], task_audit_error_m=candidate["task_values"].get("error_m"),
+                    task_audit_details=compact(candidate["task_values"]) if candidate["task_values"] else None,
+                    task_completion_met=(candidate.get("completion") or {}).get("met"),
+                    task_completion_error_m=(candidate.get("completion") or {}).get("error_m"),
                     **candidate["performance"],
                 ))
     args.output_dir.mkdir(parents=True, exist_ok=True)

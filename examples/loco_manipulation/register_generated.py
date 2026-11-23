@@ -28,6 +28,7 @@ import json
 import os
 import re
 import shutil
+from pathlib import Path
 import sys
 from typing import List, Optional, Tuple
 
@@ -127,12 +128,25 @@ def register(examples: str, scene_id: str, dest_root: str = SCENES_DIR, force: b
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--examples", required=True, help="folder of generated tasks")
+    mode = p.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--examples", help="folder of generated Python tasks")
+    mode.add_argument("--scene-spec", type=Path, help="validate and register a declarative SceneSpec")
     p.add_argument("ids", nargs="*", help="scene ids (folder names); --all for every one")
     p.add_argument("--all", action="store_true")
     p.add_argument("--force", action="store_true", help="overwrite scenes already registered")
     p.add_argument("--dry-run", action="store_true")
     args = p.parse_args()
+    if args.scene_spec is not None:
+        if args.ids or args.all or args.force:
+            p.error("--scene-spec uses its own scene_id and does not accept IDs, --all or --force")
+        sys.path.insert(0, str(Path(_THIS_DIR).parents[1]))
+        from examples.loco_manipulation.scene_generation.register import register_spec
+
+        scene, report = register_spec(args.scene_spec.read_bytes(), SCENES_DIR, dry_run=args.dry_run)
+        print(json.dumps({"scene": scene, "validation": report}, indent=2))
+        if not scene:
+            raise SystemExit(1)
+        return
     if not args.ids and not args.all:
         raise SystemExit("give scene ids or --all")
     examples = os.path.expanduser(args.examples)

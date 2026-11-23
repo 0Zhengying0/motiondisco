@@ -127,6 +127,7 @@ class TaskContext:
     # World offset applied to the scene's terminal goal / scorer by an IC
     # layout (``<ic>@<layout>``); zeros otherwise.
     goal_offset: Any = None
+    task_completion: Any = None
 
 
 _cache: Dict[tuple, TaskContext] = {}
@@ -447,7 +448,11 @@ def load_task(
     if key in _cache:
         return _cache[key]
 
-    scene_obj = with_collision_margin(with_sliding(registry.make_scene(s)), COLLISION_MARGIN)
+    scene_module = importlib.import_module(f"scenes.{s}.scene")
+    scene_obj = registry.make_scene(s)
+    preserve_physics = getattr(scene_module, "PRESERVE_SCENE_PHYSICS", False)
+    if not preserve_physics:
+        scene_obj = with_collision_margin(with_sliding(scene_obj), COLLISION_MARGIN)
     base_ic, layout_name = layouts.split_ic(ic)
     base_spec = registry.get_initial_condition(s, base_ic, scene=scene_obj)
     layout = layouts.get_layout(s, layout_name) if layout_name else None
@@ -474,7 +479,16 @@ def load_task(
         offset = layouts.goal_offset(layout, scene_obj.resolve(base_spec), resolved)
         t_goal = layouts.shift_goal(t_goal, offset)
         scorer = layouts.shift_scorer(scorer, offset)
-    t_goal = with_to_goal(t_goal, TO_GOAL, TO_GOAL_TOL)
+    task_completion = None
+    if preserve_physics:
+        if layout is not None:
+            raise ValueError("Declarative scenes require the MuJoCo-validated initial condition.")
+        from functools import partial
+
+        goals_mod = importlib.import_module(f"scenes.{s}.goals")
+        task_completion = partial(goals_mod.TASK_COMPLETION, scene_obj, resolved)
+    else:
+        t_goal = with_to_goal(t_goal, TO_GOAL, TO_GOAL_TOL)
 
     ctx = TaskContext(
         scene=scene_obj,
@@ -490,6 +504,7 @@ def load_task(
         terminal_goal_name=t_name,
         outcome_scorer_name=s_name,
         goal_offset=offset,
+        task_completion=task_completion,
     )
     _cache[key] = ctx
     return ctx
