@@ -6,6 +6,14 @@ nodes=$2
 description=$3
 array_job=$4
 array_index=$5
+if [[ -n "${6:-}" ]]; then
+  export MOTIONDISCO_PERFORMANCE=1
+  export MOTIONDISCO_SEED=$6
+  export MOTIONDISCO_SEED_SOURCE=${7:-MOTIONDISCO_SEED}
+  export MOTIONDISCO_OLLAMA_SEED=1
+  export MOTIONDISCO_JOB_ID="${array_job}_${array_index}"
+  export PYTHONHASHSEED="$MOTIONDISCO_SEED"
+fi
 
 BASE=/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying
 ROOT="$BASE/motiondisco"

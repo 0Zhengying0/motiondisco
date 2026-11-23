@@ -1,0 +1,5 @@
+{"event": "sampler_start", "version": 1, "unix_s": 1795425583.3238282, "job_id": "5481690", "interval_s": 5, "selector_source": "SLURM_JOB_GPUS"}
+{"event": "sampler_selection", "version": 1, "unix_s": 1795425583.350217, "job_id": "5481690", "method": "visible_uuids", "devices": ["GPU-16467017-3aca-8290-537c-f0c380004c58"]}
+{"event": "gpu_sample", "version": 1, "unix_s": 1795425583.3932803, "job_id": "5481690", "uuid": "GPU-16467017-3aca-8290-537c-f0c380004c58", "gpu_model": "NVIDIA A100-SXM4-40GB", "gpu_util_pct": 25, "vram_used_mib": 553, "vram_total_mib": 40960}
+{"event": "gpu_sample", "version": 1, "unix_s": 1795425588.4049785, "job_id": "5481690", "uuid": "GPU-16467017-3aca-8290-537c-f0c380004c58", "gpu_model": "NVIDIA A100-SXM4-40GB", "gpu_util_pct": 92, "vram_used_mib": 553, "vram_total_mib": 40960}
+{"event": "sampler_end", "version": 1, "unix_s": 1795425590.3293042, "job_id": "5481690"}

@@ -33,6 +33,8 @@ import pickle
 import sys
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
+from shinka.performance import timed
+
 import numpy as np
 
 MU = 0.5            # faro's friction coefficient (to.py, all contacts)
@@ -159,6 +161,7 @@ def _geom_for(mj_model: Any, name: str) -> int:
     raise KeyError(f"no MuJoCo geom for object {name!r}")
 
 
+@timed("physical_check")
 def check(task: Any, plan: Mapping[str, Sequence[Any]], results: Mapping[str, Any],
           nodes_per_mode: int = 20) -> Dict[str, Any]:
     """Worst physical violations of a TO trajectory (see module doc)."""

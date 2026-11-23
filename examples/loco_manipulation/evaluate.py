@@ -35,10 +35,12 @@ import argparse
 import contextlib
 import fcntl
 import re
+from pathlib import Path
 from typing import Tuple, Optional, List, Dict, Any
 
 from shinka.core import run_shinka_eval
 from shinka.core.wrap_eval import save_json_results
+from shinka.performance import capture, configured_seed, derive_seed, enabled, event, phase, seed_python_numpy, timed
 
 # Make `from env import ...` resolve whether this file is run as a script
 # (`python evaluate.py ...` from the example directory) or imported as a
@@ -136,6 +138,7 @@ def _check_entry_well_formed(
 RunOutput = Tuple[Dict[str, List[Tuple]], List[SceneObject]]
 
 
+@timed("contact_validation")
 def validate_plan(run_output: RunOutput) -> Tuple[bool, Optional[str]]:
     """Minimal structural check — every deeper rule lives in scoring."""
     if not isinstance(run_output, tuple) or len(run_output) != 2:
@@ -389,88 +392,92 @@ def aggregate_planning_metrics(
     _score_mode = active_score_mode()
     _diversity = os.environ.get(DIVERSITY_ENV) == "1"
 
-    # Duplicate-plan short-circuit: if this exact contact_mode_seq was
-    # already evaluated in this run, skip the expensive IK+TO stages
-    # and return a zero-score with informative text_feedback. Keeps
-    # the DB entry (shinka core isn't touched), but archive selection
-    # naturally deprioritizes combined_score=0 nodes.
-    plan_hash, prior = _check_plan_duplicate(contact_plan, results_dir)
-    signature = plan_signature(contact_plan)
-    patches = plan_patches(contact_plan)
-    if prior is not None:
-        return _with_diversity_fields(_build_duplicate_metrics(
-            contact_plan, results_dir, plan_hash, prior,
-        ), signature, patches, _diversity)
+    with phase("contact_check"):
+        # Duplicate-plan short-circuit: if this exact contact_mode_seq was
+        # already evaluated in this run, skip the expensive IK+TO stages
+        # and return a zero-score with informative text_feedback. Keeps
+        # the DB entry (shinka core isn't touched), but archive selection
+        # naturally deprioritizes combined_score=0 nodes.
+        plan_hash, prior = _check_plan_duplicate(contact_plan, results_dir)
+        signature = plan_signature(contact_plan)
+        patches = plan_patches(contact_plan)
+        if prior is not None:
+            return _with_diversity_fields(_build_duplicate_metrics(
+                contact_plan, results_dir, plan_hash, prior,
+            ), signature, patches, _diversity)
 
-    # Over-cap short-circuit: if the EXPANDED contact_mode_seq exceeds
-    # the KSO wrapper's MAX_NUM_NODES, the solver pool cannot score
-    # it. Skip _score_contact_plan, the discrete-goal check, IK, and
-    # TO entirely — return immediately with a clear text_feedback so
-    # the LLM trims the plan.
-    expanded_modes = _count_expanded_modes(contact_plan)
-    if expanded_modes is not None and expanded_modes > MAX_NUM_NODES:
-        # Record it so a resubmission is caught as a duplicate.
-        _record_plan_result(
-            plan_hash, results_dir, combined_score=0.0,
-            top_violation=f"too many contact modes ({expanded_modes} > {MAX_NUM_NODES})",
-            signature=signature, patches=patches,
-        )
-        return _with_diversity_fields(_build_too_many_modes_metrics(
-            contact_plan, results_dir, expanded_modes,
-        ), signature, patches, _diversity)
+        # Over-cap short-circuit: if the EXPANDED contact_mode_seq exceeds
+        # the KSO wrapper's MAX_NUM_NODES, the solver pool cannot score
+        # it. Skip _score_contact_plan, the discrete-goal check, IK, and
+        # TO entirely — return immediately with a clear text_feedback so
+        # the LLM trims the plan.
+        expanded_modes = _count_expanded_modes(contact_plan)
+        if expanded_modes is not None and expanded_modes > MAX_NUM_NODES:
+            # Record it so a resubmission is caught as a duplicate.
+            _record_plan_result(
+                plan_hash, results_dir, combined_score=0.0,
+                top_violation=f"too many contact modes ({expanded_modes} > {MAX_NUM_NODES})",
+                signature=signature, patches=patches,
+            )
+            return _with_diversity_fields(_build_too_many_modes_metrics(
+                contact_plan, results_dir, expanded_modes,
+            ), signature, patches, _diversity)
 
-    # Structural metrics are kept as diagnostics only — they no longer
-    # contribute to ranking.
-    scored = _score_contact_plan(contact_plan, scene)
+        # Structural metrics are kept as diagnostics only — they no longer
+        # contribute to ranking.
+        scored = _score_contact_plan(contact_plan, scene)
 
-    task = load_task()
-    discrete_goal = task.discrete_goal
+        task = load_task()
+        if enabled():
+            from performance_context import record_task
+            record_task(task, score_mode=_score_mode)
+        discrete_goal = task.discrete_goal
 
-    # ------------------------------------------------------------------
-    # Stage 1: Discrete goal check
-    # ------------------------------------------------------------------
-    goal_match, goal_violations, goal_matched, goal_total = _check_discrete_goal(
-        contact_plan, discrete_goal,
-    )
-
-    # ------------------------------------------------------------------
-    # Short-plan guard: IK requires at least 2 modes. If the plan has
-    # fewer, emit a text_feedback so the LLM knows to extend the plan.
-    # ------------------------------------------------------------------
-    text_feedback: Optional[str] = None
-    try:
-        first_seq = next(iter(contact_plan.values())) if contact_plan else []
-        n_modes = len(first_seq) if isinstance(first_seq, list) else 0
-    except (StopIteration, TypeError):
-        n_modes = 0
-
-    if n_modes < 2:
-        text_feedback = (
-            f"The plan has {n_modes} mode(s); IK requires at least 2 modes "
-            f"(an initial mode and at least one transition). Extend the plan "
-            f"by appending at least one more mode that differs from the "
-            f"initial one."
+        # ------------------------------------------------------------------
+        # Stage 1: Discrete goal check
+        # ------------------------------------------------------------------
+        goal_match, goal_violations, goal_matched, goal_total = _check_discrete_goal(
+            contact_plan, discrete_goal,
         )
 
-    # ------------------------------------------------------------------
-    # Stage 2: IK feasibility (only if discrete goal matched AND plan long enough)
-    # ------------------------------------------------------------------
-    ik_import_error: Optional[str] = None
-    ik_results_data: Optional[Dict[str, Any]] = None
-    ik_diagnosis_raw: Optional[Dict[str, Any]] = None
-    ik_feasible: Optional[bool] = None
-    ik_cost: Optional[float] = None
-    ik_mode: Optional[str] = None
-    ik_hard_failed: bool = False
+        # ------------------------------------------------------------------
+        # Short-plan guard: IK requires at least 2 modes. If the plan has
+        # fewer, emit a text_feedback so the LLM knows to extend the plan.
+        # ------------------------------------------------------------------
+        text_feedback: Optional[str] = None
+        try:
+            first_seq = next(iter(contact_plan.values())) if contact_plan else []
+            n_modes = len(first_seq) if isinstance(first_seq, list) else 0
+        except (StopIteration, TypeError):
+            n_modes = 0
 
-    # Long plans are evaluated incrementally (to_eval.TO_INCREMENTAL): no
-    # full-plan KSO; each window is KSO-checked and solved from the previous
-    # window's end, solved windows are cached per run.
-    incremental = incremental_plan(n_modes) and not _disable_to
+        if n_modes < 2:
+            text_feedback = (
+                f"The plan has {n_modes} mode(s); IK requires at least 2 modes "
+                f"(an initial mode and at least one transition). Extend the plan "
+                f"by appending at least one more mode that differs from the "
+                f"initial one."
+            )
 
-    # faro rejects a contact that changes surface without a free mode in
-    # between before solving anything; say so without spending solver time.
-    schedule_problems = schedule_errors(contact_plan) if goal_match and n_modes >= 2 else []
+        # ------------------------------------------------------------------
+        # Stage 2: IK feasibility (only if discrete goal matched AND plan long enough)
+        # ------------------------------------------------------------------
+        ik_import_error: Optional[str] = None
+        ik_results_data: Optional[Dict[str, Any]] = None
+        ik_diagnosis_raw: Optional[Dict[str, Any]] = None
+        ik_feasible: Optional[bool] = None
+        ik_cost: Optional[float] = None
+        ik_mode: Optional[str] = None
+        ik_hard_failed: bool = False
+
+        # Long plans are evaluated incrementally (to_eval.TO_INCREMENTAL): no
+        # full-plan KSO; each window is KSO-checked and solved from the previous
+        # window's end, solved windows are cached per run.
+        incremental = incremental_plan(n_modes) and not _disable_to
+
+        # faro rejects a contact that changes surface without a free mode in
+        # between before solving anything; say so without spending solver time.
+        schedule_problems = schedule_errors(contact_plan) if goal_match and n_modes >= 2 else []
     if schedule_problems:
         ik_feasible = False
         m = re.match(r"mode (\d+)->", schedule_problems[0])
@@ -936,9 +943,13 @@ def aggregate_planning_metrics(
                 to_solve = solve_to(task, contact_plan, kso_results=ik_results_data)
         except Exception as e:
             to_import_error = f"{type(e).__name__}: {e}"
+        if to_solve is not None and enabled():
+            from performance_context import record_trajectory
+            record_trajectory(to_solve)
         if to_solve is not None and getattr(to_solve, "plan", None):
             contact_plan = to_solve.plan
-            scored = _score_contact_plan(contact_plan, scene)
+            with phase("contact_check"):
+                scored = _score_contact_plan(contact_plan, scene)
             n_modes = len(next(iter(contact_plan.values())))
         if to_solve is not None and incremental:
             # The first window's KSO stands in for the full-plan verdict; a
@@ -1623,15 +1634,30 @@ def main(
     def _aggregator(r: List[RunOutput]) -> Dict[str, Any]:
         return aggregate_planning_metrics(r, results_dir)
 
-    metrics, correct, error_msg = run_shinka_eval(
-        program_path=program_path,
-        results_dir=results_dir,
-        experiment_fn_name="run_planning",
-        num_runs=1,
-        get_experiment_kwargs=get_planning_kwargs,
-        validate_fn=validate_plan,
-        aggregate_metrics_fn=_aggregator,
-    )
+    run_dir = Path(results_dir)
+    slot = run_dir.parent.name
+    match = re.fullmatch(r"gen_(\d+)", slot)
+    generation = int(match[1]) if match else None
+    with capture(run_dir / "evaluation_performance.jsonl", generation=generation,
+                 scene=scene, run_id=run_dir.parent.parent.name):
+        with phase("candidate_evaluation"):
+            seed = configured_seed()
+            if seed is not None:
+                candidate_seed = derive_seed(seed, "evaluation", generation if match else slot)
+                seed_python_numpy(candidate_seed)
+                event("evaluation_seed", seed=candidate_seed, run_seed=seed,
+                      source="MOTIONDISCO_SEED + evaluation + generation",
+                      consumers=["python.random", "numpy.random"])
+            metrics, correct, error_msg = run_shinka_eval(
+                program_path=program_path,
+                results_dir=results_dir,
+                experiment_fn_name="run_planning",
+                num_runs=1,
+                get_experiment_kwargs=get_planning_kwargs,
+                validate_fn=validate_plan,
+                aggregate_metrics_fn=_aggregator,
+            )
+            event("evaluation_result", correct=correct)
 
     if correct:
         print("Evaluation completed successfully.")

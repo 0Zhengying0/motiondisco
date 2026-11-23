@@ -63,9 +63,12 @@ import time
 import traceback
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, replace
+from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
+
+from shinka.performance import capture, enabled, event, phase
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 if _THIS_DIR not in sys.path:
@@ -300,6 +303,7 @@ def run_worker(job_path: str) -> int:
         job = json.load(f)
     from _task_loader import load_task, to_faro_plan
     from ik_eval import check_plan
+    from performance_context import record_task, record_trajectory
     from scoring import task_quality
     from to_eval import NODES_PER_MODE, TIME_PER_MODE, solve_to
 
@@ -320,58 +324,70 @@ def run_worker(job_path: str) -> int:
             "task_quality": None, "quality": None, "skipped": "", "error": None,
             "path": None, "seconds": None,
         }
-        try:
-            vtask, kinematics_changed = vary_task(task, sample["factors"])
-            tpm = float(sample["factors"].get("time_per_mode", TIME_PER_MODE))
-            with redirect_fds_to(log_path):
-                if kinematics_changed:
-                    cost, _res, err = check_plan(vtask, plan)
-                    row["kso_feasible"] = cost is not False
-                    if cost is False:
-                        row["skipped"] = "KSO infeasible" + (f" ({err})" if err else "")
-                solve = None
-                if not row["skipped"]:
-                    solve = solve_to(vtask, plan, time_per_mode=tpm,
-                                     weight_scale=sample["factors"].get("weight_scale"))
-            if solve is not None:
-                row.update(status=solve.status, converged=solve.converged,
-                           max_violation=solve.max_constraint_violation, to_cost=solve.cost,
-                           task_quality=task_quality(vtask, solve.results))
-                row["quality"] = dx.classify(solve.converged, solve.max_constraint_violation,
-                                             job["near_feasible"],
-                                             None if solve.physical is None else solve.physically_valid)
-                row["iterate"] = solve.iterate
-                row["goal"] = getattr(solve, "goal", None)
-                if row["quality"] and not getattr(solve, "goal_met", True):
-                    # A usable trajectory that leaves the object off its hard
-                    # TO goal is no sample of the task (to_eval.goal_check).
-                    row["quality"] = None
-                    row["skipped"] = f"misses the task goal (excess {solve.goal.get('excess')})"
-                if row["quality"]:
-                    # A segmented solve may have inserted walking steps: the
-                    # trajectory follows the repaired plan (to_eval.ToSolve.plan).
-                    used = plan_to_tuples(solve.plan) if getattr(solve, "plan", None) else plan
-                    row["plan_repairs"] = len(getattr(solve, "repairs", None) or [])
-                    sample_dir = os.path.join(plan_dir, sample["sample_id"])
-                    params = _params(job, sample, vtask, solve, row, tpm, NODES_PER_MODE,
-                                     plan_used={ch: [list(m) for m in seq] for ch, seq in used.items()})
-                    dx.export_sample(
-                        sample_dir, vtask.scene, vtask.resolved_state,
-                        to_faro_plan(vtask.scene, used), solve.results, params,
-                        robot_id=vtask.robot_id, num_modes=solve.num_modes,
-                        nodes_per_mode=NODES_PER_MODE, frequency=job["frequency"],
-                    )
-                    row["path"] = os.path.relpath(sample_dir, job["out"])
-                elif not row["skipped"]:
-                    row["skipped"] = (f"TO status {solve.status}, not physically valid "
-                                      f"({', '.join((solve.physical or {}).get('fails', []))})"
-                                      if solve.physical else
-                                      f"TO status {solve.status}, max violation "
-                                      f"{solve.max_constraint_violation:.3g} > {job['near_feasible']}")
-        except Exception as e:  # noqa: BLE001 — one bad sample must not stop the plan
-            row["error"] = f"{type(e).__name__}: {e}"
-            with open(log_path, "a") as f:
-                f.write(f"\n--- {sample['sample_id']} traceback ---\n{traceback.format_exc()}")
+        trace_path = Path(plan_dir) / f"{sample['sample_id']}.performance.jsonl"
+        with capture(trace_path, run_id=job["run_id"], scene=job["scene"], generation=job["gen"],
+                     sample_id=sample["sample_id"], plan_hash=job["plan_hash"]):
+            with phase("dataset_sample"):
+                event("dataset_factor_seed", seed=sample["seed"],
+                      source="generate_dataset --seed, run ID, plan hash and sample index")
+                try:
+                    vtask, kinematics_changed = vary_task(task, sample["factors"])
+                    if enabled():
+                        record_task(vtask)
+                    tpm = float(sample["factors"].get("time_per_mode", TIME_PER_MODE))
+                    with redirect_fds_to(log_path):
+                        if kinematics_changed:
+                            cost, _res, err = check_plan(vtask, plan)
+                            row["kso_feasible"] = cost is not False
+                            if cost is False:
+                                row["skipped"] = "KSO infeasible" + (f" ({err})" if err else "")
+                        solve = None
+                        if not row["skipped"]:
+                            solve = solve_to(vtask, plan, time_per_mode=tpm,
+                                             weight_scale=sample["factors"].get("weight_scale"))
+                    if solve is not None:
+                        if enabled():
+                            record_trajectory(solve)
+                        row.update(status=solve.status, converged=solve.converged,
+                                   max_violation=solve.max_constraint_violation, to_cost=solve.cost,
+                                   task_quality=task_quality(vtask, solve.results))
+                        row["quality"] = dx.classify(solve.converged, solve.max_constraint_violation,
+                                                     job["near_feasible"],
+                                                     None if solve.physical is None else solve.physically_valid)
+                        row["iterate"] = solve.iterate
+                        row["goal"] = getattr(solve, "goal", None)
+                        if row["quality"] and not getattr(solve, "goal_met", True):
+                            # A usable trajectory that leaves the object off its hard
+                            # TO goal is no sample of the task (to_eval.goal_check).
+                            row["quality"] = None
+                            row["skipped"] = f"misses the task goal (excess {solve.goal.get('excess')})"
+                        if row["quality"]:
+                            # A segmented solve may have inserted walking steps: the
+                            # trajectory follows the repaired plan (to_eval.ToSolve.plan).
+                            used = plan_to_tuples(solve.plan) if getattr(solve, "plan", None) else plan
+                            row["plan_repairs"] = len(getattr(solve, "repairs", None) or [])
+                            sample_dir = os.path.join(plan_dir, sample["sample_id"])
+                            params = _params(job, sample, vtask, solve, row, tpm, NODES_PER_MODE,
+                                             plan_used={ch: [list(m) for m in seq] for ch, seq in used.items()})
+                            dx.export_sample(
+                                sample_dir, vtask.scene, vtask.resolved_state,
+                                to_faro_plan(vtask.scene, used), solve.results, params,
+                                robot_id=vtask.robot_id, num_modes=solve.num_modes,
+                                nodes_per_mode=NODES_PER_MODE, frequency=job["frequency"],
+                            )
+                            row["path"] = os.path.relpath(sample_dir, job["out"])
+                        elif not row["skipped"]:
+                            row["skipped"] = (f"TO status {solve.status}, not physically valid "
+                                              f"({', '.join((solve.physical or {}).get('fails', []))})"
+                                              if solve.physical else
+                                              f"TO status {solve.status}, max violation "
+                                              f"{solve.max_constraint_violation:.3g} > {job['near_feasible']}")
+                except Exception as e:  # noqa: BLE001 — one bad sample must not stop the plan
+                    row["error"] = f"{type(e).__name__}: {e}"
+                    with open(log_path, "a") as f:
+                        f.write(f"\n--- {sample['sample_id']} traceback ---\n{traceback.format_exc()}")
+                event("dataset_result", error=row["error"], skipped=bool(row["skipped"]),
+                      saved=bool(row["path"]))
         row["seconds"] = round(time.time() - t0, 1)
         dx.append_manifest(job["out"], row)
         state = row["error"] or row["skipped"] or f"{row['quality']} (max violation {row['max_violation']:.3g})"

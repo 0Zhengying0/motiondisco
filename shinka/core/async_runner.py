@@ -26,6 +26,7 @@ from rich.console import Console
 from rich.table import Table
 import rich.box
 
+from shinka.performance import capture, event, phase, timed
 from shinka.database import ProgramDatabase, DatabaseConfig, Program
 from shinka.database.async_dbase import AsyncProgramDatabase
 from shinka.database.prompt_dbase import (
@@ -2677,18 +2678,22 @@ class ShinkaEvolveRunner:
                 return None
 
             # Generate proposal for non-initial generation
-            return await self._generate_evolved_proposal(
-                generation,
-                task_id,
-                exec_fname,
-                results_dir,
-                meta_recs,
-                meta_summary,
-                meta_scratch,
-                proposal_started_at,
-                sampling_worker_id,
-                active_proposals_at_start,
-            )
+            with capture(Path(gen_dir) / "proposal_performance.jsonl", generation=generation):
+                with phase("proposal"):
+                    job = await self._generate_evolved_proposal(
+                        generation,
+                        task_id,
+                        exec_fname,
+                        results_dir,
+                        meta_recs,
+                        meta_summary,
+                        meta_scratch,
+                        proposal_started_at,
+                        sampling_worker_id,
+                        active_proposals_at_start,
+                    )
+                    event("proposal_result", submitted=job is not None)
+                    return job
 
         except Exception as e:
             logger.error(f"Error generating proposal for generation {generation}: {e}")
@@ -3457,6 +3462,7 @@ class ShinkaEvolveRunner:
             },
         )
 
+    @timed("program_generation")
     async def _run_fix_patch_async(
         self,
         incorrect_program: Program,
@@ -3671,6 +3677,7 @@ class ShinkaEvolveRunner:
             logger.error(f"Error in fix patch async: {e}")
             return None, {"api_costs": 0.0, "error_attempt": str(e)}, False
 
+    @timed("program_generation")
     async def _run_patch_async(
         self,
         parent_program: Program,

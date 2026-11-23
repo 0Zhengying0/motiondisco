@@ -45,6 +45,8 @@ from typing import Any, Callable, Dict, List, Mapping, Optional, Sequence, Tuple
 
 import numpy as np
 
+from shinka.performance import timed
+
 import to_segments as ts
 
 # Static IK pull toward the KSO keyframe (faro's default is 1e-4 for each);
@@ -166,6 +168,7 @@ def run_jobs(fn: Callable[..., Any], args_list: Sequence[Tuple], workers: int) -
     return out
 
 
+@timed("to_static_pose")
 def static_pose(task: Any, faro_plan: Mapping[Any, Sequence], mode: int, guess: Pose) -> Tuple[Pose, int]:
     """Statically stable configuration for plan mode ``mode``'s contacts
     near ``guess`` (faro static IK with the anchor weights above);
@@ -339,6 +342,7 @@ def _window_job(i: int, a: int, b: int, e: int, start: Optional[ts.SegmentStart]
     return {"outcome": o, "part": ts.with_end_state(part, end, rid), "full": full, "rows": violations, "end": end}
 
 
+@timed("to_segmented")
 def solve_parallel(task: Any, plan: Dict[str, List[Tuple]], bounds: List[int], *, nodes_per_mode: int,
                    time_per_mode: float, weight_scale: Optional[Mapping[str, float]],
                    kso_results: Optional[Mapping[str, Any]], workers: int = 1, polish: bool = False,
@@ -488,6 +492,7 @@ def _seed_codegen(task: Any) -> None:
         shutil.rmtree(tmp, ignore_errors=True)
 
 
+@timed("to_segmented")
 def solve(task: Any, plan: Dict[str, List[Tuple]], bounds: List[int], *, nodes_per_mode: int,
           time_per_mode: float, weight_scale: Optional[Mapping[str, float]],
           kso_results: Optional[Mapping[str, Any]], workers: int = 1, polish: bool = False) -> Any:

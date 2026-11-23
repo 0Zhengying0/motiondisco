@@ -33,6 +33,8 @@ from typing import Any, Callable, Dict, List, Mapping, Optional, Sequence, Tuple
 
 import numpy as np
 
+from shinka.performance import event, timed
+
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 if _THIS_DIR not in sys.path:
     sys.path.insert(0, _THIS_DIR)
@@ -371,6 +373,7 @@ def _seed_codegen(base: str, rest: str, root: str = MOTO_GEN) -> Optional[str]:
         return None
 
 
+@timed("to")
 def solve_to(
     task: TaskContext,
     plan: Dict[str, List[Tuple]],
@@ -392,6 +395,16 @@ def solve_to(
     import plan_checks
 
     seg = TO_SEGMENT_MODES if segment_modes is None else int(segment_modes)
+    event("to_config", nodes_per_mode=nodes_per_mode, time_per_mode=time_per_mode,
+          n_job=TO_N_JOB, max_nlp_iters=TO_MAX_NLP_ITERS, feasibility_tolerance=TO_FEASIBILITY_TOL,
+          warm_start=TO_WARM_START, presolve=TO_PRESOLVE, rescue_iters=TO_RESCUE_ITERS,
+          max_rescues=TO_MAX_RESCUES, stall_iters=TO_STALL_ITERS, physical_check=TO_PHYSICAL_CHECK,
+          segment_modes=seg, segment_min_modes=TO_SEGMENT_MIN_MODES, segment_cuts=TO_SEGMENT_CUTS,
+          segment_lookahead=TO_SEGMENT_LOOKAHEAD, segment_workers=TO_SEGMENT_WORKERS,
+          segment_junction=TO_SEGMENT_JUNCTION, incremental=TO_INCREMENTAL,
+          window_kso_attempts=TO_WINDOW_KSO_ATTEMPTS, route_seed=TO_ROUTE_SEED,
+          polish=TO_SEGMENT_POLISH, polish_iters=TO_SEGMENT_POLISH_ITERS,
+          polish_presolve=TO_SEGMENT_POLISH_PRESOLVE)
     n = plan_checks.n_modes(plan)
     if seg > 0 and n > seg:
         import to_segments
@@ -462,6 +475,7 @@ class _Solved:
     stalled: bool = False
 
 
+@timed("to_build")
 def _build_problem(task: TaskContext, plan: Dict[str, List[Tuple]], *, nodes_per_mode: int,
                    time_per_mode: float, weight_scale: Optional[Mapping[str, float]] = None,
                    name_suffix: str = "", presolve: Optional[int] = None,
@@ -526,6 +540,7 @@ def _set_warm_start(prob: _Problem, x0: Dict[str, Any], u0: Dict[str, Any]) -> N
     to_task.moto_wrap.set_warm_start(to_task.sqp_coll, x0, u0)
 
 
+@timed("to_solve")
 def _solve_problem(prob: _Problem, *, kso_results: Optional[Mapping[str, Any]] = None,
                    start: Any = None, guess: Optional[Tuple[Dict[str, Any], Dict[str, Any]]] = None,
                    max_iters: Optional[int] = None, force_seed: bool = False) -> _Solved:
@@ -846,6 +861,7 @@ def _origin_of(origin: Sequence[Optional[int]], mode: int) -> Optional[int]:
     return None
 
 
+@timed("to_segmented")
 def _solve_segmented(task: TaskContext, plan: Dict[str, List[Tuple]], bounds: List[int], *,
                      nodes_per_mode: int, time_per_mode: float,
                      weight_scale: Optional[Mapping[str, float]],
@@ -1116,6 +1132,7 @@ def _solve_segmented(task: TaskContext, plan: Dict[str, List[Tuple]], bounds: Li
     return out
 
 
+@timed("to_polish")
 def _polish(task: TaskContext, plan: Dict[str, List[Tuple]], stitched: ToSolve, *, nodes_per_mode: int,
             time_per_mode: float, weight_scale: Optional[Mapping[str, float]]) -> ToSolve:
     """Full-horizon solve warm-started from the stitched trajectory; kept

@@ -20,6 +20,7 @@ import openai
 
 from shinka.azure_openai_config import azure_openai_api_key, azure_v1_base_url
 from shinka.env import load_shinka_dotenv
+from shinka.performance import PERFORMANCE_ENV, enabled, local_chat_request, local_chat_request_async
 from shinka.claude_max_config import (
     claude_cli_extra_args,
     claude_cli_scratch_dir,
@@ -96,6 +97,8 @@ def _ambient_environment(provider: str) -> tuple[str | None, ...]:
         "openrouter": ("OPENAI_CUSTOM_HEADERS",),
         "local_openai": ("OPENAI_CUSTOM_HEADERS",),
     }.get(provider, ())
+    if provider == "local_openai":
+        provider_variables += (PERFORMANCE_ENV,)
     return _transport_environment() + _environment_values(*provider_variables)
 
 
@@ -323,7 +326,17 @@ def _build_async_client(spec: _ClientSpec) -> Any:
 def _build_client(spec: _ClientSpec) -> Any:
     if spec.provider == "headless":
         return None
-    client = spec.constructor(**dict(spec.constructor_kwargs))
+    kwargs = dict(spec.constructor_kwargs)
+    if spec.provider == "local_openai" and enabled():
+        if spec.constructor is openai.AsyncOpenAI:
+            kwargs["http_client"] = openai.DefaultAsyncHttpxClient(
+                event_hooks={"request": [local_chat_request_async]}
+            )
+        elif spec.constructor is openai.OpenAI:
+            kwargs["http_client"] = openai.DefaultHttpxClient(
+                event_hooks={"request": [local_chat_request]}
+            )
+    client = spec.constructor(**kwargs)
     if not spec.structured_output:
         return client
     return _wrap_structured_client(spec.provider, client)

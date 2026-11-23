@@ -1,6 +1,7 @@
 import backoff
 import logging
 import openai
+from shinka.performance import event, local_chat_seed
 from shinka.llm.constants import BACKOFF_MAX_TIME, BACKOFF_MAX_TRIES, BACKOFF_MAX_VALUE
 
 from .pricing import calculate_cost, model_exists
@@ -68,6 +69,8 @@ def query_local_openai(
             "Structured output is not supported for local OpenAI-compatible backends."
         )
 
+    kwargs = local_chat_seed(kwargs)
+    event("local_chat_call", model=model, seed=kwargs.get("seed"))
     new_msg_history = msg_history + [{"role": "user", "content": msg}]
     response = client.chat.completions.create(
         model=model,
@@ -129,6 +132,8 @@ async def query_local_openai_async(
             "Structured output is not supported for local OpenAI-compatible backends."
         )
 
+    kwargs = local_chat_seed(kwargs)
+    event("local_chat_call", model=model, seed=kwargs.get("seed"))
     new_msg_history = msg_history + [{"role": "user", "content": msg}]
     response = await client.chat.completions.create(
         model=model,

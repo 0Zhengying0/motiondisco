@@ -28,9 +28,47 @@ export OLLAMA_MODELS="$BASE/models/ollama"
 export OLLAMA_HOST=127.0.0.1:11434
 export OLLAMA_MAX_LOADED_MODELS=1
 cd "$ROOT"
+job_id="${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}"
+recorder="$ROOT/scripts/karolina_performance.py"
+job_events="$ROOT/logs/md-campaign-$job_id.performance.jsonl"
+gpu_events="$ROOT/logs/md-campaign-$job_id.gpu.jsonl"
+seed_source="MOTIONDISCO_SEED"
+if [[ -z "${MOTIONDISCO_SEED:-}" ]]; then
+  MOTIONDISCO_SEED=$(python3 "$recorder" seed)
+  seed_source=system_entropy
+fi
+if [[ ! "$MOTIONDISCO_SEED" =~ ^(0|[1-9][0-9]{0,9})$ ]] || (( MOTIONDISCO_SEED >= 2147483648 )); then
+  echo "MOTIONDISCO_SEED must be an integer in [0, 2147483647]" >&2
+  exit 2
+fi
+motiondisco_commit=$(git rev-parse HEAD)
+faro_commit=$(git -C submodules/faro rev-parse HEAD)
+server_pid=
+sampler_pid=
+launcher_pid=
+cleanup() {
+  local exit_code=$?
+  trap - EXIT
+  for pid in "$launcher_pid" "$server_pid" "$sampler_pid"; do
+    if [[ -n "$pid" ]]; then
+      kill "$pid" 2>/dev/null || true
+    fi
+  done
+  if [[ -n "$sampler_pid" ]]; then
+    wait "$sampler_pid" 2>/dev/null || true
+  fi
+  python3 "$recorder" end "$job_events" "$job_id" "$exit_code" || true
+  exit "$exit_code"
+}
+trap cleanup EXIT
+trap 'exit 143' TERM
+trap 'exit 130' INT
+python3 "$recorder" start "$job_events" "$job_id" "$scene" "$nodes" "$MOTIONDISCO_SEED" \
+  "$seed_source" "$motiondisco_commit" "$faro_commit" || true
+python3 "$recorder" sample "$gpu_events" "$job_id" &
+sampler_pid=$!
 "$BASE/tools/ollama/bin/ollama" serve > "logs/md-campaign-server-${SLURM_JOB_ID}.log" 2>&1 &
 server_pid=$!
-trap 'kill "$server_pid" 2>/dev/null || true' EXIT
 
 for attempt in $(seq 1 60); do
   if curl -fsS "http://$OLLAMA_HOST/api/tags" >/dev/null 2>&1; then
@@ -59,14 +97,19 @@ for expected in \
 done
 
 echo "Scene: $scene | nodes: $nodes | array: ${SLURM_ARRAY_JOB_ID}_${SLURM_ARRAY_TASK_ID}"
-echo "MotionDisco commit: $(git rev-parse HEAD)"
-echo "FARO commit: $(git -C submodules/faro rev-parse HEAD)"
+echo "MotionDisco commit: $motiondisco_commit"
+echo "FARO commit: $faro_commit"
 echo "$model_list"
+curl -fsS --max-time 5 "http://$OLLAMA_HOST/api/tags" | \
+  python3 "$recorder" models "$job_events" "$job_id" || true
 
 apptainer exec --cleanenv --bind "$BASE:$BASE" \
   "$BASE/containers/miniforge3.sif" /bin/bash \
   "$ROOT/scripts/run_qwen_campaign_scene.sh" \
   "$scene" "$nodes" "$description" \
-  "$SLURM_ARRAY_JOB_ID" "$SLURM_ARRAY_TASK_ID"
+  "$SLURM_ARRAY_JOB_ID" "$SLURM_ARRAY_TASK_ID" "$MOTIONDISCO_SEED" "$seed_source" &
+launcher_pid=$!
+wait "$launcher_pid"
+launcher_pid=
 
 echo "Campaign scene completed: $scene"

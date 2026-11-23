@@ -114,6 +114,8 @@ _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 if _THIS_DIR not in sys.path:
     sys.path.insert(0, _THIS_DIR)
 
+from shinka.performance import event, observation, phase, timed
+
 import kso_warm_start  # noqa: E402
 import plan_checks  # noqa: E402
 import repair_probe  # noqa: E402
@@ -307,6 +309,15 @@ def _make_kso_task(task: Any, terminal_goal: Any, num_modes: int) -> Any:
     return kso_task
 
 
+
+@observation
+def _record_native_timing(task):
+    if hasattr(task, "get_solve_timing"):
+        timing = task.get_solve_timing()
+        event("kso_native_profile", wall_s=timing.wall_time, solve_s=timing.solve_time,
+              initialization_s=timing.initialization_time)
+
+@timed("kso_attempt")
 def _solve_kso(kso_task: Any, cms: Dict[tuple, List[Tuple]], outcome_scorer: Any) -> Any:
     """One KSO solve on a prepared task: False if infeasible, else the
     outcome-scorer cost (0.0 without a scorer)."""
@@ -328,12 +339,14 @@ def _solve_kso(kso_task: Any, cms: Dict[tuple, List[Tuple]], outcome_scorer: Any
     # re-resolved there instead; otherwise the SQP stays in a basin with the
     # stepping foot 0.2 m short.
     kso_warm_start.apply(kso_task, cms)
-    status = kso_task.solve(
-        nlp_iters=100,
-        print_stats=False,
-        sqp_iters_per_collision=_SQP_ITERS_PER_COLL,
-        res_ineq_tol=_FEASIBILITY_TOL,
-    )
+    with phase("kso_native"):
+        status = kso_task.solve(
+            nlp_iters=100,
+            print_stats=False,
+            sqp_iters_per_collision=_SQP_ITERS_PER_COLL,
+            res_ineq_tol=_FEASIBILITY_TOL,
+        )
+    _record_native_timing(kso_task)
     perf_metrics = kso_task.get_performance_metrics()
     if status == 1 and perf_metrics["max_violation"] > _FEASIBILITY_TOL:
         return False
@@ -373,6 +386,16 @@ def _build_pool(kind: str) -> Pool:
     return evaluate, tasks_by_num_modes
 
 
+def _record_configuration(check_attempts=None):
+    event("kso_config", max_modes=MAX_NUM_NODES, bucket=KSO_BUCKET, pad=KSO_PAD,
+          full_plan_attempts=KSO_ATTEMPTS, explicit_check_attempts=check_attempts,
+          prefix_attempts=PREFIX_ATTEMPTS, probes=PROBES,
+          diagnostic_budget_s=EVAL_BUDGET_S, diagnostic_walk=WALK_MODE,
+          feasibility_tolerance=_FEASIBILITY_TOL, sqp_iters_per_collision=_SQP_ITERS_PER_COLL,
+          nlp_iters=100)
+
+
+@timed("kso")
 def check_plan(
     task: Any, plan: Dict[str, List[Tuple]], attempts: int = 1,
 ) -> Tuple[Any, Optional[Dict[str, Any]], Optional[str]]:
@@ -387,9 +410,9 @@ def check_plan(
     error_or_None)``; ``check_plan_violations`` has the last failed
     solve's violations.
     """
+    _record_configuration(attempts)
     cost, results, err, _ = _check_plan(task, plan, attempts)
     return cost, results, err
-
 
 def _check_plan(task: Any, plan: Dict[str, List[Tuple]], attempts: int = 1,
                 ) -> Tuple[Any, Optional[Dict[str, Any]], Optional[str], Optional[Dict[str, Any]]]:
@@ -433,9 +456,11 @@ def _check_plan(task: Any, plan: Dict[str, List[Tuple]], attempts: int = 1,
     return False, None, err, snapshot
 
 
+@timed("kso_window")
 def check_plan_violations(task: Any, plan: Dict[str, List[Tuple]], attempts: int = 1,
                           ) -> Tuple[Any, Optional[Dict[str, Any]], Optional[str], Optional[Dict[str, Any]]]:
     """``check_plan`` returning also the last failed solve's violations."""
+    _record_configuration(attempts)
     return _check_plan(task, plan, attempts)
 
 
@@ -679,6 +704,7 @@ def _transition_describer(plan: Dict[str, List[Tuple]]) -> Callable[[int], str]:
     )
 
 
+@timed("kso")
 def evaluate_ik(
     plan: Dict[str, List[Tuple]],
     terminal_goal: Any = None,
@@ -712,6 +738,7 @@ def evaluate_ik(
     if n < 2 or n > MAX_NUM_NODES:
         return False, None, None, "soft", False
 
+    _record_configuration()
     started = time.time()
     deadline = started + EVAL_BUDGET_S
     use_hard = terminal_goal is not None and terminal_goal.kso == "hard"
