@@ -1,0 +1,9 @@
+{
+  "id": "qwen_261124_141926_7o3bcm5w",
+  "family": "qwen_scene_spec",
+  "description": "Walk the G1 on the floor to world XY (-1, 1.5) metres and finish with both soles on the floor. Keep the objects on their initial supports.",
+  "boxes": [
+    "box_1",
+    "box_2"
+  ]
+}

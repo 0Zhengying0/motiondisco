@@ -83,9 +83,9 @@ scene=generated.qwen_261123_221122_em27_fb2  # 换成实际注册名
 
 ## 4. 交给 MotionDisCo 并读取结果
 
-[__main__.py](./__main__.py) 的 `solve()` 把注册名和任务描述传给现有 `motiondisco_launch`，使用 `ollama_local` 搜索配置。[walking_seed.py](walking_seed.py) 用 MotionDisCo 的 `walk()` 生成第 0 代交替步态接触计划。后续沿现有流程提案、检查接触计划、运行 KSO 和 TO。场景搜索日志在 `$run_dir/motiondisco/evolution_run.log`，候选记录在 `$run_dir/motiondisco/gen_*/results/`。
+[__main__.py](./__main__.py) 的 `solve()` 把注册名和任务描述传给现有 `motiondisco_launch`，使用 `ollama_local`、MotionDisCo 默认 [initial.py](../initial.py) 和默认评分。后续沿原流程提案、检查接触计划、运行 KSO 和 TO。场景搜索日志在 `$run_dir/motiondisco/evolution_run.log`，候选记录在 `$run_dir/motiondisco/gen_*/results/`。
 
-[evaluate.py](../evaluate.py) 的 `aggregate_planning_metrics()` 在 TO 返回后调用 [trajectory_check.py](../trajectory_check.py) 做物理检查，并调用 [convert.py](convert.py) 的 `reach_completion()` 读数值轨迹的末帧 G1 基座位置。[scene_campaign.py](../scene_campaign.py) 的 `valid_plans()` 按接触计划去重，生成入口把结果汇总进 `result.json`。
+搜索结束后，[acceptance.py](acceptance.py) 读取 MotionDisCo 判定有效的保存轨迹，调用现有 [trajectory_check.py](../trajectory_check.py) 做物理检查，再通过 [convert.py](convert.py) 的 `reach_completion()` 检查末帧 G1 基座位置。独立结果写入 `acceptance.json`，通过的轨迹汇总进 `result.json`。
 
 作业结束后，从 Slurm 日志找到输出目录，再打开汇总：
 
@@ -101,8 +101,8 @@ fi
 | 找什么 | 查看哪里 |
 | --- | --- |
 | 成功或失败在哪一步 | `$run_dir/result.json`。 `solved` 表示已有验收通过的轨迹，`registered` 表示此次流程停在注册，`validation_exhausted` 表示生成重试耗尽，`no_valid_trajectory` 表示搜索结束但没有合格轨迹，`solver_failed` 表示求解入口报错。作业中断时用 Slurm 状态和逐代记录确认最后进度。 |
-| 通过的是哪一代 | `result.json` 的 `valid_plans[].gen` 指向 `motiondisco/gen_*/`。读取对应 `results/extra.json` 的 `to_valid`、`to_physical.pass`、`task_completion.met`、`task_completion.error_m`。 |
-| 数值轨迹和候选详情 | 同目录的 `to_run.pkl` 保存数值轨迹，`metrics.json` 保存评分和阶段判定，`extra.json` 保存接触序列、失败诊断及验收证据。 |
+| 通过的是哪一代 | `result.json` 的 `valid_plans[].gen` 指向 `motiondisco/gen_*/`。读取对应 `results/acceptance.json` 的 `pass`、`solver_to_valid`、`to_physical.pass`、`task_completion.met` 和 `task_completion.error_m`。 |
+| 数值轨迹和候选详情 | 同目录的 `to_run.pkl` 保存数值轨迹，`metrics.json` 保存评分和阶段判定，`extra.json` 保存 MotionDisCo 自己的接触序列、阶段判定和失败诊断。 |
 
 已有场景可用同一 Python 模块的 `solve` 子命令重跑。在已分配的 Karolina 计算节点上，从 MotionDisCo 仓库根目录执行。若该节点尚未启动 Ollama，在同一节点的另一个终端运行：
 

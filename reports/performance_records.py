@@ -159,6 +159,7 @@ SCENE_PHASE_COLUMNS = {
     "mujoco_standing_s": "mujoco_standing",
     "mujoco_static_s": "mujoco_static",
     "scene_motiondisco_search_s": "scene_motiondisco_search",
+    "scene_trajectory_acceptance_s": "scene_trajectory_acceptance",
 }
 
 

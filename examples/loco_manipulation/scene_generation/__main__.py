@@ -12,9 +12,9 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from examples.loco_manipulation.register_generated import SCENES_DIR
-from examples.loco_manipulation.scene_campaign import valid_plans
 from shinka.performance import SEED_LIMIT, capture, configured_seed, event, phase, source_revision, timed, tracing
 
+from .acceptance import accepted_plans
 from .catalogs import DIRECTORY, ROOT, read_json, write_json
 from .novelty import reference_layouts
 from .register import register_spec
@@ -127,16 +127,13 @@ def solve(scene, output, nodes):
         str(Path(sys.executable).with_name("motiondisco_launch")), "task=loco_manipulation",
         "variant=ollama_local", "database=island_small", "evolution=small_budget", "cluster=local",
         f"task.scene={scene}", f'task.description="{metadata["description"]}"',
-        "task.score_mode=quality",
-        "evo_config.init_program_path=examples/loco_manipulation/scene_generation/walking_seed.py",
         f"evo_config.num_generations={nodes}", "evo_config.max_api_costs=100",
         "++evo_config.evolve_prompts=false", "++evo_config.meta_rec_interval=null",
         "max_evaluation_jobs=1", "max_proposal_jobs=1", f"output_dir={output}",
     ]
-    result = subprocess.run(command, cwd=ROOT, check=False)
-    plans = [plan for plan in valid_plans(str(output)).values()
-             if (output / plan["gen"] / "results" / "to_run.pkl").is_file()]
-    return result.returncode, plans
+    with phase("motiondisco_launch"):
+        result = subprocess.run(command, cwd=ROOT, check=False)
+    return result.returncode, accepted_plans(scene, output)
 
 
 def main():

@@ -127,7 +127,6 @@ class TaskContext:
     # World offset applied to the scene's terminal goal / scorer by an IC
     # layout (``<ic>@<layout>``); zeros otherwise.
     goal_offset: Any = None
-    task_completion: Any = None
 
 
 _cache: Dict[tuple, TaskContext] = {}
@@ -479,14 +478,9 @@ def load_task(
         offset = layouts.goal_offset(layout, scene_obj.resolve(base_spec), resolved)
         t_goal = layouts.shift_goal(t_goal, offset)
         scorer = layouts.shift_scorer(scorer, offset)
-    task_completion = None
     if preserve_physics:
         if layout is not None:
             raise ValueError("Declarative scenes require the MuJoCo-validated initial condition.")
-        from functools import partial
-
-        goals_mod = importlib.import_module(f"scenes.{s}.goals")
-        task_completion = partial(goals_mod.TASK_COMPLETION, scene_obj, resolved)
     else:
         t_goal = with_to_goal(t_goal, TO_GOAL, TO_GOAL_TOL)
 
@@ -504,7 +498,6 @@ def load_task(
         terminal_goal_name=t_name,
         outcome_scorer_name=s_name,
         goal_offset=offset,
-        task_completion=task_completion,
     )
     _cache[key] = ctx
     return ctx
