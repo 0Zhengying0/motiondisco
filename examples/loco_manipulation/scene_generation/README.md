@@ -6,7 +6,7 @@ Prompt + 资产目录 + 任务目录 + JSON Schema
   → Python 转换为 FARO 场景、初态和目标
   → MuJoCo 验证 ──失败──→ 结构化反馈交给 Qwen 修订
   → 注册为 generated.<scene_id>
-  → MotionDisCo 搜索接触计划 → KSO → TO → 物理与终态验收
+  → MotionDisCo 搜索接触计划 → KSO → TO 及其有效性判定
   → result.json、逐代记录和 to_run.pkl
 ```
 
@@ -44,7 +44,7 @@ tail -F "$job_log"
 | 输入与输出 | 对应代码或文件 |
 | --- | --- |
 | 资产目录 | [catalogs.py](catalogs.py) 的 `build_asset_catalog()` 从 [原始资产提取 JSON](../../../results/motiondisco_object_catalog.json) 生成目录，复制尺寸、质量、RGBA 和接触权限，并记录来源指纹。 |
-| 任务目录和 JSON Schema | [task_catalog.json](task_catalog.json) 定义任务参数、FARO 目标和达成检查。[spec.py](spec.py) 的 `SceneSpec` 与 `scene_schema()` 提供 Python 解析模型和 JSON Schema。 |
+| 任务目录和 JSON Schema | [task_catalog.json](task_catalog.json) 定义任务参数、FARO 目标和报告使用的终点误差阈值。[spec.py](spec.py) 的 `SceneSpec` 与 `scene_schema()` 提供 Python 解析模型和 JSON Schema。 |
 | 发给 Qwen 的实际内容 | `$run_dir/attempt_*/prompt.txt` 保存拼接后的完整正文，包括三个 JSON。 `request.json` 保存同一请求的正文、模型和生成参数。 |
 | Qwen 的原始输出 | `$run_dir/attempt_*/response.txt` 保存原文，`scene_spec.json` 保存可解析的 JSON。同目录保存 `ollama_response.json`，请求失败时保存 `request_error.json`。 |
 | 模型与输入快照 | `$run_dir/model.json` 保存 Ollama 版本及模型信息，运行目录还保存实际发送的资产目录、任务目录和 Schema。 |
@@ -85,7 +85,7 @@ scene=generated.qwen_261123_221122_em27_fb2  # 换成实际注册名
 
 [__main__.py](./__main__.py) 的 `solve()` 把注册名和任务描述传给现有 `motiondisco_launch`，使用 `ollama_local`、MotionDisCo 默认 [initial.py](../initial.py) 和默认评分。后续沿原流程提案、检查接触计划、运行 KSO 和 TO。场景搜索日志在 `$run_dir/motiondisco/evolution_run.log`，候选记录在 `$run_dir/motiondisco/gen_*/results/`。
 
-搜索结束后，[acceptance.py](acceptance.py) 读取 MotionDisCo 判定有效的保存轨迹，调用现有 [trajectory_check.py](../trajectory_check.py) 做物理检查，再通过 [convert.py](convert.py) 的 `reach_completion()` 检查末帧 G1 基座位置。独立结果写入 `acceptance.json`，通过的轨迹汇总进 `result.json`。
+MotionDisCo 的 TO 评估写出 `to_valid`。搜索结束后，生成入口复用 [scene_campaign.py](../scene_campaign.py) 的 `valid_plans()`，按接触计划去重，将已有保存轨迹的结果汇总进 `result.json`。
 
 作业结束后，从 Slurm 日志找到输出目录，再打开汇总：
 
@@ -100,8 +100,8 @@ fi
 
 | 找什么 | 查看哪里 |
 | --- | --- |
-| 成功或失败在哪一步 | `$run_dir/result.json`。 `solved` 表示已有验收通过的轨迹，`registered` 表示此次流程停在注册，`validation_exhausted` 表示生成重试耗尽，`no_valid_trajectory` 表示搜索结束但没有合格轨迹，`solver_failed` 表示求解入口报错。作业中断时用 Slurm 状态和逐代记录确认最后进度。 |
-| 通过的是哪一代 | `result.json` 的 `valid_plans[].gen` 指向 `motiondisco/gen_*/`。读取对应 `results/acceptance.json` 的 `pass`、`solver_to_valid`、`to_physical.pass`、`task_completion.met` 和 `task_completion.error_m`。 |
+| 成功或失败在哪一步 | `$run_dir/result.json`。 `solved` 表示 MotionDisCo 已判定有效且保存了轨迹，`registered` 表示此次流程停在注册，`validation_exhausted` 表示生成重试耗尽，`no_valid_trajectory` 表示搜索结束但没有有效的保存轨迹，`solver_failed` 表示求解入口报错。作业中断时用 Slurm 状态和逐代记录确认最后进度。 |
+| 通过的是哪一代 | `result.json` 的 `valid_plans[].gen` 指向 `motiondisco/gen_*/`。在对应的 `results/extra.json` 中查看 `to_valid`。 |
 | 数值轨迹和候选详情 | 同目录的 `to_run.pkl` 保存数值轨迹，`metrics.json` 保存评分和阶段判定，`extra.json` 保存 MotionDisCo 自己的接触序列、阶段判定和失败诊断。 |
 
 已有场景可用同一 Python 模块的 `solve` 子命令重跑。在已分配的 Karolina 计算节点上，从 MotionDisCo 仓库根目录执行。若该节点尚未启动 Ollama，在同一节点的另一个终端运行：
@@ -144,9 +144,9 @@ printf 'Audit files: %s\n' "$audit_dir"
 | --- | --- |
 | 作业状态、退出码、CPU 时间、峰值 RSS、GPU 分配、设备样本 | Slurm `sacct` 与 [karolina_performance.py](../../../scripts/karolina_performance.py)。 `results/md-qwen-generate-<job_id>.performance.jsonl` 保存作业和模型事件，`...gpu.jsonl` 保存设备 UUID、利用率和显存，`results/md-qwen-generate-server-<job_id>.log` 保存 Ollama 设备、模型装载及 HTTP 请求。 |
 | 场景生成、验证与搜索准备 | [__main__.py](./__main__.py)、[validate.py](validate.py) 和 [shinka/performance.py](../../../shinka/performance.py)。 `$run_dir/scene_generation_performance.jsonl` 保存请求、token、验证阶段计时、工作区状态和源码指纹。 |
-| MotionDisCo 配置和逐代性能 | [shinka/launch_hydra.py](../../../shinka/launch_hydra.py)、[performance_context.py](../performance_context.py) 及现有求解器事件。 `$run_dir/motiondisco/` 下的 `.hydra/config.yaml`、`run_performance.jsonl`、`gen_*/proposal_performance.jsonl` 和 `gen_*/results/evaluation_performance.jsonl` 保存实际搜索配置、种子、提案、接触检查、KSO、TO 和验收计时。 |
+| MotionDisCo 配置和逐代性能 | [shinka/launch_hydra.py](../../../shinka/launch_hydra.py)、[performance_context.py](../performance_context.py) 及现有求解器事件。 `$run_dir/motiondisco/` 下的 `.hydra/config.yaml`、`run_performance.jsonl`、`gen_*/proposal_performance.jsonl` 和 `gen_*/results/evaluation_performance.jsonl` 保存实际搜索配置、种子、提案、接触检查以及 KSO 和 TO 计时。 |
 | 三张 CSV 的核验口径 | [performance_records.py](../../../reports/performance_records.py) 和 [extract_motiondisco_performance.py](../../../reports/extract_motiondisco_performance.py) 分开汇总场景生成、搜索聊天和 embedding，区分工作流结局与搜索预算，统计候选、失败、中断、有效与去重轨迹、最佳评分和资源成本。提取器还会从保存的轨迹复算 G1 终点误差。口径对照见 [基础性能报告](../../../reports/motiondisco_performance_report.md) 和 [5481702 核验](../../../reports/job_5481702_verification.md)。 |
 
 ## 边界条件
 
-**场景与输入。** 第一版 `schema_version=1`，仅开放 `reach_position` 和 `table_short`、`table_tall`、`green_box`、`white_box`、`yellow_box`、`crate`。场景含 0–2 个固定平台和 0–2 个可移动箱子，合计至少 1 个。实例可复用资产，ID 必须唯一。已注册的同名场景会返回 `SCENE_ID_EXISTS`。场景和实例 ID 以小写字母起始，后续只允许小写字母、数字和下划线，总长至多 48 字符，实例名避开 `floor`、`robot` 和机器人接触通道。地面以世界原点为中心，全长 3–8 m、全宽 2–5 m，`half_extents` 填半长和半宽。G1 起点和目标为世界 XY，水平距离 0.8–3 m。物体的 `relative_xy_yaw` 按支撑面局部坐标填，XY 单位为米，Schema 的 x、y 范围分别是 `[-4, 4]` 和 `[-2.5, 2.5]`，物理检查还要求落在实际地面和支撑内。yaw 单位为弧度且在 `[-π, π]`。支撑面为 `floor.surface` 或另一物体的 `top`，支撑链须汇到地面，固定平台须用固定支撑。系统提供一台 G1，站立高度和默认关节角取 FARO。规格只接收声明式 JSON，物理参数来自资产目录。与旧场景有相同资产及支撑拓扑的结果会被拒绝，坐标、朝向或重命名不会改变该判定。**场景验证。** FARO Plane 的碰撞面无限延伸，有限边界单独检查，地面与支撑投影容差为 1 µm。支撑间隙容差为 10 µm，箱体穿透深度超过 1 mm 失败。G1 双足使用 1 mm 接触接近量，允许 2 mm 足底地面穿透，机器人与箱体或平台发生碰撞时失败。目标站姿按起点 yaw 检查，求解终态 yaw 自由。静置仿真 2 s，G1 保持初始姿态并排除碰撞响应。箱体须保持声明支撑，位移和姿态漂移分别不超过 5 mm 和 0.03 rad，最后 0.25 s 的线速度和角速度分别不超过 0.01 m/s 和 0.05 rad/s。相切接触可用 10 µm 位移探测，仿真从恢复后的原位开始。阈值用 `box_stacking`、`move_through_clutter` 和 `long_dist_pick_place` 的已知初态在 MuJoCo 3.13.0 校准，箱中心最大漂移低于 0.176 mm，角度漂移低于 0.000001 rad，最后 0.25 s 的线、角速度分别低于 0.000000001 m/s 和 0.00000001 rad/s。场景验证阶段独立于 KSO 和 TO。**执行与验收。** 提交脚本默认申请 1 张 A100、8 个 CPU、32 GiB 内存和 1 小时 45 分钟，达到时限 80% 时发邮件。场景模型默认为 `qwen2.5-coder:14b`，默认至多 5 次场景生成，每次请求超时默认 600 秒。完整搜索按候选预算或终止状态返回。通过场景验证后仍需等待独立的轨迹结果。KSO 和 TO 的 FARO 位置界按 XYZ 分量施加，前者每轴 0.10 m，后者每轴 0.005 m。较紧的 TO 位置界为默认 0.05 的求解残差留出余量。计入结果的轨迹须有保存文件，TO 有效、物理复核通过，且实际末帧基座 XYZ 距目标的三维欧氏距离不超过 0.10 m。`--nodes` 增加的是候选预算，轨迹是否可解由运行结果确定。**账务与适用范围。** GPU 每 5 秒采样一次，统计量为设备样本均值和观测峰值，CPU 和 RSS 取作业账务，嵌套阶段计时有重叠。账务缺项留空，实测为零保留为零。真实设备及邮件结果以实际提交后的记录为准。独立渲染、安装和单独复评属于其他入口。
+**场景与输入。** 第一版 `schema_version=1`，仅开放 `reach_position` 和 `table_short`、`table_tall`、`green_box`、`white_box`、`yellow_box`、`crate`。场景含 0–2 个固定平台和 0–2 个可移动箱子，合计至少 1 个。实例可复用资产，ID 必须唯一。已注册的同名场景会返回 `SCENE_ID_EXISTS`。场景和实例 ID 以小写字母起始，后续只允许小写字母、数字和下划线，总长至多 48 字符，实例名避开 `floor`、`robot` 和机器人接触通道。地面以世界原点为中心，全长 3–8 m、全宽 2–5 m，`half_extents` 填半长和半宽。G1 起点和目标为世界 XY，水平距离 0.8–3 m。物体的 `relative_xy_yaw` 按支撑面局部坐标填，XY 单位为米，Schema 的 x、y 范围分别是 `[-4, 4]` 和 `[-2.5, 2.5]`，物理检查还要求落在实际地面和支撑内。yaw 单位为弧度且在 `[-π, π]`。支撑面为 `floor.surface` 或另一物体的 `top`，支撑链须汇到地面，固定平台须用固定支撑。系统提供一台 G1，站立高度和默认关节角取 FARO。规格只接收声明式 JSON，物理参数来自资产目录。与旧场景有相同资产及支撑拓扑的结果会被拒绝，坐标、朝向或重命名不会改变该判定。**场景验证。** FARO Plane 的碰撞面无限延伸，有限边界单独检查，地面与支撑投影容差为 1 µm。支撑间隙容差为 10 µm，箱体穿透深度超过 1 mm 失败。G1 双足使用 1 mm 接触接近量，允许 2 mm 足底地面穿透，机器人与箱体或平台发生碰撞时失败。目标站姿按起点 yaw 检查，求解终态 yaw 自由。静置仿真 2 s，G1 保持初始姿态并排除碰撞响应。箱体须保持声明支撑，位移和姿态漂移分别不超过 5 mm 和 0.03 rad，最后 0.25 s 的线速度和角速度分别不超过 0.01 m/s 和 0.05 rad/s。相切接触可用 10 µm 位移探测，仿真从恢复后的原位开始。阈值用 `box_stacking`、`move_through_clutter` 和 `long_dist_pick_place` 的已知初态在 MuJoCo 3.13.0 校准，箱中心最大漂移低于 0.176 mm，角度漂移低于 0.000001 rad，最后 0.25 s 的线、角速度分别低于 0.000000001 m/s 和 0.00000001 rad/s。场景验证阶段独立于 KSO 和 TO。**执行与结果。** 提交脚本默认申请 1 张 A100、8 个 CPU、32 GiB 内存和 1 小时 45 分钟，达到时限 80% 时发邮件。场景模型默认为 `qwen2.5-coder:14b`，默认至多 5 次场景生成，每次请求超时默认 600 秒。完整搜索按候选预算或终止状态返回。KSO 和 TO 的 FARO 位置界按 XYZ 分量施加，前者每轴 0.10 m，后者每轴 0.005 m。较紧的 TO 位置界为默认 0.05 的求解残差留出余量。汇总中的轨迹须由 MotionDisCo 标记为 `to_valid`，并有对应的 `to_run.pkl`。`--nodes` 增加的是候选预算，轨迹是否可解由运行结果确定。**账务与适用范围。** GPU 每 5 秒采样一次，统计量为设备样本均值和观测峰值，CPU 和 RSS 取作业账务，嵌套阶段计时有重叠。账务缺项留空，实测为零保留为零。真实设备及邮件结果以实际提交后的记录为准。独立渲染、安装和单独复评属于其他入口。

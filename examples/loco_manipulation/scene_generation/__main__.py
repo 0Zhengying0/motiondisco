@@ -12,9 +12,9 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from examples.loco_manipulation.register_generated import SCENES_DIR
+from examples.loco_manipulation.scene_campaign import valid_plans
 from shinka.performance import SEED_LIMIT, capture, configured_seed, event, phase, source_revision, timed, tracing
 
-from .acceptance import accepted_plans
 from .catalogs import DIRECTORY, ROOT, read_json, write_json
 from .novelty import reference_layouts
 from .register import register_spec
@@ -133,7 +133,9 @@ def solve(scene, output, nodes):
     ]
     with phase("motiondisco_launch"):
         result = subprocess.run(command, cwd=ROOT, check=False)
-    return result.returncode, accepted_plans(scene, output)
+    plans = [plan for plan in valid_plans(str(output)).values()
+             if (output / plan["gen"] / "results" / "to_run.pkl").is_file()]
+    return result.returncode, plans
 
 
 def main():

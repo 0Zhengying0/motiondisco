@@ -418,7 +418,6 @@ def candidate_records(run, out, db, inspect_saved):
         result = folder / "results" if folder != run.directory else folder
         metrics = read_json(result / "metrics.json")
         x = read_json(result / "extra.json") or {}
-        acceptance = read_json(result / "acceptance.json") or {}
         correction = read_json(result / "correct.json") or {}
         failure = read_json(folder / "failure.json")
         metadata = db.get(generation, {})
@@ -426,9 +425,6 @@ def candidate_records(run, out, db, inspect_saved):
         private = (metrics or {}).get("private") or {}
         diagnosis = x.get("ik_diagnosis") or private.get("ik_diagnosis") or {}
         verdict = {k: public.get(k, x.get(k)) for k in ("goal_match", "ik_feasible", "to_valid", "to_converged", "to_cost")}
-        solver_to_valid = verdict["to_valid"]
-        if acceptance:
-            verdict["to_valid"] = acceptance["pass"]
         found = metrics is not None
         provisional = public.get("to_status") in ("pending", "skipped")
         proposal_failed = failure is not None or generation in proposed_failures
@@ -460,15 +456,14 @@ def candidate_records(run, out, db, inspect_saved):
         ))
         if schedule_rejected or contact_conversion_error:
             contact_legal = False
-        physics = acceptance.get("to_physical") or x.get("to_physical") or {}
+        physics = x.get("to_physical") or {}
         goal = x.get("to_goal") or {}
         valid = verdict["to_valid"] is True
         segment_data = [s for s in x.get("to_segments") or [] if s.get("status") is not None]
         record = dict(verdict, generation=generation, found=found, provisional=provisional,
                       proposal_failed=proposal_failed, not_novel="NOT_NOVEL" in str((failure or {}).get("failure_reason", "")),
                       source=source, started=started, score=score, plan=plan, goal=goal, physics=physics,
-                      completion=acceptance.get("task_completion") or x.get("task_completion") or public.get("task_completion"),
-                      solver_to_valid=solver_to_valid,
+                      completion=x.get("task_completion") or public.get("task_completion"),
                       generated_scene=run.group == "generated_scene",
                       validated_target_xyz=target, completion_tolerance_m=tolerance,
                       contact_legal=contact_legal, schedule_rejected=schedule_rejected,
@@ -934,8 +929,7 @@ def main():
                 candidate_rows.append(dict(
                     run_id=row["run_id"], job_id=row["job_id"], scene=row["scene"],
                     generation=candidate["generation"], failure_category=candidate["category"],
-                    to_valid=candidate["to_valid"], solver_to_valid=candidate["solver_to_valid"],
-                    to_converged=candidate["to_converged"],
+                    to_valid=candidate["to_valid"], to_converged=candidate["to_converged"],
                     failure_detail=(candidate["error"] or candidate["solver_error"] or
                                     candidate["to_fail_reason"] or candidate["violation"]),
                     candidate_started=candidate["started"], metrics_present=candidate["found"],
