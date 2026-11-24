@@ -1,0 +1,121 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+"""
+Contact-mode-sequence generator for humanoid loco-manipulation.
+
+Only this one function is evolved by ShinkaEvolve. The notation, the
+task, the scene IDs and how plans are judged are described in the
+system prompt.
+
+A `contact_mode_seq` is a dict of channels -> list of contact tuples
+(one entry per mode). Channels are:
+
+    "left_ee", "right_ee"     : (env_id, contact_type)            or () for free
+    "left_sole", "right_sole" : (env_id, contact_type)            or () for free
+    "<object_label>"          : (self_id, env_id, contact_type)   or () for free
+
+contact_type: 1 = sticking, 2 = sliding (see the system prompt).
+All channels in the dict must have the same length (= number of modes).
+
+Helpers available in this module's namespace (do NOT redefine):
+
+    get_initial_mode() -> Dict[str, List[Tuple]]
+        Returns the scene's initial contact mode as a single-mode
+        contact_mode_seq (length-1 channel lists). Use this as mode 0
+        of your plan and append further modes from there.
+
+    append_mode(plan, **channel_updates) -> None
+        Appends one new mode to ``plan``. Channels not mentioned
+        keep their previous value.
+
+    walk(plan, n_steps) -> None
+        Optional shorthand: appends n_steps alternating steps (right
+        foot lifts first), finishing in double support on the same
+        surfaces.
+"""
+
+def walk_towards(plan: Dict[str, List[Tuple]], target_env_id: int, steps: int) -> None:
+    """Walk towards a target environment ID."""
+    walk(plan, steps)
+
+def move_ee_towards(plan: Dict[str, List[Tuple]], ee: str, target_env_id: int) -> None:
+    """Move an end-effector towards a target environment ID."""
+    append_mode(plan, **{ee: (target_env_id, 1)})
+
+def grasp_object(plan: Dict[str, List[Tuple]], ee: str, object_env_id: int) -> None:
+    """Grasp an object with an end-effector."""
+    append_mode(plan, **{ee: (object_env_id, 1, 1)})
+
+def lift_object(plan: Dict[str, List[Tuple]], steps: int) -> None:
+    """Lift an object by walking."""
+    walk(plan, steps)
+
+def release_object(plan: Dict[str, List[Tuple]]) -> None:
+    """Release an object."""
+    append_mode(plan, left_ee=(), white_box=())
+
+def place_object(plan: Dict[str, List[Tuple]], ee: str, object_self_id: int, target_env_id: int) -> None:
+    """Place an object on a target environment ID."""
+    append_mode(plan, **{ee: (object_self_id, target_env_id, 1)})
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Ensure the robot's feet are planted on the ground
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Step 1: Move to the white box
+    walk_towards(plan, 14, 4)
+
+    # Step 2: Move the left EE towards the white box
+    move_ee_towards(plan, "left_ee", 14)
+
+    # Step 3: Grasp the white box
+    grasp_object(plan, "left_ee", 14)
+
+    # Step 4: Lift the white box
+    lift_object(plan, 2)
+
+    # Step 5: Release the white box before moving to the elevated table
+    release_object(plan)
+
+    # Step 6: Move to the elevated table
+    walk_towards(plan, 8, 4)
+
+    # Step 7: Move the left EE towards the elevated table
+    move_ee_towards(plan, "left_ee", 8)
+
+    # Step 8: Grasp the white box again
+    grasp_object(plan, "left_ee", 14)
+
+    # Step 9: Place the white box on the elevated table
+    place_object(plan, "left_ee", 6, 8)
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

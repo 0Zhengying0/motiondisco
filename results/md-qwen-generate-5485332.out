@@ -1,0 +1,10 @@
+Run artifacts: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_220933_ev3_jqvx
+Scene attempt 1: [{'code': 'UNSUPPORTED_OBJECT', 'subject': 'box1', 'message': 'MuJoCo found no upward contact with the declared support', 'details': {'support': 'table1'}}]
+Scene attempt 2: [{'code': 'PENETRATION', 'subject': 'table1', 'message': 'Box volumes overlap', 'details': {'other': 'box1', 'depth_m': 0.23}}, {'code': 'PENETRATION', 'subject': 'table2', 'message': 'Box volumes overlap', 'details': {'other': 'box2', 'depth_m': 0.27}}]
+Scene attempt 3: [{'code': 'INVALID_SUPPORT_SURFACE', 'subject': 'box1', 'message': "'table1' must use face 'top'", 'details': {}}, {'code': 'INVALID_SUPPORT_SURFACE', 'subject': 'box2', 'message': "'table2' must use face 'top'", 'details': {}}]
+Scene attempt 4: [{'code': 'UNSUPPORTED_OBJECT', 'subject': 'box1', 'message': 'MuJoCo found no upward contact with the declared support', 'details': {'support': 'table1'}}]
+Scene attempt 5: [{'code': 'UNSUPPORTED_OBJECT', 'subject': 'box1', 'message': 'MuJoCo found no upward contact with the declared support', 'details': {'support': 'table1'}}]
+{
+  "status": "validation_exhausted",
+  "scene": null
+}

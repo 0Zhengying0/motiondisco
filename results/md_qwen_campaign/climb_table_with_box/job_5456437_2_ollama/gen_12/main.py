@@ -1,0 +1,137 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+"""
+Contact-mode-sequence generator for humanoid loco-manipulation.
+
+Only this one function is evolved by ShinkaEvolve. The notation, the
+task, the scene IDs and how plans are judged are described in the
+system prompt.
+
+A `contact_mode_seq` is a dict of channels -> list of contact tuples
+(one entry per mode). Channels are:
+
+    "left_ee", "right_ee"     : (env_id, contact_type)            or () for free
+    "left_sole", "right_sole" : (env_id, contact_type)            or () for free
+    "<object_label>"          : (self_id, env_id, contact_type)   or () for free
+
+contact_type: 1 = sticking, 2 = sliding (see the system prompt).
+All channels in the dict must have the same length (= number of modes).
+
+Helpers available in this module's namespace (do NOT redefine):
+
+    get_initial_mode() -> Dict[str, List[Tuple]]
+        Returns the scene's initial contact mode as a single-mode
+        contact_mode_seq (length-1 channel lists). Use this as mode 0
+        of your plan and append further modes from there.
+
+    append_mode(plan, **channel_updates) -> None
+        Appends one new mode to ``plan``. Channels not mentioned
+        keep their previous value.
+
+    walk(plan, n_steps) -> None
+        Optional shorthand: appends n_steps alternating steps (right
+        foot lifts first), finishing in double support on the same
+        surfaces.
+"""
+
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    # Get the initial mode
+    plan = {ch: list(seq) for ch, seq in get_initial_mode().items()}
+
+    # State machine states
+    states = {
+        "initial": 0,
+        "climb_start": 1,
+        "climb_middle": 2,
+        "climb_end": 3,
+        "hold_box": 4,
+        "lift_box": 5,
+        "move_box_to_table": 6,
+        "hold_box_on_table": 7
+    }
+
+    # Current state
+    current_state = states["initial"]
+
+    # Define transitions
+    def transition_to_climb_start():
+        nonlocal current_state
+        append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+        current_state = states["climb_start"]
+
+    def transition_to_climb_middle():
+        nonlocal current_state
+        walk(plan, 3)  # Walk to the table
+        current_state = states["climb_middle"]
+
+    def transition_to_climb_end():
+        nonlocal current_state
+        append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))
+        current_state = states["climb_end"]
+
+    def transition_to_hold_box():
+        nonlocal current_state
+        append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+        current_state = states["hold_box"]
+
+    def transition_to_lift_box():
+        nonlocal current_state
+        append_mode(plan, left_ee=(6, 1), right_ee=(6, 1), white_box=(1, 1, 1))
+        current_state = states["lift_box"]
+
+    def transition_to_move_box_to_table():
+        nonlocal current_state
+        walk(plan, 3)  # Walk to the table
+        current_state = states["move_box_to_table"]
+
+    def transition_to_hold_box_on_table():
+        nonlocal current_state
+        append_mode(plan, left_ee=(9, 1), right_ee=(11, 1), white_box=(1, 2, 1))
+        current_state = states["hold_box_on_table"]
+
+    # State machine logic
+    while current_state != states["hold_box_on_table"]:
+        if current_state == states["initial"]:
+            transition_to_climb_start()
+        elif current_state == states["climb_start"]:
+            transition_to_climb_middle()
+        elif current_state == states["climb_middle"]:
+            transition_to_climb_end()
+        elif current_state == states["climb_end"]:
+            transition_to_hold_box()
+        elif current_state == states["hold_box"]:
+            transition_to_lift_box()
+        elif current_state == states["lift_box"]:
+            transition_to_move_box_to_table()
+        elif current_state == states["move_box_to_table"]:
+            transition_to_hold_box_on_table()
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

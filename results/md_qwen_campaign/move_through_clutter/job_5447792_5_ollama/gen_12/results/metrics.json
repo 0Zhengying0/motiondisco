@@ -1,0 +1,40 @@
+{
+    "combined_score": 0.0005653840545915522,
+    "public": {
+        "num_modes": 30,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 1767.7092373385474,
+        "violations": [
+            "mode 29: the motion is not dynamically consistent (it needs 92% of the body weight, 300 N, that no contact provides)",
+            "transition 17->18: no contact changes (noop)",
+            "transition 20->21: no contact changes (noop)",
+            "transition 23->24: no contact changes (noop)",
+            "transition 26->27: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 82.81644431242533,
+        "to_jerk_per_mode": 21931.909531635276
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8620689655172413,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9724137931034482,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.557178507956123,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 29: the motion is not dynamically consistent (it needs 92% of the body weight, 300 N, that no contact provides)\n- mode 29: left_sole slides 34 cm on floor surface although the contact is sticking\n- mode 29: left_sole stays 24 cm off floor surface; the planned contact is not made\n- mode 29: left_ee on floor surface needs more friction than available (70% beyond the cone)\n- modes 3\u201317: in 3 of 15 steps a foot travels more than 0.8 m (up to 1.26 m, right_sole at mode 17); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 3 more walking steps before mode 19 (left_ee -> floor surface (sliding), right_ee -> floor surface (sliding)), e.g. walk(plan, 3)",
+    "execution_time_mean": 0.5356866920046741,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

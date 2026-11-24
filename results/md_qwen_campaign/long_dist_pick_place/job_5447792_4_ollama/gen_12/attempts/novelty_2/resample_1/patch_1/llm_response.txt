@@ -1,0 +1,37 @@
+<NAME>
+Add initial steps to move the robot closer to the table before attempting to pick up the yellow box.
+
+<DESCRIPTION>
+The current plan starts immediately with picking up the yellow box, which is too far away. To successfully pick up the box, the robot needs to move closer to the table first. This edit adds initial steps to move the robot towards the table, ensuring that the robot is within reach of the yellow box before attempting to pick it up.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk towards the table
+    walk(plan, 6)
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

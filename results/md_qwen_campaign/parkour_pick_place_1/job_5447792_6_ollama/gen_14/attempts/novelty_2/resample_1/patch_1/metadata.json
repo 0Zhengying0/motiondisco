@@ -1,0 +1,14 @@
+{
+  "generation": 14,
+  "novelty_attempt": 2,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan only has one mode, which is the initial mode. To achieve the task of picking up the white box and placing it on the elevated table, we need to add more modes to approach the white box, manipulate it, and then place it on the table. This will ensure that the plan has enough modes to be feasible and that the IK and TO solvers can work with it.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T23:25:59.341783",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

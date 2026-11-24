@@ -1,0 +1,28 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_4/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_4/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_4/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_4/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.51 seconds==========
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_4/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_4/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_4/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 11, 'goal_match': False, 'ik_feasible': None, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['discrete goal: white_box final mode is (6, 1, 1), expected (6, 8, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)', 'mode 2: no sole in contact', 'mode 3: no sole in contact', 'mode 4: no sole in contact', 'mode 5: no sole in contact', 'mode 6: no sole in contact', 'mode 7: no sole in contact', 'mode 8: no sole in contact', 'mode 9: no sole in contact', 'mode 10: no sole in contact', 'transition 2->3: no contact changes (noop)', 'transition 3->4: no contact changes (noop)', 'transition 4->5: no contact changes (noop)', 'transition 5->6: no contact changes (noop)', 'transition 6->7: no contact changes (noop)', 'transition 7->8: no contact changes (noop)', 'transition 8->9: no contact changes (noop)']}
+  private: {'well_formed_fraction': 0.9636363636363636, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 0.18181818181818182, 'no_noop_fraction': 0.3, 'object_passive_fraction': 1.0, 'structure_score': 0.6890909090909091, 'efficiency': 0.08333333333333337}
+  execution_time_mean: 0.5101633050071541
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

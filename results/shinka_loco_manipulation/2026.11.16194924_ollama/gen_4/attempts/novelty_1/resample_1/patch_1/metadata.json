@@ -1,0 +1,14 @@
+{
+  "generation": 4,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan fails because the box's contact type changes from sticking (1) to sliding (2) without a free () mode in between. The solver requires that any contact change from one surface to another must first go through a free state. This change adds a free mode for the box before changing its contact type to ensure compliance with the solver rules.",
+  "error_msg": null,
+  "timestamp": "2026-11-16T19:52:26.844910",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

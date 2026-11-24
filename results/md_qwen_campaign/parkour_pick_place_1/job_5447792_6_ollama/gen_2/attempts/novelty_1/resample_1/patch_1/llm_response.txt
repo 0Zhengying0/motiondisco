@@ -1,0 +1,42 @@
+<NAME>
+Improve contact transitions for white_box movement
+</NAME>
+
+<DESCRIPTION>
+The current plan has issues with the white_box transitions, where the object is teleported without going free. We need to ensure that the object transitions correctly from one contact to another. Additionally, we should ensure that the final mode matches the discrete contact goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Move left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+    
+    # Grasp the white box with the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+    
+    # Lift the white box and move it to the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 8, 1))
+    
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+    
+    return plan
+=======
+    # Move left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+    
+    # Grasp the white box with the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+    
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    
+    # Move the white box to the elevated table
+    append_mode(plan, left_ee=(14, 1), right_sole=(2, 1), white_box=(1, 8, 1))
+    
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(1, 8, 1))
+    
+    return plan
+>>>>>>> REPLACE
+</DIFF>

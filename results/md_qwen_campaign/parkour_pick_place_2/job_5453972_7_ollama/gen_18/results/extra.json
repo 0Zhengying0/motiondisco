@@ -1,0 +1,429 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        1
+      ],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        8,
+        1
+      ],
+      [],
+      []
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "white_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        1,
+        14,
+        1
+      ],
+      [
+        6,
+        8,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 25,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 0.9166666666666666,
+    "structure_score": 0.9833333333333334,
+    "efficiency": 0.0,
+    "combined_score": 0.9833333333333334,
+    "violations": [
+      "white_box transition 11->12: object teleported from (6, 1, 1) to (1, 14, 1) without going free",
+      "white_box transition 23->24: object teleported from (1, 14, 1) to (6, 8, 1) without going free"
+    ]
+  },
+  "goal_match": true,
+  "ik_feasible": false,
+  "ik_cost": null,
+  "to_converged": null,
+  "to_cost": null,
+  "ik_run_path": null,
+  "to_run_path": null,
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": {
+    "kind": "schedule_error",
+    "errors": [
+      "mode 11->12: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)",
+      "mode 23->24: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)"
+    ],
+    "total_modes": 25,
+    "last_feasible_modes": 12,
+    "first_infeasible_modes": 13,
+    "events_total": 6,
+    "events_feasible": 2
+  },
+  "kso_violations": null,
+  "to_status": null,
+  "to_violations": null,
+  "to_valid": null,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": null,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "walk|left_ee:->14.1|walk|left_ee:14.1>-|white_box:6.1.1>1.14.1|walk|left_ee:->8.1|walk|left_ee:8.1>-|white_box:1.14.1>6.8.1",
+  "plan_novelty": null,
+  "plan_patches": "left_ee:14.1,8.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": null,
+  "to_cost_parts": null
+}

@@ -1,0 +1,54 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 25,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "Invalid contact schedule (no solver run): mode 5->6: green_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)",
+            "mode 5->6: green_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)",
+            "green_box transition 5->6: object teleported from (6, 2, 1) to (1, 6, 1) without going free",
+            "green_box transition 7->8: object teleported from (1, 6, 1) to (1, 2, 1) without going free",
+            "white_box transition 13->14: object teleported from (6, 2, 1) to (1, 6, 1) without going free",
+            "white_box transition 15->16: object teleported from (1, 6, 1) to (1, 8, 1) without going free",
+            "yellow_box transition 21->22: object teleported from (6, 2, 1) to (1, 6, 1) without going free",
+            "yellow_box transition 23->24: object teleported from (1, 6, 1) to (1, 14, 1) without going free"
+        ],
+        "kso_feasible_through_mode": 5,
+        "kso_first_infeasible_mode": 6
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 0.9166666666666666,
+        "structure_score": 0.9833333333333334,
+        "efficiency": 0.0,
+        "ik_diagnosis": {
+            "kind": "schedule_error",
+            "errors": [
+                "mode 5->6: green_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)",
+                "mode 7->8: green_box changes from (1, 6, 1) to (1, 2, 1) without a free () mode in between; release it first: (1, 6, 1) -> () -> (1, 2, 1)",
+                "mode 13->14: white_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)",
+                "mode 15->16: white_box changes from (1, 6, 1) to (1, 8, 1) without a free () mode in between; release it first: (1, 6, 1) -> () -> (1, 8, 1)",
+                "mode 21->22: yellow_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)",
+                "mode 23->24: yellow_box changes from (1, 6, 1) to (1, 14, 1) without a free () mode in between; release it first: (1, 6, 1) -> () -> (1, 14, 1)"
+            ],
+            "total_modes": 25,
+            "last_feasible_modes": 6,
+            "first_infeasible_modes": 7,
+            "events_total": 12,
+            "events_feasible": 1
+        }
+    },
+    "text_feedback": "Solver feedback:\nInvalid contact schedule (no solver run): mode 5->6: green_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)\n- mode 5->6: green_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)\n- mode 7->8: green_box changes from (1, 6, 1) to (1, 2, 1) without a free () mode in between; release it first: (1, 6, 1) -> () -> (1, 2, 1)\n- mode 13->14: white_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)\n- mode 15->16: white_box changes from (1, 6, 1) to (1, 8, 1) without a free () mode in between; release it first: (1, 6, 1) -> () -> (1, 8, 1)\n- mode 21->22: yellow_box changes from (6, 2, 1) to (1, 6, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 6, 1)\nEvery channel (hands, feet, objects) must pass through () before touching a different surface.",
+    "execution_time_mean": 0.5411966510000639,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

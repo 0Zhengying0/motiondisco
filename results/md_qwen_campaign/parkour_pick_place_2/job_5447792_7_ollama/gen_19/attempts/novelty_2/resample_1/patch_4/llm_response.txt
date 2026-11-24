@@ -1,0 +1,12 @@
+<NAME>
+Ensure the robot's hand and foot placement is consistent with the task requirements and avoid unnecessary movements to improve the feasibility of the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+# Stage 1: Move closer to the box
+walk(plan, 5)  # Move forward to get closer to the box
+>>>>>>> REPLACE
+# Stage 1: Move closer to the box
+walk(plan, 5)  # Move forward to get closer to the box
+</DIFF>

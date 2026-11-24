@@ -1,0 +1,4 @@
+{
+    "correct": false,
+    "error": "name 'pick_up' is not defined"
+}

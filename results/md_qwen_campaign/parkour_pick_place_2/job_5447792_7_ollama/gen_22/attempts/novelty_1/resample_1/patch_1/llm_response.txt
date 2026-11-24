@@ -1,0 +1,47 @@
+<NAME>
+Ensure proper contact transitions for object manipulation
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_box(plan: Dict[str, List[Tuple]]) -> None:
+    # Step 1: Walk to the box
+    walk(plan, 5)
+    # Step 2: Reach for the box with the left hand
+    append_mode(plan, left_ee=(14, 1))
+    # Step 3: Pick up the box
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+=======
+def pick_box(plan: Dict[str, List[Tuple]]) -> None:
+    # Step 1: Walk to the box
+    walk(plan, 5)
+    # Step 2: Reach for the box with the left hand
+    append_mode(plan, left_ee=(14, 1))
+    # Step 3: Release the hand before picking up the box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Step 4: Pick up the box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure proper contact transitions for object placement
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def place_box(plan: Dict[str, List[Tuple]]) -> None:
+    # Step 1: Walk to the table
+    walk(plan, 5)
+    # Step 2: Place the box on the table
+    append_mode(plan, white_box=(6, 8, 1))
+=======
+def place_box(plan: Dict[str, List[Tuple]]) -> None:
+    # Step 1: Walk to the table
+    walk(plan, 5)
+    # Step 2: Release the box before placing it
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+    # Step 3: Place the box on the table
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

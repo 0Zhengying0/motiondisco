@@ -1,0 +1,47 @@
+<NAME>
+Ensure proper contact transitions by adding intermediate free modes before changing surfaces.
+
+<DESCRIPTION>
+The current plan fails due to invalid contact schedules where the end-effectors (EEs) change surfaces without passing through a free state first. This violates the solver rules that require a contact to be released before touching a different surface. To fix this, we need to add intermediate modes where the EEs are free before transitioning to a new surface.
+
+By adding these intermediate free modes, we ensure that the contact transitions are valid and should resolve the IK feasibility issues.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def lift_box(plan):
+    # Lift the box
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+=======
+def lift_box(plan):
+    # Lift the box
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def move_box_to_other_side(plan):
+    # Move the box to the other side of the table
+    walk(plan, 5)
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+=======
+def move_box_to_other_side(plan):
+    # Move the box to the other side of the table
+    walk(plan, 5)
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+=======
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+>>>>>>> REPLACE
+</DIFF>

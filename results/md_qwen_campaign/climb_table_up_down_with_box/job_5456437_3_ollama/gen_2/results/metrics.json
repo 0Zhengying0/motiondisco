@@ -1,0 +1,38 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 11,
+        "goal_match": false,
+        "ik_feasible": null,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "discrete goal: left_sole final mode is (2, 1, 1), expected (1, 1)",
+            "discrete goal: right_sole final mode is (2, 1, 1), expected (1, 1)",
+            "discrete goal: white_box final mode is (6, 2, 1), expected (6, 1, 1)",
+            "left_sole: ee/sole entry must be (env_id, contact_type), got (2, 1, 1)",
+            "right_sole: ee/sole entry must be (env_id, contact_type), got (2, 1, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 2)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (2, 1, 2)",
+            "white_box transition 1->2: object teleported from (6, 1, 1) to (1, 1, 2) without going free",
+            "white_box transition 2->3: object teleported from (1, 1, 2) to (2, 1, 2) without going free",
+            "white_box transition 3->4: object teleported from (2, 1, 2) to (6, 2, 1) without going free"
+        ]
+    },
+    "private": {
+        "well_formed_fraction": 0.9090909090909091,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 0.7,
+        "structure_score": 0.9218181818181819,
+        "efficiency": 0.08333333333333337
+    },
+    "execution_time_mean": 0.5204680739843752,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

@@ -1,0 +1,55 @@
+<NAME>
+Fix contact transitions to ensure proper contact release before new contact.
+
+<DESCRIPTION>
+The current plan fails because it transitions directly from one surface to another without releasing the previous contact. According to the solver rules, each contact must be released before it touches a different surface. We need to insert a mode where the contacts are released before transitioning to the new surface.
+
+This change will ensure that the robot properly releases its contacts before moving to a new surface, adhering to the solver rules and increasing the likelihood of a feasible plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Grasp the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Step 3: Lift the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+=======
+    # Step 2: Grasp the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Step 2.5: Release the white box from the floor
+    append_mode(plan, left_ee=(14, 1), white_box=())
+
+    # Step 3: Lift the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 4: Move to the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(plan, 5)
+=======
+    # Step 4: Move to the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(plan, 5)
+
+    # Step 4.5: Release the white box from the floor
+    append_mode(plan, left_ee=(14, 1), white_box=())
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 5: Place the white box on the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+=======
+    # Step 5: Place the white box on the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+
+    # Step 5.5: Release the white box from the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=())
+>>>>>>> REPLACE
+</DIFF>

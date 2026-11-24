@@ -1,0 +1,34 @@
+<NAME>
+Add intermediate steps to ensure smooth transitions and avoid direct contact changes.
+
+<DESCRIPTION>
+The current plan has several direct contact changes that violate the solver's rule of needing a free state before touching a different surface. To address this, we will add intermediate steps to ensure smooth transitions. Specifically, we will add steps to release the end-effector before moving it to a new contact and ensure the object is properly placed on the table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 1: Move to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(1, 1))
+
+    # Step 1.5: Release right_ee before moving to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=())
+=======
+    # Step 1: Move to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(1, 1))
+
+    # Step 1.5: Release right_ee before moving to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=())
+
+    # Step 1.75: Move left_ee to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=())
+
+    # Step 2: Pick up the white box
+    append_mode(plan, left_ee=(), right_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Step 2.5: Move right_ee to the elevated table
+    append_mode(plan, left_ee=(), right_ee=(8, 1), white_box=(1, 14, 1))
+
+    # Step 3: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

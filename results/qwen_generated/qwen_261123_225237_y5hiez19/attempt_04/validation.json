@@ -1,0 +1,55 @@
+{
+  "pass": false,
+  "errors": [
+    {
+      "code": "PENETRATION",
+      "subject": "green_box_1",
+      "message": "Box volumes overlap",
+      "details": {
+        "other": "white_box_1",
+        "depth_m": 0.03500000000000014
+      }
+    }
+  ],
+  "mujoco_version": "3.13.0",
+  "thresholds": {
+    "bounds_m": 1e-06,
+    "support_gap_m": 1e-05,
+    "box_penetration_m": 0.001,
+    "sole_penetration_m": 0.002,
+    "sole_contact_gap_m": 0.001,
+    "simulation_s": 2.0,
+    "settle_s": 0.25,
+    "position_drift_m": 0.005,
+    "angle_drift_rad": 0.03,
+    "linear_speed_m_s": 0.01,
+    "angular_speed_rad_s": 0.05
+  },
+  "stability": {},
+  "face_ids": {
+    "floor.surface": 1,
+    "table_short_1.top": 2,
+    "table_short_1.left": 3,
+    "table_short_1.front": 4,
+    "table_short_1.right": 5,
+    "table_short_1.back": 6,
+    "table_short_1.bottom": 7,
+    "green_box_1.top": 8,
+    "green_box_1.left": 9,
+    "green_box_1.front": 10,
+    "green_box_1.right": 11,
+    "green_box_1.back": 12,
+    "green_box_1.bottom": 13,
+    "white_box_1.top": 14,
+    "white_box_1.left": 15,
+    "white_box_1.front": 16,
+    "white_box_1.right": 17,
+    "white_box_1.back": 18,
+    "white_box_1.bottom": 19
+  },
+  "target_xyz_m": [
+    1.0,
+    1.5,
+    0.7746849933798136
+  ]
+}

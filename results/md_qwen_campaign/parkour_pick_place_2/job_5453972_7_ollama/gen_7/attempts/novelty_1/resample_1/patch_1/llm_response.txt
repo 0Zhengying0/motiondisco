@@ -1,0 +1,51 @@
+<NAME>
+Improve plan by adding steps to walk to the white box, reach and pick it up, and then walk to the elevated table and place it.
+
+<DESCRIPTION>
+The current plan only has one mode and does not meet the task requirements. We need to extend the plan to include steps to walk to the white box, reach and pick it up, and then walk to the elevated table and place it. This will ensure that the plan has at least two modes and meets the discrete contact goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 5)
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(8, 1), white_box=(6, 8, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

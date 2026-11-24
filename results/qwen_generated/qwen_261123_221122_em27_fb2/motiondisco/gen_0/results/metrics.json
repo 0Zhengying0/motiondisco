@@ -1,0 +1,29 @@
+{
+    "combined_score": 0.1,
+    "public": {
+        "num_modes": 5,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [],
+        "kso_goal_mode": "hard",
+        "task_quality": 0.9265980557921142,
+        "to_quality": null,
+        "to_status": "pending"
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.5833333333333333,
+        "ik_mode": "hard",
+        "ik_cost": 0.07921659639695361,
+        "to_mode": "hard"
+    },
+    "text_feedback": "KSO found the 5-mode plan feasible. If you are reading this, trajectory optimization (TO) did not finish within the evaluation time limit (TO time grows with plan length; 5 modes is about 5 s of motion). The plan is kinematically valid; TO was cut off, not failed, so keep its contacts and strategy (an identical plan would count as a duplicate)."
+}

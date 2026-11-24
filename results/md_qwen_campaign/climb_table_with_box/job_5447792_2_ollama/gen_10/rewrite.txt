@@ -1,0 +1,57 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    plan = get_initial_mode()
+
+    move_to_table(plan)
+    lift_right_ee_and_move(plan)
+    lift_left_ee_and_move(plan)
+    hold_box_with_left_ee(plan)
+    hold_box_with_right_ee(plan)
+
+    return plan
+
+def move_to_table(plan: Dict[str, List[Tuple]]):
+    # Move forward to the table
+    walk(plan, 3)
+
+def lift_right_ee_and_move(plan: Dict[str, List[Tuple]]):
+    # Lift the right foot and move forward to the table
+    append_mode(plan, right_ee=(2, 1))
+    walk(plan, 1)
+    append_mode(plan, right_ee=(), left_ee=(2, 1))
+
+def lift_left_ee_and_move(plan: Dict[str, List[Tuple]]):
+    # Move the left foot forward to the table
+    walk(plan, 1)
+    append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))
+
+def hold_box_with_left_ee(plan: Dict[str, List[Tuple]]):
+    # Hold the box with the left hand
+    append_mode(plan, left_ee=(9, 1))
+
+def hold_box_with_right_ee(plan: Dict[str, List[Tuple]]):
+    # Hold the box with the right hand
+    append_mode(plan, right_ee=(11, 1))
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

@@ -1,0 +1,43 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Step 1: Move under the table
+    append_mode(plan, left_ee=(), right_ee=())
+    walk(plan, 5)
+
+    # Step 2: Pick up the box
+    append_mode(plan, left_ee=(1, 1), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())  # Release left_ee
+    append_mode(plan, left_ee=(6, 1), right_ee=())  # Contact left_ee with the box
+    append_mode(plan, left_ee=(6, 1), right_ee=())  # Hold the box
+    append_mode(plan, left_ee=(6, 2), right_ee=())  # Change contact type to sliding
+    walk(plan, 3)
+
+    # Step 3: Place the box on top of the table
+    append_mode(plan, left_ee=(2, 1), right_ee=())
+    append_mode(plan, left_ee=(2, 1), right_ee=())  # Release right_ee
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))  # Contact right_ee with the table
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), white_box=(6, 2, 1))  # Place the box on the table
+
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

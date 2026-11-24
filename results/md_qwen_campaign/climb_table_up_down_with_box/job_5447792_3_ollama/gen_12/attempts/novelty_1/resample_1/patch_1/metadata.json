@@ -1,0 +1,14 @@
+{
+  "generation": 12,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 2,
+  "patch_name": "none",
+  "patch_description": "The current plan fails IK because it attempts to change contact surfaces without passing through a free state first. To address this, we need to ensure that every hand and object channel transitions through a free state before changing contact surfaces. This will make the plan feasible for IK and TO.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T18:44:41.851198",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

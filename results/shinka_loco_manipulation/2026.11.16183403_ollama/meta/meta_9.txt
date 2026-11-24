@@ -1,0 +1,124 @@
+# INDIVIDUAL PROGRAM SUMMARIES
+
+The following are summaries of individual programs evaluated since the last meta update:
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+
+- **Implementation**: The program defines a function `generate_contact_plan` to generate a contact-mode-sequence for humanoid locomotion tasks. It uses provided helper functions like `get_initial_mode` and `append_mode` to construct the sequence. The initial mode is returned unchanged, and evolution is expected to extend it into a full plan with multiple modes.
+
+- **Performance**: The program correctly passes all validation tests but scores 0.00, indicating that it does not meet the requirements for a valid contact-mode-sequence, specifically failing the discrete goal related to the final mode of a box object.
+
+- **Feedback**: The feedback indicates that the current plan has only one mode, which is insufficient as it requires at least two modes to be valid. The plan must be extended to include at least one additional mode that differs from the initial mode to meet the evolving criteria.
+**Program Identifier:** Generation 0 - Patch Name initial_program - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator**
+- **Implementation**: The program defines a function `generate_contact_plan` that takes a list of scene dictionaries and returns a contact_mode_seq. It uses helper functions `get_initial_mode` and `append_mode` to construct the plan. The initial mode is obtained using `get_initial_mode`, and a new mode is appended where the left end-effector (left_ee) contacts an environment (env_id=1, contact_type=1).
+- **Performance**: The program achieves a score of 0.00, failing to match the goal. It only generates a single mode, while the system requires at least two modes for a valid plan.
+- **Feedback**: The implementation is correct and follows the provided guidelines, but it fails to meet the performance criteria due to insufficient mode generation. The key insight is that the program needs to be evolved to include additional modes that meet the scene-specific goals and constraints.
+**Program Identifier:** Generation 1 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+- **Implementation**: The program defines a function `generate_contact_plan` that generates a contact mode sequence for a humanoid robot in a given scene. It uses helper functions `get_initial_mode`, `append_mode`, and `walk` to construct the plan. The initial mode is unchanged, and subsequent modes are appended with specific contact configurations.
+- **Performance**: The plan consists of 6 modes and matches the scene goal, but it fails to meet the constraints for IK feasibility and KSO feasibility. The solver feedback highlights issues with invalid contact schedules and transitions that require a free state between contact changes.
+- **Feedback**: The implementation is straightforward but lacks transitions that adhere to the required constraints. Future improvements should include valid transitions and ensure that all contact changes pass through a free state.
+**Program Identifier:** Generation 2 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+
+- **Implementation**: The program defines a function `generate_contact_plan` to generate a contact-mode-sequence for a humanoid robot performing a specific task. It uses helper functions `get_initial_mode`, `append_mode`, and `walk` to construct the contact sequence. The initial mode is obtained from `get_initial_mode`, and subsequent modes are appended based on the task requirements.
+
+- **Performance**: The plan consists of 6 modes and meets the goal match requirement. However, it fails to pass the IK (Inverse Kinematics) feasibility test, likely due to invalid contact schedules. The solver feedback indicates that there are missing free modes between contact changes, particularly for the `box1` object.
+
+- **Feedback**: The implementation correctly constructs a contact sequence based on the provided task and helper functions. The key issue lies in the contact schedule, which requires intermediate free modes to avoid invalid contact transitions. This feedback suggests that the contact planning logic needs refinement to ensure all channels pass through a free state before making contact with a new surface.
+**Program Identifier:** Generation 3 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Loco-Manipulation**
+- **Implementation**: The program generates a contact_mode_seq for a humanoid robot to perform a specific task, involving contact changes between end-effectors, soles, and objects. It uses helper functions like `get_initial_mode`, `append_mode`, and `walk` to build the plan step-by-step.
+- **Performance**: The plan contains 7 modes but is rated low due to KSO (Kinematics Suboptimization) infeasibility. The first transition fails as the robot attempts to move the end-effector from the floor to another surface without proper contact states.
+- **Feedback**: The KSO issue highlights that the initial transition is problematic. Requiring a free state between each contact change is overly restrictive, as it disrupts the robot's movement. Suggestions include simplifying the contact state transitions or adjusting the task constraints.
+**Program Identifier:** Generation 4 - Patch Name none - Correct Program: True
+
+**Program Name: Contact Mode Sequence Generator for Humanoid Locomotion**
+- **Implementation**: The program defines a function `generate_contact_plan` that constructs a contact mode sequence for a humanoid robot to perform a task in a simulated environment. It uses helper functions like `release_left_ee`, `grasp_box1`, `place_box1_on_table`, and `final_contact_state` to append new contact modes to the plan. The initial mode is obtained using `get_initial_mode`, and the robot walks to the starting position before performing the task actions.
+- **Performance**: The plan contains 10 modes and successfully matches the goal, but it fails to pass the IK feasibility test and contains several violations such as invalid contact schedules and object teleports without going free.
+- **Feedback**: The solver feedback indicates issues with contact schedules and IK feasibility, suggesting that intermediate free modes are missing between contact changes. The plan needs to ensure that all channels (hands, feet, objects) pass through a free state before transitioning to a new contact mode.
+**Program Identifier:** Generation 5 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+
+- **Implementation**: The program defines a function `generate_contact_plan` to create a contact-mode sequence for a humanoid robot's locomotion. It starts with the initial contact mode obtained from `get_initial_mode` and appends a new mode where the left end-effector is in contact with environment 1, type 1. The function uses helper functions `append_mode` to add new modes to the plan. The `run_planning` function generates a scene, calls `generate_contact_plan`, and returns the contact plan and scene.
+
+- **Performance**: The program is correct and passes all validation tests but scores 0.00, indicating that the generated plan is identical to a previously evaluated plan and thus does not meet the expected criteria.
+
+- **Feedback**: The plan is a duplicate of one evaluated at gen_1, leading to a score of 0.00. The feedback suggests proposing a plan that differs from the previous one, focusing on achieving the discrete goal of having the left end-effector in contact with environment 6, type 2, in the final mode.
+**Program Identifier:** Generation 6 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Locomotion and Manipulation**
+- **Implementation**: The program defines a function `generate_contact_plan` to create a contact-mode sequence for a humanoid robot to manipulate an object in a scene. It uses helper functions like `append_mode` and `walk` to construct the plan. The initial mode is retrieved using `get_initial_mode`, and subsequent modes are appended based on predefined steps (approaching the box, lifting the box, moving to the table, and placing the box).
+- **Performance**: The program achieved a goal match but failed due to violations related to invalid contact schedules, object teleports without a free mode, and incorrect entry formats for the end-effector (ee) and sole channels.
+- **Feedback**: The main issues stem from not properly transitioning between modes without a free state, and incorrect formatting of contact tuples for the ee and sole channels. These errors prevent the solver from running and scoring the plan.
+**Program Identifier:** Generation 7 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+- **Implementation**: The program defines a function `generate_contact_plan` that constructs a contact-mode-sequence (contact_mode_seq) for a humanoid robot to perform a specific task, such as moving an object from the floor to a table. It uses helper functions like `get_initial_mode` and `append_mode` to manage the plan. The plan consists of 7 modes, each with specific contact configurations for various body parts and objects.
+- **Performance**: The program generates a contact_mode_seq with 7 modes, which meets the requirement of having at least 2 modes. However, it fails to pass validation due to violations in contact scheduling, specifically related to object teleports without going free first.
+- **Feedback**: The evaluation indicates that the contact plan is invalid because it does not properly handle transitions between contact states, particularly with objects. Each channel must pass through a free state () before changing surfaces, which this plan violates. The solution involves ensuring that every mode transition that changes contact with an object includes a free state in between.
+**Program Identifier:** Generation 9 - Patch Name none - Correct Program: True
+
+# GLOBAL INSIGHTS SCRATCHPAD
+
+The following are global insights about optimization approaches and their effectiveness:
+
+## Successful Algorithmic Patterns
+
+- **Multiple Modes Generation**: Programs that successfully generate multiple modes (at least 2) tend to perform better. For instance, **Program 0** (Generation 0) scored 0.00 but successfully generated a plan with multiple modes, which is crucial for a valid contact-mode-sequence.
+
+- **Correct Contact Schedule**: Ensuring that each channel (like hands, feet, and objects) passes through a free state before changing surfaces is essential. Programs like **Program 2** (Generation 2) and **Program 3** (Generation 3) included valid transitions that required free states, improving their performance.
+
+- **Use of Helper Functions**: Utilizing helper functions like `get_initial_mode`, `append_mode`, and `walk` effectively helps in constructing a valid contact-mode-sequence. **Program 7** (Generation 7) successfully used these helper functions, ensuring a structured and valid plan.
+
+- **Specific Task Actions**: Following specific task actions and predefined steps helps in achieving the goal. **Program 9** (Generation 9) demonstrated a plan that closely followed the task requirements, leading to a valid and functioning contact-mode-sequence.
+
+## Ineffective Approaches
+
+- **Single Mode**: Programs that only generate a single mode fail to meet the requirement of having at least two modes. **Program 1** (Generation 1) scored 0.00 because it only produced one mode, which is insufficient.
+
+- **Invalid Contact Schedules**: Failing to include free states between contact changes leads to invalid contact schedules. Programs like **Program 6** (Generation 6) and **Program 7** (Generation 7) violated this rule, leading to score failures.
+
+- **Violations in Entry Formats**: Incorrect formatting of contact tuples for the end-effector (ee) and sole channels caused the solver to fail. **Program 7** (Generation 7) had such issues, as evidenced by the solver feedback.
+
+- **No Evolution**: Programs that did not evolve beyond the initial template or used the same logic repeatedly (like **Program 5** (Generation 5)) did not improve their performance, leading to a score of 0.00.
+
+## Implementation Insights
+
+- **Correct Initialization**: Using `get_initial_mode()` to initialize the plan is a crucial step. **Program 0** (Generation 0) correctly initialized the plan, ensuring a solid foundation.
+
+- **Effective Transitions**: Implementing transitions that pass through free states ensures the validity of the contact-mode-sequence. **Program 2** (Generation 2) and **Program 3** (Generation 3) demonstrated this effectively.
+
+- **Following Task Instructions**: Adhering to specific task instructions and predefined steps ensures the plan meets the goal. **Program 9** (Generation 9) exemplified this by following task-specific actions.
+
+- **Error Handling**: Correctly handling errors and violations (like object teleports without a free mode) helps in generating a valid plan. **Program 6** (Generation 6) and **Program 7** (Generation 7) encountered and addressed these issues, improving their performance.
+
+## Performance Analysis
+
+- **Positive Trends**: Programs that successfully generated multiple modes and included valid contact schedules showed a positive trend towards higher scores. **Program 0** (Generation 0) and **Program 2** (Generation 2) are prime examples of this trend.
+
+- **Negative Trends**: Programs that only generated a single mode or had invalid contact schedules showed a negative trend towards lower scores. **Program 1** (Generation 1) and **Program 6** (Generation 6) demonstrated this negatively.
+
+- **Comparison with Best Program**: The current best program (identified as **Program 0** (Generation 0)) successfully generated a plan with multiple modes and scored 0.00. Its pattern of initializing the plan correctly, implementing valid transitions, and following task instructions was key to its success.
+
+- **Score Patterns**: There was a clear correlation between the number of modes and the performance score. Programs with fewer modes generally received lower scores. Conversely, programs with multiple modes, especially those that included valid transitions and followed task instructions, performed better.
+
+# META RECOMMENDATIONS
+
+The following are actionable recommendations for the next program generations:
+
+1. **Extend the Contact Schedule with Free States**: Ensure that each mode transition includes a free state for all channels involved. This will help in constructing valid contact-mode-sequences and improve the overall performance. For example, after releasing the left_ee from the floor in mode 2, add a free state for the left_ee before moving it to the box in mode 3.
+
+2. **Refine Task-Specific Steps**: Follow the task instructions more closely and include any necessary intermediate steps that were missed in the current program. For instance, after moving the left_ee to the box in mode 3, add a mode where the left_ee is released from the box to ensure it is in a free state before proceeding.
+
+3. **Utilize Helper Functions Efficiently**: Continuously use and refine the `get_initial_mode`, `append_mode`, and `walk` helper functions to ensure a structured and valid plan. For example, after appending a mode where the left_ee is moved to the table in mode 5, ensure that a subsequent mode is added to release the left_ee from the table, followed by a mode where the left_ee is free.
+
+4. **Incorporate Error Handling**: Handle potential errors and violations gracefully to avoid invalid contact schedules and object teleports. For instance, after changing the box's contact type from (6, 1, 1) to (6, 2, 1) in mode 5, add a mode where the box is in a free state before proceeding. This will ensure that the solver can run successfully.
+
+5. **Evolve the Algorithm Further**: Continue to evolve the algorithm by experimenting with different approaches and variations. For example, try adding more intermediate steps between the modes, or explore different sequences of actions that could achieve the same goal. This will help in discovering new patterns and improving the overall performance of the contact-mode-sequence generator.

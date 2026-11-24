@@ -1,0 +1,41 @@
+<NAME>
+Add a sequence of modes to move the robot's left hand to the green box and stack it on the table.
+
+<DESCRIPTION>
+The current plan has only one mode, which is the initial mode. To improve the performance, we need to add a sequence of modes that will allow the robot to move its left hand to the green box and stack it on the table. This involves moving the robot's left hand to the green box, picking it up, and then placing it on the table.
+
+The plan will consist of the following steps:
+1. Move the left hand to the green box.
+2. Pick up the green box.
+3. Move the left hand to the table.
+4. Place the green box on the table.
+
+Each step will be represented by a mode in the contact_mode_seq.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def extend_plan(plan: Dict[str, List[Tuple]]):
+    """
+    Extend the initial plan into a full plan by appending additional modes.
+    """
+    # Example: Append a single mode that differs from the initial one
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+=======
+def extend_plan(plan: Dict[str, List[Tuple]]):
+    """
+    Extend the initial plan into a full plan by appending additional modes.
+    """
+    # Step 1: Move the left hand to the green box
+    append_mode(plan, left_ee=(8, 1), right_ee=(2, 1))
+
+    # Step 2: Pick up the green box
+    append_mode(plan, left_ee=(8, 1), right_ee=(2, 1), green_box=(1, 8, 1))
+
+    # Step 3: Move the left hand to the table
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), green_box=(1, 8, 1))
+
+    # Step 4: Place the green box on the table
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), green_box=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

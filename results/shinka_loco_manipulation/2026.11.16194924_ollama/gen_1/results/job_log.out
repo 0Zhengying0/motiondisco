@@ -1,0 +1,28 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.16194924_ollama/gen_1/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.16194924_ollama/gen_1/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.16194924_ollama/gen_1/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.16194924_ollama/gen_1/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.58 seconds==========
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.16194924_ollama/gen_1/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.16194924_ollama/gen_1/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.16194924_ollama/gen_1/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 2, 'goal_match': False, 'ik_feasible': None, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1)']}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 1.0, 'efficiency': 0.8333333333333334}
+  execution_time_mean: 0.5817513329966459
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

@@ -1,0 +1,18 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "is_too_many_modes": true,
+        "expanded_modes": 121,
+        "max_num_nodes": 50,
+        "violations": [
+            "too many contact modes (121 > MAX_NUM_NODES=50); IK/TO skipped"
+        ]
+    },
+    "private": {},
+    "text_feedback": "Too many contact modes: the expanded contact_mode_seq has 121 modes, which exceeds the MAX_NUM_NODES cap of 50 by 71. The IK solver only covers plans of 2 to 50 modes, so IK and TO were skipped. The plan must be shorter (walk(plan, n) appends n + 1 modes).",
+    "execution_time_mean": 0.5384752069949172,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

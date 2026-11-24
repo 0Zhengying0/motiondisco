@@ -1,0 +1,58 @@
+<NAME>
+Improve the contact plan to pick up the white box and place it on the elevated table, ensuring the final mode matches the discrete contact goal.
+
+<DESCRIPTION>
+The current plan only returns the initial mode, which is insufficient for the task. We need to extend the plan to include modes for walking to the white box, picking it up, walking to the elevated table, and placing it down. Additionally, we need to ensure that the final mode matches the discrete contact goal of the white box being on the elevated table.
+
+To achieve this, we will:
+1. Walk to the white box.
+2. Pick up the white box using the right end-effector (right_ee).
+3. Release the white box when it is on the floor.
+4. Walk to the elevated table.
+5. Place the white box on the elevated table.
+
+We will ensure that each contact transition is valid by releasing the object before changing its contact surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 2)
+
+    # Pick up the white box with the right_ee
+    append_mode(plan, right_ee=(14, 1))
+
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=(6, 1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 2)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

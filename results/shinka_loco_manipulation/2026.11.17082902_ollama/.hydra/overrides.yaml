@@ -1,0 +1,9 @@
+- task@_global_=loco_manipulation
+- variant@_global_=ollama_local
+- cluster@_global_=local
+- task.scene=motiondisco.box_stacking
+- task.description="Stack the boxes on the table."
+- evo_config.num_generations=10
+- evo_config.max_api_costs=100
+- max_evaluation_jobs=1
+- max_proposal_jobs=1

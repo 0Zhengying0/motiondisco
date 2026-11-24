@@ -1,0 +1,33 @@
+<NAME>
+Ensure that all contact changes pass through a free state before changing surfaces, as required by the solver rules.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 1: Move to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(1, 1))
+
+    # Step 2: Pick up the white box
+    append_mode(plan, left_ee=(), right_ee=(14, 1), white_box=(1, 14, 1))
+=======
+    # Step 1: Move to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(1, 1))
+
+    # Step 1.5: Release right_ee before moving to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=())
+
+    # Step 2: Pick up the white box
+    append_mode(plan, left_ee=(), right_ee=(14, 1), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+
+    # Step 3: Move to the elevated table
+    append_mode(plan, left_ee=(8, 1), right_ee=(1, 1), white_box=(1, 14, 1))
+
+    # Step 3.5: Release right_ee before moving to the elevated table
+    append_mode(plan, left_ee=(8, 1), right_ee=(), white_box=(1, 14, 1))
+
+    # Step 4: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(8, 1), white_box=(6, 8, 1))
+
+    return plan
+</DIFF>

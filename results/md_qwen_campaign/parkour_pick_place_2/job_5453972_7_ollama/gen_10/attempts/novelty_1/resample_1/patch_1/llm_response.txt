@@ -1,0 +1,46 @@
+<NAME>
+Optimized contact mode sequence generation for the specified task.
+
+<DESCRIPTION>
+The goal of this program is to generate a contact mode sequence that allows the robot to pick up a white box and place it on an elevated table. The program uses the `get_initial_mode` function to start with the initial mode and then appends additional modes to the plan using `append_mode` and `walk`. The sequence of actions includes walking to the white box, picking it up, walking to the elevated table, and placing it there. The program ensures that all contacts are properly released before touching a different surface to comply with solver rules.
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 2)
+
+    # Pick up the white box with the right_ee
+    append_mode(plan, right_ee=(14, 1))
+
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=(6, 1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 2)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

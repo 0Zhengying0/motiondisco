@@ -1,0 +1,14 @@
+{
+  "generation": 24,
+  "novelty_attempt": 2,
+  "resample_attempt": 2,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan fails at mode 21 due to KSO infeasibility, specifically because the right and left soles do not touch the floor surface, and the left thigh penetrates the table_short. To address this, we need to ensure that the robot's feet are properly placed on the floor and that there are no collisions between the robot and the table_short. This can be achieved by adding more walking steps before the final placement to allow the robot to adjust its position and ensure proper support.\n\nBy adding more walking steps before the final placement, we give the trajectory optimizer more room to move the robot's feet and adjust its position to avoid collisions and ensure proper support on the floor.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T07:28:25.819968",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

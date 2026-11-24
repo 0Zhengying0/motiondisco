@@ -1,0 +1,41 @@
+<NAME>
+Ensure the box is placed correctly on the table with the correct contact type.
+
+<DESCRIPTION>
+The previous change introduced the basic plan for moving the robot to the table, lifting the box, moving it to the other side of the table, placing it, and returning to the floor. However, the plan did not ensure that the box was placed correctly on the table with the correct contact type. This change will update the plan to ensure that the box is placed with the correct contact type.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=())
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    
+    # Move the robot to the table
+    walk(plan, 3)
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    # Lift the box
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(8, 1, 1), right_ee=())
+    
+    # Move the robot and the box to the other side of the table
+    walk(plan, 3)
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(8, 1, 1), right_ee=())
+    
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 1))
+    
+    # Move the robot back to the floor
+    walk(plan, 3)
+    append_mode(plan, left_ee=(), right_ee=())
+    
+    return plan
+>>>>>>> REPLACE
+</DIFF>

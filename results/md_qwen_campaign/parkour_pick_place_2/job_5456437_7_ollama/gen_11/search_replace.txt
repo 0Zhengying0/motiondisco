@@ -1,0 +1,27 @@
+<NAME>
+Ensure proper contact transitions for hands and objects to avoid solver issues.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Grasp the white box
+    append_mode(plan, left_ee=(white_box_env_id, 1), right_ee=(white_box_env_id, 1))
+    walk(plan, 5)
+=======
+    # Grasp the white box
+    append_mode(plan, left_ee=(white_box_env_id, 1), right_ee=())
+    walk(plan, 5)
+    append_mode(plan, left_ee=(white_box_env_id, 1), right_ee=(white_box_env_id, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the white box on the table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(white_box_self_id, table_env_id, 1))
+=======
+    # Place the white box on the table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(white_box_self_id, table_env_id, 1))
+>>>>>>> REPLACE
+</DIFF>

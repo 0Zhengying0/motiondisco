@@ -1,0 +1,42 @@
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    # Initialize the plan with the initial mode
+    plan = get_initial_mode()
+    
+    # Append an initial transition mode
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    # Perform a sequence of walking steps
+    walk(plan, n_steps=5)
+    
+    # Append another transition mode after walking
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    # Perform another sequence of walking steps
+    walk(plan, n_steps=5)
+    
+    # Append a final transition mode
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

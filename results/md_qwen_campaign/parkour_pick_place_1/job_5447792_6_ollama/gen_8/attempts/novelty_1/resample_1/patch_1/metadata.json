@@ -1,0 +1,14 @@
+{
+  "generation": 8,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan fails because the white box transitions directly from one surface to another without passing through a free state. This violates the solver's rule that every channel must pass through a free state before touching a different surface. To fix this, we need to ensure that the white box is released from its current surface and then re-grasped on the new surface.\n\nAdditionally, the initial mode does not match the expected initial state of the white box. We need to update the initial mode to reflect the correct state of the white box.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 2-line block starting with: '# Place the white box on the elevated table'\n\nFull search pattern:\n```\n# Place the white box on the elevated table\nappend_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(1, 8, 1))\n```\n\nFound similar code block at line 74 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  # Place the white box on the elevated table\n-  append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(1, 8, 1))\n+      # Place the white box on the elevated table\n+      append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))\n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-79):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (64 more lines)\n        append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))\n    \n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-17T23:20:09.644201",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

@@ -1,0 +1,394 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 14,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 10 of 14 (left_ee released, right_ee released, white_box lifted); modes 0\u20139 solve on their own.",
+            "modes 9\u201310: white_box should rest with its bottom face on floor surface but stays 0.32 m away from it (in 3 of 4 solves)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+            "right_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+            "right_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+            "mode 1: no sole in contact",
+            "transition 6->7: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "kso_feasible_through_mode": 9,
+        "kso_first_infeasible_mode": 10,
+        "kso_break_event": "left_ee released, right_ee released, white_box lifted"
+    },
+    "private": {
+        "well_formed_fraction": 0.9285714285714286,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 0.9285714285714286,
+        "no_noop_fraction": 0.9230769230769231,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.956043956043956,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 10,
+            "first_infeasible_modes": 11,
+            "total_modes": 14,
+            "solver_error": "TypeError: ('ee', 'robot', 'left_ee')[mode=17]: expected () or (env_id,type), got (6, 8, 1)",
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 8,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 11,
+                    "feasible": false,
+                    "tries": 4
+                },
+                {
+                    "modes": 9,
+                    "feasible": true,
+                    "tries": 2
+                },
+                {
+                    "modes": 10,
+                    "feasible": true,
+                    "tries": 4
+                }
+            ],
+            "ik_hard_failed": true,
+            "prefix_violation_details": [
+                {
+                    "solver": "kso",
+                    "mode": 9,
+                    "subject": "white_box",
+                    "family": "gap",
+                    "value": 0.3246189777595214,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=18:path:Stage_white_box_kin_eqs[0]",
+                    "attempts": 3
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "white_box",
+                    "family": "gap",
+                    "value": 0.28877654511849404,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_white_box_kin_eqs[0]",
+                    "attempts": 3
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "white_box",
+                    "family": "gap",
+                    "value": 0.30579443673137485,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_white_box_kin_eqs[0]",
+                    "attempts": 3
+                },
+                {
+                    "solver": "kso",
+                    "mode": 9,
+                    "subject": "white_box",
+                    "family": "gap",
+                    "value": 0.30576234332273067,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=18:path:Stage_white_box_kin_eqs[0]",
+                    "attempts": 3
+                },
+                {
+                    "solver": "kso",
+                    "mode": 8,
+                    "subject": "left_ee",
+                    "family": "gap",
+                    "value": 0.04212947447824905,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 8,
+                    "subject": "white_box",
+                    "family": "gap",
+                    "value": 0.03196323994309874,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=17:path:Stage_white_box_kin_eqs[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "left_ee",
+                    "family": "gap",
+                    "value": 0.1341760956196345,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "white_box",
+                    "family": "gap",
+                    "value": 0.13192919902907074,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_white_box_kin_eqs[0]",
+                    "attempts": 3
+                },
+                {
+                    "solver": "kso",
+                    "mode": 9,
+                    "subject": "white_box",
+                    "family": "gap",
+                    "value": 0.1136349570578579,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=18:path:Stage_white_box_kin_eqs[0]",
+                    "attempts": 3
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "left upper arm",
+                    "family": "collision",
+                    "value": 0.07648627059781325,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "torso",
+                    "raw": "k=19:terminal:n_eff6aa7f87ae41028263d8063f906943f5f793fc718c66c7af192dcfe577df3d_distance[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "left_ee",
+                    "family": "tilt",
+                    "value": 0.07198322934901176,
+                    "unit": "rad",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "left_ee",
+                    "family": "tilt",
+                    "value": 0.0664649954489213,
+                    "unit": "rad",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "left forearm",
+                    "family": "collision",
+                    "value": 0.06304785165694085,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "torso",
+                    "raw": "k=19:terminal:n_c76b3d431f7cf68d2a245d11e46b11f8c4df33ae9166105663a52b7035f28d31_distance[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "right_ee",
+                    "family": "tilt",
+                    "value": 0.04024549675113588,
+                    "unit": "rad",
+                    "sign": -1.0,
+                    "other": "white_box left",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 8,
+                    "subject": "left_ee",
+                    "family": "gap",
+                    "value": 0.03211719642188765,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "right_ee",
+                    "family": "tilt",
+                    "value": 0.024603564484114097,
+                    "unit": "rad",
+                    "sign": 1.0,
+                    "other": "white_box left",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 9,
+                    "subject": "right_ee",
+                    "family": "tilt",
+                    "value": 0.02165335727996721,
+                    "unit": "rad",
+                    "sign": 1.0,
+                    "other": "white_box left",
+                    "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 8,
+                    "subject": "left_ee",
+                    "family": "slip",
+                    "value": 0.01804207152236023,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[4]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 9,
+                    "subject": "left_ee",
+                    "family": "slip",
+                    "value": 0.015599446565754016,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "white_box top",
+                    "raw": "k=18:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[4]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 8,
+                    "subject": "left_ee",
+                    "family": "tilt",
+                    "value": 0.014625659325879099,
+                    "unit": "rad",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 8,
+                    "subject": "left_ee",
+                    "family": "drift",
+                    "value": 0.013529561081760746,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "white_box top",
+                    "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[5]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 8,
+                    "subject": "left_sole",
+                    "family": "tilt",
+                    "value": 0.011471884876671236,
+                    "unit": "rad",
+                    "sign": -1.0,
+                    "other": "table_short top",
+                    "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "right upper arm",
+                    "family": "collision",
+                    "value": 0.011002417327434375,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "torso",
+                    "raw": "k=19:terminal:n_ba1c27301871b1f8b8da3efc849b904a89e124bfc0246c88099703e4a18322e7_distance[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "right_ee",
+                    "family": "overhang",
+                    "value": 0.010186918915345122,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "white_box left",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_72696768745f6565_kin_ineqs[12]",
+                    "attempts": 1
+                }
+            ],
+            "prefix_tries": 4,
+            "break_event": "left_ee released, right_ee released, white_box lifted",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 10,
+                        "n_steps": 2,
+                        "event": "left_ee released, right_ee released, white_box lifted",
+                        "modes": 17,
+                        "result": "still infeasible"
+                    },
+                    {
+                        "before_mode": 8,
+                        "n_steps": 2,
+                        "event": "left_ee -> white_box top",
+                        "modes": 17,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 171.4,
+            "events_total": 8,
+            "events_feasible": 4
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 10 of 14 (left_ee released, right_ee released, white_box lifted); modes 0\u20139 solve on their own.\nThe 11-mode prefix failed 4 of 4 tries. Its violations:\n- modes 9\u201310: white_box should rest with its bottom face on floor surface but stays 0.32 m away from it (in 3 of 4 solves)\n- mode 8: left_ee should touch white_box top but stays 0.13 m away from it (in 2 of 4 solves)\n(9 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nHint (gap): a contact that cannot be reached usually means the body is in the wrong place (walk closer, or put the object down somewhere it can rest)\nRepair probe: inserting walk(plan, 2) before mode 10 (left_ee released, right_ee released, white_box lifted), before mode 8 (left_ee -> white_box top) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5142874010198284,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

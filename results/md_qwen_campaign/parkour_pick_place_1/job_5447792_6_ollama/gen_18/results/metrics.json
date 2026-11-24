@@ -1,0 +1,45 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 27,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "Invalid contact schedule (no solver run): mode 12->13: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)",
+            "mode 12->13: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)",
+            "white_box transition 12->13: object teleported from (6, 1, 1) to (1, 14, 1) without going free"
+        ],
+        "kso_feasible_through_mode": 12,
+        "kso_first_infeasible_mode": 13
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 0.9615384615384616,
+        "structure_score": 0.9923076923076923,
+        "efficiency": 0.0,
+        "ik_diagnosis": {
+            "kind": "schedule_error",
+            "errors": [
+                "mode 12->13: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)",
+                "mode 13->14: right_sole changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)"
+            ],
+            "total_modes": 27,
+            "last_feasible_modes": 13,
+            "first_infeasible_modes": 14,
+            "events_total": 4,
+            "events_feasible": 1
+        }
+    },
+    "text_feedback": "Solver feedback:\nInvalid contact schedule (no solver run): mode 12->13: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)\n- mode 12->13: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)\n- mode 13->14: right_sole changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)\nEvery channel (hands, feet, objects) must pass through () before touching a different surface.",
+    "execution_time_mean": 0.5051348010019865,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

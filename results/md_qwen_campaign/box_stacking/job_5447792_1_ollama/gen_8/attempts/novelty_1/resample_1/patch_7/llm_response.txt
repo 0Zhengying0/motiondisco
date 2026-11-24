@@ -1,0 +1,44 @@
+<NAME>
+Increase the number of modes in the contact plan to allow for more complex manipulations and better trajectory optimization.
+
+<DESCRIPTION>
+The current plan only has two modes, which is insufficient for complex manipulations such as stacking boxes. By increasing the number of modes, the robot can perform more precise and efficient movements. This will likely improve the trajectory optimization and result in a better combined score.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    
+    # Move to above the green box
+    append_mode(plan, left_ee=(8, 1), right_ee=(2, 1))
+    walk(plan, 3)
+    
+    # Pick up the green box
+    append_mode(plan, left_ee=(6, 1), right_ee=(2, 1))
+    walk(plan, 3)
+    
+    # Move to above the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(2, 1))
+    walk(plan, 3)
+    
+    # Place the green box on the white box
+    append_mode(plan, left_ee=(6, 1), right_ee=(14, 1))
+    walk(plan, 3)
+    
+    # Move to above the yellow box
+    append_mode(plan, left_ee=(20, 1), right_ee=(2, 1))
+    walk(plan, 3)
+    
+    # Place the white box on the yellow box
+    append_mode(plan, left_ee=(14, 1), right_ee=(20, 1))
+    walk(plan, 3)
+    
+    return plan
+>>>>>>> REPLACE
+</DIFF>

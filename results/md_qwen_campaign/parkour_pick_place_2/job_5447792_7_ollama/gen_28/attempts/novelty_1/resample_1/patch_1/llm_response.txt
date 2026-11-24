@@ -1,0 +1,76 @@
+<NAME>
+Refactor the program to improve modularity and maintainability by separating the picking, walking, and placing phases into distinct functions. This will make the code easier to understand and modify.
+
+<DESCRIPTION>
+The original program is structured with a single function that handles all phases of the task: picking the box, walking to the table, and placing the box. This approach can be difficult to read and maintain, especially as the task complexity increases. By refactoring the program into separate functions for each phase, we can improve the code's modularity and maintainability. Each function will handle a specific part of the task, making the code easier to understand and modify.
+
+The refactored program will have the following structure:
+1. `generate_contact_plan`: This function will initialize the plan and call the other functions to handle each phase of the task.
+2. `pick_box`: This function will handle the picking phase, including approaching the box, lifting it, and moving it to the front of the robot.
+3. `walk_to_table`: This function will handle the walking phase, moving the robot to the elevated table.
+4. `place_box`: This function will handle the placing phase, moving the box towards the table and placing it on the table.
+
+By separating the phases into distinct functions, we can make the code more modular and easier to maintain. This will also make it easier to test and debug each phase of the task independently.
+</DESCRIPTION>
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Picking phase
+    pick_box(plan)
+
+    # Walking to the table
+    walk_to_table(plan)
+
+    # Placing phase
+    place_box(plan)
+
+    return plan
+
+def pick_box(plan: Dict[str, List[Tuple]]):
+    # Approach the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    # Move the box to the front of the robot
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+
+def walk_to_table(plan: Dict[str, List[Tuple]]):
+    # Walk to the table
+    walk(plan, 4)
+
+def place_box(plan: Dict[str, List[Tuple]]):
+    # Move the box towards the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    # Place the box on the table
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(8, 1), right_sole=(8, 1), white_box=(6, 8, 1))
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

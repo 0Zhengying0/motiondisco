@@ -1,0 +1,16 @@
+<NAME>
+Ensure the robot's hand and foot placement is consistent with the task requirements and avoid unnecessary movements to improve the feasibility of the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+# Stage 4: Place the box on the elevated table
+append_mode(plan, left_ee=(14, 1), white_box=(1, 8, 1))  # Grasp the box again
+append_mode(plan, left_ee=())  # Release the box on the elevated table
+append_mode(plan, white_box=(6, 8, 1))  # Ensure the box is correctly placed
+>>>>>>> REPLACE
+# Stage 4: Place the box on the elevated table
+append_mode(plan, left_ee=(14, 1), white_box=(1, 8, 1))  # Grasp the box again
+append_mode(plan, left_ee=(), white_box=())  # Release the box on the elevated table
+append_mode(plan, white_box=(6, 8, 1))  # Ensure the box is correctly placed
+</DIFF>

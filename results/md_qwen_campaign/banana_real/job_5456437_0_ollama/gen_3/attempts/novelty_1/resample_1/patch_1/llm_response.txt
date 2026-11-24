@@ -1,0 +1,37 @@
+<NAME>
+Increase the number of modes and adjust the plan to ensure it meets the discrete contact goal.
+
+<DESCRIPTION>
+The current plan only has two modes, which is insufficient. The IK solver requires at least two modes: an initial mode and at least one transition. Additionally, the final mode must satisfy the discrete contact goal: "left_ee": final entry must be (9, 1) and "right_ee": final entry must be (11, 1). The current plan does not meet these requirements. We need to extend the plan with more modes to ensure the robot can reach and grasp the banana.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 3)  # Add 3 walking steps to move towards the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))  # Final mode to grasp the banana
+    return plan
+>>>>>>> REPLACE
+</DIFF>

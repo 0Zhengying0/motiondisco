@@ -1,0 +1,16 @@
+<NAME>
+Ensure the robot releases the white box before attempting to place it on the elevated table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(8, 1), white_box=(6, 8, 1))
+=======
+    # Release the white box before placing it on the elevated table
+    append_mode(plan, right_ee=(), white_box=())
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

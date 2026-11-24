@@ -1,0 +1,14 @@
+<NAME>
+Ensure the white box is placed correctly on the elevated table by breaking the contact before placing it.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+=======
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), white_box=())
+    append_mode(plan, white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

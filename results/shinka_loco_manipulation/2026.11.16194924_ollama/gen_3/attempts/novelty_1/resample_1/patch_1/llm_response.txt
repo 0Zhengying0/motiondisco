@@ -1,0 +1,19 @@
+<NAME>
+Add an intermediate free state for the object before transitioning from sticking to sliding contact.
+
+<DESCRIPTION>
+The current plan attempts to transition the box from a sticking contact to a sliding contact without an intermediate free state, which is invalid. The solver requires that any change in contact type must pass through a free state first. By adding an intermediate free state, we ensure that the transition is valid and should improve the feasibility of the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, box1=(6, 2, 1))
+=======
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, box1=())
+    append_mode(plan, box1=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

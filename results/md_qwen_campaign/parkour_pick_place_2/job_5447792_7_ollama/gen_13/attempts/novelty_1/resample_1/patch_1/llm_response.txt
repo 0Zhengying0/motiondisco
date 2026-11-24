@@ -1,0 +1,29 @@
+<NAME>
+Ensure the robot releases the object before changing its contact surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Pick up the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+=======
+    # Pick up the white box
+    append_mode(plan, left_ee=(14, 1))
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure the robot releases the object before changing its contact surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1))
+=======
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

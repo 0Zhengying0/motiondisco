@@ -1,0 +1,14 @@
+{
+  "generation": 17,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The previous implementations did not handle the transition of object contacts correctly, leading to infeasible plans. The new approach ensures that any object contact is released before switching to a new surface. This is achieved by adding intermediate modes where the object is lifted and then placed on the new surface. The key insight is that the solver requires each contact to be released before touching a different surface, and this must be explicitly managed in the plan.\n\nThe plan is structured as follows:\n1. Move the left and right end-effectors (EEs) to the white box.\n2. Lift the white box by releasing the EE contacts.\n3. Walk to the elevated table.\n4. Place the white box on the elevated table by making new EE contacts with the table.\n\nThis ensures that each transition is feasible and follows the solver rules, leading to a more robust plan.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T14:49:49.344363",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

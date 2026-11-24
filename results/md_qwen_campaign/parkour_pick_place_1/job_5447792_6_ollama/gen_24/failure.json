@@ -1,0 +1,56 @@
+{
+  "active_proposals_at_start": 1,
+  "api_costs": 0.0,
+  "archive_inspiration_ids": [
+    "98329369-ce6b-4493-9dc7-d2498166be1c",
+    "415cf276-cc84-44ae-8c87-2fd731f3ae9c",
+    "e19dcf0a-0f7e-48fa-95fd-68900a890454",
+    "57b28cd7-8d4c-43aa-ab16-b937785be597"
+  ],
+  "artifacts": {
+    "attempt_dir": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/attempts/novelty_3/resample_1/patch_1",
+    "attempt_metadata_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/attempts/novelty_3/resample_1/patch_1/metadata.json",
+    "attempt_patch_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/attempts/novelty_3/resample_1/patch_1/patch.txt",
+    "generated_code_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/main.py",
+    "generation_diff_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/edit.diff",
+    "generation_dir": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24",
+    "generation_original_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/original.py",
+    "generation_rewrite_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/rewrite.txt",
+    "generation_search_replace_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/search_replace.txt",
+    "llm_response_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/attempts/novelty_3/resample_1/patch_1/llm_response.txt",
+    "results_dir": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/results"
+  },
+  "attempts": {
+    "novelty_attempt": 3,
+    "patch_attempt": 1,
+    "resample_attempt": 1
+  },
+  "code_embedding_available": true,
+  "downstream_eval_submitted": false,
+  "embed_cost": 0.0,
+  "error_attempt": null,
+  "failure_class": "novelty_rejected",
+  "failure_json_path": "results/md_qwen_campaign/parkour_pick_place_1/job_5447792_6_ollama/gen_24/failure.json",
+  "failure_reason": "NOT_NOVEL\n\nExplanation:\nThe proposed code does not introduce any meaningful changes compared to the existing code. The primary differences are:\n\n1. **Simplification of Steps**: In the existing code, there are separate steps for lifting the white box and then moving it to the elevated table. In the proposed code, these steps are combined into a single step where the white box is lifted and moved to the elevated table simultaneously.\n   \n2. **Redundant Step**: The proposed code removes a redundant step in the plan, where the white box is placed on the elevated table twice. This is an optimization and leads to a more efficient plan.\n\nHowever, these changes are purely structural and do not alter the fundamental logic or the overall functionality of the code. The core algorithm, data structures, and control flow remain the same. Therefore, the proposed code is not meaningfully different from the existing code.",
+  "failure_stage": "novelty",
+  "generated_code_available": true,
+  "generation": 24,
+  "language": "python",
+  "last_error_msg": null,
+  "max_similarity": 0.9975455403327942,
+  "node_kind": "failed_proposal",
+  "novelty_checks_performed": 1,
+  "novelty_cost": 0.0,
+  "novelty_explanation": "NOT_NOVEL\n\nExplanation:\nThe proposed code does not introduce any meaningful changes compared to the existing code. The primary differences are:\n\n1. **Simplification of Steps**: In the existing code, there are separate steps for lifting the white box and then moving it to the elevated table. In the proposed code, these steps are combined into a single step where the white box is lifted and moved to the elevated table simultaneously.\n   \n2. **Redundant Step**: The proposed code removes a redundant step in the plan, where the white box is placed on the elevated table twice. This is an optimization and leads to a more efficient plan.\n\nHowever, these changes are purely structural and do not alter the fundamental logic or the overall functionality of the code. The core algorithm, data structures, and control flow remain the same. Therefore, the proposed code is not meaningfully different from the existing code.",
+  "parent_id": "8b1ebb1b-494a-42a4-a96c-d8635df7e0d5",
+  "patch_description": "none",
+  "patch_name": "none",
+  "patch_type": "diff",
+  "proposal_started_at": 1794960389.5401785,
+  "sampling_worker_id": null,
+  "system_prompt_id": null,
+  "timestamp": "2026-11-18T01:08:09.869864",
+  "top_k_inspiration_ids": [
+    "c4d91194-5bfb-4f85-bc92-23dc074224b9"
+  ]
+}

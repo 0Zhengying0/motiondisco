@@ -1,0 +1,36 @@
+<NAME>
+Add intermediate free states before transitioning to new contact surfaces to ensure valid contact schedules.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Move the robot's base to the table
+    append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))
+=======
+    # Move the robot's base to the table
+    append_mode(plan, left_sole=(), right_sole=())  # Free both soles
+    append_mode(plan, left_sole=(2, 1), right_sole=())  # Step onto table with left_sole
+    append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))  # Step onto table with right_sole
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Lift the box with both hands
+    append_mode(plan, left_ee=(14, 1), right_ee=(15, 1))
+=======
+    # Lift the box with both hands
+    append_mode(plan, left_ee=(), right_ee=())  # Free both hands
+    append_mode(plan, left_ee=(14, 1), right_ee=())  # Grasp box with left_ee
+    append_mode(plan, left_ee=(14, 1), right_ee=(15, 1))  # Grasp box with right_ee
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Place the box on the table
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), white_box=(6, 8, 1))
+=======
+    # Place the box on the table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())  # Free all contacts
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(), white_box=())  # Place box with left_ee
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), white_box=())  # Place box with right_ee
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), white_box=(6, 8, 1))  # Final placement
+>>>>>>> REPLACE
+</DIFF>

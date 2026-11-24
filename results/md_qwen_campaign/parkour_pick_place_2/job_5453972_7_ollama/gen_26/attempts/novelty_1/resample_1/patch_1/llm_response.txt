@@ -1,0 +1,96 @@
+<NAME>
+A new approach using a state-based planning strategy to ensure all transitions between contacts are valid and to optimize the number of modes.
+
+<DESCRIPTION>
+The current implementation often fails due to invalid contact transitions, where contacts are changed without a free mode in between. This new approach uses a state-based planning strategy to ensure all transitions are valid. It also optimizes the number of modes by carefully planning each step, ensuring the robot moves efficiently from one task to another. The plan is structured to minimize the number of modes while ensuring all necessary transitions are valid.
+
+The approach includes:
+1. A function to validate and insert free modes where necessary.
+2. Functions to walk to a target, pick up an object, and place an object.
+3. A structured plan that ensures all transitions are valid and the robot moves efficiently.
+
+This should result in a more feasible and efficient plan, improving the performance metrics.
+</DESCRIPTION>
+
+<CODE>
+```python
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def insert_free_mode(plan, channel, index):
+    """Insert a free mode at the specified index for the given channel."""
+    current_value = plan[channel][index]
+    plan[channel].insert(index, ())
+    plan[channel].insert(index + 2, current_value)
+
+def validate_and_insert_free_modes(plan):
+    """Ensure all transitions between modes are valid by inserting free modes."""
+    for channel in plan:
+        for i in range(len(plan[channel]) - 1):
+            current = plan[channel][i]
+            next_ = plan[channel][i + 1]
+            if current and next_ and current != next_:
+                insert_free_mode(plan, channel, i)
+
+def walk_to_target(plan, target_env_id, steps):
+    """Walk to the target environment ID."""
+    walk(plan, steps)
+    append_mode(plan, right_ee=(target_env_id, 1))
+
+def pick_up_object(plan, object_env_id, object_self_id):
+    """Pick up the object."""
+    append_mode(plan, right_ee=(object_env_id, 1), white_box=(object_self_id, object_env_id, 1))
+
+def place_object(plan, target_env_id, object_self_id):
+    """Place the object on the target environment ID."""
+    append_mode(plan, right_ee=(target_env_id, 1), white_box=(object_self_id, target_env_id, 1))
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk_to_target(plan, 14, 5)
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Pick up the white box
+    pick_up_object(plan, 14, 1)
+
+    # Walk to the elevated table
+    walk_to_target(plan, 8, 5)
+
+    # Place the white box on the elevated table
+    place_object(plan, 8, 6)
+
+    # Validate and insert free modes if necessary
+    validate_and_insert_free_modes(plan)
+
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

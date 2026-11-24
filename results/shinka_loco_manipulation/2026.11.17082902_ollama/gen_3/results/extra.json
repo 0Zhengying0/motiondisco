@@ -1,0 +1,194 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_ee": [
+      [],
+      []
+    ],
+    "green_box": [
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ]
+    ],
+    "white_box": [
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ]
+    ],
+    "yellow_box": [
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 2,
+    "num_channels": 7,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 1.0,
+    "structure_score": 1.0,
+    "efficiency": 0.8333333333333334,
+    "combined_score": 1.8333333333333335,
+    "violations": []
+  },
+  "goal_match": true,
+  "ik_feasible": true,
+  "ik_cost": 1.1000636058811308,
+  "to_converged": true,
+  "to_cost": 40.73544720309829,
+  "ik_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.17082902_ollama/gen_3/results/ik_run.pkl",
+  "to_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/shinka_loco_manipulation/2026.11.17082902_ollama/gen_3/results/to_run.pkl",
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": null,
+  "kso_violations": null,
+  "to_status": 0,
+  "to_violations": [
+    {
+      "solver": "to",
+      "mode": 0,
+      "subject": "robot",
+      "family": "dynamics",
+      "value": 0.014521880766026563,
+      "unit": "",
+      "sign": 1.0,
+      "other": "",
+      "raw": "n_726f626f74_726f626f74_4d6f6d656e74756d5f636f6e737472",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 0,
+      "subject": "robot",
+      "family": "dynamics",
+      "value": 0.014167094564263571,
+      "unit": "",
+      "sign": 1.0,
+      "other": "",
+      "raw": "n_726f626f74_726f626f74_4d6f6d656e74756d5f636f6e737472",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 0,
+      "subject": "robot",
+      "family": "dynamics",
+      "value": 0.013569652072536798,
+      "unit": "",
+      "sign": 1.0,
+      "other": "",
+      "raw": "n_726f626f74_726f626f74_4d6f6d656e74756d5f636f6e737472",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 0,
+      "subject": "robot",
+      "family": "dynamics",
+      "value": 0.012893555920054922,
+      "unit": "",
+      "sign": 1.0,
+      "other": "",
+      "raw": "n_726f626f74_726f626f74_4d6f6d656e74756d5f636f6e737472",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 0,
+      "subject": "robot",
+      "family": "dynamics",
+      "value": 0.011260452699354495,
+      "unit": "",
+      "sign": 1.0,
+      "other": "",
+      "raw": "n_726f626f74_726f626f74_4d6f6d656e74756d5f636f6e737472",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 0,
+      "subject": "robot",
+      "family": "dynamics",
+      "value": 0.010981600498337407,
+      "unit": "",
+      "sign": 1.0,
+      "other": "",
+      "raw": "n_726f626f74_726f626f74_4d6f6d656e74756d5f636f6e737472",
+      "attempts": 1
+    }
+  ],
+  "to_valid": true,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": 1,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "left_ee:->1.1",
+  "plan_novelty": null,
+  "plan_patches": "green_box:6.2.1|left_ee:1.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": true,
+  "to_cost_parts": {
+    "constraint_violation_sum": 7.8966350776408865,
+    "constraint_violation_max": 0.025731254854221675,
+    "jerk_cost": 4198.771901799215,
+    "num_modes": 2,
+    "num_nodes": 40
+  }
+}

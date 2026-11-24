@@ -1,0 +1,34 @@
+<NAME>
+Add intermediate steps to ensure proper contact transitions
+
+<DESCRIPTION>
+The current plan fails due to invalid contact schedules where the white box transitions between surfaces without an intermediate free mode. To address this, we need to ensure that every contact transition for the white box, as well as the hands and feet, includes a free mode in between. This will allow the solver to handle the transitions more smoothly and avoid direct changes between different surfaces.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_up_object(plan: Dict[str, List[Tuple]], object_env_id: int) -> None:
+    """Pick up the object by releasing the hand and making contact with the object."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=(), white_box=(1, object_env_id, 1))
+=======
+def pick_up_object(plan: Dict[str, List[Tuple]], object_env_id: int) -> None:
+    """Pick up the object by releasing the hand and making contact with the object."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=())
+    append_mode(plan, white_box=(1, object_env_id, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_object(plan: Dict[str, List[Tuple]], object_env_id: int, target_env_id: int) -> None:
+    """Place the object on the target environment ID."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=(), white_box=(6, target_env_id, 1))
+=======
+def place_object(plan: Dict[str, List[Tuple]], object_env_id: int, target_env_id: int) -> None:
+    """Place the object on the target environment ID."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=())
+    append_mode(plan, white_box=(6, target_env_id, 1))
+>>>>>>> REPLACE
+</DIFF>

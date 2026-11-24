@@ -1,0 +1,14 @@
+{
+  "generation": 8,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 2,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan only has two modes, which is insufficient for complex manipulations such as stacking boxes. By increasing the number of modes, the robot can perform more precise and efficient movements. This will likely improve the trajectory optimization and result in a better combined score.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 4-line block starting with: 'def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:'\n\nFull search pattern:\n```\ndef generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:\n    plan = get_initial_mode()\n    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))\n    return plan\n```\n\nFound similar code block at line 51 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:\n+      \"\"\"\n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-57):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (41 more lines)\n        plan = get_initial_mode()\n        append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))\n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-17T18:01:13.168501",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

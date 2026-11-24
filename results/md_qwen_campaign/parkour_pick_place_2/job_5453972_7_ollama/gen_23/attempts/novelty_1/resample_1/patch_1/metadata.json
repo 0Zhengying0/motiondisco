@@ -1,0 +1,14 @@
+{
+  "generation": 23,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The previous plans failed due to the robot not being able to reach the elevated table with the required precision. By adding more walking steps before attempting to place the white box on the table, we give the robot more time to adjust its position and ensure that all contacts are feasible. This approach should help the robot reach the target position more accurately and avoid any violations.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T15:06:33.260432",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

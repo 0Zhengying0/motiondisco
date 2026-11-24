@@ -1,0 +1,106 @@
+{
+  "01913c31dd836e953a122e7cff8b358aa87723676a7dc95d05514340d7f59018": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_20",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 10 of 11 (left_ee -> banana left, right_ee -> banana right); modes 0\u20139 solve on their own."
+  },
+  "1bbf98149057edc4886e7d2de8d0d2ff70dfe27287677df184de7c264d583744": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_19",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 9 of 10 (left_ee -> banana left, right_ee -> banana right); modes 0\u20138 solve on their own."
+  },
+  "298035a841c3a54e3a751e57734c25f111007c1d17df4dee2692a13370b37a16": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_23",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 10 of 11 (left_ee -> banana left, right_ee -> banana right); modes 0\u20139 solve on their own."
+  },
+  "390e6b89123e044cadfefc0213263c57f502652e02fc66f682d6c0317a110eb0": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_8",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 7 of 8 (left_ee -> banana left, right_ee -> banana right); modes 0\u20136 solve on their own."
+  },
+  "55b64e6c2b34941b0b872b777d956c0b80a47516eec8c909574e5872cb902451": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_16",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1|right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 13 of 15 (left_ee -> banana left); modes 0\u201312 solve on their own."
+  },
+  "75777b7feb26c30c0d5692f42165bf5be5fc9357d63ebdd14a3618cdb6cd558f": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_12",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1|right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 8 of 10 (left_ee -> banana left); modes 0\u20137 solve on their own."
+  },
+  "78b2757ffcc73212306f2505691803cc579f1cc6f8a34e9b9bd800c87ff8de39": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_15",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1|right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 10 of 12 (left_ee -> banana left); modes 0\u20139 solve on their own."
+  },
+  "88f8e641ca3d4664740516ab7c6c5721f87dd70085280ad6aed37f78d0d3afa5": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_7",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1|right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 7 of 9 (left_ee -> banana left); modes 0\u20136 solve on their own."
+  },
+  "9a8f6981d2a9a4fda0d952bd59d223c6af6ed0ec6e6b63eaf9622221306ed6da": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_1",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 1 of 2 (left_ee -> banana left, right_ee -> banana right); even the first transition fails."
+  },
+  "b05f8cc59ee3a043b433c22e7772020be573afe71b03f180ff7354c75a432dc6": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_5",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 8 of 9 (left_ee -> banana left, right_ee -> banana right); modes 0\u20137 solve on their own."
+  },
+  "c2da16859f6c635388d563c08ddb9734a364479e286a8a613272d1aa1e02f3b5": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "crate:6.1.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "discrete goal: left_ee final mode is (), expected (9, 1)"
+  },
+  "c8d0b889369a8c221f9194fdea7296eac95b867cd013b8a22d7c006098bb04da": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_21",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1|right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 12 of 14 (left_ee -> banana left); modes 0\u201311 solve on their own."
+  },
+  "e953366d87651c482406b59ea5759f63ff3499883fadd482f19f46e875047981": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_3",
+    "patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "KSO infeasible: first break at mode 5 of 6 (left_ee -> banana left, right_ee -> banana right); modes 0\u20134 solve on their own."
+  }
+}

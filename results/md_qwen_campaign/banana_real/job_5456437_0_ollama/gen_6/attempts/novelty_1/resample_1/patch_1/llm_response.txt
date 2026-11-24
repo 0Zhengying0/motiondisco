@@ -1,0 +1,13 @@
+<NAME>
+Ensure the final mode matches the discrete contact goal by appending at least one more mode.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    return get_initial_mode()
+=======
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+    return plan
+>>>>>>> REPLACE
+</DIFF>

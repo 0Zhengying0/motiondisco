@@ -1,0 +1,46 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 25,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "Invalid contact schedule (no solver run): mode 11->12: left_ee changes from (8, 1) to (20, 1) without a free () mode in between; release it first: (8, 1) -> () -> (20, 1)",
+            "mode 11->12: left_ee changes from (8, 1) to (20, 1) without a free () mode in between; release it first: (8, 1) -> () -> (20, 1)"
+        ],
+        "kso_feasible_through_mode": 11,
+        "kso_first_infeasible_mode": 12
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_diagnosis": {
+            "kind": "schedule_error",
+            "errors": [
+                "mode 11->12: left_ee changes from (8, 1) to (20, 1) without a free () mode in between; release it first: (8, 1) -> () -> (20, 1)",
+                "mode 15->16: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)",
+                "mode 19->20: left_ee changes from (20, 1) to (14, 1) without a free () mode in between; release it first: (20, 1) -> () -> (14, 1)",
+                "mode 23->24: right_ee changes from (8, 1) to (20, 1) without a free () mode in between; release it first: (8, 1) -> () -> (20, 1)"
+            ],
+            "total_modes": 25,
+            "last_feasible_modes": 12,
+            "first_infeasible_modes": 13,
+            "events_total": 6,
+            "events_feasible": 2
+        }
+    },
+    "text_feedback": "Solver feedback:\nInvalid contact schedule (no solver run): mode 11->12: left_ee changes from (8, 1) to (20, 1) without a free () mode in between; release it first: (8, 1) -> () -> (20, 1)\n- mode 11->12: left_ee changes from (8, 1) to (20, 1) without a free () mode in between; release it first: (8, 1) -> () -> (20, 1)\n- mode 15->16: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)\n- mode 19->20: left_ee changes from (20, 1) to (14, 1) without a free () mode in between; release it first: (20, 1) -> () -> (14, 1)\n- mode 23->24: right_ee changes from (8, 1) to (20, 1) without a free () mode in between; release it first: (8, 1) -> () -> (20, 1)\nEvery channel (hands, feet, objects) must pass through () before touching a different surface.",
+    "execution_time_mean": 0.49423702902277,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

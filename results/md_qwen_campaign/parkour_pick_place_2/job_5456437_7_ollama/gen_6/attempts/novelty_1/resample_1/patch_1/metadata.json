@@ -1,0 +1,14 @@
+{
+  "generation": 6,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The provided context programs attempt to pick up a white box and place it on an elevated table. However, they often fail due to invalid contact schedules, where contacts are changed without a free intermediate state. This leads to solver infeasibility.\n\nTo address this, the new algorithm dynamically adjusts the plan based on the object's current state and the robot's position. It ensures that every contact transition is valid by introducing intermediate free states where necessary. This approach aims to improve the feasibility of the plan by minimizing abrupt changes and ensuring smooth transitions.\n\nThe key insights are:\n1. Always release a contact before making a new one.\n2. Use intermediate free states to ensure smooth transitions.\n3. Dynamically adjust the plan based on the object's current state and the robot's position.\n\nBy following these insights, the algorithm should produce a more feasible plan that scores higher on the combined metrics.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T05:07:39.332354",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

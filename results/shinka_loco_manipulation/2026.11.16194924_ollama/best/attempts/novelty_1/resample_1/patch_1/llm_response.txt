@@ -1,0 +1,60 @@
+<NAME>
+Improve the contact sequence by ensuring proper transitions and adding necessary intermediate modes to avoid direct contact changes without a free mode in between.
+
+<DESCRIPTION>
+The current plan has several issues where direct contact changes are made without a free mode in between, which is not allowed. We need to ensure that every contact change goes through a free mode first. Additionally, we should add intermediate modes to handle the transition between different tasks (picking up the box and placing it on the table) more smoothly.
+
+By adding these intermediate modes, we can ensure that the solver can feasible the plan, and the final mode will match the discrete contact goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_up_box(plan: Dict[str, List[Tuple]]) -> None:
+    """
+    Generate the contact plan for picking up the box from the floor.
+    """
+    # Move the left hand to the box
+    append_mode(plan, left_ee=(9, 1))
+    # Grasp the box
+    append_mode(plan, left_ee=(9, 1), box1=(1, 1, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(9, 1), box1=(1, 1, 1), left_sole=(1, 1))
+=======
+def pick_up_box(plan: Dict[str, List[Tuple]]) -> None:
+    """
+    Generate the contact plan for picking up the box from the floor.
+    """
+    # Move the left hand to the box
+    append_mode(plan, left_ee=(9, 1))
+    # Release the box (intermediate step)
+    append_mode(plan, left_ee=(9, 1), box1=())
+    # Grasp the box
+    append_mode(plan, left_ee=(9, 1), box1=(1, 1, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(9, 1), box1=(1, 1, 1), left_sole=(1, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+def place_box_on_table(plan: Dict[str, List[Tuple]]) -> None:
+    """
+    Generate the contact plan for placing the box on the table.
+    """
+    # Move the left hand to the table
+    append_mode(plan, left_ee=(2, 1))
+    # Place the box on the table
+    append_mode(plan, left_ee=(2, 1), box1=(6, 2, 1))
+=======
+def place_box_on_table(plan: Dict[str, List[Tuple]]) -> None:
+    """
+    Generate the contact plan for placing the box on the table.
+    """
+    # Move the left hand to the table
+    append_mode(plan, left_ee=(2, 1))
+    # Release the box (intermediate step)
+    append_mode(plan, left_ee=(2, 1), box1=())
+    # Place the box on the table
+    append_mode(plan, left_ee=(2, 1), box1=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

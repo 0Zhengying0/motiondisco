@@ -1,0 +1,14 @@
+{
+  "generation": 12,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan lacks modes where the robot's feet are in contact with the ground during manipulation. This can lead to instability and infeasibility. By ensuring the robot's feet are in contact with the ground, we can improve the plan's feasibility and stability.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T04:44:53.382637",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

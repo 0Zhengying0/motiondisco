@@ -1,0 +1,18 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco/gen_0/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco/gen_0/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco/gen_0/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco/gen_0/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.52 seconds==========
+[AcadosBuildConfig] Missing build artifacts for 'n_6b736f_67656e6572617465642e7177656e5f3236313132335f3232313132325f656d32375f666232_3130_68617264_3e0f045c2ee57def' while force_recompile=False. Enabling recompilation.
+IK trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco/gen_0/results/ik_run.pkl
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco/gen_0/results/extra.json

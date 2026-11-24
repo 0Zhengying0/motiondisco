@@ -1,0 +1,35 @@
+{
+    "combined_score": 0.00032965726773411793,
+    "public": {
+        "num_modes": 27,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 3032.4535224217807,
+        "violations": [
+            "mode 25: the motion is not dynamically consistent (it needs 5941480% of the body weight, 19433190 N, that no contact provides)"
+        ],
+        "kso_goal_mode": "hard",
+        "to_max_violation": 6.022297124614944,
+        "to_jerk_per_mode": 30805.257309377652
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "hard",
+        "ik_cost": 6.113226255155357e-05,
+        "to_mode": "off"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 25: the motion is not dynamically consistent (it needs 5941480% of the body weight, 19433190 N, that no contact provides)\n- mode 24: left_sole slides 277 cm on floor surface although the contact is sticking\n- mode 20: left_sole stays 78 cm off floor surface; the planned contact is not made\n- mode 0: table_short penetrates yellow_box by 39 cm in the trajectory\n- modes 15\u201324: in 4 of 10 steps a foot travels more than 0.8 m (up to 3.57 m, left_sole at mode 24); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 4 more walking steps before mode 25 (right_ee -> table_short top, yellow_box lifted), e.g. walk(plan, 4)\n- modes 2\u201311: in 4 of 10 steps a foot travels more than 0.8 m (up to 2.67 m, right_sole at mode 2); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 4 more walking steps before mode 12 (left_ee -> yellow_box top), e.g. walk(plan, 4)",
+    "execution_time_mean": 0.499625044001732,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

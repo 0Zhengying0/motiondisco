@@ -1,0 +1,37 @@
+{
+    "combined_score": 0.0003361620121483808,
+    "public": {
+        "num_modes": 13,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 2973.7561112247367,
+        "violations": [
+            "mode 12: right_ee slides 22 cm on floor surface although the contact is sticking",
+            "transition 11->12: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 46.30149950200926,
+        "to_jerk_per_mode": 36686.569553163514
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.9166666666666666,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9833333333333332,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.5217828431123572,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 12: right_ee slides 22 cm on floor surface although the contact is sticking\n- mode 12: right_wrist_pitch_joint exceeds its torque-speed limit by 45%\n- mode 13: right_shoulder_pitch_joint goes 0.14 rad past its limit\n- mode 5: yellow_box penetrates robot right_shoulder_yaw_link by 16 cm in the trajectory\n- modes 3\u201311: in 2 of 9 steps a foot travels more than 0.8 m (up to 1.19 m, right_sole at mode 5); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 2 more walking steps at the end of the plan, e.g. walk(plan, 2)",
+    "execution_time_mean": 0.5898874960003013,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

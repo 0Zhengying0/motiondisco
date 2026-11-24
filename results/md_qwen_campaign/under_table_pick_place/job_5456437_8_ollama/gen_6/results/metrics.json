@@ -1,0 +1,50 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 20,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "Invalid contact schedule (no solver run): mode 8->9: left_ee changes from (1, 1) to (6, 1) without a free () mode in between; release it first: (1, 1) -> () -> (6, 1)",
+            "mode 8->9: left_ee changes from (1, 1) to (6, 1) without a free () mode in between; release it first: (1, 1) -> () -> (6, 1)",
+            "transition 7->8: no contact changes (noop)",
+            "transition 9->10: no contact changes (noop)",
+            "transition 16->17: no contact changes (noop)",
+            "white_box transition 18->19: object teleported from (6, 1, 1) to (6, 2, 1) without going free"
+        ],
+        "kso_feasible_through_mode": 8,
+        "kso_first_infeasible_mode": 9
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8421052631578947,
+        "object_passive_fraction": 0.9473684210526315,
+        "structure_score": 0.9578947368421054,
+        "efficiency": 0.0,
+        "ik_diagnosis": {
+            "kind": "schedule_error",
+            "errors": [
+                "mode 8->9: left_ee changes from (1, 1) to (6, 1) without a free () mode in between; release it first: (1, 1) -> () -> (6, 1)",
+                "mode 15->16: left_ee changes from (6, 2) to (2, 1) without a free () mode in between; release it first: (6, 2) -> () -> (2, 1)",
+                "mode 17->18: right_ee changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)",
+                "mode 18->19: white_box changes from (6, 1, 1) to (6, 2, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 2, 1)"
+            ],
+            "total_modes": 20,
+            "last_feasible_modes": 9,
+            "first_infeasible_modes": 10,
+            "events_total": 6,
+            "events_feasible": 1
+        }
+    },
+    "text_feedback": "Solver feedback:\nInvalid contact schedule (no solver run): mode 8->9: left_ee changes from (1, 1) to (6, 1) without a free () mode in between; release it first: (1, 1) -> () -> (6, 1)\n- mode 8->9: left_ee changes from (1, 1) to (6, 1) without a free () mode in between; release it first: (1, 1) -> () -> (6, 1)\n- mode 15->16: left_ee changes from (6, 2) to (2, 1) without a free () mode in between; release it first: (6, 2) -> () -> (2, 1)\n- mode 17->18: right_ee changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)\n- mode 18->19: white_box changes from (6, 1, 1) to (6, 2, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 2, 1)\nEvery channel (hands, feet, objects) must pass through () before touching a different surface.",
+    "execution_time_mean": 0.5040220100199804,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

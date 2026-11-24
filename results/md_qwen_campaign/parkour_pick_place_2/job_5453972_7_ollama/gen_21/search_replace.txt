@@ -1,0 +1,72 @@
+I apologize for the confusion. Let's simplify the approach and focus on ensuring that the robot's feet remain in contact with the ground during the entire sequence. We'll modify the `generate_contact_plan` function to include this constraint.
+
+<NAME>
+Ensure that the robot's feet remain in contact with the ground during the entire sequence.
+
+<DESCRIPTION>
+The current plan does not explicitly ensure that the robot's feet remain in contact with the ground during the entire sequence. This can lead to instability and infeasibility. By ensuring that the feet remain in contact with the ground, we can improve the plan's feasibility and potentially increase the combined score.
+
+To achieve this, we will modify the `generate_contact_plan` function to ensure that the robot's feet remain in contact with the ground during the entire sequence. We will also add a check to ensure that the feet are in contact with the ground before and after the walking, picking, and placing sequences.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 3)
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Walk to the elevated table
+    walk(plan, 3)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 3)
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 3)
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

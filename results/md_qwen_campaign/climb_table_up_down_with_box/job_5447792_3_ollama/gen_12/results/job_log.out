@@ -1,0 +1,29 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_12/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_12/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_12/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_12/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.52 seconds==========
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_12/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_12/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_12/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 17, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['Invalid contact schedule (no solver run): mode 9->10: left_ee changes from (8, 1, 1) to (9, 2, 1) without a free () mode in between; release it first: (8, 1, 1) -> () -> (9, 2, 1)', 'mode 9->10: left_ee changes from (8, 1, 1) to (9, 2, 1) without a free () mode in between; release it first: (8, 1, 1) -> () -> (9, 2, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (9, 2, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 2, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (12, 1, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (12, 1, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (12, 1, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (12, 1, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (11, 2, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (11, 2, 1)'], 'kso_feasible_through_mode': 9, 'kso_first_infeasible_mode': 10}
+  private: {'well_formed_fraction': 0.8588235294117647, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 0.9717647058823531, 'efficiency': 0.0, 'ik_diagnosis': {'kind': 'schedule_error', 'errors': ['mode 9->10: left_ee changes from (8, 1, 1) to (9, 2, 1) without a free () mode in between; release it first: (8, 1, 1) -> () -> (9, 2, 1)', 'mode 9->10: right_ee changes from (12, 1, 1) to (11, 2, 1) without a free () mode in between; release it first: (12, 1, 1) -> () -> (11, 2, 1)'], 'total_modes': 17, 'last_feasible_modes': 10, 'first_infeasible_modes': 11, 'events_total': 4, 'events_feasible': 1}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.522220422004466
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

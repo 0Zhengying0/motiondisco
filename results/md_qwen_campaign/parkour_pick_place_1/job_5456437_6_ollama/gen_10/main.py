@@ -1,0 +1,44 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    
+    # Function to calculate the number of steps needed to reach a target distance
+    def calculate_steps(distance: float) -> int:
+        step_length = 0.4  # approximate step length in meters
+        return int(ceil(distance / step_length)) + 1
+    
+    # Walk to the white box
+    target_distance_to_box = 0.4  # distance to the white box in meters
+    steps_to_box = calculate_steps(target_distance_to_box)
+    walk(plan, steps_to_box)
+    
+    # Pick up the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+    
+    # Walk to the elevated table
+    target_distance_to_table = 1.4  # distance to the elevated table in meters
+    steps_to_table = calculate_steps(target_distance_to_table)
+    walk(plan, steps_to_table)
+    
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(6, 8, 1))
+    
+    return plan
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

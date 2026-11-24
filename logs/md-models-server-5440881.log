@@ -1,0 +1,34 @@
+Couldn't find '/home/it4i-dianyu/.ollama/id_ed25519'. Generating new private key.
+Your new public key is: 
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBQOmRZWSjMuLI8u1bmbbb9Cn12MsM9M/B+Pzk5IPxNI
+
+time=2026-11-16T11:28:27.906+01:00 level=INFO source=routes.go:2474 msg="server config" env="map[CUDA_VISIBLE_DEVICES:0 GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: LLAMA_ARG_FIT: LLAMA_ARG_FIT_TARGET: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_CREATE_REMOTE:false OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GO_TEMPLATE:true OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://127.0.0.1:30881 OLLAMA_IGPU_ENABLE: OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MAX_TRANSFER_STREAMS:4 OLLAMA_MODELS:/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/models/ollama OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:true ROCR_VISIBLE_DEVICES: http_proxy: https_proxy: no_proxy:]"
+time=2026-11-16T11:28:27.924+01:00 level=INFO source=routes.go:2476 msg="Ollama cloud disabled: false"
+time=2026-11-16T11:28:27.945+01:00 level=INFO source=images.go:1033 msg="total blobs: 0"
+time=2026-11-16T11:28:27.945+01:00 level=INFO source=images.go:1042 msg="total unused blobs removed: 0"
+time=2026-11-16T11:28:27.954+01:00 level=INFO source=routes.go:2536 msg="Listening on 127.0.0.1:30881 (version 0.40.16)"
+time=2026-11-16T11:28:28.047+01:00 level=INFO source=runner.go:60 msg="discovering available GPUs..."
+time=2026-11-16T11:28:28.048+01:00 level=WARN source=runner.go:722 msg="user overrode visible devices" CUDA_VISIBLE_DEVICES=0
+time=2026-11-16T11:28:28.048+01:00 level=WARN source=runner.go:726 msg="if GPUs are not correctly discovered, unset and try again"
+time=2026-11-16T11:28:28.204+01:00 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h29m34.838918799s consecutive_failures=0
+time=2026-11-16T11:28:48.497+01:00 level=INFO source=types.go:32 msg="inference compute" id=0 filter_id=0 library=CUDA compute=8.0 name=CUDA0 description="NVIDIA A100-SXM4-40GB" libdirs=ollama,cuda_v13 driver=13.3 pci_id=0000:4c:00.0 type=discrete total="39.5 GiB" available="39.1 GiB"
+time=2026-11-16T11:28:48.497+01:00 level=INFO source=routes.go:2586 msg="vram-based default context" total_vram="39.5 GiB" default_num_ctx=32768
+[GIN] 2026/11/16 - 11:28:48 | 200 |  95.65ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2026/11/16 - 11:28:48 | 200 |  27.24ms |       127.0.0.1 | GET      "/api/tags"
+[GIN] 2026/11/16 - 11:28:48 | 200 |  20.02ms |       127.0.0.1 | HEAD     "/"
+time=2026-11-16T11:28:50.412+01:00 level=INFO source=download.go:182 msg="downloading ac9bc7a69dab in 16 561 MB part(s)"
+time=2026-11-16T11:40:24.509+01:00 level=INFO source=download.go:182 msg="downloading 66b9ea09bd5b in 1 68 B part(s)"
+time=2026-11-16T11:40:25.164+01:00 level=INFO source=download.go:182 msg="downloading 1e65450c3067 in 1 1.6 KB part(s)"
+time=2026-11-16T11:40:25.924+01:00 level=INFO source=download.go:182 msg="downloading 832dd9e00a68 in 1 11 KB part(s)"
+[GIN] 2026/11/16 - 11:40:33 | 200 |   11m40s |       127.0.0.1 | POST     "/api/pull"
+[GIN] 2026/11/16 - 11:40:33 | 200 | 22.973µs |       127.0.0.1 | HEAD     "/"
+time=2026-11-16T11:40:34.658+01:00 level=INFO source=download.go:182 msg="downloading 60e05f210007 in 16 292 MB part(s)"
+[GIN] 2026/11/16 - 11:46:38 | 200 |     6m0s |       127.0.0.1 | POST     "/api/pull"
+[GIN] 2026/11/16 - 11:46:38 | 200 | 33.432µs |       127.0.0.1 | HEAD     "/"
+time=2026-11-16T11:46:40.230+01:00 level=INFO source=download.go:182 msg="downloading 0800cbac9c20 in 7 100 MB part(s)"
+time=2026-11-16T11:47:29.139+01:00 level=INFO source=download.go:182 msg="downloading 1adbfec9dcf0 in 1 8.4 KB part(s)"
+time=2026-11-16T11:47:29.858+01:00 level=INFO source=download.go:182 msg="downloading 45dc10444b87 in 1 34 B part(s)"
+[GIN] 2026/11/16 - 11:47:31 | 200 |   52.52s |       127.0.0.1 | POST     "/api/pull"
+[GIN] 2026/11/16 - 11:47:31 | 200 | 28.844µs |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/11/16 - 11:47:31 | 200 | 586.28ms |       127.0.0.1 | GET      "/api/tags"

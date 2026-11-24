@@ -1,0 +1,50 @@
+<NAME>
+Ensure that the plan adheres to the solver constraints by inserting free modes correctly between transitions.
+
+<DESCRIPTION>
+The current plan fails due to invalid contact schedules where contacts change directly without going through a free () mode. To address this, we need to ensure that every transition between different contact points includes a free mode. This can be achieved by modifying the plan to insert a free mode between any transition that changes the contact point without already being free.
+
+This will help the solver understand that the robot should release its grip before changing contact surfaces, thus adhering to the solver constraints.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Walk to the white box
+    walk(plan, 3)
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 3)
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1), left_sole=(1, 1), right_sole=(1, 1))
+=======
+    # Walk to the white box
+    walk(plan, 3)
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, right_ee=(14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 3)
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, right_ee=(), white_box=(), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1), left_sole=(1, 1), right_sole=(1, 1))
+>>>>>>> REPLACE
+</DIFF>

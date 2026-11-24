@@ -1,0 +1,37 @@
+<NAME>
+Ensure proper release of contacts before switching surfaces
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Walk to the white box
+    walk(plan, 5)
+
+    # Reach for the white box with the left hand
+    append_mode(plan, left_ee=(14, 1))
+
+    # Pick up the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+=======
+    # Walk to the white box
+    walk(plan, 5)
+
+    # Reach for the white box with the left hand
+    append_mode(plan, left_ee=(14, 1))
+
+    # Release the hand before picking up the box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+
+    # Pick up the white box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Release the box before placing it
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+
+    # Place the box on the elevated table
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1))
+</DIFF>

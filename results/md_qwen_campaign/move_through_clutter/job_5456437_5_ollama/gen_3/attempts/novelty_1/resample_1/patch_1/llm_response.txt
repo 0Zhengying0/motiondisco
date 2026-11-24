@@ -1,0 +1,70 @@
+<NAME>
+Refactor the program to improve readability, maintainability, and performance by introducing modular functions and better control flow.
+
+<DESCRIPTION>
+The current program is very basic and lacks structure, making it difficult to understand and extend. By introducing modular functions, we can break down the planning process into smaller, manageable tasks. This will improve the code's readability and maintainability. Additionally, by using better control flow, we can ensure that the robot's movements are more feasible and less likely to violate joint limits.
+
+Key changes:
+1. **Modular Functions**: Introduce functions for different tasks such as initialization, walking, and final positioning.
+2. **Control Flow**: Use structured control flow to ensure that each step of the plan is logically connected and feasible.
+3. **Error Handling**: Add comments and structure to handle potential issues during the planning process.
+
+These changes will make the program more robust and easier to evolve further.
+</DESCRIPTION>
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def initialize_plan() -> Dict[str, List[Tuple]]:
+    """
+    Initialize the contact plan with the initial mode.
+    """
+    return get_initial_mode()
+
+def walk_to_position(plan: Dict[str, List[Tuple]], steps: int) -> None:
+    """
+    Append walking modes to the plan.
+    """
+    walk(plan, steps)
+
+def finalize_position(plan: Dict[str, List[Tuple]]) -> None:
+    """
+    Ensure the final mode meets the discrete contact goal.
+    """
+    final_mode = {
+        'left_sole': [(1, 1)],
+        'right_sole': [(1, 1)],
+        'left_ee': [()],
+        'right_ee': [()],
+        'white_box': [()],
+        'yellow_box': [()],
+    }
+    for channel, contacts in final_mode.items():
+        plan[channel].append(contacts[0])
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task.
+    """
+    plan = initialize_plan()
+    walk_to_position(plan, 3)  # Adjust the number of steps as needed
+    finalize_position(plan)
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

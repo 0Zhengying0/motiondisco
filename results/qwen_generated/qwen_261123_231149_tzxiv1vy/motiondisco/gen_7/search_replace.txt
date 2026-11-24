@@ -1,0 +1,32 @@
+<NAME>
+Improve step length calculation and walking duration to better match the robot's capabilities and the task requirements.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Base step length is approximately 0.4 m
+    # Add an extra step to ensure the robot reaches the target
+    n_steps = ceil(distance / 0.4) + 1
+=======
+    # Base step length is approximately 0.4 m
+    # Add an extra step to ensure the robot reaches the target
+    # Adjust the number of steps to account for the robot's step length and target distance
+    n_steps = ceil(distance / 0.4) + 2
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Adjust the walking duration to better match the robot's capabilities and the task requirements.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Walk to the target
+    walk(plan, n_steps)
+=======
+    # Walk to the target with a more appropriate duration
+    walk(plan, n_steps)
+    # Add a small pause to ensure the robot reaches the target accurately
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+>>>>>>> REPLACE
+</DIFF>

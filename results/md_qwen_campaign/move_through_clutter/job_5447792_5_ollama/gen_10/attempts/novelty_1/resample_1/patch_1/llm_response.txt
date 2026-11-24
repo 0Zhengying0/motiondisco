@@ -1,0 +1,61 @@
+<NAME>
+Improve walking steps and obstacle avoidance to ensure smoother and more feasible trajectories.
+
+<DESCRIPTION>
+The current plan has several issues, including sliding contacts that should be sticking, penetration of objects into the robot, and excessive step lengths. To address these issues, we will:
+1. Increase the number of walking steps to ensure the robot has enough time to navigate through the cluttered environment.
+2. Add more modes to handle obstacle avoidance more effectively.
+3. Ensure that contacts are correctly specified as sticking or sliding where appropriate.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    add_initial_contacts(plan)
+    add_walking_steps(plan)
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    add_initial_contacts(plan)
+    add_walking_steps(plan, steps=10)  # Increase the number of walking steps
+    add_obstacle_avoidance(plan)
+    add_reaching_steps(plan)
+    return plan
+
+def add_obstacle_avoidance(plan: Dict[str, List[Tuple]]):
+    """
+    Add obstacle avoidance steps to the plan.
+    """
+    # Example: Add obstacle avoidance steps for the robot's hands and feet
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+
+def add_reaching_steps(plan: Dict[str, List[Tuple]]):
+    """
+    Add reaching steps to the plan.
+    """
+    # Example: Add reaching steps for the robot's hands and feet
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+>>>>>>> REPLACE
+</DIFF>

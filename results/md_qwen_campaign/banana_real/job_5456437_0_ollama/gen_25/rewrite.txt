@@ -1,0 +1,54 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    plan = get_initial_mode()
+
+    walk_towards_banana(plan)
+    stabilize_crate(plan)
+    approach_banana_with_one_hand(plan)
+    grasp_banana_with_both_hands(plan)
+
+    return plan
+
+
+def walk_towards_banana(plan: Dict[str, List[Tuple]], steps: int = 7) -> None:
+    """Walk towards the banana while maintaining contact with the crate and floor."""
+    walk(plan, steps)
+
+
+def stabilize_crate(plan: Dict[str, List[Tuple]]) -> None:
+    """Ensure the crate is stable on the floor."""
+    append_mode(plan, crate=(6, 1, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+
+def approach_banana_with_one_hand(plan: Dict[str, List[Tuple]]) -> None:
+    """Approach the banana with one hand while maintaining a stable base."""
+    append_mode(plan, left_ee=(9, 1), right_sole=(1, 1))
+
+
+def grasp_banana_with_both_hands(plan: Dict[str, List[Tuple]]) -> None:
+    """Grasp the banana with both hands."""
+    append_mode(plan, right_ee=(11, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

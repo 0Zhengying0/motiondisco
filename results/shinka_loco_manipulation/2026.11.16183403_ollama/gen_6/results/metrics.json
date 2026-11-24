@@ -1,0 +1,21 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "is_duplicate": true,
+        "plan_hash": "3639220a957ecfc131c6d83905d05ce2563692221789b956566a55703765ff3a",
+        "first_seen_gen": "gen_1",
+        "violations": [
+            "duplicate plan (hash 3639220a; first seen gen_1)"
+        ]
+    },
+    "private": {
+        "prior_combined_score": 0.0,
+        "prior_top_violation": "discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1)"
+    },
+    "text_feedback": "Duplicate plan: this contact_mode_seq is identical to one evaluated at gen_1 (combined_score=0.00). Prior outcome: discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1). Propose a plan that differs from it.",
+    "execution_time_mean": 0.486450259002595,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

@@ -1,0 +1,207 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        1
+      ]
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "box1": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [],
+      [
+        6,
+        2,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 7,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 0.8333333333333334,
+    "object_passive_fraction": 1.0,
+    "structure_score": 0.9666666666666668,
+    "efficiency": 0.41666666666666663,
+    "combined_score": 1.3833333333333333,
+    "violations": [
+      "transition 3->4: no contact changes (noop)"
+    ]
+  },
+  "goal_match": true,
+  "ik_feasible": false,
+  "ik_cost": null,
+  "to_converged": null,
+  "to_cost": null,
+  "ik_run_path": null,
+  "to_run_path": null,
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": {
+    "kind": "prefix",
+    "last_feasible_modes": null,
+    "first_infeasible_modes": 2,
+    "total_modes": 7,
+    "solver_error": "FileNotFoundError: [Errno 2] No such file or directory: 'make'",
+    "prefix_attempts": 4,
+    "prefix_trials": [
+      {
+        "modes": 2,
+        "feasible": false,
+        "tries": 1
+      }
+    ],
+    "break_event": "left_ee -> floor surface",
+    "probe": {
+      "fixed_by": null,
+      "tried": [
+        {
+          "before_mode": 1,
+          "n_steps": 2,
+          "event": "left_ee -> floor surface",
+          "modes": 10,
+          "result": "still infeasible"
+        }
+      ],
+      "skipped": null
+    },
+    "diagnosis_seconds": 46.4,
+    "events_total": 5,
+    "events_feasible": 0
+  },
+  "kso_violations": null,
+  "to_status": null,
+  "to_violations": null,
+  "to_valid": null,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": null,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "left_ee:->1.1|left_ee:1.1>-|left_ee:->13.1|box1:6.1.1>-|box1:->6.2.1",
+  "plan_novelty": null,
+  "plan_patches": "box1:6.1.1,6.2.1|left_ee:1.1,13.1|left_sole:1.1|right_ee:-|right_sole:1.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": null,
+  "to_cost_parts": null
+}

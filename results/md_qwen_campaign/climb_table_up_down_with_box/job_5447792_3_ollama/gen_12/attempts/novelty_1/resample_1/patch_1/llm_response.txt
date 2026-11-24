@@ -1,0 +1,40 @@
+<NAME>
+Improve the contact plan to ensure all hands and objects pass through a free state before changing contact surfaces, as required by the solver feedback. This will make the plan feasible for IK and TO.
+
+<DESCRIPTION>
+The current plan fails IK because it attempts to change contact surfaces without passing through a free state first. To address this, we need to ensure that every hand and object channel transitions through a free state before changing contact surfaces. This will make the plan feasible for IK and TO.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def lift_box(plan):
+    # Lift the box
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=(8, 1))
+    append_mode(plan, right_ee=())
+=======
+def lift_box(plan):
+    # Lift the box
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, left_ee=())
+    append_mode(plan, right_ee=(8, 1))
+    append_mode(plan, right_ee=())
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=(8, 1))
+    append_mode(plan, right_ee=())
+=======
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, left_ee=())
+    append_mode(plan, right_ee=(8, 1))
+    append_mode(plan, right_ee=())
+>>>>>>> REPLACE
+</DIFF>

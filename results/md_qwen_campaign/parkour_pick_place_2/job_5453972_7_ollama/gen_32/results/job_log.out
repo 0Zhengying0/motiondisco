@@ -1,0 +1,28 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_32/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_32/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_32/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_32/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.50 seconds==========
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_32/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_32/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'is_duplicate': True, 'plan_hash': 'f65ed4c4021e44db79ae82270cf7b820dc418417fdba8ea7f5d2e2f5fd8a8745', 'first_seen_gen': 'gen_24', 'violations': ['duplicate plan (hash f65ed4c4; first seen gen_24)']}
+  private: {'prior_combined_score': 0.0, 'prior_top_violation': 'Invalid contact schedule (no solver run): mode 7->8: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)'}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.4972025220049545
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

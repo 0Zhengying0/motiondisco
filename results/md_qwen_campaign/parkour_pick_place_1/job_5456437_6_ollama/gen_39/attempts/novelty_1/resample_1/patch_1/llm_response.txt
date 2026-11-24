@@ -1,0 +1,78 @@
+<NAME>
+Ensure the robot correctly releases and regrasps the white box during the plan.
+
+<DESCRIPTION>
+The current plan has issues where the robot teleports the white box from one surface to another without releasing it first. This violates the rule that a contact must be released before it touches a different surface. To fix this, we need to ensure that the robot releases the white box before moving it to the elevated table and regrasps it once it reaches the table.
+
+We will add a new function `regrasp_white_box` to handle the regrasping after the robot moves to the elevated table. Additionally, we will ensure that the robot releases the white box before moving and then regrasps it after moving.
+
+This change will ensure that the robot follows the correct sequence of actions and avoids teleporting the object.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def move_to_elevated_table(plan: Dict[str, List[Tuple]]):
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(plan, 5)
+=======
+def move_to_elevated_table(plan: Dict[str, List[Tuple]]):
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(plan, 5)
+    regrasp_white_box(plan)
+    
+def regrasp_white_box(plan: Dict[str, List[Tuple]]):
+    append_mode(plan, left_ee=(1, 8), white_box=(1, 8, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_white_box_on_table(plan: Dict[str, List[Tuple]]):
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+=======
+def place_white_box_on_table(plan: Dict[str, List[Tuple]]):
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    release_ee(plan, "left_ee")
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    move_to_white_box(plan)
+    grasp_white_box(plan)
+    release_white_box(plan)
+    lift_white_box(plan)
+    move_to_elevated_table(plan)
+    release_white_box(plan)
+    place_white_box_on_table(plan)
+
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    move_to_white_box(plan)
+    grasp_white_box(plan)
+    release_white_box(plan)
+    lift_white_box(plan)
+    move_to_elevated_table(plan)
+    place_white_box_on_table(plan)
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

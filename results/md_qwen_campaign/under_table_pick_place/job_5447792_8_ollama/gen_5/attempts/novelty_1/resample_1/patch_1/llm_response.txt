@@ -1,0 +1,34 @@
+<NAME>
+Add intermediate modes to release and pick the box again to avoid direct contact change.
+
+<DESCRIPTION>
+The current plan fails because it attempts to change the contact from the box to the table without releasing the box first. To fix this, we need to add intermediate modes to release the box and pick it again before placing it on the table. This will ensure that the robot follows the correct sequence of actions: approach, pick, lift, move, release, pick again, and then place.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Lift the box
+    append_mode(plan, left_ee=(), right_ee=())
+
+    # Move to the table
+    walk(plan, 2)
+
+    # Place the box on the table
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), white_box=(6, 2, 1))
+=======
+    # Lift the box
+    append_mode(plan, left_ee=(), right_ee=())
+
+    # Move to the table
+    walk(plan, 2)
+
+    # Release the box
+    append_mode(plan, white_box=())
+
+    # Pick the box again
+    append_mode(plan, left_ee=(26, 1), right_ee=(26, 1))
+
+    # Place the box on the table
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), white_box=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

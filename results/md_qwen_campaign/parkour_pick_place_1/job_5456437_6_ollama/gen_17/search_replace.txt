@@ -1,0 +1,13 @@
+<NAME>
+Ensure the white box is correctly placed on the elevated table by fixing the final mode of the contact plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 5: Place the white box on the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+=======
+    # Step 5: Place the white box on the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,8 @@
+{
+  "status": "no_valid_trajectory",
+  "scene": "generated.qwen_261123_231149_tzxiv1vy",
+  "job_id": "5485423",
+  "launcher_exit_code": 0,
+  "solver_output": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_231149_tzxiv1vy/motiondisco",
+  "valid_plans": []
+}

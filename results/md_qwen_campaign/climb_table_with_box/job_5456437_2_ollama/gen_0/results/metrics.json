@@ -1,0 +1,33 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 1,
+        "goal_match": false,
+        "ik_feasible": null,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "discrete goal: left_sole final mode is (1, 1), expected (2, 1)",
+            "discrete goal: right_sole final mode is (1, 1), expected (2, 1)",
+            "discrete goal: left_ee final mode is (), expected (9, 1)",
+            "discrete goal: right_ee final mode is (), expected (11, 1)",
+            "discrete goal: white_box final mode is (6, 1, 1), expected ()"
+        ]
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.9166666666666666
+    },
+    "text_feedback": "The plan has 1 mode(s); IK requires at least 2 modes (an initial mode and at least one transition). Extend the plan by appending at least one more mode that differs from the initial one.",
+    "execution_time_mean": 0.4890870230155997,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

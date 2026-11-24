@@ -1,0 +1,21 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "is_duplicate": true,
+        "plan_hash": "09df4961572fe08c4cb6b58c16f84a934cdf3d7b7f7ec829ad57530c6e04b2fc",
+        "first_seen_gen": "gen_15",
+        "violations": [
+            "duplicate plan (hash 09df4961; first seen gen_15)"
+        ]
+    },
+    "private": {
+        "prior_combined_score": 0.0,
+        "prior_top_violation": "Invalid contact schedule (no solver run): mode 9->10: left_sole changes from (1, 1) to (8, 1) without a free () mode in between; release it first: (1, 1) -> () -> (8, 1)"
+    },
+    "text_feedback": "Duplicate plan: this contact_mode_seq is identical to one evaluated at gen_15 (combined_score=0.00). Prior outcome: Invalid contact schedule (no solver run): mode 9->10: left_sole changes from (1, 1) to (8, 1) without a free () mode in between; release it first: (1, 1) -> () -> (8, 1). Propose a plan that differs from it.",
+    "execution_time_mean": 0.5194393120182212,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

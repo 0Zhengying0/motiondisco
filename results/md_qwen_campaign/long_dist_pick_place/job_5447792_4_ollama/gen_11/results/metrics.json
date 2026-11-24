@@ -1,0 +1,45 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 29,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "Invalid contact schedule (no solver run): "
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "kso_feasible_through_mode": null,
+        "kso_first_infeasible_mode": null
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_diagnosis": {
+            "kind": "schedule_error",
+            "total_modes": 29,
+            "last_feasible_modes": null,
+            "first_infeasible_modes": null,
+            "solver_error": "ValueError: invalid contact schedule: Contact interface ('obj', 'yellow_box') cannot target itself.",
+            "ik_hard_failed": true,
+            "diagnosis_seconds": 2.3,
+            "events_total": 6,
+            "events_feasible": 0
+        }
+    },
+    "text_feedback": "Solver feedback:\nInvalid contact schedule (no solver run): \nEvery channel (hands, feet, objects) must pass through () before touching a different surface.",
+    "execution_time_mean": 0.4899909649975598,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

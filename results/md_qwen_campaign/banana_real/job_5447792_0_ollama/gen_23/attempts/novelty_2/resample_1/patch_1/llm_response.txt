@@ -1,0 +1,33 @@
+<NAME>
+Add intermediate steps to ensure proper contact transitions and improve feasibility.
+
+<DESCRIPTION>
+The current plan has issues with abrupt contact transitions, which can cause solver infeasibility. By adding intermediate steps where contacts are released before transitioning to a new surface, we can ensure that the solver can handle the transitions properly. This approach should help in achieving a more feasible plan.
+
+1. Add an intermediate mode to release the crate's contact with the floor before placing it on the table.
+2. Add intermediate modes to release the hands' contacts with the crate before moving towards the banana.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Place the crate on the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), crate=(1, 2, 1))
+=======
+    # Step 2: Release the crate from the floor
+    append_mode(plan, crate=())
+    
+    # Step 3: Place the crate on the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), crate=(1, 2, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 4: Move towards the banana
+    walk(plan, 2)  # 2 steps to reach the banana
+=======
+    # Step 5: Release the hands from the crate
+    append_mode(plan, left_ee=(), right_ee=())
+    
+    # Step 6: Move towards the banana
+    walk(plan, 2)  # 2 steps to reach the banana
+>>>>>>> REPLACE
+</DIFF>

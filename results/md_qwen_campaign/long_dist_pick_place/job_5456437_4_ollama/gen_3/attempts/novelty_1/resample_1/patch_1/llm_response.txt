@@ -1,0 +1,13 @@
+<NAME>
+Extend the plan to include at least one more mode that differs from the initial one.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    return get_initial_mode()
+=======
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(8, 1))
+    return plan
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,216 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 12,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 11 of 12 (left_ee -> banana left, right_ee -> banana right); modes 0\u201310 solve on their own.",
+            "mode 10: crate ends up on top of right foot instead of resting with its bottom face on floor surface (0.03 m too high, 0.02 m into right foot). There is no room for it there; move clear of right foot before putting it down",
+            "transition 0->1: no contact changes (noop)",
+            "transition 5->6: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "kso_feasible_through_mode": 10,
+        "kso_first_infeasible_mode": 11,
+        "kso_break_event": "left_ee -> banana left, right_ee -> banana right"
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8181818181818182,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9636363636363636,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 11,
+            "first_infeasible_modes": 12,
+            "total_modes": 12,
+            "solver_error": null,
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 7,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 9,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 10,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 11,
+                    "feasible": true,
+                    "tries": 1
+                }
+            ],
+            "kso_attempts": 3,
+            "best_max_violation": 1.0438860458419672,
+            "ik_hard_failed": true,
+            "prefix_violation_details": [
+                {
+                    "solver": "kso",
+                    "mode": 11,
+                    "subject": "right_sole",
+                    "family": "gap",
+                    "value": 1.1491953787967184,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 11,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 1.0376006678681235,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "crate",
+                    "family": "gap",
+                    "value": 0.028493442646376876,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=18:path:Stage_crate_kin_eqs[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "right foot",
+                    "family": "collision",
+                    "value": 0.020557376906281278,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "crate",
+                    "raw": "k=18:path:n_6949f0bf8e61e206c4267bfd0b485576cbdfe800c3f8707d5432c52d9ff7e8ca_distance[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "right_sole",
+                    "family": "gap",
+                    "value": 0.015879488971592713,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 11,
+                    "subject": "right_sole",
+                    "family": "gap",
+                    "value": 1.1790398570114664,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 11,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 1.0346058358642696,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 11,
+                    "subject": "right_sole",
+                    "family": "tilt",
+                    "value": 0.023810189470747152,
+                    "unit": "rad",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 10,
+                    "subject": "right_sole",
+                    "family": "tilt",
+                    "value": 0.018804188626140566,
+                    "unit": "rad",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 11,
+                    "subject": "left_ee",
+                    "family": "tilt",
+                    "value": 0.014089312477639074,
+                    "unit": "rad",
+                    "sign": -1.0,
+                    "other": "banana left",
+                    "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+                    "attempts": 1
+                }
+            ],
+            "prefix_tries": 2,
+            "break_event": "left_ee -> banana left, right_ee -> banana right",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 11,
+                        "n_steps": 2,
+                        "event": "left_ee -> banana left, right_ee -> banana right",
+                        "modes": 15,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 220.7,
+            "events_total": 1,
+            "events_feasible": 0
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 11 of 12 (left_ee -> banana left, right_ee -> banana right); modes 0\u201310 solve on their own.\nThe 12-mode prefix failed 2 of 2 tries. Its violations:\n- mode 10: crate ends up on top of right foot instead of resting with its bottom face on floor surface (0.03 m too high, 0.02 m into right foot). There is no room for it there; move clear of right foot before putting it down\n- mode 11: right_sole should touch floor surface but stays 1.18 m away from it (in all 2 solves)\n- mode 11: left_sole should touch floor surface but stays 1.04 m away from it (in all 2 solves)\n(3 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nHint (gap): a contact that cannot be reached usually means the body is in the wrong place (walk closer, or put the object down somewhere it can rest)\nFull-plan solves additionally report (later modes; these may follow from the break above):\n- mode 11: right_sole should touch floor surface but stays 1.09 m away from it (in all 3 solves)\n- mode 11: left_sole should touch floor surface but stays 1.04 m away from it (in all 3 solves)\n- mode 11: left_ee is tilted 2\u00b0 against banana left (cannot lie flat on it) (in all 3 solves)\n... and 1 smaller problems\n(2 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nRepair probe: inserting walk(plan, 2) before mode 11 (left_ee -> banana left, right_ee -> banana right) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5280674719979288,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

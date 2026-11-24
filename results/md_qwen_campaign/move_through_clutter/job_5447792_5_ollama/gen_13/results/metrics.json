@@ -1,0 +1,34 @@
+{
+    "combined_score": 0.001785954069738537,
+    "public": {
+        "num_modes": 5,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": true,
+        "to_cost": 558.9248138259231,
+        "violations": [],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 4.304952607315954,
+        "to_jerk_per_mode": 2953.866615006805
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.5833333333333333,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.4826257049925191,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) did not reach its solver tolerance, but the trajectory is physically valid (dynamics, joint limits, contacts and penetration within limits) and reaches the task goal, so it counts as a solved trajectory.",
+    "execution_time_mean": 0.5121452519961167,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

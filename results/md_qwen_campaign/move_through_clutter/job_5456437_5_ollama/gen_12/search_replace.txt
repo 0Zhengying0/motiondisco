@@ -1,0 +1,61 @@
+<NAME>
+Improve walking steps and finalize position to ensure dynamic consistency and avoid penetration.
+
+<DESCRIPTION>
+The current plan has several issues, including dynamic inconsistency and penetration of objects. By adjusting the number of walking steps and ensuring the final position is correctly set, we can improve the feasibility of the trajectory optimization. Specifically, we will increase the number of walking steps to provide more room for the robot to move without exceeding joint limits or causing penetration. Additionally, we will ensure the final position is correctly set to match the discrete contact goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def walk_to_position(plan: Dict[str, List[Tuple]], steps: int) -> None:
+    """
+    Append walking modes to the plan.
+    """
+    walk(plan, steps)
+
+def finalize_position(plan: Dict[str, List[Tuple]]) -> None:
+    """
+    Ensure the final mode meets the discrete contact goal.
+    """
+    final_mode = {
+        'left_sole': [(1, 1)],
+        'right_sole': [(1, 1)],
+        'left_ee': [()],
+        'right_ee': [()],
+        'white_box': [()],
+        'yellow_box': [()],
+    }
+    for channel, contacts in final_mode.items():
+        plan[channel].append(contacts[0])
+=======
+def walk_to_position(plan: Dict[str, List[Tuple]], steps: int) -> None:
+    """
+    Append walking modes to the plan.
+    """
+    walk(plan, steps)
+
+def finalize_position(plan: Dict[str, List[Tuple]]) -> None:
+    """
+    Ensure the final mode meets the discrete contact goal.
+    """
+    final_mode = {
+        'left_sole': [(1, 1)],
+        'right_sole': [(1, 1)],
+        'left_ee': [()],
+        'right_ee': [()],
+        'white_box': [()],
+        'yellow_box': [()],
+    }
+    for channel, contacts in final_mode.items():
+        plan[channel].append(contacts[0])
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task.
+    """
+    plan = initialize_plan()
+    walk_to_position(plan, 10)  # Increase the number of steps to 10
+    finalize_position(plan)
+    return plan
+>>>>>>> REPLACE
+</DIFF>

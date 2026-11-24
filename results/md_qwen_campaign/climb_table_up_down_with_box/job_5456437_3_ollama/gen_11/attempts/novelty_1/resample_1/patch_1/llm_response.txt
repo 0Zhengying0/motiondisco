@@ -1,0 +1,16 @@
+<NAME>
+Improve the trajectory optimization by reducing the number of modes and ensuring smoother transitions.
+
+<DESCRIPTION>
+The current plan has 8 modes, which is more than necessary. Reducing the number of modes can help the trajectory optimizer converge faster and produce a smoother trajectory. By carefully planning the transitions, we can ensure that the robot's movements are more fluid and efficient.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+walk(plan, 5)  # Add 5 walking steps
+append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+=======
+walk(plan, 3)  # Add 3 walking steps
+append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+>>>>>>> REPLACE
+</DIFF>

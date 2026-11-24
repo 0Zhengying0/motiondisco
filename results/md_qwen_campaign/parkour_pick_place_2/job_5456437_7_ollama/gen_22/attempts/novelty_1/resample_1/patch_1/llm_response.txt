@@ -1,0 +1,71 @@
+<NAME>
+A novel approach that optimizes the sequence of robot movements to achieve the task of picking up a white box and placing it on an elevated table. This approach ensures that all contacts are properly released before making new ones, which is a common issue in previous implementations. The plan is structured to minimize the number of modes while ensuring feasibility and compliance with the solver constraints.
+
+<DESCRIPTION>
+The previous implementations often failed due to improper handling of contact transitions, where contacts were changed without a free mode in between. This led to infeasible plans that the solver could not resolve. The new approach focuses on a structured sequence of movements that ensures all contacts are released before making new ones. This is achieved by carefully planning each step, including walking to the target, grasping the object, lifting it, moving to the destination, and placing it. The plan is designed to be as efficient as possible while adhering to the solver constraints.
+
+Key insights:
+1. Proper contact transition handling: Ensure that all contacts are released before making new ones.
+2. Structured movement planning: Break down the task into clear steps, including walking, grasping, lifting, and placing.
+3. Minimize modes: Reduce the number of modes to improve the feasibility of the plan and to meet the solver's mode cap.
+4. Use of `walk` function: Utilize the `walk` function to efficiently move the robot while maintaining support.
+
+This approach aims to create a more robust and feasible plan by addressing the common issues seen in previous implementations.
+</DESCRIPTION>
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Move the robot's left hand to the white box
+    walk(plan, 5)
+    append_mode(plan, left_ee=(14, 1))
+
+    # Step 2: Grasp the white box with the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Step 3: Lift the white box
+    walk(plan, 3)
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 1))
+
+    # Step 4: Move the robot's left hand to the elevated table
+    walk(plan, 5)
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 1))
+
+    # Step 5: Release the white box before placing it on the table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+
+    # Step 6: Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1), white_box=(6, 8, 1))
+
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

@@ -1,0 +1,47 @@
+<NAME>
+Ensure proper contact transitions by adding intermediate free modes where necessary.
+
+<DESCRIPTION>
+The current plan has several invalid contact transitions where a contact changes directly from one surface to another without passing through a free state. This violates the solver rules and causes the plan to be infeasible. To fix this, we need to add intermediate modes where contacts are released before transitioning to a new surface.
+
+This change will ensure that every contact channel (hands, feet, objects) passes through a free state before touching a different surface, which is a requirement for the solver to accept the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_box(plan: Dict[str, List[Tuple]]):
+    # Approach the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    # Move the box to the front of the robot
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+=======
+def pick_box(plan: Dict[str, List[Tuple]]):
+    # Approach the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(), right_sole=())
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(), right_sole=())
+    # Move the box to the front of the robot
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(), right_sole=())
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_box(plan: Dict[str, List[Tuple]]):
+    # Move the box towards the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    # Place the box on the table
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(8, 1), right_sole=(8, 1), white_box=(6, 8, 1))
+=======
+def place_box(plan: Dict[str, List[Tuple]]):
+    # Move the box towards the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(), right_sole=())
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(), right_sole=())
+    # Place the box on the table
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(8, 1), right_sole=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

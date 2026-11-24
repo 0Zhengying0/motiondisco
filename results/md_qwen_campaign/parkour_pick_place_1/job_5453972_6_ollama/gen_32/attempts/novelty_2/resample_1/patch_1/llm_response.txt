@@ -1,0 +1,52 @@
+<NAME>
+Add intermediate steps to ensure proper contact transitions and avoid direct contact changes without a free mode in between.
+
+<DESCRIPTION>
+The current plan has several direct contact changes without a free mode in between, which causes the solver to fail. To fix this, we need to add intermediate steps to ensure that each contact transition is valid. Specifically, we need to add free modes before changing the contact to a different surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Walk towards the white box
+    walk(plan, 4)
+
+    # Move the left EE towards the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Grasp the white box
+    append_mode(plan, left_ee=(14, 1, 1))
+
+    # Lift the white box
+    walk(plan, 2)
+
+    # Move towards the elevated table
+    walk(plan, 4)
+
+    # Move the left EE towards the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(6, 8, 1))
+=======
+    # Walk towards the white box
+    walk(plan, 4)
+
+    # Move the left EE towards the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Grasp the white box
+    append_mode(plan, left_ee=(14, 1, 1))
+
+    # Lift the white box
+    walk(plan, 2)
+
+    # Move towards the elevated table
+    walk(plan, 4)
+
+    # Move the left EE towards the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

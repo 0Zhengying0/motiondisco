@@ -1,0 +1,972 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        9,
+        1
+      ],
+      [
+        9,
+        1
+      ]
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        11,
+        1
+      ]
+    ],
+    "crate": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 9,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 1.0,
+    "structure_score": 1.0,
+    "efficiency": 0.25,
+    "combined_score": 1.25,
+    "violations": []
+  },
+  "goal_match": true,
+  "ik_feasible": false,
+  "ik_cost": null,
+  "to_converged": null,
+  "to_cost": null,
+  "ik_run_path": null,
+  "to_run_path": null,
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": {
+    "kind": "prefix",
+    "last_feasible_modes": 7,
+    "first_infeasible_modes": 8,
+    "total_modes": 9,
+    "solver_error": null,
+    "prefix_attempts": 4,
+    "prefix_trials": [
+      {
+        "modes": 2,
+        "feasible": true,
+        "tries": 1
+      },
+      {
+        "modes": 5,
+        "feasible": true,
+        "tries": 1
+      },
+      {
+        "modes": 7,
+        "feasible": true,
+        "tries": 1
+      },
+      {
+        "modes": 8,
+        "feasible": false,
+        "tries": 4
+      }
+    ],
+    "kso_attempts": 3,
+    "best_max_violation": 1.0157371226212764,
+    "ik_hard_failed": true,
+    "prefix_violation_details": [
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_sole",
+        "family": "gap",
+        "value": 0.9729540006052225,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "right_sole",
+        "family": "gap",
+        "value": 0.9682506055822565,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.03598660646488873,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.0250572062052921,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[15]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_sole",
+        "family": "gap",
+        "value": 0.9828269295221465,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "right_sole",
+        "family": "gap",
+        "value": 0.9450049581129842,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.03842911109958687,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.029096900758641367,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[15]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_sole",
+        "family": "gap",
+        "value": 0.9853983002101181,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "right_sole",
+        "family": "gap",
+        "value": 0.9453489585651954,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.03696829119434643,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.027675483797996628,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[15]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_sole",
+        "family": "gap",
+        "value": 0.9627108374587133,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "right_sole",
+        "family": "gap",
+        "value": 0.9612294113053418,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.04389770827619971,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.03501801427214514,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[15]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.01958531267063956,
+        "unit": "rad",
+        "sign": -1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 7,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.010042859123041939,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "banana left",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[9]",
+        "attempts": 4
+      }
+    ],
+    "prefix_tries": 4,
+    "break_event": "left_ee -> banana left",
+    "probe": {
+      "fixed_by": null,
+      "tried": [
+        {
+          "before_mode": 7,
+          "n_steps": 2,
+          "event": "left_ee -> banana left",
+          "modes": 12,
+          "result": "still infeasible"
+        }
+      ],
+      "skipped": null
+    },
+    "diagnosis_seconds": 664.9,
+    "events_total": 2,
+    "events_feasible": 0
+  },
+  "kso_violations": [
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 1.0189239672228951,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 1.0153555189906123,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 1.0066565689490115,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 1.0042758819031554,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 0.9683394409959548,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 0.9570391095708812,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left_sole",
+      "family": "slip",
+      "value": 0.05928889729828335,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[3]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.014172659522220379,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.01396589578961674,
+      "unit": "rad",
+      "sign": -1.0,
+      "other": "banana left",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+      "attempts": 2
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_ee",
+      "family": "tilt",
+      "value": 0.013564216322116802,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana right",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.01348301571045211,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "overhang",
+      "value": 0.012365512963222636,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.012043777243680784,
+      "unit": "rad",
+      "sign": -1.0,
+      "other": "banana left",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+      "attempts": 2
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 1.0157371226212764,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 1.013763324223183,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 1.0070836587253194,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 1.0069595831178095,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 0.9681214909282674,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 0.9534901839391081,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left_sole",
+      "family": "slip",
+      "value": 0.06211260517829931,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[3]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.019159398997882483,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.017721260279123595,
+      "unit": "rad",
+      "sign": -1.0,
+      "other": "banana left",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+      "attempts": 2
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "overhang",
+      "value": 0.015388866207254312,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.015336667424346393,
+      "unit": "rad",
+      "sign": -1.0,
+      "other": "banana left",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+      "attempts": 2
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_ee",
+      "family": "tilt",
+      "value": 0.014256390344912774,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana right",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left_sole",
+      "family": "drift",
+      "value": 0.010755474143205816,
+      "unit": "m",
+      "sign": -1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[5]",
+      "attempts": 2
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_sole",
+      "family": "drift",
+      "value": 0.010376128591009674,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[5]",
+      "attempts": 1
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "overhang",
+      "value": 0.01008191341860347,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[15]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 1.0224392019371897,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 1.020864376695707,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 1.015208926832362,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 1.0135392651100772,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "right_sole",
+      "family": "gap",
+      "value": 0.9680074723986586,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_sole",
+      "family": "gap",
+      "value": 0.9630186820968423,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "tilt",
+      "value": 0.04147371209567932,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_ee",
+      "family": "tilt",
+      "value": 0.0190692610289429,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana right",
+      "raw": "k=9:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left_sole",
+      "family": "slip",
+      "value": 0.017061202874543158,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[3]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "right_sole",
+      "family": "slip",
+      "value": 0.016187426125071513,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[3]",
+      "attempts": 1
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "overhang",
+      "value": 0.01550275932682138,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "slip",
+      "value": 0.013032110331503866,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[4]",
+      "attempts": 1
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left_sole",
+      "family": "drift",
+      "value": 0.010907681174107233,
+      "unit": "m",
+      "sign": -1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[5]",
+      "attempts": 2
+    },
+    {
+      "solver": "kso",
+      "mode": 8,
+      "subject": "right_ee",
+      "family": "tilt",
+      "value": 0.01055060764905873,
+      "unit": "rad",
+      "sign": 1.0,
+      "other": "banana right",
+      "raw": "k=10:terminal:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 7,
+      "subject": "left_ee",
+      "family": "overhang",
+      "value": 0.010509838523042714,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "banana left",
+      "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[15]",
+      "attempts": 3
+    }
+  ],
+  "to_status": null,
+  "to_violations": null,
+  "to_valid": null,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": null,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "walk|left_ee:->9.1|right_ee:->11.1",
+  "plan_novelty": null,
+  "plan_patches": "crate:6.1.1|left_ee:9.1|left_sole:1.1|right_ee:11.1|right_sole:1.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": null,
+  "to_cost_parts": null
+}

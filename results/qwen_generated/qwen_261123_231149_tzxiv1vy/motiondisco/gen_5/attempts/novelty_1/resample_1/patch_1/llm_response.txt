@@ -1,0 +1,48 @@
+<NAME>
+adaptive_stepping_walk
+
+<DESCRIPTION>
+This approach aims to improve the current program by implementing a more adaptive walking algorithm that better handles the distance calculation and the number of walking steps required. The key insight is that a more precise estimation of the distance to be covered and a more flexible approach to the number of walking steps can lead to better performance in terms of reaching the target with minimal deviation and maintaining feasibility in the IK and TO solvers. The adaptive_stepping_walk algorithm dynamically adjusts the number of walking steps based on the calculated distance, ensuring a more accurate and efficient path planning.
+
+Inspiration from the context programs includes the use of the `walk` function to generate a sequence of modes for walking. The new approach builds upon this by incorporating a more refined distance calculation and a mechanism to handle different walking scenarios dynamically.
+
+The algorithm is structured to start from the initial mode, calculate the distance to the target, and then determine the number of walking steps required. It uses a dynamic adjustment mechanism to ensure that the plan remains within the allowable mode limit and that the trajectory optimizer can handle the path efficiently. The plan is then returned as a contact_mode_seq dictionary, adhering to the required format.
+</DESCRIPTION>
+
+<CODE>
+```python
+"""Adaptive Stepping Walk for generated reach_position tasks."""
+
+from math import ceil, dist
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    task = load_task()
+    start = task.resolved_state.robots[task.robot_id].q[:2]
+    target = task.terminal_goal.robots[task.robot_id].xyz[:2]
+    
+    # Calculate the distance to the target
+    distance = dist(start, target)
+    
+    # Determine the number of walking steps
+    # Base step length is approximately 0.4 m
+    # Add an extra step to ensure the robot reaches the target
+    n_steps = ceil(distance / 0.4) + 1
+    
+    # Walk to the target
+    walk(plan, n_steps)
+    
+    return plan
+# EVOLVE-BLOCK-END
+
+from _task_loader import load_task
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    scene = get_default_scene()
+    return generate_contact_plan(scene), scene
+```
+</CODE>

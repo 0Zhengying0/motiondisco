@@ -1,0 +1,42 @@
+<NAME>
+Ensure proper contact transitions for the white_box channel to avoid invalid contact schedules.
+
+<DESCRIPTION>
+The current plan has issues with the white_box channel, where it transitions directly from one contact to another without a free () mode in between. This violates the solver's rule that every channel must pass through () before touching a different surface. To fix this, we need to ensure that the white_box channel transitions through a free state when changing surfaces.
+
+We will modify the `pick_up_object` and `place_object` functions to include a free state transition for the white_box channel before changing its contact.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_up_object(plan, ee: str, object_id: int) -> None:
+    """Pick up an object using the specified end-effector."""
+    move_ee(plan, ee, (object_id, 1))
+    release_ee(plan, ee)
+    move_ee(plan, ee, (object_id, 1))
+    append_mode(plan, white_box=(1, object_id, 1))
+=======
+def pick_up_object(plan, ee: str, object_id: int) -> None:
+    """Pick up an object using the specified end-effector."""
+    move_ee(plan, ee, (object_id, 1))
+    release_ee(plan, ee)
+    append_mode(plan, white_box=())  # Add a free state transition
+    move_ee(plan, ee, (object_id, 1))
+    append_mode(plan, white_box=(1, object_id, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_object(plan, ee: str, target_env_id: int) -> None:
+    """Place an object on the target surface using the specified end-effector."""
+    release_ee(plan, ee)
+    move_ee(plan, ee, (target_env_id, 1))
+    append_mode(plan, white_box=(6, target_env_id, 1))
+=======
+def place_object(plan, ee: str, target_env_id: int) -> None:
+    """Place an object on the target surface using the specified end-effector."""
+    release_ee(plan, ee)
+    append_mode(plan, white_box=())  # Add a free state transition
+    move_ee(plan, ee, (target_env_id, 1))
+    append_mode(plan, white_box=(6, target_env_id, 1))
+>>>>>>> REPLACE
+</DIFF>

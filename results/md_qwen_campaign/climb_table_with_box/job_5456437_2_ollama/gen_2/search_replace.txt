@@ -1,0 +1,53 @@
+<NAME>
+Ensure the robot's feet are free before transitioning to a new surface contact.
+
+<DESCRIPTION>
+The current plan fails because it attempts to transition directly from one surface contact to another without releasing the previous contact first. This violates the solver's rule that a contact must be released before it touches a different surface. To fix this, we need to ensure that each foot is free before transitioning to a new surface contact. This will allow the solver to properly handle the transition.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 1: Move right foot to the table
+    append_mode(plan, right_sole=(2, 1))
+=======
+    # Step 1: Move right foot to the table
+    append_mode(plan, right_sole=())
+    append_mode(plan, right_sole=(2, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 2: Move left foot to the table
+    append_mode(plan, left_sole=(2, 1))
+=======
+    # Step 2: Move left foot to the table
+    append_mode(plan, left_sole=())
+    append_mode(plan, left_sole=(2, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 5: Move right foot to the table while holding the box
+    append_mode(plan, right_sole=(2, 1))
+=======
+    # Step 5: Move right foot to the table while holding the box
+    append_mode(plan, right_sole=())
+    append_mode(plan, right_sole=(2, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 6: Move left foot to the table while holding the box
+    append_mode(plan, left_sole=(2, 1))
+=======
+    # Step 6: Move left foot to the table while holding the box
+    append_mode(plan, left_sole=())
+    append_mode(plan, left_sole=(2, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 7: Place the box on the table
+    append_mode(plan, white_box=(1, 2, 1))
+=======
+    # Step 7: Place the box on the table
+    append_mode(plan, white_box=())
+    append_mode(plan, white_box=(1, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

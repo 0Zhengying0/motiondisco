@@ -1,0 +1,29 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 2,
+        "goal_match": false,
+        "ik_feasible": null,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "discrete goal: white_box final mode is (6, 1, 1), expected (6, 2, 1)",
+            "transition 0->1: no contact changes (noop)"
+        ]
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.8,
+        "efficiency": 0.8333333333333334
+    },
+    "execution_time_mean": 0.48456700099632144,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

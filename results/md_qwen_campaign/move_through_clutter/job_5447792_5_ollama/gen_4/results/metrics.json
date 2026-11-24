@@ -1,0 +1,38 @@
+{
+    "combined_score": 0.00018087754673252026,
+    "public": {
+        "num_modes": 16,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 5527.602184541949,
+        "violations": [
+            "mode 16: right_ankle_roll_joint goes 0.53 rad past its limit",
+            "transition 7->8: no contact changes (noop)",
+            "transition 8->9: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 20.238543474461466,
+        "to_jerk_per_mode": 23831.671029434052
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8666666666666667,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9733333333333334,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.615109691963688,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 16: right_ankle_roll_joint goes 0.53 rad past its limit\n- mode 15: right_ee slides 33 cm on floor surface although the contact is sticking\n- mode 11: robot left_ankle_roll_link penetrates table_short2 by 24 cm in the trajectory\n- mode 15: the motion is not dynamically consistent (it needs 31% of the body weight, 101 N, that no contact provides)\n- modes 3\u201315: in 1 of 10 steps a foot travels more than 0.8 m (up to 1.21 m, left_sole at mode 12); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 2 more walking steps at the end of the plan, e.g. walk(plan, 2)",
+    "execution_time_mean": 0.5210069379972992,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

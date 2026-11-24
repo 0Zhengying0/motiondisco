@@ -1,0 +1,203 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "white_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ]
+    ],
+    "yellow_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 7,
+    "num_channels": 6,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 1.0,
+    "structure_score": 1.0,
+    "efficiency": 0.41666666666666663,
+    "combined_score": 1.4166666666666665,
+    "violations": []
+  },
+  "goal_match": true,
+  "ik_feasible": true,
+  "ik_cost": 1.48237316937874,
+  "to_converged": true,
+  "to_cost": 22.013191402303356,
+  "ik_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5456437_5_ollama/gen_5/results/ik_run.pkl",
+  "to_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5456437_5_ollama/gen_5/results/to_run.pkl",
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": null,
+  "kso_violations": null,
+  "to_status": 0,
+  "to_violations": [],
+  "to_valid": true,
+  "to_physical": null,
+  "to_goal": {
+    "mode": "hard",
+    "met": true,
+    "slack": 0.05,
+    "excess": 0.0,
+    "targets": {
+      "robot": {
+        "excess": 0.0,
+        "position_error": 0.142,
+        "position_tolerance": 0.1
+      }
+    }
+  },
+  "to_fail_reason": null,
+  "to_rescues": 0,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "walk",
+  "plan_novelty": null,
+  "plan_patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": true,
+  "to_cost_parts": {
+    "constraint_violation_sum": 9.774018275896982,
+    "constraint_violation_max": 0.049360427414228525,
+    "jerk_cost": 10522.224843663858,
+    "num_modes": 7,
+    "num_nodes": 140
+  }
+}

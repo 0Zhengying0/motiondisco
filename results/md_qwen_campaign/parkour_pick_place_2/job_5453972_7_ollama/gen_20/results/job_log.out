@@ -1,0 +1,29 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_20/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_20/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_20/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_20/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.52 seconds==========
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_20/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_20/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5453972_7_ollama/gen_20/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 35, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['Invalid contact schedule (no solver run): mode 22->23: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)', 'mode 22->23: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)', "channels have unequal lengths: {'left_sole': 23, 'right_sole': 23, 'left_ee': 23, 'right_ee': 23, 'white_box': 35}", 'mode 23: no sole in contact', 'mode 24: no sole in contact', 'mode 25: no sole in contact', 'mode 26: no sole in contact', 'mode 27: no sole in contact', 'mode 28: no sole in contact', 'mode 29: no sole in contact', 'mode 30: no sole in contact', 'mode 31: no sole in contact', 'mode 32: no sole in contact', 'mode 33: no sole in contact', 'mode 34: no sole in contact', 'transition 23->24: no contact changes (noop)', 'transition 24->25: no contact changes (noop)', 'transition 25->26: no contact changes (noop)', 'transition 26->27: no contact changes (noop)', 'transition 27->28: no contact changes (noop)', 'transition 28->29: no contact changes (noop)', 'transition 29->30: no contact changes (noop)'], 'kso_feasible_through_mode': 22, 'kso_first_infeasible_mode': 23}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 0.0, 'at_least_one_sole_fraction': 0.6571428571428571, 'no_noop_fraction': 0.7058823529411765, 'object_passive_fraction': 0.9411764705882353, 'structure_score': 0.6608403361344537, 'efficiency': 0.0, 'ik_diagnosis': {'kind': 'schedule_error', 'errors': ['mode 22->23: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)', 'mode 33->34: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)'], 'total_modes': 23, 'last_feasible_modes': 23, 'first_infeasible_modes': 24, 'events_total': 14, 'events_feasible': 14}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.5234978810185567
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

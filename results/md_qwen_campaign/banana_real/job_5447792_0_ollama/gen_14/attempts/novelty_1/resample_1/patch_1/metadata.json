@@ -1,0 +1,14 @@
+{
+  "generation": 14,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan directly steps down from the table to the floor, which is too steep for the robot. To avoid this, we can add an intermediate support surface by placing the crate on the table and then stepping down to the crate. This will allow the robot to take smaller steps and avoid the steep drop.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T14:30:38.506736",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

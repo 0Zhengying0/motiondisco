@@ -1,0 +1,21 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "is_duplicate": true,
+        "plan_hash": "1ff797b90ce892bd4f59b4a7bb5923364700cf6d09afa9ec9bb2d37c092e45be",
+        "first_seen_gen": "gen_9",
+        "violations": [
+            "duplicate plan (hash 1ff797b9; first seen gen_9)"
+        ]
+    },
+    "private": {
+        "prior_combined_score": 0.0,
+        "prior_top_violation": "KSO infeasible: first break at mode 21 of 22 (left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top); modes 0\u201320 solve on their own."
+    },
+    "text_feedback": "Duplicate plan: this contact_mode_seq is identical to one evaluated at gen_9 (combined_score=0.00). Prior outcome: KSO infeasible: first break at mode 21 of 22 (left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top); modes 0\u201320 solve on their own.. Propose a plan that differs from it.",
+    "execution_time_mean": 0.545653188979486,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

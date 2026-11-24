@@ -1,0 +1,37 @@
+<NAME>
+Ensure the yellow box transitions correctly between contact types by adding a free mode before changing contact types.
+
+<DESCRIPTION>
+The current plan fails because it attempts to change the contact type of the yellow box directly from (6, 1, 1) to (6, 2, 1) without a free mode in between. This violates the solver's rule that a contact must be released before it touches a different surface. By adding a free mode before changing the contact type, we ensure that the yellow box is properly released before it makes contact with the new surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Append a mode where the robot places the yellow box on the distant table
+    append_mode(
+        plan,
+        left_ee=(1, 1),  # Left hand is free
+        right_ee=(2, 1),  # Right hand sticks to the top of the distant table
+        left_sole=(1, 1),  # Left foot is on the floor
+        right_sole=(1, 1)  # Right foot is on the floor
+    )
+=======
+    # Append a mode where the robot places the yellow box on the distant table with a free mode first
+    append_mode(
+        plan,
+        left_ee=(1, 1),  # Left hand is free
+        right_ee=(2, 1),  # Right hand sticks to the top of the distant table
+        left_sole=(1, 1),  # Left foot is on the floor
+        right_sole=(1, 1),  # Right foot is on the floor
+        yellow_box=()  # Release the yellow box
+    )
+    append_mode(
+        plan,
+        left_ee=(1, 1),  # Left hand is free
+        right_ee=(2, 1),  # Right hand sticks to the top of the distant table
+        left_sole=(1, 1),  # Left foot is on the floor
+        right_sole=(1, 1),  # Right foot is on the floor
+        yellow_box=(6, 2, 1)  # Place the yellow box with the correct contact type
+    )
+>>>>>>> REPLACE
+</DIFF>

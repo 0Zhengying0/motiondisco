@@ -1,0 +1,332 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [
+        1,
+        2
+      ]
+    ],
+    "right_ee": [
+      [],
+      [
+        1,
+        2
+      ]
+    ],
+    "white_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 2,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 1.0,
+    "structure_score": 1.0,
+    "efficiency": 0.8333333333333334,
+    "combined_score": 1.8333333333333335,
+    "violations": []
+  },
+  "goal_match": true,
+  "ik_feasible": true,
+  "ik_cost": 0.0,
+  "to_converged": false,
+  "to_cost": 35.015794340900854,
+  "ik_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_2/results/ik_run.pkl",
+  "to_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_2/results/to_run.pkl",
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": null,
+  "kso_violations": null,
+  "to_status": 2,
+  "to_violations": [
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 2.188330995496513,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.3043264343947526,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.28300553940360873,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.20211424077476506,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.1899090038145094,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.12790620509065298,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.1266805955092117,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.08464581222359932,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.05008621520937769,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.04383679305025012,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.029123784055563064,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.026668250905238788,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.01676084393113226,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.01246159210777032,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 1,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.010097267966571134,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    }
+  ],
+  "to_valid": true,
+  "to_physical": {
+    "pass": true,
+    "fails": [],
+    "worst": {
+      "dyn_force_ratio": 3.815845183416924e-07,
+      "power_excess_ratio": 0.0,
+      "joint_pos_excess": 0.0,
+      "joint_vel_excess_ratio": 0.0,
+      "pull_force": 0.0,
+      "friction_excess_ratio": 1.930529350109997e-06,
+      "contact_gap": 1.569608192586447e-07,
+      "contact_slip": 7.749935418479371e-09,
+      "penetration": 5.019693149520277e-05
+    },
+    "where": {
+      "penetration": [
+        "node",
+        38,
+        "floor",
+        "robot left_wrist_yaw_link"
+      ],
+      "dyn_force_ratio": [
+        "mode",
+        1,
+        "interval",
+        31
+      ],
+      "contact_gap": [
+        "mode",
+        1,
+        "right_ee",
+        "floor",
+        "surface"
+      ],
+      "contact_slip": [
+        "mode",
+        1,
+        "left_sole",
+        "floor",
+        "surface"
+      ],
+      "friction_excess_ratio": [
+        "mode",
+        1,
+        "right_ee",
+        "floor",
+        "surface",
+        0.0
+      ]
+    },
+    "iterate": "best"
+  },
+  "to_goal": null,
+  "to_fail_reason": "collision: restoration_failed",
+  "to_rescues": 3,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "left_ee:->1.2,right_ee:->1.2",
+  "plan_novelty": null,
+  "plan_patches": "left_ee:1.2|left_sole:1.1|right_ee:1.2|right_sole:1.1|white_box:6.1.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": false,
+  "to_cost_parts": {
+    "constraint_violation_sum": 3.7436040053532107,
+    "constraint_violation_max": 2.188330995496513,
+    "jerk_cost": 5131.356865503565,
+    "num_modes": 2,
+    "num_nodes": 40
+  }
+}

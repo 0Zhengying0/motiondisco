@@ -1,0 +1,52 @@
+{
+    "combined_score": 0.1,
+    "public": {
+        "num_modes": 6,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": true,
+        "to_valid": false,
+        "to_cost": 22.066049074026445,
+        "violations": [
+            "mode 3: the robot motion is inconsistent with its dynamics (residual 0.0111)"
+        ],
+        "task_completion": {
+            "met": false,
+            "target_xyz_m": [
+                2.0,
+                0.0,
+                0.7746849933798136
+            ],
+            "maximum_error_m": 0.1,
+            "final_xyz_m": [
+                1.89992339424104,
+                -0.09999149212276007,
+                0.753754996726049
+            ],
+            "error_m": 0.1430094062539135
+        },
+        "kso_goal_mode": "hard",
+        "to_max_violation": 0.04904280816856499,
+        "to_jerk_per_mode": 1061.4211362357426,
+        "task_quality": 0.8748834388663423,
+        "to_quality": 0.06053821312203978
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.5,
+        "ik_mode": "hard",
+        "ik_cost": 0.0392881583919036,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTO converged; largest remaining violations (reducing them raises the score):\n- mode 3: the robot motion is inconsistent with its dynamics (residual 0.0111)",
+    "execution_time_mean": 0.5176141720730811,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

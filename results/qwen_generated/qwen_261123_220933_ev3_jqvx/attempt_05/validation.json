@@ -1,0 +1,59 @@
+{
+  "pass": false,
+  "errors": [
+    {
+      "code": "UNSUPPORTED_OBJECT",
+      "subject": "box1",
+      "message": "MuJoCo found no upward contact with the declared support",
+      "details": {
+        "support": "table1"
+      }
+    }
+  ],
+  "thresholds": {
+    "bounds_m": 1e-06,
+    "support_gap_m": 1e-05,
+    "box_penetration_m": 0.001,
+    "sole_penetration_m": 0.002,
+    "sole_contact_gap_m": 0.001,
+    "simulation_s": 2.0,
+    "settle_s": 0.25,
+    "position_drift_m": 0.005,
+    "angle_drift_rad": 0.03,
+    "linear_speed_m_s": 0.01,
+    "angular_speed_rad_s": 0.05
+  },
+  "stability": {},
+  "face_ids": {
+    "floor.surface": 1,
+    "table1.top": 2,
+    "table1.left": 3,
+    "table1.front": 4,
+    "table1.right": 5,
+    "table1.back": 6,
+    "table1.bottom": 7,
+    "table2.top": 8,
+    "table2.left": 9,
+    "table2.front": 10,
+    "table2.right": 11,
+    "table2.back": 12,
+    "table2.bottom": 13,
+    "box1.top": 14,
+    "box1.left": 15,
+    "box1.front": 16,
+    "box1.right": 17,
+    "box1.back": 18,
+    "box1.bottom": 19,
+    "box2.top": 20,
+    "box2.left": 21,
+    "box2.front": 22,
+    "box2.right": 23,
+    "box2.back": 24,
+    "box2.bottom": 25
+  },
+  "target_xyz_m": [
+    1.0,
+    1.5,
+    0.7746849933798136
+  ]
+}

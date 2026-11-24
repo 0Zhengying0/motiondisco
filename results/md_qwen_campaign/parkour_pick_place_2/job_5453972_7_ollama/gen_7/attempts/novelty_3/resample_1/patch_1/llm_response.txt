@@ -1,0 +1,51 @@
+<NAME>
+Ensure the plan has at least two modes and correctly transitions the white_box from the floor to the elevated table.
+
+<DESCRIPTION>
+The current plan only has one mode and does not transition the white_box from the floor to the elevated table correctly. We need to ensure the plan has at least two modes and that the white_box transitions from (6, 1, 1) to (6, 8, 1) with a free () mode in between to satisfy the solver's requirements.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 2)
+
+    # Pick up the white box with the right_ee
+    append_mode(plan, right_ee=(14, 1))
+
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=(6, 1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 2)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,25 @@
+<NAME>
+Ensure the white_box is released before placing it on the elevated table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=(6, 1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 2)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+=======
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=())
+
+    # Walk to the elevated table
+    walk(plan, 2)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

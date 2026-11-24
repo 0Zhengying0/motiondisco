@@ -1,0 +1,100 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_ee": [
+      [],
+      [
+        1,
+        1
+      ]
+    ],
+    "white_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 2,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 1.0,
+    "structure_score": 1.0,
+    "efficiency": 0.8333333333333334,
+    "combined_score": 1.8333333333333335,
+    "violations": []
+  },
+  "goal_match": true,
+  "ik_feasible": true,
+  "ik_cost": 0.0,
+  "to_converged": true,
+  "to_cost": 31.701411138200786,
+  "ik_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_1/results/ik_run.pkl",
+  "to_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_1/results/to_run.pkl",
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": null,
+  "kso_violations": null,
+  "to_status": 0,
+  "to_violations": [],
+  "to_valid": true,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": 0,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "left_ee:->1.1,right_ee:->1.1",
+  "plan_novelty": null,
+  "plan_patches": "left_ee:1.1|left_sole:1.1|right_ee:1.1|right_sole:1.1|white_box:6.1.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": true,
+  "to_cost_parts": {
+    "constraint_violation_sum": 3.5892112699756082,
+    "constraint_violation_max": 0.03857251145365126,
+    "jerk_cost": 4545.676592652353,
+    "num_modes": 2,
+    "num_nodes": 40
+  }
+}

@@ -1,0 +1,33 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.49 seconds==========
+[ik_eval] hard-mode KSO failed; trying soft KSO on full plan
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/results/extra.json
+[ik_eval] full-plan KSO failed; locating the break (bisect walk)
+[ik_eval] infeasibility diagnosis: kind=prefix, last_feasible=7, first_infeasible=8, total_modes=8
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5447792_0_ollama/gen_5/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 8, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['KSO infeasible: first break at mode 7 of 8 (left_ee -> banana left, right_ee -> banana right); modes 0–6 solve on their own.', 'mode 7: right_sole should touch floor surface but stays 1.04 m away from it (in all 2 solves)'], 'kso_goal_mode': 'soft (hard target missed)', 'kso_feasible_through_mode': 6, 'kso_first_infeasible_mode': 7, 'kso_break_event': 'left_ee -> banana left, right_ee -> banana right'}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 1.0, 'efficiency': 0.33333333333333337, 'ik_mode': 'soft', 'ik_hard_failed': True, 'ik_diagnosis': {'kind': 'prefix', 'last_feasible_modes': 7, 'first_infeasible_modes': 8, 'total_modes': 8, 'solver_error': None, 'prefix_attempts': 4, 'prefix_trials': [{'modes': 2, 'feasible': True, 'tries': 1}, {'modes': 5, 'feasible': True, 'tries': 1}, {'modes': 6, 'feasible': True, 'tries': 1}, {'modes': 7, 'feasible': True, 'tries': 1}], 'kso_attempts': 3, 'best_max_violation': 1.021892492752032, 'ik_hard_failed': True, 'prefix_violation_details': [{'solver': 'kso', 'mode': 7, 'subject': 'right_sole', 'family': 'gap', 'value': 1.031331299852297, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 7, 'subject': 'left_sole', 'family': 'gap', 'value': 0.9968679291890751, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 7, 'subject': 'left_ee', 'family': 'tilt', 'value': 0.023884494362350284, 'unit': 'rad', 'sign': -1.0, 'other': 'banana left', 'raw': 'k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]', 'attempts': 1}, {'solver': 'kso', 'mode': 7, 'subject': 'right_sole', 'family': 'gap', 'value': 1.040643124835139, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 7, 'subject': 'left_sole', 'family': 'gap', 'value': 1.0227352579004976, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 7, 'subject': 'right_ee', 'family': 'tilt', 'value': 0.010009408984413343, 'unit': 'rad', 'sign': -1.0, 'other': 'banana right', 'raw': 'k=9:terminal:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]', 'attempts': 1}], 'prefix_tries': 2, 'break_event': 'left_ee -> banana left, right_ee -> banana right', 'probe': {'fixed_by': None, 'tried': [{'before_mode': 7, 'n_steps': 2, 'event': 'left_ee -> banana left, right_ee -> banana right', 'modes': 11, 'result': 'still infeasible'}], 'skipped': None}, 'diagnosis_seconds': 136.9, 'events_total': 1, 'events_feasible': 0}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.4872149119983078
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

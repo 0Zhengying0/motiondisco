@@ -1,0 +1,14 @@
+{
+  "generation": 38,
+  "novelty_attempt": 3,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan is failing due to direct changes between surfaces without intermediate free modes. To address this, we will add intermediate steps to ensure smooth transitions and avoid direct changes between surfaces. This will help the solver to handle the transitions more gracefully and increase the chances of a feasible plan.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 4-line block starting with: 'def move_to_white_box(plan):'\n\nFull search pattern:\n```\ndef move_to_white_box(plan):\n    # Move the left hand to the white box\n    append_mode(plan, left_ee=(14, 1))\n    append_mode(plan, left_ee=(14, 1))\n```\n\nFound similar code block at line 62 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  def move_to_white_box(plan):\n-      # Move the left hand to the white box\n-      append_mode(plan, left_ee=(14, 1))\n-      append_mode(plan, left_ee=(14, 1))\n+      def move_to_white_box(self):\n+          # Move the left hand to the white box\n+          append_mode(self.plan, left_ee=(14, 1))\n+          append_mode(self.plan, left_ee=(14, 1))\n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-111):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (96 more lines)\n        state_machine.transition(\"place_white_box_on_table\")\n    \n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-18T14:23:39.466928",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

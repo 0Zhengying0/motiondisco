@@ -1,0 +1,34 @@
+{
+    "combined_score": 0.023960447701295115,
+    "public": {
+        "num_modes": 2,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": true,
+        "to_valid": true,
+        "to_cost": 40.73544720309829,
+        "violations": [
+            "mode 0: the robot motion is inconsistent with its dynamics (residual 0.0145)"
+        ],
+        "to_max_violation": 0.025731254854221675,
+        "to_jerk_per_mode": 2099.3859508996075
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.8333333333333334,
+        "ik_mode": "soft",
+        "ik_cost": 1.1000636058811308,
+        "to_mode": "off"
+    },
+    "text_feedback": "Solver feedback:\nTO converged; largest remaining violations (reducing them raises the score):\n- mode 0: the robot motion is inconsistent with its dynamics (residual 0.0145)",
+    "execution_time_mean": 0.4976586769989808,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

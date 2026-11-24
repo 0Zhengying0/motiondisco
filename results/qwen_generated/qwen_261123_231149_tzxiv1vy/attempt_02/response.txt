@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "scene_id": "qwen_261123_231149_tzxiv1vy",
+  "floor": {
+    "half_extents": [4, 2.5]
+  },
+  "robot": {
+    "initial_xy_yaw": [0.5, -1.2, 0.785]
+  },
+  "objects": [
+    {
+      "asset_id": "table_short",
+      "instance_id": "table1",
+      "support_object": "floor",
+      "support_surface": "surface",
+      "relative_xy_yaw": [1.5, -1.0, 0.0]
+    },
+    {
+      "asset_id": "green_box",
+      "instance_id": "box1",
+      "support_object": "table1",
+      "support_surface": "surface",
+      "relative_xy_yaw": [0.2, 0.2, 0.0]
+    }
+  ],
+  "task": {
+    "type": "reach_position",
+    "parameters": {
+      "target_xy": [2.0, -0.5]
+    }
+  }
+}

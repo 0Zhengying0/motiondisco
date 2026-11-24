@@ -1,0 +1,97 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 13,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 11 of 13 (left_ee set down on table_tall top, white_box lifted); modes 0\u201310 solve on their own.",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "kso_feasible_through_mode": 10,
+        "kso_first_infeasible_mode": 11,
+        "kso_break_event": "left_ee set down on table_tall top, white_box lifted"
+    },
+    "private": {
+        "well_formed_fraction": 0.9692307692307692,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9938461538461538,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 11,
+            "first_infeasible_modes": 12,
+            "total_modes": 13,
+            "solver_error": "TypeError: ('ee', 'robot', 'left_ee')[mode=19]: expected () or (env_id,type), got (6, 8, 1)",
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 7,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 10,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 11,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 12,
+                    "feasible": false,
+                    "tries": 1
+                }
+            ],
+            "ik_hard_failed": true,
+            "break_event": "left_ee set down on table_tall top, white_box lifted",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 11,
+                        "n_steps": 2,
+                        "event": "left_ee set down on table_tall top, white_box lifted",
+                        "modes": 16,
+                        "result": "still infeasible"
+                    },
+                    {
+                        "before_mode": 5,
+                        "n_steps": 2,
+                        "event": "left_ee -> white_box top",
+                        "modes": 16,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 18.2,
+            "events_total": 4,
+            "events_feasible": 2
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 11 of 13 (left_ee set down on table_tall top, white_box lifted); modes 0\u201310 solve on their own.\nRepair probe: inserting walk(plan, 2) before mode 11 (left_ee set down on table_tall top, white_box lifted), before mode 5 (left_ee -> white_box top) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5147718010121025,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

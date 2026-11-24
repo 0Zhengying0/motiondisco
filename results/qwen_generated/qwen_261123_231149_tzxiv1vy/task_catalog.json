@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "tasks": {
+    "reach_position": {
+      "name": "Walk to a position",
+      "description": "Move the Unitree G1 from its initial standing pose to a target position on the floor and end with both feet on the floor.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target_xy"
+        ],
+        "properties": {
+          "target_xy": {
+            "type": "array",
+            "description": "World x and y in metres on the floor. G1 base height comes from FARO's standing configuration.",
+            "prefixItems": [
+              {
+                "type": "number",
+                "minimum": -4,
+                "maximum": 4
+              },
+              {
+                "type": "number",
+                "minimum": -2.5,
+                "maximum": 2.5
+              }
+            ],
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      },
+      "generation_limits": {
+        "horizontal_distance_m": [
+          0.8,
+          3.0
+        ],
+        "target_support": [
+          "floor",
+          "surface"
+        ],
+        "target_pose": "Standing at target_xy with the initial yaw for clearance validation. Final yaw is free."
+      },
+      "faro_goal": {
+        "discrete": "Both configured standing contacts on floor.surface",
+        "terminal": "TerminalGoal with hard KSO and TO PositionTarget on the robot base",
+        "position_tolerance_m": 0.1
+      },
+      "completion_check": {
+        "source": "Final robot base XYZ from the actual TO trajectory",
+        "metric": "Euclidean distance to the target XYZ",
+        "maximum_error_m": 0.1
+      }
+    }
+  }
+}

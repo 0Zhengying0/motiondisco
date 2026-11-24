@@ -1,0 +1,14 @@
+{
+  "generation": 21,
+  "novelty_attempt": 3,
+  "resample_attempt": 1,
+  "patch_attempt": 3,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "none",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 5-line block starting with: '# Original code to find and replace (must match exactly including indentation)'\n\nFull search pattern:\n```\n# Original code to find and replace (must match exactly including indentation)\nplan = get_initial_mode()\n\n# Transition to a standing position\nappend_mode(plan, left_sole=(2, 1), right_sole=(2, 1))\n```\n\nFound similar code block at line 66 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  # Original code to find and replace (must match exactly including indentation)\n-  plan = get_initial_mode()\n+      \"\"\"\n+      plan = get_initial_mode()\n-  # Transition to a standing position\n-  append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))\n+      # Transition to a standing position\n+      append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))\n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-93):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (77 more lines)\n        place_object(plan, 6, 8, \"right_ee\")\n    \n        return plan\n\nQuick fixes:\n\u2022 Verify the text exists in the file\n\u2022 Check that you're searching within EVOLVE-BLOCK regions\n\u2022 Try a smaller, more specific search pattern",
+  "timestamp": "2026-11-19T04:24:30.931319",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

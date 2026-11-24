@@ -1,0 +1,48 @@
+<NAME>
+Adjust walking steps and contact transitions to better align the robot's base with the banana while ensuring proper contact formation.
+
+<DESCRIPTION>
+The current plan walks towards the banana in multiple steps and attempts to grasp it. However, the solver feedback indicates issues with the robot's base not being aligned properly with the banana, causing gaps and overhangs in the contact formation. To address this, we will adjust the walking steps and ensure a smoother transition to the final grasping mode. Specifically, we will:
+
+1. Increase the number of walking steps to ensure the robot's base is closer to the banana.
+2. Introduce intermediate modes to ensure proper alignment and contact formation.
+3. Use sliding contacts where appropriate to facilitate better movement and alignment.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Walk towards the banana in smaller steps
+    walk(plan, 3)
+    walk(plan, 2)
+
+    # Ensure the soles are properly planted on the floor
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Append modes to make contact with the banana's left and right sides
+    append_mode(plan, left_ee=(9, 1), right_ee=())
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Walk towards the banana in smaller steps to ensure proper alignment
+    walk(plan, 5)
+    walk(plan, 3)
+    walk(plan, 2)
+
+    # Introduce intermediate modes to ensure proper alignment
+    append_mode(plan, left_sole=(1, 2), right_sole=(1, 2))  # Sliding contacts for better alignment
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))  # Transition to sticking contacts
+
+    # Append modes to make contact with the banana's left and right sides
+    append_mode(plan, left_ee=(9, 1), right_ee=())
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

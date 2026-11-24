@@ -1,0 +1,34 @@
+{
+    "combined_score": 0.0006576442160578112,
+    "public": {
+        "num_modes": 12,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 1519.5790237073925,
+        "violations": [
+            "mode 11: table1 penetrates box1 by 23 cm in the trajectory"
+        ],
+        "to_max_violation": 217.83081964298083,
+        "to_jerk_per_mode": 39727.82949875121
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_cost": 0.1383235440112843,
+        "to_mode": "off"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 11: table1 penetrates box1 by 23 cm in the trajectory\n- mode 10: the motion is not dynamically consistent (it needs 22% of the body weight, 72 N, that no contact provides)\n- mode 10: waist_roll_joint exceeds its torque-speed limit by 21%\n- mode 10: waist_pitch_joint goes 0.03 rad past its limit\n- modes 4\u20138: in 1 of 5 steps a foot travels more than 0.8 m (up to 0.81 m, left_sole at mode 7); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 2 more walking steps before mode 9 (right_ee -> table1 top), e.g. walk(plan, 2)",
+    "execution_time_mean": 0.5000058320001699,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

@@ -1,0 +1,56 @@
+{
+  "active_proposals_at_start": 1,
+  "api_costs": 0.0,
+  "archive_inspiration_ids": [
+    "1936423c-ccf5-4a1d-b07a-21ed4dc8afe7",
+    "15acd882-5050-4f89-b29b-520013c00f82",
+    "60a750ab-43d4-474e-9f9b-719776210374",
+    "6b3b1475-e3ea-416f-ad3f-c79ce9ef274e"
+  ],
+  "artifacts": {
+    "attempt_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/attempts/novelty_3/resample_1/patch_1",
+    "attempt_metadata_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/attempts/novelty_3/resample_1/patch_1/metadata.json",
+    "attempt_patch_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/attempts/novelty_3/resample_1/patch_1/patch.txt",
+    "generated_code_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/main.py",
+    "generation_diff_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/edit.diff",
+    "generation_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21",
+    "generation_original_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/original.py",
+    "generation_rewrite_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/rewrite.txt",
+    "generation_search_replace_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/search_replace.txt",
+    "llm_response_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/attempts/novelty_3/resample_1/patch_1/llm_response.txt",
+    "results_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/results"
+  },
+  "attempts": {
+    "novelty_attempt": 3,
+    "patch_attempt": 1,
+    "resample_attempt": 1
+  },
+  "code_embedding_available": true,
+  "downstream_eval_submitted": false,
+  "embed_cost": 0.0,
+  "error_attempt": null,
+  "failure_class": "novelty_rejected",
+  "failure_json_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_21/failure.json",
+  "failure_reason": "**NOT_NOVEL**  \nThe proposed code is essentially the same as the existing code with only minor differences. Specifically, the proposed code adds additional calls to `append_mode()` with an empty tuple `()` to ensure a free state before changing the surface. However, this change does not introduce a fundamentally new algorithm, structural change, or functional improvement. It is simply a refinement that could potentially lead to slightly different performance characteristics due to the intermediate free states, but the core logic and approach remain unchanged.",
+  "failure_stage": "novelty",
+  "generated_code_available": true,
+  "generation": 21,
+  "language": "python",
+  "last_error_msg": null,
+  "max_similarity": 0.9941949844360352,
+  "node_kind": "failed_proposal",
+  "novelty_checks_performed": 1,
+  "novelty_cost": 0.0,
+  "novelty_explanation": "**NOT_NOVEL**  \nThe proposed code is essentially the same as the existing code with only minor differences. Specifically, the proposed code adds additional calls to `append_mode()` with an empty tuple `()` to ensure a free state before changing the surface. However, this change does not introduce a fundamentally new algorithm, structural change, or functional improvement. It is simply a refinement that could potentially lead to slightly different performance characteristics due to the intermediate free states, but the core logic and approach remain unchanged.",
+  "parent_id": "16d58a94-e7da-48d4-8a91-f6950371e4dc",
+  "patch_description": "The current plan fails due to invalid contact transitions for the white box. Specifically, the white box transitions directly from one surface to another without a free state in between. This violates the solver's requirement that every channel must pass through a free state before touching a different surface. To fix this, we need to ensure that the white box transitions correctly from the floor to the table with proper intermediate free states.\n\nWe will:\n1. Ensure the white box is lifted off the floor with proper intermediate free states.\n2. Move the white box towards the table with proper intermediate free states.\n3. Place the white box on the table with proper intermediate free states.\n\nThis will ensure that the plan adheres to the solver's requirements and has a higher chance of being feasible.",
+  "patch_name": "none",
+  "patch_type": "diff",
+  "proposal_started_at": 1794971139.5236974,
+  "sampling_worker_id": null,
+  "system_prompt_id": null,
+  "timestamp": "2026-11-18T04:07:21.497281",
+  "top_k_inspiration_ids": [
+    "83f78226-8bcf-4ecd-a852-7bdaddd72848"
+  ]
+}

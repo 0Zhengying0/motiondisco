@@ -1,0 +1,82 @@
+{
+  "3d446554c6028e1873b764d586272ce8af2fadbaacda8fc390bed8dfb2a81009": {
+    "combined_score": 0.04049606322005298,
+    "first_seen_gen": "gen_4",
+    "patches": "green_box:6.2.1|left_ee:1.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->1.1|walk",
+    "top_violation": ""
+  },
+  "4ab6d83aec04a1e3c8d63d35c43528150f719a38d4947190250d9243d711a07b": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "green_box:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": ""
+  },
+  "74407a352f800dc87231fc4a23f877683beec83044a19cb11593c57cc655d6ae": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_8",
+    "patches": "green_box:1.1,1.2,6.2.1|left_ee:14.1,2.1,20.1,8.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.1,1.2,6.2.1|yellow_box:1.1,1.2,6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|walk|green_box:6.2.1>1.1,left_ee:8.1>-|walk|green_box:1.1>1.2,left_ee:->2.1|green_box:1.2>-,left_ee:2.1>-|walk|left_ee:->14.1|walk|left_ee:14.1>-,white_box:6.2.1>1.1|walk|left_ee:->2.1,white_box:1.1>1.2|left_ee:2.1>-,white_box:1.2>-|walk|left_ee:->20.1|walk|left_ee:20.1>-,yellow_box:6.2.1>1.1|walk|left_ee:->2.1,yellow_box:1.1>1.2",
+    "top_violation": "Invalid contact schedule (no solver run): mode 4->5: green_box changes from (6, 2, 1) to (1, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 1)"
+  },
+  "79eca748ae445dcc12b95ce77e13711e5760380552c6af65efcda5f7ff90985a": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_5",
+    "patches": "green_box:1.2.1,6.2.1|left_ee:14.1,2.1,20.1,8.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.2.1,6.2.1|yellow_box:1.2.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1|walk|green_box:6.2.1>1.2.1,left_ee:8.1>-|walk|left_ee:->2.1|walk|left_ee:2.1>14.1|walk|left_ee:14.1>-,white_box:6.2.1>1.2.1|walk|left_ee:->2.1|walk|left_ee:2.1>20.1|walk|left_ee:20.1>-,yellow_box:6.2.1>1.2.1|walk|left_ee:->2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 7->8: green_box changes from (6, 2, 1) to (1, 2, 1) without a free () mode in between; release it first: (6, 2, 1) -> () -> (1, 2, 1)"
+  },
+  "862802723be25d354c772facea4cedc59ff616c47d738e45bbfe2f1575d7dca3": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_6",
+    "patches": "green_box:6.2.1|left_ee:2.1,8.1|left_sole:1.1|right_ee:2.1,8.1|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->8.1,right_ee:->8.1|left_ee:8.1>2.1,right_ee:8.1>2.1|left_ee:2.1>-,right_ee:2.1>-|walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->8.1,right_ee:->8.1|left_ee:8.1>2.1,right_ee:8.1>2.1|left_ee:2.1>-,right_ee:2.1>-|walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->8.1,right_ee:->8.1|left_ee:8.1>2.1,right_ee:8.1>2.1|left_ee:2.1>-,right_ee:2.1>-",
+    "top_violation": "Invalid contact schedule (no solver run): mode 9->10: left_ee changes from (8, 1) to (2, 1) without a free () mode in between; release it first: (8, 1) -> () -> (2, 1)"
+  },
+  "8ea104955c9546ff39b05bc7d4c2d52d51a491b855d432288773b0ece2218ee4": {
+    "combined_score": 0.011208340300828214,
+    "first_seen_gen": "gen_7",
+    "patches": "green_box:6.2.1|left_ee:2.1,8.1|left_sole:1.1|right_ee:2.1,8.1|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->2.1,right_ee:->2.1|left_ee:2.1>-,right_ee:2.1>-|walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->2.1,right_ee:->2.1|left_ee:2.1>-,right_ee:2.1>-|walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->2.1,right_ee:->2.1|left_ee:2.1>-,right_ee:2.1>-",
+    "top_violation": "transition 13->14: no contact changes (noop)"
+  },
+  "9920bd7bfabebecd6cf5306e9c97165cc4a8c759c0dfe89b192afe4031981bca": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_2",
+    "patches": "green_box:6.2.1|left_ee:2.1,8.1|left_sole:1.1|right_ee:2.1,8.1|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->8.1,right_ee:->8.1|left_ee:8.1>2.1,right_ee:8.1>2.1|left_ee:2.1>-,right_ee:2.1>-|walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->8.1,right_ee:->8.1|left_ee:8.1>2.1,right_ee:8.1>2.1|left_ee:2.1>-,right_ee:2.1>-|walk|left_ee:->8.1,right_ee:->8.1|walk|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->8.1,right_ee:->8.1|left_ee:8.1>2.1,right_ee:8.1>2.1|left_ee:2.1>-,right_ee:2.1>-",
+    "top_violation": "too many contact modes (61 > 50)"
+  },
+  "a8481321cba74bb7e01615806eb38ca83a84cdb107347b8878c8d9b7713dc015": {
+    "combined_score": 0.023883384098538123,
+    "first_seen_gen": "gen_1",
+    "patches": "green_box:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "modes 0\u20131: the robot motion is inconsistent with its dynamics (residual 0.0238)"
+  },
+  "c3156a534698aa35da5ad4bae075bd673ac9693d69b8e5ebaf25c86cf206ceb8": {
+    "combined_score": 0.041242424383170356,
+    "first_seen_gen": "gen_9",
+    "patches": "green_box:6.2.1|left_ee:1.1|left_sole:1.1|right_ee:1.1|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->1.1|walk|left_ee:1.1>-,right_ee:->1.1|walk|left_ee:->1.1,right_ee:1.1>-|walk",
+    "top_violation": "mode 4: the robot motion is inconsistent with its dynamics (residual 0.0105)"
+  },
+  "c8423c4273e4edeffc786af4ea6684d22dcc83396ff1797e253541ce41a6d574": {
+    "combined_score": 0.023960447701295115,
+    "first_seen_gen": "gen_3",
+    "patches": "green_box:6.2.1|left_ee:1.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.2.1|yellow_box:6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->1.1",
+    "top_violation": "mode 0: the robot motion is inconsistent with its dynamics (residual 0.0145)"
+  }
+}

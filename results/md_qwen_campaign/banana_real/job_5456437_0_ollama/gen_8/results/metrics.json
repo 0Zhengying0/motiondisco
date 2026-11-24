@@ -1,0 +1,401 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 8,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 7 of 8 (left_ee -> banana left, right_ee -> banana right); modes 0\u20136 solve on their own.",
+            "mode 7: right_sole should touch floor surface but stays 1.15 m away from it (in all 2 solves)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "kso_feasible_through_mode": 6,
+        "kso_first_infeasible_mode": 7,
+        "kso_break_event": "left_ee -> banana left, right_ee -> banana right"
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.33333333333333337,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 7,
+            "first_infeasible_modes": 8,
+            "total_modes": 8,
+            "solver_error": null,
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 5,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 6,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 7,
+                    "feasible": true,
+                    "tries": 1
+                }
+            ],
+            "kso_attempts": 3,
+            "best_max_violation": 1.025294315154912,
+            "ik_hard_failed": true,
+            "prefix_violation_details": [
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 1.0554055224164607,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "right_sole",
+                    "family": "gap",
+                    "value": 1.0427516687126177,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "left foot",
+                    "family": "collision",
+                    "value": 0.04454737435216191,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "table_short",
+                    "raw": "k=8:path:n_6214da55f2ef18a14f955362922465ba3b6c397f8fdc1c2b1eced232e805b10f_distance[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 5,
+                    "subject": "left foot",
+                    "family": "collision",
+                    "value": 0.040167667348135976,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "table_short",
+                    "raw": "k=7:path:n_6214da55f2ef18a14f955362922465ba3b6c397f8fdc1c2b1eced232e805b10f_distance[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 5,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 0.025059391647804016,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=7:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 0.020618378550238837,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "left_ee",
+                    "family": "tilt",
+                    "value": 0.01407164160179389,
+                    "unit": "rad",
+                    "sign": 1.0,
+                    "other": "banana left",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "right_ee",
+                    "family": "overhang",
+                    "value": 0.013109858106225003,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "banana right",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f6565_kin_ineqs[15]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "left_sole",
+                    "family": "drift",
+                    "value": 0.011585671619662865,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[5]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "right_sole",
+                    "family": "slip",
+                    "value": 0.011025163887719291,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[4]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "right_sole",
+                    "family": "gap",
+                    "value": 1.149927067682027,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 1.1394452968260833,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 4,
+                    "subject": "crate",
+                    "family": "slip",
+                    "value": 0.017930686100206872,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=6:path:Stage_crate_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "left_sole",
+                    "family": "slip",
+                    "value": 0.016670403286721314,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "right_sole",
+                    "family": "tilt",
+                    "value": 0.01529316093667215,
+                    "unit": "rad",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "crate",
+                    "family": "slip",
+                    "value": 0.014903234621656103,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=5:path:Stage_crate_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "left_sole",
+                    "family": "tilt",
+                    "value": 0.014684374264084274,
+                    "unit": "rad",
+                    "sign": -1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[2]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "right_sole",
+                    "family": "slip",
+                    "value": 0.014118383423144365,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[3]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 2,
+                    "subject": "crate",
+                    "family": "slip",
+                    "value": 0.013535499279803132,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=4:path:Stage_crate_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 1,
+                    "subject": "crate",
+                    "family": "slip",
+                    "value": 0.012817880546159177,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=3:path:Stage_crate_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 0,
+                    "subject": "crate",
+                    "family": "slip",
+                    "value": 0.012207861254723729,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=2:path:Stage_crate_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "right_sole",
+                    "family": "tilt",
+                    "value": 0.012018452278694611,
+                    "unit": "rad",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[1]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 0,
+                    "subject": "crate",
+                    "family": "slip",
+                    "value": 0.011913869301641178,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=1:path:Stage_crate_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 0,
+                    "subject": "crate",
+                    "family": "slip",
+                    "value": 0.01141294866567194,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=0:initial:Stage_crate_kin_eqs[3]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 7,
+                    "subject": "left_ee",
+                    "family": "overhang",
+                    "value": 0.010716066975340832,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "banana left",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[13]",
+                    "attempts": 1
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "right_sole",
+                    "family": "slip",
+                    "value": 0.010211773298993282,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=8:path:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[4]",
+                    "attempts": 2
+                }
+            ],
+            "prefix_tries": 2,
+            "break_event": "left_ee -> banana left, right_ee -> banana right",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 7,
+                        "n_steps": 2,
+                        "event": "left_ee -> banana left, right_ee -> banana right",
+                        "modes": 11,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 133.1,
+            "events_total": 1,
+            "events_feasible": 0
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 7 of 8 (left_ee -> banana left, right_ee -> banana right); modes 0\u20136 solve on their own.\nThe 8-mode prefix failed 2 of 2 tries. Its violations:\n- mode 7: right_sole should touch floor surface but stays 1.15 m away from it (in all 2 solves)\n- mode 7: left_sole should touch floor surface but stays 1.14 m away from it (in all 2 solves)\n- mode 6: right_sole slides 0.01 m along floor surface although the contact is sticking (in all 2 solves)\n(10 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nHint (gap): a contact that cannot be reached usually means the body is in the wrong place (walk closer, or put the object down somewhere it can rest)\nHint (slip): use a sliding contact (type 2) or re-grasp instead of keeping a sticking contact\nFull-plan solves additionally report (later modes; these may follow from the break above):\n- mode 7: left_sole should touch floor surface but stays 1.04 m away from it (in all 3 solves)\n- mode 7: right_sole should touch floor surface but stays 1.03 m away from it (in all 3 solves)\n(1 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nRepair probe: inserting walk(plan, 2) before mode 7 (left_ee -> banana left, right_ee -> banana right) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5164929550082888,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

@@ -1,0 +1,28 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 25,
+        "goal_match": false,
+        "ik_feasible": null,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "discrete goal: white_box final mode is (6, 1, 1), expected (6, 8, 1)"
+        ]
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0
+    },
+    "execution_time_mean": 0.5217282639932819,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

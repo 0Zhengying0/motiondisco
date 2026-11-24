@@ -1,0 +1,52 @@
+<NAME>
+A more structured and goal-oriented approach to generating the contact plan. This approach explicitly models the steps required to climb onto the table and hold the box, ensuring that each mode transitions logically to the next.
+
+<DESCRIPTION>
+The new approach focuses on explicitly modeling the required steps to achieve the task: first, climbing onto the table, and then holding the white box. The plan is constructed in a step-by-step manner, ensuring that each transition is feasible and that the final mode meets the specified discrete contact goals. This structured approach avoids the pitfalls of the previous implementations, which may have lacked a clear sequence of actions.
+</DESCRIPTION>
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Lift the right foot and move forward to the table
+    append_mode(plan, right_ee=(2, 1))
+    walk(plan, 1)
+    append_mode(plan, right_ee=(), left_ee=(2, 1))
+
+    # Step 2: Move the left foot forward to the table
+    walk(plan, 1)
+    append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))
+
+    # Step 3: Hold the box with the left hand
+    append_mode(plan, left_ee=(9, 1))
+
+    # Step 4: Hold the box with the right hand
+    append_mode(plan, right_ee=(11, 1))
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

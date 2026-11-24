@@ -1,0 +1,53 @@
+<NAME>
+Implement a basic plan that moves the box to the other side of the table and adjusts the robot's position to match the discrete contact goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    # Start from the initial mode
+    plan = {ch: list(seq) for ch, seq in get_initial_mode().items()}
+
+    # Move the robot to the table
+    walk(plan, 3)
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    # Lift the box
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(8, 1, 1), right_ee=())
+    
+    # Move the robot and the box to the other side of the table
+    walk(plan, 3)
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(8, 1, 1), right_ee=())
+    
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 1))
+    
+    # Move the robot back to the floor
+    walk(plan, 3)
+    append_mode(plan, left_ee=(), right_ee=())
+    
+    return plan
+>>>>>>> REPLACE
+</DIFF>

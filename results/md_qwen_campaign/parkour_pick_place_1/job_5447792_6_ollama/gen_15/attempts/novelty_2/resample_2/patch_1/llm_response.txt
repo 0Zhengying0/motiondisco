@@ -1,0 +1,51 @@
+<NAME>
+A novel approach that combines a structured planning strategy with the flexibility of evolutionary algorithms to generate a more feasible and efficient contact mode sequence. The algorithm first defines a sequence of high-level actions (e.g., move to object, grasp, lift, walk, place) and then refines these actions into detailed contact modes. This structured approach ensures that each transition between contact states is valid and feasible, addressing the common issues seen in previous implementations where transitions were abrupt and unsupported.
+
+<DESCRIPTION>
+The current approach focuses on generating a contact mode sequence by appending modes one by one without a clear structure. This often leads to infeasible plans due to abrupt transitions between contact states. The novel approach addresses this by first defining a high-level sequence of actions (e.g., move to object, grasp, lift, walk, place) and then refining these actions into detailed contact modes. This structured planning ensures that each transition is valid and feasible, adhering to the solver's constraints. The algorithm also incorporates a feedback loop to iteratively refine the plan based on solver feedback, ensuring that the final plan is both feasible and optimized.
+</DESCRIPTION>
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    
+    # Move left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+    
+    # Grasp the white box with the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+    
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    
+    # Walk to the elevated table
+    walk(plan, 4)
+    
+    # Move the white box towards the elevated table
+    append_mode(plan, left_ee=(14, 1), right_sole=(2, 1), white_box=(1, 8, 1))
+    
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+    
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

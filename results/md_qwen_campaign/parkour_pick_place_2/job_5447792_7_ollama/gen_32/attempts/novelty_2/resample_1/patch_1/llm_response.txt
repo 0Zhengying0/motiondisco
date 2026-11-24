@@ -1,0 +1,33 @@
+<NAME>
+Ensure object transitions are properly handled by adding intermediate free states.
+
+<DESCRIPTION>
+The current plan encounters issues where objects transition between surfaces without a free state in between, which causes solver infeasibility. To address this, we need to ensure that the object transitions smoothly by adding intermediate free states where necessary.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    append_mode(plan, white_box=(6, 1, 2))  # Sliding contact to lift the box slowly
+    append_mode(plan, white_box=(6, 1, 1))  # Sticking contact to ensure stability
+=======
+    append_mode(plan, white_box=(6, 1, 2))  # Sliding contact to lift the box slowly
+    append_mode(plan, white_box=())        # Ensure free state before changing surface
+    append_mode(plan, white_box=(6, 1, 1))  # Sticking contact to ensure stability
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    append_mode(plan, white_box=(6, 1, 2))  # Sliding contact to move the box closer to the table
+    walk(plan, 4)  # Walk to the table
+    append_mode(plan, white_box=(6, 8, 2))  # Sliding contact to align with the table
+    append_mode(plan, white_box=(6, 8, 1))  # Sticking contact to place the box on the table
+=======
+    append_mode(plan, white_box=(6, 1, 2))  # Sliding contact to move the box closer to the table
+    append_mode(plan, white_box=())        # Ensure free state before changing surface
+    walk(plan, 4)  # Walk to the table
+    append_mode(plan, white_box=(6, 8, 2))  # Sliding contact to align with the table
+    append_mode(plan, white_box=())        # Ensure free state before changing surface
+    append_mode(plan, white_box=(6, 8, 1))  # Sticking contact to place the box on the table
+>>>>>>> REPLACE
+</DIFF>

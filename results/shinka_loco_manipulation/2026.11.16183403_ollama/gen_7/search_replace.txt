@@ -1,0 +1,54 @@
+<NAME>
+Add a step to pick up the box and place it on the table.
+
+<DESCRIPTION>
+The current plan only has one mode and does not achieve the task of picking up the box and placing it on the table. We need to add more modes to achieve this task. The plan should include modes for the robot to approach the box, lift it, move to the table, and place it down.
+
+1. Start with the initial mode.
+2. Append a mode where the left hand touches the box.
+3. Append a mode where the left hand lifts the box.
+4. Append a mode where the robot moves to the table.
+5. Append a mode where the left hand places the box on the table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Approach the box
+    append_mode(plan, left_ee=(13, 1, 1))
+
+    # Lift the box
+    append_mode(plan, left_ee=(13, 1, 1), box1=(1, 1, 1))
+
+    # Move to the table
+    walk(plan, 2)
+
+    # Place the box on the table
+    append_mode(plan, left_ee=(6, 2, 1), box1=(6, 2, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

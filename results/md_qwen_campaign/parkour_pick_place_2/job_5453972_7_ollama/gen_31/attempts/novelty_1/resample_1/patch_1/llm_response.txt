@@ -1,0 +1,34 @@
+<NAME>
+Add intermediate steps to ensure the white box is properly released before placing it on the elevated table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Lift the white box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 2))
+
+    # Move left_ee to the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Move right_ee to the elevated table
+    append_mode(plan, right_ee=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 8, 1))
+=======
+    # Lift the white box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 2))
+
+    # Release the white box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+
+    # Move left_ee to the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Move right_ee to the elevated table
+    append_mode(plan, right_ee=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,229 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "box1": [
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 7,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 0.8333333333333334,
+    "object_passive_fraction": 1.0,
+    "structure_score": 0.9666666666666668,
+    "efficiency": 0.41666666666666663,
+    "combined_score": 1.3833333333333333,
+    "violations": [
+      "transition 5->6: no contact changes (noop)"
+    ]
+  },
+  "goal_match": true,
+  "ik_feasible": true,
+  "ik_cost": 0.05996085940180423,
+  "to_converged": true,
+  "to_cost": 18.775934143371824,
+  "ik_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_231149_tzxiv1vy/motiondisco/gen_8/results/ik_run.pkl",
+  "to_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_231149_tzxiv1vy/motiondisco/gen_8/results/to_run.pkl",
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": null,
+  "kso_violations": null,
+  "to_status": 0,
+  "to_violations": [],
+  "to_valid": false,
+  "task_completion": {
+    "met": false,
+    "target_xyz_m": [
+      2.0,
+      0.0,
+      0.7746849933798136
+    ],
+    "maximum_error_m": 0.1,
+    "final_xyz_m": [
+      1.899877605790115,
+      -0.09996736620349096,
+      0.7473419155006376
+    ],
+    "error_m": 0.1441027828873862
+  },
+  "to_physical": {
+    "pass": true,
+    "fails": [],
+    "worst": {
+      "dyn_force_ratio": 0.00019260576874616155,
+      "power_excess_ratio": 0.0,
+      "joint_pos_excess": 0.0,
+      "joint_vel_excess_ratio": 0.0,
+      "pull_force": 0.0,
+      "friction_excess_ratio": 0.0,
+      "contact_gap": 5.8669866556802786e-05,
+      "contact_slip": 0.00021314917539389013,
+      "penetration": 0.011805549753859862
+    },
+    "where": {
+      "penetration": [
+        "node",
+        49,
+        "floor",
+        "robot left_ankle_roll_link"
+      ],
+      "dyn_force_ratio": [
+        "mode",
+        4,
+        "interval",
+        80
+      ],
+      "contact_gap": [
+        "mode",
+        3,
+        "left_sole",
+        "floor",
+        "surface"
+      ],
+      "contact_slip": [
+        "mode",
+        3,
+        "left_sole",
+        "floor",
+        "surface"
+      ]
+    },
+    "iterate": "final"
+  },
+  "to_goal": {
+    "mode": "hard",
+    "met": true,
+    "slack": 0.05,
+    "excess": 0.0001,
+    "targets": {
+      "robot": {
+        "excess": 0.0001,
+        "position_error": 0.1441,
+        "position_tolerance": 0.1
+      }
+    }
+  },
+  "to_fail_reason": null,
+  "to_rescues": 0,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "walk",
+  "plan_novelty": null,
+  "plan_patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+  "score_mode": "quality",
+  "task_quality": 0.8740473451836973,
+  "to_quality": 0.06671591206489917,
+  "to_converged_raw": true,
+  "to_cost_parts": {
+    "constraint_violation_sum": 13.416690694112841,
+    "constraint_violation_max": 0.047963443165230046,
+    "jerk_cost": 6434.8085533038575,
+    "num_modes": 7,
+    "num_nodes": 140
+  }
+}

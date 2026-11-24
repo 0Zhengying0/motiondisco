@@ -1,0 +1,50 @@
+<NAME>
+Improve contact transition handling to ensure proper release and re-grasp of the white box.
+
+<DESCRIPTION>
+The current plan fails due to improper contact transitions. Specifically, the robot's hands and the white box do not properly release and re-grasp the surfaces they need to interact with. This results in invalid contact schedules and solver infeasibility. To address this, we need to ensure that each contact transition is handled correctly by introducing a free mode before changing the contact surface.
+
+We will modify the plan to include a free mode before transitioning the robot's hands and the white box to new surfaces. This will ensure that the contacts are properly released and re-established, adhering to the solver's requirements.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 1: Move the robot's left and right hands to the white box
+    append_mode(plan, left_ee=(14, 2), right_ee=(14, 4))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+=======
+    # Step 1: Move the robot's left and right hands to the white box
+    append_mode(plan, left_ee=(14, 2), right_ee=(14, 4))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 2: Lift the white box with the robot's hands
+    append_mode(plan, left_ee=(6, 14, 1), right_ee=(4, 14, 1), white_box=(6, 14, 1))
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+    append_mode(plan, left_ee=(6, 14, 1), right_ee=(4, 14, 1), white_box=(6, 14, 1))
+=======
+    # Step 2: Lift the white box with the robot's hands
+    append_mode(plan, left_ee=(6, 14, 1), right_ee=(4, 14, 1), white_box=(6, 14, 1))
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+    append_mode(plan, left_ee=(6, 14, 1), right_ee=(4, 14, 1), white_box=(6, 14, 1))
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+    append_mode(plan, left_ee=(6, 14, 1), right_ee=(4, 14, 1), white_box=(6, 14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 4: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), white_box=(6, 8, 1))
+=======
+    # Step 4: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), white_box=(6, 8, 1))
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

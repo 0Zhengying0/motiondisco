@@ -1,0 +1,14 @@
+{
+  "generation": 19,
+  "novelty_attempt": 6,
+  "resample_attempt": 1,
+  "patch_attempt": 10,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan only moves the robot to the table, lifts the box, and then moves back to the floor. It does not move the box to the other side of the table. To improve the performance, we need to add a function to move the box to the other side of the table with the robot. This will involve walking the robot to the other side of the table while holding the box.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 4-line block starting with: 'def move_with_box_to_other_side(plan: Dict[str, List[Tuple]]):'\n\nFull search pattern:\n```\ndef move_with_box_to_other_side(plan: Dict[str, List[Tuple]]):\n    walk(plan, 3)\n    append_mode(plan, left_ee=(), right_ee=())\n    append_mode(plan, left_ee=(8, 1, 1), right_ee=())\n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-57):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (41 more lines)\n        plan = get_initial_mode()\n        append_mode(plan, left_ee=())\n        return plan\n\nQuick fixes:\n\u2022 Verify the text exists in the file\n\u2022 Check that you're searching within EVOLVE-BLOCK regions\n\u2022 Try a smaller, more specific search pattern",
+  "timestamp": "2026-11-19T00:27:26.642371",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

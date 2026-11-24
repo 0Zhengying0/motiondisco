@@ -1,0 +1,35 @@
+{
+    "combined_score": 0.0004321621914581973,
+    "public": {
+        "num_modes": 9,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 2312.9460595241108,
+        "violations": [
+            "mode 8: the motion is not dynamically consistent (it needs 242044467% of the body weight, 791670822 N, that no contact provides)"
+        ],
+        "kso_goal_mode": "hard",
+        "to_max_violation": 8.72937083571929,
+        "to_jerk_per_mode": 41859.10302934194
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.25,
+        "ik_mode": "hard",
+        "ik_cost": 0.0011120814492453835,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 8: the motion is not dynamically consistent (it needs 242044467% of the body weight, 791670822 N, that no contact provides)\n- mode 3: right_ankle_roll_joint goes 0.23 rad past its limit\n- mode 4: right_sole slides 17 cm on floor surface although the contact is sticking\n- mode 9: floor penetrates yellow_box by 23 cm in the trajectory\n- modes 2\u20137: in 4 of 6 steps a foot travels more than 0.8 m (up to 3.10 m, left_sole at mode 5); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 4 more walking steps before mode 8 (white_box lifted, yellow_box lifted), e.g. walk(plan, 4)",
+    "execution_time_mean": 0.515614080009982,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

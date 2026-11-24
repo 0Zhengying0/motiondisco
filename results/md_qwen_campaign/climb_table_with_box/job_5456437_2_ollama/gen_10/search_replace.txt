@@ -1,0 +1,23 @@
+<NAME>
+Adjust the final modes to match the discrete contact goal requirements.
+
+<DESCRIPTION>
+The current plan does not meet the discrete contact goal requirements for the final modes. Specifically, the left and right soles should be on the table (env_id=2, contact_type=1), the left and right EEs should be on the white box (env_id=9 and env_id=11, contact_type=1), and the white box should be free (self_id=6, env_id=1, contact_type=1). This edit ensures that the final modes match these requirements.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Move the robot forward to the final position
+    walk(plan, 2)
+
+    return plan
+=======
+    # Move the robot forward to the final position
+    walk(plan, 2)
+
+    # Adjust final modes to match the discrete contact goal
+    append_mode(plan, left_sole=(2, 1), right_sole=(2, 1), left_ee=(9, 1), right_ee=(11, 1), white_box=())
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

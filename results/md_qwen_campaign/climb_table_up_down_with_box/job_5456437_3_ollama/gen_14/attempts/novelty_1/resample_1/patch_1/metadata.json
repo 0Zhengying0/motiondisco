@@ -1,0 +1,14 @@
+{
+  "generation": 14,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The program has been restructured to improve maintainability and readability. The main `generate_contact_plan` function is now cleaner, and individual movement actions are encapsulated in separate functions. This separation of concerns allows for easier evolution and debugging of specific steps in the plan. The use of helper functions makes the code modular and easier to manage.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T00:15:52.256329",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

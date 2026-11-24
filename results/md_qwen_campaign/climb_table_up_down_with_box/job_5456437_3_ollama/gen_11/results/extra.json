@@ -1,0 +1,437 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        1,
+        2
+      ]
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        1,
+        2
+      ]
+    ],
+    "white_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 6,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 1.0,
+    "structure_score": 1.0,
+    "efficiency": 0.5,
+    "combined_score": 1.5,
+    "violations": []
+  },
+  "goal_match": true,
+  "ik_feasible": true,
+  "ik_cost": 0.0,
+  "to_converged": false,
+  "to_cost": 14.524701221642086,
+  "ik_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5456437_3_ollama/gen_11/results/ik_run.pkl",
+  "to_run_path": "/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5456437_3_ollama/gen_11/results/to_run.pkl",
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": null,
+  "kso_violations": null,
+  "to_status": 1,
+  "to_violations": [
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.9254758435087513,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.5082393298990991,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.3502261254530999,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.2789076461328814,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.11247501616744009,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.10605019305525053,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.058809220204723636,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.0465229883221399,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.03527139927842707,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.03378236274698206,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.02417393781457705,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.022367219617380252,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.019466290336871514,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.018580817714865003,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.017952732497868266,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.01685467711063634,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.012910873949099346,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "right_ee",
+      "family": "sliding",
+      "value": 0.012851904191564881,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_72696768745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    },
+    {
+      "solver": "to",
+      "mode": 5,
+      "subject": "left_ee",
+      "family": "sliding",
+      "value": 0.010140626314642102,
+      "unit": "N",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "n_6565_726f626f74_6c6566745f6565_sliding_ctrl_eqs",
+      "attempts": 1
+    }
+  ],
+  "to_valid": true,
+  "to_physical": {
+    "pass": true,
+    "fails": [],
+    "worst": {
+      "dyn_force_ratio": 1.7901090345186188e-06,
+      "power_excess_ratio": 2.6745250994508752e-05,
+      "joint_pos_excess": 0.0,
+      "joint_vel_excess_ratio": 0.0,
+      "pull_force": 0.0,
+      "friction_excess_ratio": 1.5107670689408433e-06,
+      "contact_gap": 1.401807811843292e-07,
+      "contact_slip": 2.0428456596499562e-07,
+      "penetration": 0.006443934518671048
+    },
+    "where": {
+      "penetration": [
+        "node",
+        67,
+        "floor",
+        "robot right_ankle_roll_link"
+      ],
+      "dyn_force_ratio": [
+        "mode",
+        3,
+        "interval",
+        67
+      ],
+      "contact_gap": [
+        "mode",
+        5,
+        "right_sole",
+        "floor",
+        "surface"
+      ],
+      "contact_slip": [
+        "mode",
+        5,
+        "right_sole",
+        "floor",
+        "surface"
+      ],
+      "power_excess_ratio": [
+        "mode",
+        5,
+        "right_wrist_pitch_joint",
+        0.0
+      ],
+      "friction_excess_ratio": [
+        "mode",
+        5,
+        "left_ee",
+        "floor",
+        "surface",
+        0.0
+      ]
+    },
+    "iterate": "final"
+  },
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": 0,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "walk|left_ee:->1.2,right_ee:->1.2",
+  "plan_novelty": null,
+  "plan_patches": "left_ee:1.2|left_sole:1.1|right_ee:1.2|right_sole:1.1|white_box:6.1.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": false,
+  "to_cost_parts": {
+    "constraint_violation_sum": 2.804775047063781,
+    "constraint_violation_max": 0.9254758435087513,
+    "jerk_cost": 7312.433209453361,
+    "num_modes": 6,
+    "num_nodes": 120
+  }
+}

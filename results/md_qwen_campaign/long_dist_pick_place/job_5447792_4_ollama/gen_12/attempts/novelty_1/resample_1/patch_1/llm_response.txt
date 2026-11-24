@@ -1,0 +1,44 @@
+<NAME>
+Add intermediate modes for smooth transitions between contacts and adjust walking steps.
+
+<DESCRIPTION>
+The current plan has a few issues:
+1. The transition between releasing the yellow box and walking to the target table is not smooth.
+2. The walking steps are directly from one support to another without intermediate transitions.
+3. The re-grasp on the target table is not smooth.
+
+To address these issues, we will:
+1. Add intermediate modes to ensure smooth transitions when releasing and re-grasping the yellow box.
+2. Adjust the walking steps to have more intermediate modes for smoother transitions.
+3. Ensure that the plan adheres to the solver rules by passing through a free state before changing contact surfaces.
+
+This should help in making the plan more feasible for the trajectory optimizer and improve the overall score.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Release the yellow box
+    append_mode(plan, yellow_box=())
+    
+    # Walk to the target table
+    walk(plan, 10)  # Adjust the number of steps as needed
+    
+    # Re-grasp the yellow box on the target table
+    append_mode(plan, yellow_box=(6, 2, 1))
+=======
+    # Release the yellow box
+    append_mode(plan, yellow_box=())
+    append_mode(plan, yellow_box=())
+    
+    # Walk to the target table with intermediate modes for smooth transitions
+    walk(plan, 5)  # Adjust the number of steps as needed
+    append_mode(plan, left_ee=(8, 1), right_ee=())
+    append_mode(plan, left_ee=(8, 1), right_ee=(2, 1))
+    walk(plan, 5)  # Adjust the number of steps as needed
+    
+    # Re-grasp the yellow box on the target table with intermediate modes for smooth transitions
+    append_mode(plan, left_ee=(6, 2, 1), right_ee=(2, 1))
+    append_mode(plan, left_ee=(6, 2, 1), right_ee=())
+    append_mode(plan, yellow_box=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

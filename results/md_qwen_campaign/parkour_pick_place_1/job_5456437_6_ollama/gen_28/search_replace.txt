@@ -1,0 +1,42 @@
+<NAME>
+Fix contact schedule violations by ensuring proper release and re-grasping of the white box.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+# Step 3: Release right_ee and pick up the white box
+release_ee(plan, "right_ee")
+move_ee(plan, "right_ee", (14, 1))
+append_mode(plan, white_box=(1, 14, 1))
+=======
+# Step 3: Release right_ee
+release_ee(plan, "right_ee")
+
+# Step 4: Move right_ee to the white box
+move_ee(plan, "right_ee", (14, 1))
+
+# Step 5: Pick up the white box with right_ee
+pick_up(plan, "right_ee", "white_box", 1, 14)
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+# Step 7: Release right_ee and place the white box on the elevated table
+release_ee(plan, "right_ee")
+move_ee(plan, "right_ee", (8, 1))
+append_mode(plan, white_box=(6, 8, 1))
+=======
+# Step 7: Release right_ee
+release_ee(plan, "right_ee")
+
+# Step 8: Move right_ee to the elevated table
+move_ee(plan, "right_ee", (8, 1))
+
+# Step 9: Pick up the white box again
+pick_up(plan, "right_ee", "white_box", 1, 8)
+
+# Step 10: Place the white box on the elevated table
+place_on(plan, "right_ee", "white_box", 8, 6)
+>>>>>>> REPLACE
+</DIFF>

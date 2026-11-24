@@ -1,0 +1,14 @@
+{
+  "generation": 14,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The final mode of the contact plan must satisfy the discrete contact goal where the yellow box is placed on the distant table with the correct contact type. Currently, the plan does not explicitly ensure that the yellow box is placed with contact type 2 (sliding) on the table. We need to modify the final mode to meet this requirement.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T01:28:57.404926",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

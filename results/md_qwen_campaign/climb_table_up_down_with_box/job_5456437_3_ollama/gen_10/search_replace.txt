@@ -1,0 +1,44 @@
+<NAME>
+Add intermediate modes to release and re-establish contacts
+
+<DESCRIPTION>
+The current plan fails due to invalid contact schedules, where contacts change surfaces without first passing through a free state. To resolve this, we need to add intermediate modes to properly release and re-establish contacts. Specifically, we need to:
+
+1. Release the box from the floor before moving it.
+2. Release the left hand from the box before moving the box.
+3. Ensure the robot's feet transition correctly from the floor to the table.
+
+By adding these intermediate modes, we ensure that each contact transition follows the solver's rules and avoids invalid schedules.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+        "lift_box": lambda: append_mode(plan, left_ee=(8, 1, 2), white_box=(1, 1, 2)),
+        "move_box": lambda: append_mode(plan, left_ee=(2, 1, 2), white_box=(2, 1, 2)),
+        "place_box": lambda: append_mode(plan, left_ee=(), white_box=(6, 2, 1)),
+        "adjust_robot_position": lambda: walk(plan, 4),
+        "final": lambda: None
+    }
+=======
+        "lift_box": lambda: append_mode(plan, left_ee=(8, 1, 2), white_box=(1, 1, 2)),
+        "release_box_from_floor": lambda: append_mode(plan, white_box=()),
+        "move_box": lambda: append_mode(plan, left_ee=(2, 1, 2), white_box=(2, 1, 2)),
+        "release_hand_from_box": lambda: append_mode(plan, left_ee=()),
+        "place_box": lambda: append_mode(plan, white_box=(6, 2, 1)),
+        "adjust_robot_position": lambda: walk(plan, 4),
+        "final": lambda: None
+    }
+
+    # Update transitions to include new states
+    transitions = {
+        "initial": "grasp_box",
+        "grasp_box": "lift_box",
+        "lift_box": "release_box_from_floor",
+        "release_box_from_floor": "move_box",
+        "move_box": "release_hand_from_box",
+        "release_hand_from_box": "place_box",
+        "place_box": "adjust_robot_position",
+        "adjust_robot_position": "final"
+    }
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,65 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def move_hand_to_box(plan, hand):
+    append_mode(plan, **{hand: (14, 1)})
+
+def grasp_box(plan, hand):
+    append_mode(plan, **{hand: (14, 1), "white_box": (1, 14, 1)})
+
+def lift_box(plan, hand):
+    append_mode(plan, **{hand: (14, 1), "white_box": ()})
+
+def move_box_to_table(plan, hand):
+    append_mode(plan, **{hand: (14, 1), "white_box": (1, 8, 1)})
+
+def place_box(plan, hand):
+    append_mode(plan, **{hand: (), "white_box": (6, 8, 1)})
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Move left hand to the white box
+    move_hand_to_box(plan, "left_ee")
+
+    # Grasp the white box with the left hand
+    grasp_box(plan, "left_ee")
+
+    # Lift the white box off the floor
+    lift_box(plan, "left_ee")
+
+    # Walk to the elevated table
+    walk(plan, 4)
+
+    # Move the white box towards the elevated table
+    move_box_to_table(plan, "left_ee")
+
+    # Place the white box on the elevated table
+    place_box(plan, "left_ee")
+
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

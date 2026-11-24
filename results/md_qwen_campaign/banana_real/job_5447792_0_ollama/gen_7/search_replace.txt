@@ -1,0 +1,35 @@
+<NAME>
+Add walking steps before reaching the banana to ensure the robot is in the correct position.
+
+<DESCRIPTION>
+The current plan fails because it does not provide enough walking steps to reach the banana. The robot needs to move closer to the banana before attempting to grasp it. By adding walking steps, we ensure the robot is in the correct position to reach and grasp the banana.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 5)  # Add 5 walking steps to move closer to the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))  # Reach and grasp the banana
+    return plan
+>>>>>>> REPLACE
+</DIFF>

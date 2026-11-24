@@ -1,0 +1,28 @@
+<NAME>
+Ensure proper contact transitions for the white_box by adding intermediate free modes.
+
+<DESCRIPTION>
+The current plan fails because it directly transitions the white_box from one contact to another without a free mode in between. According to the solver rules, every channel must pass through a free state () before touching a different surface. This edit ensures that the white_box transitions properly by adding intermediate free modes where necessary.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Pick up the white box
+    walk(plan, 2)
+    append_mode(plan, left_ee=(), white_box=(1, 1, 1))
+=======
+    # Step 2: Pick up the white box
+    walk(plan, 2)
+    append_mode(plan, left_ee=(), white_box=())
+    append_mode(plan, white_box=(1, 1, 1))
+>>>>>>> REPLACE
+
+    # Step 3: Move to the elevated table
+    walk(plan, 5)
+    append_mode(plan, left_ee=(8, 1))
+
+    # Step 4: Place the white box on the elevated table
+    walk(plan, 2)
+    append_mode(plan, left_ee=(), white_box=())
+    append_mode(plan, white_box=(6, 8, 1))
+</DIFF>

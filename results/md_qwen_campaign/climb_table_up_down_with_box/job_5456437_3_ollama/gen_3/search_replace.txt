@@ -1,0 +1,16 @@
+<NAME>
+Add a single walking step to the plan to ensure it has at least 2 modes.
+
+<DESCRIPTION>
+The current plan has only one mode, which is not sufficient as IK requires at least 2 modes (an initial mode and at least one transition). By appending a single walking step, we ensure the plan has the minimum required number of modes, which should help in passing the IK feasibility check.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    return get_initial_mode()
+=======
+    plan = get_initial_mode()
+    walk(plan, 1)
+    return plan
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,14 @@
+{
+  "generation": 5,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "Extend the plan to include at least one more mode that differs from the initial one.",
+  "patch_description": "The current plan only contains one mode, which is the initial mode. The IK solver requires at least two modes (an initial mode and at least one transition). By appending at least one more mode that differs from the initial one, we can satisfy the IK solver's requirement and potentially improve the plan's feasibility and cost.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T23:08:32.312337",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

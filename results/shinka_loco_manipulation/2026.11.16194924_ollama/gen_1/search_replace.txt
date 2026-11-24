@@ -1,0 +1,13 @@
+<NAME>
+Add a single mode to the plan to make it feasible for IK and TO solvers.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    return get_initial_mode()
+=======
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(8, 1))
+    return plan
+>>>>>>> REPLACE
+</DIFF>

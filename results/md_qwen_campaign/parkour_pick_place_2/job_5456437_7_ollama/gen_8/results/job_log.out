@@ -1,0 +1,29 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5456437_7_ollama/gen_8/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5456437_7_ollama/gen_8/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5456437_7_ollama/gen_8/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5456437_7_ollama/gen_8/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.52 seconds==========
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5456437_7_ollama/gen_8/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5456437_7_ollama/gen_8/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/parkour_pick_place_2/job_5456437_7_ollama/gen_8/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 8, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['Invalid contact schedule (no solver run): mode 1->2: left_ee changes from (14, 2) to (6, 14, 1) without a free () mode in between; release it first: (14, 2) -> () -> (6, 14, 1)', 'mode 1->2: left_ee changes from (14, 2) to (6, 14, 1) without a free () mode in between; release it first: (14, 2) -> () -> (6, 14, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)', 'right_ee: contact_type 4 not in (1, 2)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)', 'white_box transition 1->2: object teleported from (6, 1, 1) to (6, 14, 1) without going free', 'white_box transition 6->7: object teleported from (6, 14, 1) to (6, 8, 1) without going free'], 'kso_feasible_through_mode': 1, 'kso_first_infeasible_mode': 2}
+  private: {'well_formed_fraction': 0.725, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 0.7142857142857143, 'structure_score': 0.8878571428571428, 'efficiency': 0.33333333333333337, 'ik_diagnosis': {'kind': 'schedule_error', 'errors': ['mode 1->2: left_ee changes from (14, 2) to (6, 14, 1) without a free () mode in between; release it first: (14, 2) -> () -> (6, 14, 1)', 'mode 1->2: right_ee changes from (14, 4) to (4, 14, 1) without a free () mode in between; release it first: (14, 4) -> () -> (4, 14, 1)', 'mode 1->2: white_box changes from (6, 1, 1) to (6, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 14, 1)', 'mode 6->7: white_box changes from (6, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (6, 14, 1) -> () -> (6, 8, 1)'], 'total_modes': 8, 'last_feasible_modes': 2, 'first_infeasible_modes': 3, 'events_total': 3, 'events_feasible': 1}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.5168867110041901
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

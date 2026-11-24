@@ -1,0 +1,14 @@
+{
+  "generation": 18,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 7,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan has issues with dynamic inconsistency and joint limits. To address these, we need to ensure the robot's base is properly positioned before attempting to pick up the yellow box and place it on the table. This involves walking to the target table with a more precise approach and ensuring the robot's base is stable before any manipulation. We will add intermediate modes to prepare for walking and re-grasping, and ensure that the robot's base is stable before any manipulation.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 4-line block starting with: '# Walk to the target table'\n\nFull search pattern:\n```\n# Walk to the target table\n    walk(plan, 10)  # Adjust the number of steps as needed\n    # Re-grasp the yellow box on the target table\n    append_mode(plan, yellow_box=(6, 2, 1))\n```\n\nFound similar code block at line 57 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  # Walk to the target table\n+  \n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-65):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (49 more lines)\n        append_mode(plan, yellow_box=(6, 2, 1))\n    \n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-17T20:17:22.236202",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

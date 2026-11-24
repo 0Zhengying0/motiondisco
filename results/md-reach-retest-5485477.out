@@ -1,0 +1,23 @@
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_231149_tzxiv1vy/motiondisco/gen_0/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 1.31 seconds==========
+IK trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results/ik_run.pkl
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results/extra.json
+IK trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results/ik_run.pkl
+TO trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results/to_run.pkl
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/diagnostics/reach_5485423_5485477/gen_0/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.18088499385567913
+  public: {'num_modes': 8, 'goal_match': True, 'ik_feasible': True, 'to_converged': True, 'to_valid': True, 'to_cost': 12.770797292336601, 'violations': [], 'task_completion': {'met': True, 'target_xyz_m': [2.0, 0.0, 0.7746849933798136], 'maximum_error_m': 0.1, 'final_xyz_m': [1.9949880003303766, -0.005007519749216086, 0.7696736299597159], 'error_m': 0.008678084930178272}, 'kso_goal_mode': 'hard', 'to_max_violation': 0.01839808338269222, 'to_jerk_per_mode': 819.1371564793938, 'task_quality': 0.9913965763112829, 'to_quality': 0.09065213411326181}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 1.0, 'efficiency': 0.33333333333333337, 'ik_mode': 'hard', 'ik_cost': 0.09189526594863391, 'to_mode': 'hard'}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 1.312364456942305
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []
+RETEST_RESULT {"ik_feasible": true, "to_converged": true, "to_valid": true, "to_goal": {"mode": "hard", "met": true, "slack": 0.05, "excess": 0.0, "targets": {"robot": {"excess": 0.0, "position_error": 0.0087, "position_tolerance": 0.005}}}, "to_physical": {"pass": true, "fails": [], "worst": {"dyn_force_ratio": 5.225755845764843e-05, "power_excess_ratio": 0.0, "joint_pos_excess": 0.0, "joint_vel_excess_ratio": 0.0, "pull_force": 0.0, "friction_excess_ratio": 0.0, "contact_gap": 1.3259848579229294e-05, "contact_slip": 6.991035350553833e-05, "penetration": 0.0077897403393930335}, "where": {"penetration": ["node", 50, "floor", "robot left_ankle_roll_link"], "dyn_force_ratio": ["mode", 6, "interval", 121], "contact_gap": ["mode", 7, "right_sole", "floor", "surface"], "contact_slip": ["mode", 5, "left_sole", "floor", "surface"]}, "iterate": "final"}, "task_completion": {"met": true, "target_xyz_m": [2.0, 0.0, 0.7746849933798136], "maximum_error_m": 0.1, "final_xyz_m": [1.9949880003303766, -0.005007519749216086, 0.7696736299597159], "error_m": 0.008678084930178272}}

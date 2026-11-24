@@ -1,0 +1,72 @@
+<NAME>
+Ensure all contact changes pass through a free mode before touching a different surface, and modify the `move_box_to_other_side` function accordingly.
+
+<DESCRIPTION>
+The current plan has several invalid contact transitions where a hand moves directly from one surface to another without a free mode in between. This violates the solver rules and causes the IK to fail. To fix this, we need to ensure that every contact transition has a free mode in between. Specifically, we need to modify the `lift_box`, `move_box_to_other_side`, and `place_box` functions to add a free mode for each hand before transitioning to a new contact.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def lift_box(plan):
+    # Lift the box
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+
+def move_box_to_other_side(plan):
+    # Move the box to the other side of the table
+    walk(plan, 5)
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+=======
+def lift_box(plan):
+    # Lift the box
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+
+def move_box_to_other_side(plan):
+    # Move the box to the other side of the table
+    walk(plan, 5)
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure the final mode matches the discrete contact goal.
+
+<DESCRIPTION>
+The discrete contact goal requires the final mode to have specific contacts for the left and right soles, and the white box. We need to ensure that the final mode of the plan matches these requirements. Specifically, we need to modify the `place_box` function to ensure that the left and right soles are in contact with the table, and the white box is in contact with the table as well.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+=======
+def place_box(plan):
+    # Place the box on the other side of the table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1), white_box=(6, 1, 1))
+>>>>>>> REPLACE
+</DIFF>

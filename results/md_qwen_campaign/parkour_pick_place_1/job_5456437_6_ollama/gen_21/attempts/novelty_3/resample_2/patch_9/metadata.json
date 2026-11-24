@@ -1,0 +1,14 @@
+{
+  "generation": 21,
+  "novelty_attempt": 3,
+  "resample_attempt": 2,
+  "patch_attempt": 9,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan does not properly release the white box before placing it on the table. This results in invalid contact transitions and prevents the plan from reaching the final goal. By ensuring the white box is properly released before placing it, we can avoid these issues and improve the plan's feasibility and performance.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 2-line block starting with: '# Step 5: Place the white box on the elevated table'\n\nFull search pattern:\n```\n# Step 5: Place the white box on the elevated table\nappend_mode(plan, left_ee=(14, 1), white_box=(1, 8, 1), left_sole=(8, 1), right_sole=(8, 1))\n```\n\nFound similar code block at line 69 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  # Step 5: Place the white box on the elevated table\n-  append_mode(plan, left_ee=(14, 1), white_box=(1, 8, 1), left_sole=(8, 1), right_sole=(8, 1))\n+      # Step 5: Place the white box on the elevated table\n+      append_mode(plan, left_ee=(14, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))\n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-75):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (59 more lines)\n        append_mode(plan, left_ee=(14, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))\n    \n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-19T04:29:30.411319",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

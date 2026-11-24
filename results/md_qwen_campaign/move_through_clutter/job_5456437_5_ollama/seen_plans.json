@@ -1,0 +1,74 @@
+{
+  "5b74cc28e510d2ffc918c27f375e0b6a79fd6f7ae209e439331847a656a5b69e": {
+    "combined_score": 0.00032738949979357993,
+    "first_seen_gen": "gen_8",
+    "patches": "left_ee:1.1|left_sole:1.1|right_ee:1.1|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->1.1,right_ee:->1.1|walk",
+    "top_violation": "mode 13: left_ee slides 31 cm on floor surface although the contact is sticking"
+  },
+  "63c286ced113ab871f6a87fec25f951bb695e9b7ceb3ddbfe7505a59fdf1028e": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_9",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": true,
+    "signature": "walk",
+    "top_violation": "channels have unequal lengths: {'left_sole': 5, 'right_sole': 5, 'left_ee': 3, 'right_ee': 3, 'white_box': 3, 'yellow_box': 3}"
+  },
+  "6d499a45ef41c82596069ad3c6cfda16ed85e16938e6088355ac0cd63577f504": {
+    "combined_score": 0.0004321621914581973,
+    "first_seen_gen": "gen_7",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|white_box:6.1.1>-,yellow_box:6.1.1>-",
+    "top_violation": "mode 8: the motion is not dynamically consistent (it needs 242044467% of the body weight, 791670822 N, that no contact provides)"
+  },
+  "7affa8eb5af0ab2d7d0aae4fb9fb0bb3555e080eb6e8d9f9c588df5b00087bce": {
+    "combined_score": 0.04345333867513532,
+    "first_seen_gen": "gen_5",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  },
+  "a16cdb99c7ab3ae8c5ce1d36873a424f30fb8e0852a62327d4791f401f2d1eff": {
+    "combined_score": 0.04452604929817645,
+    "first_seen_gen": "gen_11",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  },
+  "a937a6f4ca73355dc08d788af565de0868619078e59dda955bacc44bc83d460c": {
+    "combined_score": 0.0003874395433349832,
+    "first_seen_gen": "gen_1",
+    "patches": "left_ee:1.1|left_sole:1.1|right_ee:1.1|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->1.1,right_ee:->1.1|walk",
+    "top_violation": "mode 7: right_ee slides 30 cm on floor surface although the contact is sticking"
+  },
+  "b79bb7ddb513249e4b5b4dca43dc21953360375c8806971a8d90c4287bb07f6e": {
+    "combined_score": 0.0006164443475578195,
+    "first_seen_gen": "gen_3",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|white_box:6.1.1>-,yellow_box:6.1.1>-",
+    "top_violation": "mode 6: floor penetrates yellow_box by 30 cm in the trajectory"
+  },
+  "d5a20a43fc070198a892eb41151ce835b3ee4599d8b6073069edd99136e74c69": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": ""
+  },
+  "f2a36939422d8c609539c4b6fd23d0fd7f7791dad68c27d1bbde1934a29e2d0f": {
+    "combined_score": 0.00041990086847957186,
+    "first_seen_gen": "gen_2",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": "mode 3: left_ankle_pitch_joint goes 0.28 rad past its limit"
+  }
+}

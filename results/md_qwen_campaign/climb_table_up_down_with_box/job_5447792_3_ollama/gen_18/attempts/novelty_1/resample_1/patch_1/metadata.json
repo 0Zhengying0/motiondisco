@@ -1,0 +1,14 @@
+{
+  "generation": 18,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 2,
+  "patch_name": "none",
+  "patch_description": "The current plan fails IK feasibility checks due to invalid contact schedules where hands change surfaces without passing through a free state. To address this, we need to ensure that hands release their current contact before making a new contact with a different surface. This will help the IK solver to find a feasible trajectory.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T18:57:35.911652",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

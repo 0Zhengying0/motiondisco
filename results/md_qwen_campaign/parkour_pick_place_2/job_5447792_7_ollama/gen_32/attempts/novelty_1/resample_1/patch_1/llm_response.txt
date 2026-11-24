@@ -1,0 +1,51 @@
+<NAME>
+Ensure proper contact transitions for the robot to pick and place the white box.
+
+<DESCRIPTION>
+The current plan has several issues with contact transitions, particularly with the white box. The plan needs to ensure that the white box transitions between surfaces correctly, without teleporting directly from one surface to another. This edit will ensure that the white box is properly released and picked up before transitioning to a new surface.
+
+1. Add an intermediate mode to release the white box completely before walking to the table.
+2. Add an intermediate mode to ensure the left hand is free before reaching for the box.
+3. Add an intermediate mode to ensure the left hand is free before placing the box.
+4. Ensure the final mode matches the discrete contact goal.
+
+This will help in making the contact transitions more realistic and feasible for the solver.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 3: Release the hand before picking up the box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Step 4: Pick up the box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+=======
+    # Step 3: Release the hand before picking up the box
+    append_mode(plan, left_ee=(), white_box=())
+    # Step 4: Pick up the box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 1: Walk to the table
+    walk(plan, 5)
+    # Step 2: Release the box before placing it
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+    # Step 3: Place the box on the table
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1))
+=======
+    # Step 1: Walk to the table
+    walk(plan, 5)
+    # Step 2: Ensure the left hand is free before placing the box
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+    # Step 3: Place the box on the table
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    return plan
+=======
+    # Ensure the final mode matches the discrete contact goal
+    append_mode(plan, white_box=(6, 8, 1))
+    return plan
+>>>>>>> REPLACE
+</DIFF>

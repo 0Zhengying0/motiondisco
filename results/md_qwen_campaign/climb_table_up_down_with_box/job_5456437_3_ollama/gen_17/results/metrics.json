@@ -1,0 +1,98 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 14,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 9 of 14 (left_ee set down on floor surface, right_ee set down on floor surface); modes 0\u20138 solve on their own.",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (2, 1, 2)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 2, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 2, 1)",
+            "right_ee: ee/sole entry must be (env_id, contact_type), got (2, 1, 2)",
+            "right_ee: ee/sole entry must be (env_id, contact_type), got (8, 2, 1)",
+            "right_ee: ee/sole entry must be (env_id, contact_type), got (6, 2, 1)"
+        ],
+        "kso_feasible_through_mode": 8,
+        "kso_first_infeasible_mode": 9,
+        "kso_break_event": "left_ee set down on floor surface, right_ee set down on floor surface"
+    },
+    "private": {
+        "well_formed_fraction": 0.9142857142857143,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9828571428571429,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 9,
+            "first_infeasible_modes": 10,
+            "total_modes": 14,
+            "solver_error": "TypeError: ('ee', 'robot', 'left_ee')[mode=9]: expected () or (env_id,type), got (2, 1, 2)",
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 8,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 11,
+                    "feasible": false,
+                    "tries": 1
+                },
+                {
+                    "modes": 9,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 10,
+                    "feasible": false,
+                    "tries": 1
+                }
+            ],
+            "break_event": "left_ee set down on floor surface, right_ee set down on floor surface",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 9,
+                        "n_steps": 2,
+                        "event": "left_ee set down on floor surface, right_ee set down on floor surface",
+                        "modes": 17,
+                        "result": "still infeasible"
+                    },
+                    {
+                        "before_mode": 7,
+                        "n_steps": 2,
+                        "event": "left_ee -> floor surface (sliding), right_ee -> floor surface (sliding)",
+                        "modes": 17,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 9.9,
+            "events_total": 7,
+            "events_feasible": 2
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 9 of 14 (left_ee set down on floor surface, right_ee set down on floor surface); modes 0\u20138 solve on their own.\nRepair probe: inserting walk(plan, 2) before mode 9 (left_ee set down on floor surface, right_ee set down on floor surface), before mode 7 (left_ee -> floor surface (sliding), right_ee -> floor surface (sliding)) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5193924350023735,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

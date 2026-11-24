@@ -1,0 +1,121 @@
+<NAME>
+Add walking steps and ensure final mode constraints
+
+<DESCRIPTION>
+The current plan has only one mode, which is insufficient for the task. We need to add walking steps to move the robot through the cluttered environment and ensure that the final mode meets the discrete contact goal constraints. By appending walking steps and ensuring the final mode constraints, we can improve the feasibility and score of the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 10)  # Add 10 walking steps to move through clutter
+    ensure_final_mode(plan)  # Ensure the final mode meets the discrete contact goal
+    return plan
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure final mode constraints
+
+<DESCRIPTION>
+The final mode of the plan must satisfy the discrete contact goal constraints. By adding a function to ensure these constraints, we can make sure that the final mode of the plan meets the required conditions.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 10)  # Add 10 walking steps to move through clutter
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 10)  # Add 10 walking steps to move through clutter
+    ensure_final_mode(plan)  # Ensure the final mode meets the discrete contact goal
+    return plan
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Add function to ensure final mode constraints
+
+<DESCRIPTION>
+Add a function to ensure that the final mode of the plan meets the discrete contact goal constraints. This function will extend the plan to ensure that the final mode has the required contacts.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 10)  # Add 10 walking steps to move through clutter
+    ensure_final_mode(plan)  # Ensure the final mode meets the discrete contact goal
+    return plan
+=======
+def ensure_final_mode(plan: Dict[str, List[Tuple]]) -> None:
+    """Ensure the final mode meets the discrete contact goal."""
+    final_mode = {
+        "left_sole": [(1, 1)],
+        "right_sole": [(1, 1)],
+    }
+    for channel, contacts in final_mode.items():
+        plan[channel].extend([contacts[-1]] * (len(plan[channel]) - len(contacts)))
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 10)  # Add 10 walking steps to move through clutter
+    ensure_final_mode(plan)  # Ensure the final mode meets the discrete contact goal
+    return plan
+>>>>>>> REPLACE
+</DIFF>

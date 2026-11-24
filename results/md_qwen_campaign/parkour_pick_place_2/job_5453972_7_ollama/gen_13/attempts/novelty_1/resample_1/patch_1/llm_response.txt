@@ -1,0 +1,126 @@
+<NAME>
+Add steps to walk to the white box, grasp it, lift it, walk to the elevated table, and place it.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 5)
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(8, 1), white_box=(6, 8, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure that all channels have the same length by inserting free modes where necessary.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 5)
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(8, 1), white_box=(6, 8, 1))
+
+    return plan
+=======
+def insert_free_mode(plan, channel, index):
+    """Insert a free mode at the specified index for the given channel."""
+    current_value = plan[channel][index]
+    plan[channel].insert(index, ())
+    plan[channel].insert(index + 2, current_value)
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 5)
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(8, 1), white_box=(6, 8, 1))
+
+    # Validate and insert free modes if necessary
+    for channel in plan:
+        for i in range(len(plan[channel]) - 1):
+            current = plan[channel][i]
+            next_ = plan[channel][i + 1]
+            if current and next_ and current != next_:
+                insert_free_mode(plan, channel, i)
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

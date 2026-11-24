@@ -1,0 +1,72 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    # Get the initial mode
+    plan = {ch: list(seq) for ch, seq in get_initial_mode().items()}
+
+    # State machine states
+    states = {
+        "initial": 0,
+        "climb_start": 1,
+        "climb_middle": 2,
+        "climb_end": 3,
+        "hold_box": 4
+    }
+
+    # Current state
+    current_state = states["initial"]
+
+    # Define transitions
+    def transition_to_climb_start():
+        nonlocal current_state
+        append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+        current_state = states["climb_start"]
+
+    def transition_to_climb_middle():
+        nonlocal current_state
+        walk(plan, 3)  # Walk to the table
+        current_state = states["climb_middle"]
+
+    def transition_to_climb_end():
+        nonlocal current_state
+        append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))
+        current_state = states["climb_end"]
+
+    def transition_to_hold_box():
+        nonlocal current_state
+        append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+        current_state = states["hold_box"]
+
+    # State machine logic
+    while current_state != states["hold_box"]:
+        if current_state == states["initial"]:
+            transition_to_climb_start()
+        elif current_state == states["climb_start"]:
+            transition_to_climb_middle()
+        elif current_state == states["climb_middle"]:
+            transition_to_climb_end()
+        elif current_state == states["climb_end"]:
+            transition_to_hold_box()
+
+    return plan
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

@@ -1,0 +1,37 @@
+<NAME>
+Add walking steps before grasping the banana to ensure the robot is closer to the banana and has a stable base.
+
+<DESCRIPTION>
+The current plan fails because the robot is too far from the banana and does not have a stable base. By adding walking steps before attempting to grasp the banana, we ensure that the robot is closer to the banana and has a stable base, which should make the grasping more feasible.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 6)  # Add walking steps to move closer to the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))  # Final mode to grasp the banana
+    return plan
+>>>>>>> REPLACE
+</DIFF>

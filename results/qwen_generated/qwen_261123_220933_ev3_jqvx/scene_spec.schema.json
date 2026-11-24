@@ -1,0 +1,259 @@
+{
+  "$defs": {
+    "Floor": {
+      "additionalProperties": false,
+      "properties": {
+        "half_extents": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "maximum": 4,
+              "minimum": 1.5,
+              "type": "number"
+            },
+            {
+              "maximum": 2.5,
+              "minimum": 1,
+              "type": "number"
+            }
+          ],
+          "title": "Half Extents",
+          "type": "array"
+        }
+      },
+      "required": [
+        "half_extents"
+      ],
+      "title": "Floor",
+      "type": "object"
+    },
+    "Placement": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "enum": [
+            "table_short",
+            "table_tall",
+            "green_box",
+            "white_box",
+            "yellow_box",
+            "crate"
+          ],
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "instance_id": {
+          "pattern": "^[a-z][a-z0-9_]{0,47}$",
+          "title": "Instance Id",
+          "type": "string"
+        },
+        "support_object": {
+          "pattern": "^[a-z][a-z0-9_]{0,47}$",
+          "title": "Support Object",
+          "type": "string"
+        },
+        "support_surface": {
+          "enum": [
+            "surface",
+            "top"
+          ],
+          "title": "Support Surface",
+          "type": "string"
+        },
+        "relative_xy_yaw": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "maximum": 4,
+              "minimum": -4,
+              "type": "number"
+            },
+            {
+              "maximum": 2.5,
+              "minimum": -2.5,
+              "type": "number"
+            },
+            {
+              "maximum": 3.141592653589793,
+              "minimum": -3.141592653589793,
+              "type": "number"
+            }
+          ],
+          "title": "Relative Xy Yaw",
+          "type": "array"
+        }
+      },
+      "required": [
+        "asset_id",
+        "instance_id",
+        "support_object",
+        "support_surface",
+        "relative_xy_yaw"
+      ],
+      "title": "Placement",
+      "type": "object"
+    },
+    "ReachParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "target_xy": {
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "maximum": 4,
+              "minimum": -4,
+              "type": "number"
+            },
+            {
+              "maximum": 2.5,
+              "minimum": -2.5,
+              "type": "number"
+            }
+          ],
+          "title": "Target Xy",
+          "type": "array"
+        }
+      },
+      "required": [
+        "target_xy"
+      ],
+      "title": "ReachParameters",
+      "type": "object"
+    },
+    "ReachTask": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "const": "reach_position",
+          "title": "Type",
+          "type": "string"
+        },
+        "parameters": {
+          "$ref": "#/$defs/ReachParameters"
+        }
+      },
+      "required": [
+        "type",
+        "parameters"
+      ],
+      "title": "ReachTask",
+      "type": "object"
+    },
+    "Robot": {
+      "additionalProperties": false,
+      "properties": {
+        "initial_xy_yaw": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "maximum": 4,
+              "minimum": -4,
+              "type": "number"
+            },
+            {
+              "maximum": 2.5,
+              "minimum": -2.5,
+              "type": "number"
+            },
+            {
+              "maximum": 3.141592653589793,
+              "minimum": -3.141592653589793,
+              "type": "number"
+            }
+          ],
+          "title": "Initial Xy Yaw",
+          "type": "array"
+        }
+      },
+      "required": [
+        "initial_xy_yaw"
+      ],
+      "title": "Robot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "scene_id": {
+      "pattern": "^[a-z][a-z0-9_]{0,47}$",
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "floor": {
+      "$ref": "#/$defs/Floor"
+    },
+    "robot": {
+      "$ref": "#/$defs/Robot"
+    },
+    "objects": {
+      "items": {
+        "$ref": "#/$defs/Placement"
+      },
+      "maxItems": 4,
+      "minItems": 1,
+      "title": "Objects",
+      "type": "array",
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "asset_id": {
+                "enum": [
+                  "table_short",
+                  "table_tall"
+                ]
+              }
+            },
+            "required": [
+              "asset_id"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 2
+        },
+        {
+          "contains": {
+            "properties": {
+              "asset_id": {
+                "enum": [
+                  "green_box",
+                  "white_box",
+                  "yellow_box",
+                  "crate"
+                ]
+              }
+            },
+            "required": [
+              "asset_id"
+            ]
+          },
+          "minContains": 0,
+          "maxContains": 2
+        }
+      ]
+    },
+    "task": {
+      "$ref": "#/$defs/ReachTask"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scene_id",
+    "floor",
+    "robot",
+    "objects",
+    "task"
+  ],
+  "title": "SceneSpec",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

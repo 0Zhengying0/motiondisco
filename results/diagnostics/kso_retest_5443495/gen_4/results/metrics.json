@@ -1,0 +1,185 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 7,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 3 of 7 (left_ee -> box1 bottom); modes 0\u20132 solve on their own.",
+            "mode 3: left_ee is pushed 0.37 m into box1 bottom (in all 4 solves)",
+            "transition 3->4: no contact changes (noop)"
+        ],
+        "kso_feasible_through_mode": 2,
+        "kso_first_infeasible_mode": 3,
+        "kso_break_event": "left_ee -> box1 bottom"
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8333333333333334,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9666666666666668,
+        "efficiency": 0.41666666666666663,
+        "ik_mode": "soft",
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 3,
+            "first_infeasible_modes": 4,
+            "total_modes": 7,
+            "solver_error": null,
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 4,
+                    "feasible": false,
+                    "tries": 4
+                },
+                {
+                    "modes": 3,
+                    "feasible": true,
+                    "tries": 1
+                }
+            ],
+            "kso_attempts": 3,
+            "best_max_violation": 0.07533118266238353,
+            "prefix_violation_details": [
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left_ee",
+                    "family": "gap",
+                    "value": 0.3707018990757667,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "box1 bottom",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left wrist",
+                    "family": "collision",
+                    "value": 0.010748100927937298,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "box1",
+                    "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left_ee",
+                    "family": "gap",
+                    "value": 0.3707289042118065,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "box1 bottom",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left wrist",
+                    "family": "collision",
+                    "value": 0.010721095814833544,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "box1",
+                    "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left_ee",
+                    "family": "gap",
+                    "value": 0.3707484247369513,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "box1 bottom",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left wrist",
+                    "family": "collision",
+                    "value": 0.010701575295414137,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "box1",
+                    "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left_ee",
+                    "family": "gap",
+                    "value": 0.3707484247369513,
+                    "unit": "m",
+                    "sign": -1.0,
+                    "other": "box1 bottom",
+                    "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 3,
+                    "subject": "left wrist",
+                    "family": "collision",
+                    "value": 0.010701575295414137,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "box1",
+                    "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+                    "attempts": 4
+                }
+            ],
+            "prefix_tries": 4,
+            "break_event": "left_ee -> box1 bottom",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 3,
+                        "n_steps": 2,
+                        "event": "left_ee -> box1 bottom",
+                        "modes": 10,
+                        "result": "still infeasible"
+                    },
+                    {
+                        "before_mode": 1,
+                        "n_steps": 2,
+                        "event": "left_ee -> floor surface",
+                        "modes": 10,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 344.4,
+            "events_total": 5,
+            "events_feasible": 2
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 3 of 7 (left_ee -> box1 bottom); modes 0\u20132 solve on their own.\nThe 4-mode prefix failed 4 of 4 tries. Its violations:\n- mode 3: left_ee is pushed 0.37 m into box1 bottom (in all 4 solves)\n- mode 3: left wrist penetrates box1 by 0.01 m (in all 4 solves)\nHint (gap): a contact that cannot be reached usually means the body is in the wrong place (walk closer, or put the object down somewhere it can rest)\nHint (collision): move the robot or the object so the bodies are clear of each other before making the contact\nFull-plan solves additionally report (later modes; these may follow from the break above):\n- modes 3\u20135: box1 should rest with its bottom face on floor surface but stays 0.08 m away from it (in all 3 solves)\n- mode 6: left wrist penetrates table1 by 0.05 m (in all 3 solves)\n(1 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nRepair probe: inserting walk(plan, 2) before mode 3 (left_ee -> box1 bottom), before mode 1 (left_ee -> floor surface) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5423266720026731,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

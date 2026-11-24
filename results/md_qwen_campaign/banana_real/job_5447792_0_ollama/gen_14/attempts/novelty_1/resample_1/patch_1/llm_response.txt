@@ -1,0 +1,25 @@
+<NAME>
+Add intermediate support surface to avoid steep step down
+
+<DESCRIPTION>
+The current plan directly steps down from the table to the floor, which is too steep for the robot. To avoid this, we can add an intermediate support surface by placing the crate on the table and then stepping down to the crate. This will allow the robot to take smaller steps and avoid the steep drop.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 1: Move towards the banana
+    walk(plan, 5)  # 5 steps to reach the banana
+=======
+    # Step 1: Move towards the crate
+    walk(plan, 3)  # 3 steps to reach the crate
+
+    # Step 2: Place the crate on the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), crate=(1, 2, 1))
+
+    # Step 3: Move to the top of the crate
+    walk(plan, 2)  # 2 steps to reach the top of the crate
+
+    # Step 4: Move towards the banana
+    walk(plan, 2)  # 2 steps to reach the banana
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,14 @@
+{
+  "generation": 2,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "Improve contact transitions for white_box movement",
+  "patch_description": "The current plan has issues with the white_box transitions, where the object is teleported without going free. We need to ensure that the object transitions correctly from one contact to another. Additionally, we should ensure that the final mode matches the discrete contact goal.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T23:16:50.333205",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

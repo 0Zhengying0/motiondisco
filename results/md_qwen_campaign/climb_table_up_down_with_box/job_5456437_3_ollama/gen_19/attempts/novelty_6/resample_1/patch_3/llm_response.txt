@@ -1,0 +1,39 @@
+<NAME>
+Add a function to move the box to the other side of the table with the robot.
+
+<DESCRIPTION>
+The current plan only moves the robot to the table, lifts the box, and then moves back to the floor. It does not move the box to the other side of the table. To improve the performance, we need to add a function to move the box to the other side of the table with the robot. This will involve walking the robot to the other side of the table while holding the box.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def move_with_box_to_other_side(plan: Dict[str, List[Tuple]]):
+    walk(plan, 3)
+    append_mode(plan, left_ee=(), right_ee=())
+    append_mode(plan, left_ee=(8, 1, 1), right_ee=())
+=======
+def move_with_box_to_other_side(plan: Dict[str, List[Tuple]]):
+    walk(plan, 3)
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 1))
+    append_mode(plan, left_ee=(8, 1, 1), right_ee=(), white_box=(6, 1, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Improve the transition between modes to avoid no contact changes (noop).
+
+<DESCRIPTION>
+The current plan has a transition between modes 0 and 1 that has no contact changes, which is marked as a violation. To improve the performance, we need to add a function to move the box to the other side of the table with the robot.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def move_to_table(plan: Dict[str, List[Tuple]]):
+    walk(plan, 3)
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+=======
+def move_to_table(plan: Dict[str, List[Tuple]]):
+    walk(plan, 3)
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), white_box=(6, 1, 1))
+>>>>>>> REPLACE
+</DIFF>

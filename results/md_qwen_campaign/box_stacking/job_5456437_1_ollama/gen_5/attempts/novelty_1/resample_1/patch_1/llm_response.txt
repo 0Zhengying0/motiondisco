@@ -1,0 +1,53 @@
+<NAME>
+Modularize the program by separating contact planning logic into smaller functions. This improves maintainability and scalability.
+
+<DESCRIPTION>
+The current program is monolithic and lacks modularity, making it hard to extend or debug. By breaking down the contact planning logic into smaller functions, we can make the code more maintainable and easier to understand. Each function will handle a specific part of the planning process, such as initializing the plan, appending modes, and performing walking steps. This separation of concerns will also make it easier to evolve the program by modifying individual functions without affecting the entire codebase.
+</DESCRIPTION>
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    # Initialize the plan with the initial mode
+    plan = get_initial_mode()
+    
+    # Append an initial transition mode
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    # Perform a sequence of walking steps
+    walk(plan, n_steps=5)
+    
+    # Append another transition mode after walking
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    # Perform another sequence of walking steps
+    walk(plan, n_steps=5)
+    
+    # Append a final transition mode
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

@@ -1,0 +1,56 @@
+<NAME>
+Implement a basic plan to pick up the white box from under the table and place it on top of the table.
+
+<DESCRIPTION>
+The current plan is returning only the initial mode, which is not sufficient. We need to create a plan that includes the necessary steps to pick up the white box from under the table and place it on top of the table. The plan should include modes where the robot moves its feet, picks up the box, and then places it on the table.
+
+1. Move the robot's feet to a position where the box can be reached.
+2. Use the end-effectors to pick up the box.
+3. Place the box on the table.
+
+The plan should ensure that the robot's end-effectors release the box before touching the table, as required by the solver rules.
+
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Move the robot's feet to a position where the box can be reached
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Use the end-effectors to pick up the box
+    append_mode(plan, left_ee=(26, 1), right_ee=(26, 1))
+
+    # Release the box
+    append_mode(plan, left_ee=(), right_ee=())
+
+    # Move the robot's feet to a position over the table
+    walk(plan, 2)
+
+    # Use the end-effectors to place the box on the table
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), white_box=(6, 2, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

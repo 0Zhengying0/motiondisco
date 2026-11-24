@@ -1,0 +1,35 @@
+{
+    "combined_score": 0.0003328722240924396,
+    "public": {
+        "num_modes": 36,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 3003.155731907199,
+        "violations": [
+            "mode 34: the motion is not dynamically consistent (it needs 682751931% of the body weight, 2233121823 N, that no contact provides)"
+        ],
+        "kso_goal_mode": "hard",
+        "to_max_violation": 92.29053625803226,
+        "to_jerk_per_mode": 57564.585679900614
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "hard",
+        "ik_cost": 5.9684233042650715e-05,
+        "to_mode": "off"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 34: the motion is not dynamically consistent (it needs 682751931% of the body weight, 2233121823 N, that no contact provides)\n- mode 34: waist_roll_joint exceeds its torque-speed limit by 159%\n- mode 33: waist_pitch_joint goes 0.20 rad past its limit\n- mode 7: left_sole stays 12 cm off floor surface; the planned contact is not made",
+    "execution_time_mean": 0.517354768991936,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

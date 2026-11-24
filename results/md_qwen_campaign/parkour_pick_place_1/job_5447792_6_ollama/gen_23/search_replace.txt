@@ -1,0 +1,44 @@
+<NAME>
+Add intermediate steps to ensure proper contact transitions and avoid teleportation.
+
+<DESCRIPTION>
+The current plan has issues with direct transitions between different surfaces without a free mode in between, causing teleportation errors. To resolve this, we need to add intermediate steps where the robot releases the object before touching a different surface and then re-establishes contact. This will ensure that the robot's movements are feasible and avoid teleportation errors.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Grasp the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(1, 14, 1))
+
+    # Step 3: Lift the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(1, 14, 1))
+
+    # Step 4: Move to the elevated table
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(1, 14, 1))
+=======
+    # Step 2: Grasp the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(1, 14, 1))
+
+    # Step 2.5: Release the white box
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=())
+
+    # Step 3: Move to the elevated table
+    walk(plan, 10)
+
+    # Step 4: Grasp the white box again
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(1, 14, 1))
+
+    # Step 5: Lift the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 5: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(6, 8, 1))
+=======
+    # Step 5: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(1, 1), right_sole=(1, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

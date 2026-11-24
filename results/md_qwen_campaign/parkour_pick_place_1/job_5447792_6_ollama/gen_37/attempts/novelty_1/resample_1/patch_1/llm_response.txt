@@ -1,0 +1,53 @@
+<NAME>
+Improve the plan by ensuring that all contacts are properly released before switching to a different surface. This will help avoid the "Invalid contact schedule" errors and improve the feasibility of the plan.
+
+<DESCRIPTION>
+The current plan has several instances where contacts are switched without a free mode in between, which causes the solver to reject the plan. To fix this, we need to ensure that all contacts are properly released before switching to a different surface. This will help the solver to correctly interpret the plan and increase the chances of it being feasible.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Approach the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+    append_mode(plan, right_ee=())  # Release the hand from the floor
+    append_mode(plan, right_ee=(14, 1))  # Grasp the box again
+
+    # Grasp the white box with the right hand
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+    append_mode(plan, right_ee=())  # Release the hand from the box
+    append_mode(plan, right_ee=(14, 1))  # Grasp the box again
+
+    # Lift the white box off the floor
+    append_mode(plan, right_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    append_mode(plan, right_ee=(), white_box=(1, 14, 1))  # Grasp the box again
+=======
+    # Approach the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+    append_mode(plan, right_ee=())  # Release the hand from the floor
+    append_mode(plan, right_ee=(14, 1))  # Grasp the box again
+
+    # Grasp the white box with the right hand
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+    append_mode(plan, right_ee=(), white_box=())  # Release the hand and the box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))  # Grasp the box again
+
+    # Lift the white box off the floor
+    append_mode(plan, right_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    append_mode(plan, right_ee=(), white_box=())  # Release the hand and the box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))  # Grasp the box again
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1), right_sole=(2, 1))
+    append_mode(plan, right_ee=(14, 8), white_box=())  # Release the box on the table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))  # Grasp the box again
+=======
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1), right_sole=(2, 1))
+    append_mode(plan, right_ee=(), white_box=())  # Release the box on the table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))  # Grasp the box again
+>>>>>>> REPLACE
+</DIFF>

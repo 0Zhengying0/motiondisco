@@ -1,0 +1,64 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 28,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "Invalid contact schedule (no solver run): mode 17->18: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)",
+            "mode 17->18: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)",
+            "channels have unequal lengths: {'left_sole': 18, 'right_sole': 18, 'left_ee': 18, 'right_ee': 20, 'white_box': 28}",
+            "mode 18: no sole in contact",
+            "mode 19: no sole in contact",
+            "mode 20: no sole in contact",
+            "mode 21: no sole in contact",
+            "mode 22: no sole in contact",
+            "mode 23: no sole in contact",
+            "mode 24: no sole in contact",
+            "mode 25: no sole in contact",
+            "mode 26: no sole in contact",
+            "mode 27: no sole in contact",
+            "transition 20->21: no contact changes (noop)",
+            "transition 21->22: no contact changes (noop)",
+            "transition 22->23: no contact changes (noop)",
+            "transition 23->24: no contact changes (noop)",
+            "transition 24->25: no contact changes (noop)",
+            "transition 25->26: no contact changes (noop)",
+            "white_box transition 18->19: object teleported from (6, 1, 1) to (1, 14, 1) without going free",
+            "white_box transition 26->27: object teleported from (1, 14, 1) to (6, 8, 1) without going free"
+        ],
+        "kso_feasible_through_mode": 17,
+        "kso_first_infeasible_mode": 18
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 0.0,
+        "at_least_one_sole_fraction": 0.6428571428571429,
+        "no_noop_fraction": 0.7777777777777778,
+        "object_passive_fraction": 0.9259259259259259,
+        "structure_score": 0.6693121693121693,
+        "efficiency": 0.0,
+        "ik_diagnosis": {
+            "kind": "schedule_error",
+            "errors": [
+                "mode 17->18: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)",
+                "mode 18->19: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)",
+                "mode 26->27: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)"
+            ],
+            "total_modes": 18,
+            "last_feasible_modes": 18,
+            "first_infeasible_modes": 19,
+            "events_total": 11,
+            "events_feasible": 11
+        }
+    },
+    "text_feedback": "Solver feedback:\nInvalid contact schedule (no solver run): mode 17->18: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)\n- mode 17->18: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)\n- mode 18->19: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)\n- mode 26->27: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)\nEvery channel (hands, feet, objects) must pass through () before touching a different surface.",
+    "execution_time_mean": 0.5241745540115517,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

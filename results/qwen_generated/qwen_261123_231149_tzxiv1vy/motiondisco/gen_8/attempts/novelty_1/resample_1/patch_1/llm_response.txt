@@ -1,0 +1,53 @@
+<NAME>
+Improved contact plan for walking to a target position with better step calculation and mode management.
+
+<DESCRIPTION>
+This new program aims to improve the performance of the contact plan by refining the step calculation and optimizing the mode management. The previous programs had issues with the number of steps and the final mode, which led to suboptimal performance. This new program calculates the number of steps more accurately and ensures that the final mode matches the discrete contact goal. Additionally, it removes unnecessary modes to reduce the plan's length and improve feasibility.
+
+The key improvements include:
+1. More accurate step calculation based on the distance to the target and the robot's step length.
+2. Removal of unnecessary modes to reduce the plan's length.
+3. Ensuring the final mode matches the discrete contact goal.
+
+These changes should lead to better performance in terms of the number of modes, goal match, and feasibility.
+</DESCRIPTION>
+
+<CODE>
+```python
+"""Improved contact plan for walking to a target position."""
+
+from math import ceil, dist
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    task = load_task()
+    start = task.resolved_state.robots[task.robot_id].q[:2]
+    target = task.terminal_goal.robots[task.robot_id].xyz[:2]
+
+    # Calculate the distance to the target
+    distance = dist(start, target)
+
+    # Determine the number of walking steps
+    # Base step length is approximately 0.4 m
+    n_steps = ceil(distance / 0.4)
+
+    # Walk to the target
+    walk(plan, n_steps)
+
+    # Ensure the final mode matches the discrete contact goal
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    return plan
+# EVOLVE-BLOCK-END
+
+from _task_loader import load_task
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    scene = get_default_scene()
+    return generate_contact_plan(scene), scene
+```
+</CODE>

@@ -1,0 +1,31 @@
+{
+    "combined_score": 0.042201754757549594,
+    "public": {
+        "num_modes": 6,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": true,
+        "to_valid": true,
+        "to_cost": 22.69569715157655,
+        "violations": [],
+        "to_max_violation": 0.04437988587418573,
+        "to_jerk_per_mode": 1768.4348783359028
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.5,
+        "ik_mode": "soft",
+        "ik_cost": 1.100107296643438,
+        "to_mode": "off"
+    },
+    "execution_time_mean": 0.5237401089980267,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

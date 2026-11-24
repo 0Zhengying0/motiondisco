@@ -1,0 +1,41 @@
+<NAME>
+Improve the plan by ensuring the robot's base is closer to the banana and properly planting the soles on the floor before attempting to grasp the banana.
+
+<DESCRIPTION>
+The current plan attempts to grasp the banana immediately after walking towards it. However, the robot's base might still be too far from the banana, and the soles might not be properly planted on the floor, leading to infeasibility. By ensuring the robot's base is closer to the banana and properly planting the soles, we can improve the chances of a successful grasp.
+
+1. Walk towards the banana in smaller steps to ensure the base is closer.
+2. Ensure the soles are properly planted on the floor before attempting to grasp the banana.
+3. Append modes to make contact with the banana's left and right sides.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Walk towards the banana
+    walk(plan, 5)
+
+    # Reach and grasp the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Walk towards the banana in smaller steps
+    walk(plan, 3)
+    walk(plan, 2)
+
+    # Ensure the soles are properly planted on the floor
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    # Append modes to make contact with the banana's left and right sides
+    append_mode(plan, left_ee=(9, 1), right_ee=())
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

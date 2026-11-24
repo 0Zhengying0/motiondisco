@@ -1,0 +1,35 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5447792_4_ollama/gen_9/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5447792_4_ollama/gen_9/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5447792_4_ollama/gen_9/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5447792_4_ollama/gen_9/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.51 seconds==========
+[AcadosBuildConfig] Missing build artifacts for 'n_6b736f_6d6f74696f6e646973636f2e6c6f6e675f646973745f7069636b5f706c616365_3330_68617264_a6be828456a7defa' while force_recompile=False. Enabling recompilation.
+[ik_eval] ValueError: invalid contact schedule: Contact interface ('obj', 'yellow_box') cannot target itself.
+[ik_eval] hard-mode KSO failed; trying soft KSO on full plan
+[AcadosBuildConfig] Missing build artifacts for 'n_6b736f_6d6f74696f6e646973636f2e6c6f6e675f646973745f7069636b5f706c616365_3330_736f6674_e4eb00e11c3a72ce' while force_recompile=False. Enabling recompilation.
+[ik_eval] ValueError: invalid contact schedule: Contact interface ('obj', 'yellow_box') cannot target itself.
+[ik_eval] infeasibility diagnosis: kind=schedule_error, last_feasible=None, first_infeasible=None, total_modes=27
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5447792_4_ollama/gen_9/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5447792_4_ollama/gen_9/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5447792_4_ollama/gen_9/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 27, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['Invalid contact schedule (no solver run): '], 'kso_goal_mode': 'soft (hard target missed)', 'kso_feasible_through_mode': None, 'kso_first_infeasible_mode': None}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 1.0, 'efficiency': 0.0, 'ik_mode': 'soft', 'ik_hard_failed': True, 'ik_diagnosis': {'kind': 'schedule_error', 'total_modes': 27, 'last_feasible_modes': None, 'first_infeasible_modes': None, 'solver_error': "ValueError: invalid contact schedule: Contact interface ('obj', 'yellow_box') cannot target itself.", 'ik_hard_failed': True, 'diagnosis_seconds': 227.5, 'events_total': 4, 'events_feasible': 0}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.5098667279962683
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

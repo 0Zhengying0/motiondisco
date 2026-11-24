@@ -1,0 +1,55 @@
+<NAME>
+Improve the plan by ensuring the robot walks to the box, grasps it, moves to the table, and places it correctly on the table.
+
+<DESCRIPTION>
+The current plan has a few issues:
+1. It only has two modes, which is insufficient.
+2. The final mode does not match the discrete contact goal.
+3. The plan lacks steps to move the robot to the box and the table.
+
+To address these issues, we will:
+1. Extend the plan to have more modes.
+2. Ensure the robot walks to the box, grasps it, moves to the table, and places it correctly.
+3. Adjust the final mode to match the discrete contact goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Move to the box
+    walk(plan, 3)  # Take 3 steps to reach the box
+    append_mode(plan, left_ee=(14, 1))  # Grasp the box with the left hand
+    append_mode(plan, left_ee=())  # Lift the box
+
+    # Step 2: Move to the table
+    walk(plan, 3)  # Take 3 steps to reach the table
+
+    # Step 3: Place the box on the table
+    append_mode(plan, left_ee=(6, 8, 1))  # Place the box on the table with the left hand
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

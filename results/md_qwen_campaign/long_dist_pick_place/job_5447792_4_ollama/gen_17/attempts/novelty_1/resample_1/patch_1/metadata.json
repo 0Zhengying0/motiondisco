@@ -1,0 +1,14 @@
+{
+  "generation": 17,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The previous implementation failed due to invalid contact transitions where the robot's hand or the object's contact changed surfaces without passing through a free state. This is a violation of the solver rules. The revised plan ensures that all transitions are valid by adding intermediate modes where necessary to release and re-establish contacts correctly. This should make the plan feasible for the IK and TO solvers.\n\nThe plan now includes:\n1. Walking to the yellow box.\n2. Releasing the yellow box contact.\n3. Picking up the yellow box with the right hand.\n4. Walking to the distant table.\n5. Releasing the yellow box contact.\n6. Placing the yellow box on the table with the right hand.\n\nEach transition is carefully planned to ensure that all contacts are valid and that the robot's movements are feasible.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T19:51:51.169928",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

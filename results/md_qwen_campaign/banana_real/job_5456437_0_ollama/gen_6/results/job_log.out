@@ -1,0 +1,28 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_6/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_6/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_6/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_6/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.51 seconds==========
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_6/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_6/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'is_duplicate': True, 'plan_hash': '9a8f6981d2a9a4fda0d952bd59d223c6af6ed0ec6e6b63eaf9622221306ed6da', 'first_seen_gen': 'gen_1', 'violations': ['duplicate plan (hash 9a8f6981; first seen gen_1)']}
+  private: {'prior_combined_score': 0.0, 'prior_top_violation': 'KSO infeasible: first break at mode 1 of 2 (left_ee -> banana left, right_ee -> banana right); even the first transition fails.'}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.5121327670058236
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

@@ -1,0 +1,14 @@
+{
+  "generation": 7,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The previous implementation had several issues, including invalid contact transitions and missing intermediate free modes. The new plan addresses these issues by ensuring that all contact changes are valid by introducing intermediate free modes where necessary. This should improve the feasibility of the plan for the IK and TO solvers, leading to a higher score.\n\nThe plan now includes:\n1. Moving to the white box.\n2. Grasping the white box.\n3. Lifting the white box.\n4. Moving to the elevated table.\n5. Releasing the white box.\n6. Placing the white box on the elevated table.\n\nEach step is carefully planned to ensure that all contact changes are valid, and intermediate free modes are introduced where necessary.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T13:14:31.317906",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

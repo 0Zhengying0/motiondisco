@@ -1,0 +1,13 @@
+<NAME>
+Ensure the white box is correctly placed on the table by fixing the object's self_id in the final mode.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+# Mode 8: Place the box on the table
+append_mode(plan, left_ee=(8, 1), white_box=(1, 8, 1))
+=======
+# Mode 8: Place the box on the table
+append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

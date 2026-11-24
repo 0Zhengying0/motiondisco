@@ -1,0 +1,49 @@
+<NAME>
+Add steps to lift the robot onto the table and grasp the white box.
+
+<DESCRIPTION>
+The current plan only returns the initial mode, which scores 0 because it needs at least 2 modes. To improve the performance, we need to add steps to lift the robot onto the table and grasp the white box. This will ensure that the final mode matches the discrete contact goal and the IK solver can find the plan feasible.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Lift the robot's right foot onto the table
+    append_mode(plan, right_sole=(2, 1))
+
+    # Step 2: Lift the robot's left foot onto the table
+    append_mode(plan, left_sole=(2, 1))
+
+    # Step 3: Grasp the white box with the left hand
+    append_mode(plan, left_ee=(9, 1))
+
+    # Step 4: Grasp the white box with the right hand
+    append_mode(plan, right_ee=(11, 1))
+
+    # Step 5: Ensure the white box is lifted off the floor
+    append_mode(plan, white_box=())
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

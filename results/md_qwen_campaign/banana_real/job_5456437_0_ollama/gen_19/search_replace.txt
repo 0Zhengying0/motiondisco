@@ -1,0 +1,32 @@
+<NAME>
+Add a preliminary step to move the robot closer to the banana before attempting to grasp it.
+
+<DESCRIPTION>
+The current plan appends walking steps directly to the initial mode and then attempts to grasp the banana. However, the solver feedback indicates that the robot is still too far from the banana in the final mode. Adding a preliminary step to move the robot closer to the banana before attempting to grasp it should help the solver find a feasible plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    plan = initialize_plan()
+    add_walking_steps(plan, 5)  # Add 5 walking steps to move towards the banana
+    append_grasp_mode(plan)  # Final mode to grasp the banana
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    plan = initialize_plan()
+    add_walking_steps(plan, 3)  # Add 3 walking steps to move towards the banana
+    append_mode(plan, left_ee=(), right_ee=())  # Move closer to the banana
+    add_walking_steps(plan, 2)  # Add 2 walking steps to reach the banana
+    append_grasp_mode(plan)  # Final mode to grasp the banana
+    return plan
+>>>>>>> REPLACE
+</DIFF>

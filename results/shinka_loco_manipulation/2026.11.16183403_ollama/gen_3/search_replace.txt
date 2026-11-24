@@ -1,0 +1,22 @@
+<NAME>
+Add intermediate modes to ensure proper contact transitions and avoid direct changes between different surfaces.
+
+<DESCRIPTION>
+The current plan has direct transitions between different surfaces without intermediate free modes, which is causing the solver to reject the plan. To fix this, we need to add intermediate modes where the end-effector and object contacts are released before transitioning to a new surface. This ensures that the solver can handle the transitions correctly.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    append_mode(plan, left_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 1), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, left_ee=(13, 1), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(plan, left_ee=(13, 1), left_sole=(1, 1), right_sole=(1, 1), box1=(6, 1, 1))
+    append_mode(plan, left_ee=(13, 1), left_sole=(1, 1), right_sole=(1, 1), box1=(6, 2, 1))
+=======
+    append_mode(plan, left_ee=(1, 1))
+    append_mode(plan, left_ee=(), left_sole=(1, 1), right_sole=(1, 1))  # Release left_ee
+    append_mode(plan, left_ee=(13, 1), left_sole=(1, 1), right_sole=(1, 1))  # Move left_ee to box1
+    append_mode(plan, left_ee=(13, 1), left_sole=(1, 1), right_sole=(1, 1), box1=(6, 1, 1))  # Place box1 on table
+    append_mode(plan, left_ee=(13, 1), left_sole=(1, 1), right_sole=(1, 1), box1=(6, 2, 1))  # Ensure correct contact type
+>>>>>>> REPLACE
+</DIFF>

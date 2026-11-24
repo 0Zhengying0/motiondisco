@@ -1,0 +1,44 @@
+<NAME>
+Add a walking sequence to the plan to navigate through clutter and reach the final position.
+
+<DESCRIPTION>
+The current plan only has two modes, with the robot standing still and one additional mode where the right hand and foot are touching the floor. This is insufficient to navigate through clutter and reach the final position. By adding a walking sequence, the robot can move through the cluttered environment and reach the desired location.
+
+The plan will start by standing still, then add a walking sequence to move forward, avoiding obstacles like tables and boxes. Finally, it will ensure that the robot is standing on the floor with the desired base position.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Add a walking sequence to move forward
+    walk(plan, n_steps=10)
+
+    # Ensure the final mode matches the discrete contact goal
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

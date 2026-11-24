@@ -1,0 +1,14 @@
+{
+  "generation": 20,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The previous attempts have shown that the plan is dynamically inconsistent and violates joint limits, indicating that the transitions between contacts and the number of walking steps are not optimized. By carefully planning the transitions and ensuring sufficient walking steps before critical modes, we can improve the feasibility of the plan and potentially achieve a higher combined score.\n\n1. **Transition Planning**: Ensure that each contact change passes through a free mode (`()`) before making contact with a new surface.\n2. **Walking Steps**: Adjust the number of walking steps to ensure the robot can reach the target surfaces smoothly and without violating joint limits or dynamic constraints.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 6-line block starting with: 'def plan_movement_to_table(plan: Dict[str, List[Tuple]], table_env_id: int) -> None:'\n\nFull search pattern:\n```\ndef plan_movement_to_table(plan: Dict[str, List[Tuple]], table_env_id: int) -> None:\n    \"\"\"\n    Plans the robot's movement to the specified table.\n    \"\"\"\n    walk(plan, 12)  # Add more walking steps to ensure controlled movement\n    append_mode(plan, left_ee=(table_env_id, 1), right_ee=(table_env_id, 1))\n```\n\nFound similar code block at line 43 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  def plan_movement_to_table(plan: Dict[str, List[Tuple]], table_env_id: int) -> None:\n-      walk(plan, 12)  # Add more walking steps to ensure controlled movement\n+      walk(plan, 10)  # Move forward to the table\n+  \n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-100):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (84 more lines)\n        append_mode(plan, left_ee=(), right_ee=(), white_box=(white_box_self_id, table_env_id, 1))\n    \n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-19T07:22:06.786322",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

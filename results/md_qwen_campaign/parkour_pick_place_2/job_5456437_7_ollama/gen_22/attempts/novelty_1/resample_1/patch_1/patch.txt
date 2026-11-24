@@ -1,0 +1,72 @@
+--- a/original.py
++++ b/original.py
+@@ -1,57 +1,54 @@
+ # Fixed (not evolved): rewrites of the block below that dropped their own
+ # typing import failed with "name 'List' is not defined".
+ from __future__ import annotations
+ 
+ from typing import Any, Dict, List, Tuple
+ 
+ # EVOLVE-BLOCK-START
+ 
+ def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+     """
+     Build a contact_mode_seq for the active task — see the system
+     prompt for scene-specific goals.
+ 
+     The body below returns the initial mode unchanged (1 mode, which
+     scores 0 since a plan needs at least 2 modes); evolution is
+     expected to extend it into a full plan.
+     """
+     plan = get_initial_mode()
+ 
+     # Step 1: Move the robot's left hand to the white box
++    walk(plan, 5)
+     append_mode(plan, left_ee=(14, 1))
+ 
+-    # Step 2: Move the robot's right hand to the white box
+-    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
++    # Step 2: Grasp the white box with the left hand
++    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+ 
+-    # Step 3: Lift the white box with the robot's hands
+-    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), white_box=(1, 14, 1))
++    # Step 3: Lift the white box
++    walk(plan, 3)
++    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 1))
+ 
+-    # Step 4: Release the robot's right hand from the white box
+-    append_mode(plan, left_ee=(14, 1), right_ee=(), white_box=(1, 14, 1))
++    # Step 4: Move the robot's left hand to the elevated table
++    walk(plan, 5)
++    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 1))
+ 
+-    # Step 5: Move the robot's right hand to the elevated table
+-    append_mode(plan, left_ee=(14, 1), right_ee=(8, 1), white_box=(1, 14, 1))
++    # Step 5: Release the white box before placing it on the table
++    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+ 
+-    # Step 6: Release the robot's left hand from the white box
+-    append_mode(plan, left_ee=(), right_ee=(8, 1), white_box=(1, 14, 1))
+-
+-    # Step 7: Move the robot's left hand to the elevated table
+-    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1), white_box=(1, 14, 1))
+-
+-    # Step 8: Place the white box on the elevated table
++    # Step 6: Place the white box on the elevated table
+     append_mode(plan, left_ee=(8, 1), right_ee=(8, 1), white_box=(6, 8, 1))
+ 
+     return plan
+ 
+ # EVOLVE-BLOCK-END
+ 
+ 
+ # This part remains fixed (not evolved)
+ from env import append_mode, get_default_scene, get_initial_mode, walk
+ 
+ 
+ def run_planning():
+     """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+     scene = get_default_scene()
+     contact_plan = generate_contact_plan(scene)
+     return contact_plan, scene

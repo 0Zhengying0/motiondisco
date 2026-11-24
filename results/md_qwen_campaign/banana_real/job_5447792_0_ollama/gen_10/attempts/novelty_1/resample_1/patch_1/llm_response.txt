@@ -1,0 +1,34 @@
+<NAME>
+Dynamic Adaptation and Step Optimization
+
+<DESCRIPTION>
+Inspired by the previous attempts, I propose a dynamic adaptation approach that optimizes the number of walking steps based on the distance to the banana and dynamically adjusts the robot's base position to ensure stability and feasibility. This approach avoids the pitfalls of a fixed number of steps and ensures the robot's base is correctly positioned to facilitate the grasping motion. The key insights are:
+1. Dynamically calculate the number of walking steps needed to reach the banana based on its distance.
+2. Ensure the robot's base is positioned correctly to support the grasping motion.
+3. Use a more systematic approach to avoid mode infeasibilities and maintain stability.
+</DESCRIPTION>
+
+<CODE>
+```python
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Calculate the number of walking steps needed to reach the banana
+    # Assuming the robot can walk about 0.4m per step
+    banana_x = scene[2]['xyz'][0]
+    current_x = scene[0]['xyz'][0]
+    distance_to_banana = abs(banana_x - current_x)
+    steps_needed = int(ceil(distance_to_banana / 0.4)) + 1
+
+    # Walk towards the banana with the calculated number of steps
+    walk(plan, steps_needed)
+
+    # Reach and grasp the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+
+    return plan
+
+# EVOLVE-BLOCK-END
+```
+</CODE>

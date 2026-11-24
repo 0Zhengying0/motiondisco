@@ -1,0 +1,40 @@
+<NAME>
+Extend the contact plan to meet the goal requirements.
+
+<DESCRIPTION>
+The current contact plan only includes the initial mode and does not meet the requirements for the task. The plan needs to include at least two modes: an initial mode and at least one transition mode. Additionally, the final mode must satisfy the discrete contact goal where the white box is placed on the table top. The plan will be extended by appending additional modes to achieve this goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Append a transition mode where the robot lifts the white box
+    append_mode(plan, left_ee=(26, 1), right_ee=(), left_sole=(), right_sole=())
+
+    # Append a mode where the robot places the white box on the table top
+    append_mode(plan, left_ee=(), right_ee=(2, 1), left_sole=(), right_sole=(), white_box=(1, 2, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

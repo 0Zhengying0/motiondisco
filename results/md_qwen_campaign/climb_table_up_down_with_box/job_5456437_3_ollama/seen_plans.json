@@ -1,0 +1,138 @@
+{
+  "28947018a919381b5c7c51e490b0c4071facde2a27ca5369397c721e277298f5": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_19",
+    "patches": "left_ee:2.1.2,8.1.1,8.1.2|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.1.2,2.1.2,6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1.1|left_ee:8.1.1>8.1.2,white_box:6.1.1>1.1.2|white_box:1.1.2>-|left_ee:8.1.2>2.1.2,white_box:->2.1.2|left_ee:2.1.2>-|white_box:2.1.2>6.2.1|walk|white_box:6.2.1>6.1.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 6->7: white_box changes from (6, 1, 1) to (1, 1, 2) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 1, 2)"
+  },
+  "32a09f0b383084a8ac8bebc6015659d4c2cefb49e01f66828cd264c648e19e55": {
+    "combined_score": 0.05665075000122986,
+    "first_seen_gen": "gen_12",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  },
+  "65609930b18d91eae96c36a8e59d43556915349d52e57724a11d0fb4d7246379": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": ""
+  },
+  "6daeb7bf85175ee6936a7675c1420d9040a7fb8d9f7c7ab906f685027fad2657": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_7",
+    "patches": "left_ee:2.1.2,8.1.1,8.1.2|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.1.2,2.1.2,6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1.1|left_ee:8.1.1>8.1.2,white_box:6.1.1>1.1.2|left_ee:8.1.2>2.1.2,white_box:1.1.2>2.1.2|left_ee:2.1.2>-,white_box:2.1.2>6.2.1|walk|white_box:6.2.1>6.1.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: white_box changes from (6, 1, 1) to (1, 1, 2) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 1, 2)"
+  },
+  "6e69da0017d1ae0fb19081746d5bac50d42f43925d867295ac27d290094cddfd": {
+    "combined_score": 0.06441347796155703,
+    "first_seen_gen": "gen_11",
+    "patches": "left_ee:1.2|left_sole:1.1|right_ee:1.2|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->1.2,right_ee:->1.2",
+    "top_violation": ""
+  },
+  "888ab222fadd54dabcdd3908e1b8be102faa9f2854fafca0899da93426000ea7": {
+    "combined_score": 0.3229272421601246,
+    "first_seen_gen": "gen_1",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "transition 0->1: no contact changes (noop)"
+  },
+  "890cab99772cf0a8a7b14d73058d068853c907acb3484fdd0b5e3db7e3f7c46b": {
+    "combined_score": 0.09967895126385916,
+    "first_seen_gen": "gen_3",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  },
+  "8b40816003f1dcb2368b0cd46b09e1df4491a7cb37851394ba4b2d7208887a47": {
+    "combined_score": 0.027765596130816514,
+    "first_seen_gen": "gen_4",
+    "patches": "left_ee:1.2|left_sole:1.1|right_ee:1.2|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->1.2,right_ee:->1.2",
+    "top_violation": ""
+  },
+  "abc005c5201c9509a94f10abb4c5d37daf52e0e093ffb0c18ea4b5e18f7b4c11": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_8",
+    "patches": "left_ee:2.1.2,8.1.1,8.1.2|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.1.2,2.1.2,6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1.1|left_ee:8.1.1>8.1.2,white_box:6.1.1>1.1.2|left_ee:8.1.2>2.1.2,white_box:1.1.2>2.1.2|left_ee:2.1.2>-,white_box:2.1.2>6.2.1|walk|white_box:6.2.1>6.1.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: white_box changes from (6, 1, 1) to (1, 1, 2) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 1, 2)"
+  },
+  "b2c816edb62ba738aa06b49bf42f603ad39a60849acbf4a016a74353a90a6ecf": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_2",
+    "patches": "left_ee:2.1.2,8.1.1,8.1.2|left_sole:1.1,2.1.1|right_ee:-|right_sole:1.1,2.1.1|white_box:1.1.2,2.1.2,6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1.1|left_ee:8.1.1>8.1.2,white_box:6.1.1>1.1.2|left_ee:8.1.2>2.1.2,white_box:1.1.2>2.1.2|left_ee:2.1.2>-,white_box:2.1.2>6.2.1|walk|left_sole:1.1>2.1.1,right_sole:1.1>2.1.1",
+    "top_violation": "discrete goal: left_sole final mode is (2, 1, 1), expected (1, 1)"
+  },
+  "b30dafd3087c79fe7d516582fb7f774796a4ec54f6fe89d004cc3eae8c804509": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_18",
+    "patches": "left_ee:10.1,8.1|left_sole:1.1|right_ee:8.1|right_sole:1.1|white_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1,right_ee:->8.1|left_ee:8.1>-,right_ee:8.1>-|walk|left_ee:->10.1,white_box:6.1.1>6.2.1|left_ee:10.1>-",
+    "top_violation": "discrete goal: white_box final mode is (6, 2, 1), expected (6, 1, 1)"
+  },
+  "b31eeb2eb18b738c635c59c5ce7dcdd7c462a20eed414dd22a10014307edbceb": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_17",
+    "patches": "left_ee:1.2,2.1.2,6.2.1,8.2.1|left_sole:1.1|right_ee:1.2,2.1.2,6.2.1,8.2.1|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->1.2,right_ee:->1.2|left_ee:1.2>-,right_ee:1.2>-|left_ee:->2.1.2,right_ee:->2.1.2|left_ee:2.1.2>-,right_ee:2.1.2>-|left_ee:->8.2.1,right_ee:->8.2.1|left_ee:8.2.1>-,right_ee:8.2.1>-|left_ee:->6.2.1,right_ee:->6.2.1",
+    "top_violation": "KSO infeasible: first break at mode 9 of 14 (left_ee set down on floor surface, right_ee set down on floor surface); modes 0\u20138 solve on their own."
+  },
+  "cac4b2e6a6fbc1a41af64308a1ee9f4e7cc17461d2ff56f238910d09e051b0e8": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_10",
+    "patches": "left_ee:2.1.2,8.1.1,8.1.2|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.1.2,2.1.2,6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1.1|left_ee:8.1.1>8.1.2,white_box:6.1.1>1.1.2|white_box:1.1.2>-|left_ee:8.1.2>2.1.2,white_box:->2.1.2|left_ee:2.1.2>-|white_box:2.1.2>6.2.1|walk|white_box:6.2.1>6.1.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: white_box changes from (6, 1, 1) to (1, 1, 2) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 1, 2)"
+  },
+  "d2d661a278e5599ea7e7700dbafb8231e921d80d5e7608eaaa6d60e30b0ec465": {
+    "combined_score": 0.030939084872024233,
+    "first_seen_gen": "gen_5",
+    "patches": "left_ee:1.2|left_sole:1.1|right_ee:1.2|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->1.2,right_ee:->1.2",
+    "top_violation": ""
+  },
+  "e24ee113283daad1a2db96f41a61182ac9ca965657823bb70ae6e53c9dc69000": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_9",
+    "patches": "left_ee:2.1,8.1.1|left_sole:1.1|right_ee:2.1|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->2.1,right_ee:->2.1|left_ee:2.1>-,right_ee:2.1>-|left_ee:->8.1.1|walk|left_ee:8.1.1>-|left_ee:->8.1.1|left_ee:8.1.1>-|walk",
+    "top_violation": "KSO infeasible: first break at mode 7 of 21 (left_ee set down on floor surface); modes 0\u20136 solve on their own."
+  },
+  "f09c45dc16b0fd365746b64d006bfaef50730909e238bf5cc415c788bb3e48cf": {
+    "combined_score": 0.047388063060950725,
+    "first_seen_gen": "gen_13",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  },
+  "ff5f5ff64630ef028bd01060682c5d30c8d71c1fe23c1c724579c652c7c2ac02": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_6",
+    "patches": "left_ee:2.1,8.1.1|left_sole:1.1|right_ee:2.1|right_sole:1.1|white_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->2.1,right_ee:->2.1|left_ee:2.1>-,right_ee:2.1>-|left_ee:->8.1.1|walk|left_ee:8.1.1>-|left_ee:->8.1.1|left_ee:8.1.1>-|white_box:6.1.1>6.2.1|walk",
+    "top_violation": "discrete goal: white_box final mode is (6, 2, 1), expected (6, 1, 1)"
+  }
+}

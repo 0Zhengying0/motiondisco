@@ -1,0 +1,44 @@
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Move left_ee to the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Move right_ee to the white box
+    append_mode(plan, right_ee=(14, 1))
+
+    # Lift the white box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 2))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Move left_ee to the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Move right_ee to the elevated table
+    append_mode(plan, right_ee=(8, 1))
+
+    # Release the white box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

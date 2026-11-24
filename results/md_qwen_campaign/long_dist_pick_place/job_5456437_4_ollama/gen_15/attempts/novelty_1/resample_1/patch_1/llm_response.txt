@@ -1,0 +1,58 @@
+<NAME>
+Extend the plan by adding more modes to achieve the goal and ensure the final mode matches the discrete contact goal.
+
+<DESCRIPTION>
+The current plan only has one mode, which is insufficient for the task. We need to extend the plan by adding more modes to achieve the goal of picking up the yellow box and placing it on the distant table. Specifically, we need to ensure that the final mode matches the discrete contact goal, where the yellow box is in contact with the distant table with the correct contact type.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = {ch: list(seq) for ch, seq in get_initial_mode().items()}
+    
+    # Walk towards the yellow box
+    walk(plan, 10)
+    
+    # Pick up the yellow box with the left hand
+    append_mode(
+        plan,
+        left_ee=(8, 1),  # Left hand sticks to the top of the yellow box
+        right_ee=(1, 1),  # Right hand is free
+        left_sole=(1, 1),  # Left foot is on the floor
+        right_sole=(1, 1)  # Right foot is on the floor
+    )
+    
+    # Walk towards the distant table
+    walk(plan, 10)
+    
+    # Place the yellow box on the distant table with the right hand
+    append_mode(
+        plan,
+        left_ee=(1, 1),  # Left hand is free
+        right_ee=(2, 2),  # Right hand slides to the top of the distant table
+        left_sole=(1, 1),  # Left foot is on the floor
+        right_sole=(1, 1)  # Right foot is on the floor
+    )
+    
+    return plan
+>>>>>>> REPLACE
+</DIFF>

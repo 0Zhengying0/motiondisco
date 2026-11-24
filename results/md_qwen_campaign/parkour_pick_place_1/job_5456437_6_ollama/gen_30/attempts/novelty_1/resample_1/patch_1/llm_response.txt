@@ -1,0 +1,37 @@
+<NAME>
+Improve the plan by ensuring that the robot transitions between contacts correctly, especially for the object being manipulated. This will help in making the plan feasible for the IK and TO solvers.
+
+<DESCRIPTION>
+The current plan has several issues where the robot transitions between contacts without going through a free state, which is required by the solver rules. Specifically, the object `white_box` changes surfaces without a free state in between. By ensuring that each contact change is preceded by a free state, we can make the plan more feasible for the solvers.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Pick up the white box
+    release_ee(plan, "right_ee")
+    move_ee(plan, "right_ee", (14, 1))
+    append_mode(plan, white_box=(1, 14, 1))
+    release_ee(plan, "right_ee")
+=======
+    # Step 2: Pick up the white box
+    release_ee(plan, "right_ee")
+    move_ee(plan, "right_ee", (14, 1))
+    append_mode(plan, white_box=(1, 14, 1))
+    release_ee(plan, "right_ee")
+    append_mode(plan, white_box=())
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Step 4: Place the white box on the elevated table
+    release_ee(plan, "right_ee")
+    move_ee(plan, "right_ee", (8, 1))
+    append_mode(plan, white_box=())
+    append_mode(plan, white_box=(6, 8, 1))
+=======
+    # Step 4: Place the white box on the elevated table
+    release_ee(plan, "right_ee")
+    move_ee(plan, "right_ee", (8, 1))
+    append_mode(plan, white_box=())
+    append_mode(plan, white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

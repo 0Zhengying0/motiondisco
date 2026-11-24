@@ -1,0 +1,18 @@
+{
+  "389ad8edf475f57bc3c8fbe7f00f505b4744a7ff0cb492d998ba1ad3c1041650": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "box1:6.1.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "801ee260aa86ec9359e9a65ebb62e88bf346a0570b5503e5495e63bc1d86532a": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_1",
+    "patches": "box1:6.1.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1)"
+  }
+}

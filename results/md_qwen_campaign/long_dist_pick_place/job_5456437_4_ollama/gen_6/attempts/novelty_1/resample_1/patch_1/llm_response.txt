@@ -1,0 +1,46 @@
+<NAME>
+Add a walking sequence to move the robot towards the distant table and then place the yellow box on it.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    
+    # Walk towards the table
+    walk(plan, 10)
+    
+    # Pick up the yellow box
+    append_mode(plan, left_ee=(8, 2), right_ee=(8, 2))
+    append_mode(plan, left_ee=(), right_ee=(), yellow_box=(6, 1, 1))
+    
+    # Walk back towards the table
+    walk(plan, 10)
+    
+    # Place the yellow box on the table
+    append_mode(plan, left_ee=(2, 2), right_ee=(2, 2), yellow_box=(6, 2, 1))
+    
+    return plan
+>>>>>>> REPLACE
+</DIFF>

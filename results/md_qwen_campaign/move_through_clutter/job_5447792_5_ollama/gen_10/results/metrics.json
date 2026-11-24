@@ -1,0 +1,38 @@
+{
+    "combined_score": 0.00040947480522100056,
+    "public": {
+        "num_modes": 19,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 2441.152697185564,
+        "violations": [
+            "mode 18: left_sole stays 44 cm off floor surface; the planned contact is not made",
+            "transition 12->13: no contact changes (noop)",
+            "transition 15->16: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 63.44213548995757,
+        "to_jerk_per_mode": 24154.461278813444
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8888888888888888,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9777777777777779,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.5080211896656044,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 18: left_sole stays 44 cm off floor surface; the planned contact is not made\n- mode 18: left_sole slides 28 cm on floor surface although the contact is sticking\n- mode 18: the motion is not dynamically consistent (it needs 50% of the body weight, 164 N, that no contact provides)\n- mode 11: right_ankle_pitch_joint goes 0.11 rad past its limit\n- modes 3\u201312: in 4 of 10 steps a foot travels more than 0.8 m (up to 1.74 m, right_sole at mode 11); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 4 more walking steps before mode 14 (left_ee -> floor surface (sliding), right_ee -> floor surface (sliding)), e.g. walk(plan, 4)",
+    "execution_time_mean": 0.5131624509958783,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

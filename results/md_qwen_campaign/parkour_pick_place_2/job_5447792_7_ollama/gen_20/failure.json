@@ -1,0 +1,56 @@
+{
+  "active_proposals_at_start": 1,
+  "api_costs": 0.0,
+  "archive_inspiration_ids": [
+    "1936423c-ccf5-4a1d-b07a-21ed4dc8afe7",
+    "15acd882-5050-4f89-b29b-520013c00f82",
+    "16d58a94-e7da-48d4-8a91-f6950371e4dc",
+    "6b3b1475-e3ea-416f-ad3f-c79ce9ef274e"
+  ],
+  "artifacts": {
+    "attempt_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/attempts/novelty_3/resample_1/patch_1",
+    "attempt_metadata_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/attempts/novelty_3/resample_1/patch_1/metadata.json",
+    "attempt_patch_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/attempts/novelty_3/resample_1/patch_1/patch.txt",
+    "generated_code_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/main.py",
+    "generation_diff_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/edit.diff",
+    "generation_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20",
+    "generation_original_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/original.py",
+    "generation_rewrite_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/rewrite.txt",
+    "generation_search_replace_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/search_replace.txt",
+    "llm_response_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/attempts/novelty_3/resample_1/patch_1/llm_response.txt",
+    "results_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/results"
+  },
+  "attempts": {
+    "novelty_attempt": 3,
+    "patch_attempt": 1,
+    "resample_attempt": 1
+  },
+  "code_embedding_available": true,
+  "downstream_eval_submitted": false,
+  "embed_cost": 0.0,
+  "error_attempt": null,
+  "failure_class": "novelty_rejected",
+  "failure_json_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_20/failure.json",
+  "failure_reason": "**NOT_NOVEL**\n\nThe proposed code is identical to the existing code. There are no algorithmic differences, structural changes, functional improvements, implementation variations, or hyperparameter changes. The only differences are minor formatting changes (e.g., spaces around parentheses, alignment of comments) which do not affect the core logic of the code. Therefore, these codes are not meaningfully different from each other.",
+  "failure_stage": "novelty",
+  "generated_code_available": true,
+  "generation": 20,
+  "language": "python",
+  "last_error_msg": null,
+  "max_similarity": 0.99336838722229,
+  "node_kind": "failed_proposal",
+  "novelty_checks_performed": 1,
+  "novelty_cost": 0.0,
+  "novelty_explanation": "**NOT_NOVEL**\n\nThe proposed code is identical to the existing code. There are no algorithmic differences, structural changes, functional improvements, implementation variations, or hyperparameter changes. The only differences are minor formatting changes (e.g., spaces around parentheses, alignment of comments) which do not affect the core logic of the code. Therefore, these codes are not meaningfully different from each other.",
+  "parent_id": "60a750ab-43d4-474e-9f9b-719776210374",
+  "patch_description": "The current plan has only two modes, which is insufficient to lift the white box and move it to the table without violating contact rules. We need to add intermediate steps to ensure the white box is lifted off the floor, moved to the table, and placed correctly. This will help the solver to find a feasible trajectory.",
+  "patch_name": "none",
+  "patch_type": "diff",
+  "proposal_started_at": 1794971039.3953109,
+  "sampling_worker_id": null,
+  "system_prompt_id": null,
+  "timestamp": "2026-11-18T04:05:35.471283",
+  "top_k_inspiration_ids": [
+    "83f78226-8bcf-4ecd-a852-7bdaddd72848"
+  ]
+}

@@ -1,0 +1,68 @@
+<NAME>
+Ensure that the robot releases the end-effector before moving to a different surface. This is a critical step to avoid invalid contact schedules.
+
+<DESCRIPTION>
+The previous attempts have failed due to the robot changing contact surfaces without first releasing the end-effector. This is a violation of the solver rules, which require an end-effector to be free before touching a different surface. By ensuring that the robot releases the end-effector before moving to a different surface, we can avoid these violations and improve the feasibility of the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 1: Move to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(1, 1))
+    # Step 1.5: Release right_ee before moving to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=())
+=======
+    # Step 1: Move to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(1, 1))
+    # Step 1.5: Release right_ee before moving to the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=())
+    # Step 1.75: Release left_ee before moving to the white box
+    append_mode(plan, left_ee=(), right_ee=())
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Add walking steps before moving the end-effector to ensure the robot has enough time to reach the target surface.
+
+<DESCRIPTION>
+The previous attempts have failed due to the robot not having enough time to reach the target surface. By adding walking steps before moving the end-effector, we can ensure that the robot has enough time to reach the target surface and improve the feasibility of the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 1.75: Release left_ee before moving to the white box
+    append_mode(plan, left_ee=(), right_ee=())
+    # Step 2: Pick up the white box
+    append_mode(plan, left_ee=(), right_ee=(14, 1), white_box=(1, 14, 1))
+=======
+    # Step 1.75: Release left_ee before moving to the white box
+    append_mode(plan, left_ee=(), right_ee=())
+    # Step 1.76: Walk to the white box
+    walk(plan, 2)
+    # Step 2: Pick up the white box
+    append_mode(plan, left_ee=(), right_ee=(14, 1), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Add walking steps before placing the white box on the elevated table to ensure the robot has enough time to reach the target surface.
+
+<DESCRIPTION>
+The previous attempts have failed due to the robot not having enough time to reach the target surface. By adding walking steps before placing the white box on the elevated table, we can ensure that the robot has enough time to reach the target surface and improve the feasibility of the plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 3: Move to the elevated table
+    append_mode(plan, left_ee=(8, 1), right_ee=(1, 1), white_box=(1, 14, 1))
+    # Step 4: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(8, 1), white_box=(6, 8, 1))
+=======
+    # Step 3: Move to the elevated table
+    append_mode(plan, left_ee=(8, 1), right_ee=(1, 1), white_box=(1, 14, 1))
+    # Step 3.5: Walk to the elevated table
+    walk(plan, 2)
+    # Step 4: Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

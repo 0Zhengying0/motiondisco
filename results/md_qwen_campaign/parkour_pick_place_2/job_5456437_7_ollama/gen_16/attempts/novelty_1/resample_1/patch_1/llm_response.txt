@@ -1,0 +1,40 @@
+<NAME>
+Ensure proper contact transitions for the white box and hands.
+
+<DESCRIPTION>
+The current plan has issues with contact transitions for the white box and hands. Specifically, the white box and hands are transitioning between surfaces without going through a free state, which is required by the solver. This edit will ensure that all contacts are properly released before transitioning to a new surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Move left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Lift the white box using the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Release the left hand contact
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+
+    # Move left hand to the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(1, 14, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1))
+=======
+    # Move left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Lift the white box using the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Release the left hand contact
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+
+    # Move left hand to the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=())
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

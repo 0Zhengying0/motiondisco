@@ -1,0 +1,36 @@
+{
+    "combined_score": 0.00026642714872121895,
+    "public": {
+        "num_modes": 2,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 3752.37124913786,
+        "violations": [
+            "mode 1: right_ankle_pitch_joint goes 0.42 rad past its limit"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 8.616516457136242,
+        "to_jerk_per_mode": 144694.5376680758
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.8333333333333334,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.5218859287342585,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 1: right_ankle_pitch_joint goes 0.42 rad past its limit\n- mode 1: right_ee stays 11 cm off floor surface; the planned contact is not made\n- mode 2: white_box penetrates robot torso_link by 11 cm in the trajectory\n- mode 1: left_ee slides 5 cm on floor surface although the contact is sticking",
+    "execution_time_mean": 0.5103007269935915,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

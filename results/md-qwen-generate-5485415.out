@@ -1,0 +1,11 @@
+Run artifacts: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_225237_y5hiez19
+Scene attempt 1: [{'code': 'OUT_OF_BOUNDS', 'subject': 'white_box_1', 'message': 'Box footprint exceeds the declared support', 'details': {'support': 'table_short_1', 'support_half_extents_m': [0.35, 0.7]}}]
+Scene attempt 2: [{'code': 'PENETRATION', 'subject': 'green_box_1', 'message': 'Box volumes overlap', 'details': {'other': 'white_box_1', 'depth_m': 0.03500000000000014}}]
+Scene attempt 3: [{'code': 'OUT_OF_BOUNDS', 'subject': 'white_box_1', 'message': 'Box footprint exceeds the declared support', 'details': {'support': 'table_short_1', 'support_half_extents_m': [0.35, 0.7]}}]
+Scene attempt 4: [{'code': 'PENETRATION', 'subject': 'green_box_1', 'message': 'Box volumes overlap', 'details': {'other': 'white_box_1', 'depth_m': 0.03500000000000014}}]
+Scene attempt 5: [{'code': 'OUT_OF_BOUNDS', 'subject': 'white_box_1', 'message': 'Box footprint exceeds the declared support', 'details': {'support': 'table_short_1', 'support_half_extents_m': [0.35, 0.7]}}]
+{
+  "status": "validation_exhausted",
+  "scene": null,
+  "job_id": "5485415"
+}

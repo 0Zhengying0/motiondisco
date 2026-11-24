@@ -1,0 +1,37 @@
+<NAME>
+Ensure the robot's feet are free before changing the object's contact surface.
+
+<DESCRIPTION>
+The current plan fails because it attempts to change the object's contact surface without first releasing the feet. This violates the rule that a contact must be released before it touches a different surface. To fix this, we need to ensure that the robot's feet are free before changing the object's contact surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Pick up the white box
+    append_mode(plan, left_ee=(14, 1))
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+=======
+    # Pick up the white box
+    append_mode(plan, left_ee=(14, 1))
+    append_mode(plan, left_ee=(), right_sole=(), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure the robot's feet are free before changing the object's contact surface when placing the box.
+
+<DESCRIPTION>
+The current plan fails because it attempts to change the object's contact surface without first releasing the feet. This violates the rule that a contact must be released before it touches a different surface. To fix this, we need to ensure that the robot's feet are free before changing the object's contact surface when placing the box.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(6, 8, 1))
+=======
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1))
+    append_mode(plan, left_ee=(), right_sole=(), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

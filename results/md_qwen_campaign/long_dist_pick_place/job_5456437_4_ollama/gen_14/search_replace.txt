@@ -1,0 +1,28 @@
+<NAME>
+Ensure the final mode of the plan matches the discrete contact goal.
+
+<DESCRIPTION>
+The final mode of the contact plan must satisfy the discrete contact goal where the yellow box is placed on the distant table with the correct contact type. Currently, the plan does not explicitly ensure that the yellow box is placed with contact type 2 (sliding) on the table. We need to modify the final mode to meet this requirement.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+# Append a mode where the robot places the yellow box on the distant table
+append_mode(
+    plan,
+    left_ee=(1, 1),  # Left hand is free
+    right_ee=(2, 1),  # Right hand sticks to the top of the distant table
+    left_sole=(1, 1),  # Left foot is on the floor
+    right_sole=(1, 1)  # Right foot is on the floor
+)
+=======
+# Append a mode where the robot places the yellow box on the distant table with the correct contact type
+append_mode(
+    plan,
+    left_ee=(1, 1),  # Left hand is free
+    right_ee=(2, 2),  # Right hand slides to the top of the distant table
+    left_sole=(1, 1),  # Left foot is on the floor
+    right_sole=(1, 1)  # Right foot is on the floor
+)
+>>>>>>> REPLACE
+</DIFF>

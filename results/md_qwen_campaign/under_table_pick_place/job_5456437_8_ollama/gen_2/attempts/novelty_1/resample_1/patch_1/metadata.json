@@ -1,0 +1,14 @@
+{
+  "generation": 2,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "Add a single mode to the contact plan.",
+  "patch_description": "The current plan has only one mode, which is not sufficient. The plan needs at least two modes to be considered valid by the IK solver. By adding a single mode that differs from the initial one, we can meet this requirement.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T08:19:12.331494",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

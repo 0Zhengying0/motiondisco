@@ -1,0 +1,234 @@
+{
+  "01fad1371e6594e1a4c7e7d77358f1835e1603b597862e6b6711a2f00880d286": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_16",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>1.1|left_ee:->8.1|right_ee:1.1>8.1|white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 3->4: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "0991aedc8e0d28e71993bfe4bfdff6f61680b2fb05ce64e176db402090c375d4": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_11",
+    "patches": "left_ee:14.1,8.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "white_box:6.1.1>-|left_ee:->14.1,white_box:->1.14.1|walk|white_box:1.14.1>-|left_ee:14.1>8.1,white_box:->6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 10->11: left_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)"
+  },
+  "0dfd7393cea4430652b228e376d122281e1fab59e51572f77b2b986db042de56": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_2",
+    "patches": "left_ee:14.1,8.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.14.1,1.8.1,6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1,white_box:6.1.1>1.14.1|walk|left_ee:14.1>8.1,white_box:1.14.1>1.8.1",
+    "top_violation": "discrete goal: white_box final mode is (1, 8, 1), expected (6, 8, 1)"
+  },
+  "17d3ebbcc93262f007de6bdc8721ed65f9ad6f073a6d4841036f7ec720bcf193": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_15",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>1.1|left_ee:->8.1|right_ee:1.1>8.1|right_ee:8.1>-|right_ee:->8.1|white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 4->5: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "1b2ca50ed1707d17ce34cb408b42fa24082587ddb28409a53dadeba7fe8939b6": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_24",
+    "patches": "left_ee:-|left_sole:1.1,2.1|right_ee:14.1,8.1|right_sole:1.1,2.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "walk|left_sole:->2.1|walk|right_sole:->2.1|walk|white_box:6.1.1>-|right_ee:->14.1,white_box:->1.14.1|walk|white_box:1.14.1>-|right_ee:14.1>8.1,white_box:->6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 19->20: right_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)"
+  },
+  "236552d452ab64e4e3ab3ce0230ccb6bdef5896883c28f4fee6e35f01df22536": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_20",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>1.1|left_ee:->8.1|right_ee:1.1>-|right_ee:->8.1|white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 5->6: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "238bff8f8404086c62bfdda7d3d8aef24e1a9fc8d89c22ef1d51e9a413e0f9b9": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_38",
+    "patches": "left_ee:-|left_sole:1.1,2.1|right_ee:14.1,8.1|right_sole:1.1,2.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "walk|left_sole:->2.1|walk|right_sole:->2.1|walk|right_ee:->14.1,white_box:6.1.1>1.14.1|walk|right_ee:14.1>8.1,white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 10->11: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "2f47c5db6549734fc2ec9f49f2f6f143c7db0615d59377ae3a2519b3e326e3c4": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_12",
+    "patches": "left_ee:14.1|left_sole:1.1,8.1|right_ee:-|right_sole:1.1,8.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1|white_box:6.1.1>1.14.1|white_box:1.14.1>-|white_box:->1.14.1|walk|white_box:1.14.1>-|left_sole:1.1>8.1,right_sole:1.1>8.1,white_box:->6.8.1|white_box:6.8.1>-",
+    "top_violation": "discrete goal: white_box final mode is (), expected (6, 8, 1)"
+  },
+  "33e33e81bb1de2f548be460819c3f68fafd3d054e3286048b030fa8663508a7a": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_26",
+    "patches": "left_ee:14.1,8.1|left_sole:1.1,2.1|right_ee:-|right_sole:1.1,2.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "walk|left_sole:->2.1|walk|right_sole:->2.1|walk|white_box:6.1.1>-|left_ee:->14.1,white_box:->1.14.1|walk|white_box:1.14.1>-|left_ee:14.1>8.1,white_box:->6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 20->21: left_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)"
+  },
+  "356efb7e0048a2b064c2f8e3de887374459972f4a72d09555a5bea25208288df": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_9",
+    "patches": "left_ee:14.1|left_sole:1.1,8.1|right_ee:-|right_sole:1.1,8.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1|white_box:6.1.1>1.14.1|walk|left_sole:1.1>8.1,right_sole:1.1>8.1,white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "3fd7f3bc6a0878dabfbdfeeaf0a87ff2fad1888f4158f18d0460c7d2f10ccfe3": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_3",
+    "patches": "left_ee:14.1,8.1|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1,white_box:6.1.1>1.14.1|walk|left_ee:14.1>8.1,white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 0->1: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "52165e1ce7a592a0572c469b0f3c175568acc304cf0cbe9e9e2c6761614343fd": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_22",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>-|right_ee:->1.1|right_ee:1.1>-|left_ee:->8.1|right_ee:->8.1|white_box:1.14.1>6.8.1|right_ee:8.1>-",
+    "top_violation": "Invalid contact schedule (no solver run): mode 3->4: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "65609930b18d91eae96c36a8e59d43556915349d52e57724a11d0fb4d7246379": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected (6, 8, 1)"
+  },
+  "67ac2e78a3004327ee8b37d553afc7b380e704e95397c7e536c7df4c3be7dea4": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_27",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>-|right_ee:->1.1|left_ee:->8.1|right_ee:1.1>-|right_ee:->8.1|white_box:1.14.1>-|white_box:->6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 4->5: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "6bc99fb415f0ef987939981b7118ff85e6e81f5e6966bd5611346644d0b15191": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_17",
+    "patches": "left_ee:-|left_sole:1.1,2.1|right_ee:14.1,8.1|right_sole:1.1,2.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_sole:1.1>2.1,right_sole:1.1>2.1|walk|white_box:6.1.1>-|right_ee:->14.1,white_box:->1.14.1|walk|white_box:1.14.1>-|right_ee:14.1>8.1,white_box:->6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 0->1: left_sole changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)"
+  },
+  "6c844ea0bfc1e34eca5face58a7a2009a771bfaab400d000d640838332ac3093": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_34",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>-|right_ee:->1.1|right_ee:1.1>-|right_ee:->8.1|white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 7->8: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "8e439829cb6be0a1f3f76259cd92c368e6492db64ff0bde3d1964966e53683c4": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_6",
+    "patches": "left_ee:14.1|left_sole:1.1,8.1|right_ee:-|right_sole:1.1,8.1|white_box:1.14.1,1.8.1,6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1|white_box:6.1.1>1.14.1|walk|left_sole:1.1>8.1,right_sole:1.1>8.1,white_box:1.14.1>1.8.1",
+    "top_violation": "discrete goal: white_box final mode is (1, 8, 1), expected (6, 8, 1)"
+  },
+  "9144acaeff97cb448fc58e855ec4dcaf508bf7b32f432dd59d7e9af115b33973": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_7",
+    "patches": "left_ee:-|left_sole:1.1,2.1|right_ee:-|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "left_sole:1.1>2.1,right_sole:1.1>2.1",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected (6, 8, 1)"
+  },
+  "9da5ae71ec7a55614b3a707201469e8f1b1e9d0fba532a9e5ba76c26be98a885": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_21",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,1.8.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|white_box:6.1.1>1.14.1|walk|right_ee:14.1>1.1|right_ee:1.1>-|white_box:1.14.1>-|walk|left_ee:->8.1|right_ee:->8.1|white_box:->1.8.1|white_box:1.8.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 3->4: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "aeb3683c79b10c704f95dbb7e3d6940801131fc6687d3b868140d5e77fb16f4f": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_19",
+    "patches": "left_ee:14.1,8.1|left_sole:1.1,2.1|right_ee:-|right_sole:1.1,2.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "walk|left_sole:->2.1|walk|right_sole:->2.1|walk|white_box:6.1.1>-|left_ee:->14.1,white_box:->1.14.1|walk|white_box:1.14.1>-|left_ee:14.1>8.1,white_box:->6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 19->20: left_ee changes from (14, 1) to (8, 1) without a free () mode in between; release it first: (14, 1) -> () -> (8, 1)"
+  },
+  "b7f74345d812b55c81d61034be805dda1bf14226bb15f0e6bf5d2e151c14a00c": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_35",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,1.8.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>-|right_ee:->1.1|right_ee:1.1>-|left_ee:->8.1|right_ee:->8.1|walk|white_box:1.14.1>1.8.1|white_box:1.8.1>6.8.1|right_ee:8.1>-",
+    "top_violation": "Invalid contact schedule (no solver run): mode 3->4: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "b8b28ef5bda0e3bdf95a48f9b481b4f8ccb8651b8dd5e523e1a0d78b9255e3a7": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_32",
+    "patches": "left_ee:14.1|left_sole:1.1,8.1|right_ee:-|right_sole:1.1,8.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1|white_box:6.1.1>1.14.1|left_ee:14.1>-|walk|left_sole:1.1>8.1,right_sole:1.1>8.1,white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "be0352c1b3195981d4216a4ec323f40b53a5c134fec5e154c7a51c84ce8568a4": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_30",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|walk|white_box:6.1.1>1.14.1|right_ee:14.1>-|right_ee:->1.1|right_ee:1.1>-|left_ee:->8.1|right_ee:->8.1|walk|white_box:1.14.1>6.8.1|right_ee:8.1>-",
+    "top_violation": "Invalid contact schedule (no solver run): mode 7->8: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "c935dd21377d91e136d6668953640b44535df716b5590c149bef659b910c8c24": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_29",
+    "patches": "left_ee:14.1|left_sole:1.1,8.1|right_ee:-|right_sole:1.1,8.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1|white_box:6.1.1>1.14.1|left_ee:14.1>-,white_box:1.14.1>-|white_box:->1.14.1|walk|white_box:1.14.1>-|left_sole:1.1>8.1,right_sole:1.1>8.1,white_box:->6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "ce19de24df599c6ef053571b3cf5a0ce5950ae4d7d2811d5f69782e8db0ada89": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_4",
+    "patches": "left_ee:14.1,8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1,right_ee:->1.1|right_ee:1.1>-|left_ee:14.1>-,right_ee:->14.1,white_box:6.1.1>1.14.1|left_ee:->8.1,right_ee:14.1>1.1|left_ee:8.1>-,right_ee:1.1>8.1,white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 2->3: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "e328a50072891e84cd45a5415c55f1d490ec2c9ca536acfd2c3794b25db40218": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_1",
+    "patches": "left_ee:14.1,8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "left_ee:->14.1,right_ee:->1.1|left_ee:14.1>-,right_ee:1.1>14.1,white_box:6.1.1>1.14.1|left_ee:->8.1,right_ee:14.1>1.1|left_ee:8.1>-,right_ee:1.1>8.1,white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: right_ee changes from (1, 1) to (14, 1) without a free () mode in between; release it first: (1, 1) -> () -> (14, 1)"
+  },
+  "ed082d44effc095c22df713d5369696aad214ab27c7ab180e16405fd19fe400f": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_5",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|white_box:6.1.1>1.14.1|right_ee:14.1>1.1|left_ee:->8.1|right_ee:1.1>-|right_ee:->8.1|white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 4->5: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  },
+  "f38280fd2854bfa5b3370b97a4704d481f9c8f8dc71964dafd12712c945599cf": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_8",
+    "patches": "left_ee:-|left_sole:1.1,2.1|right_ee:14.1,6.8.1|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "left_sole:1.1>2.1,right_sole:1.1>2.1|walk|right_ee:->14.1|walk|right_ee:14.1>6.8.1",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected (6, 8, 1)"
+  },
+  "f61184e3f3f6ec747c984bef666514e81b2b88374ec5673624d417d5029f54f9": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_31",
+    "patches": "left_ee:8.1|left_sole:1.1,14.1|right_ee:1.1,14.1,8.1|right_sole:1.1|white_box:1.14.1,6.1.1,6.8.1",
+    "provisional": false,
+    "signature": "right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|right_ee:14.1>-|right_ee:->14.1|white_box:6.1.1>1.14.1|left_sole:1.1>14.1|right_ee:14.1>-|right_ee:->1.1|left_ee:->8.1|right_ee:1.1>-|right_ee:->8.1|white_box:1.14.1>6.8.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 8->9: white_box changes from (6, 1, 1) to (1, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 14, 1)"
+  }
+}

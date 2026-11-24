@@ -1,0 +1,53 @@
+<NAME>
+Improve the contact plan to ensure the robot picks up the white box and places it on the elevated table. The plan should include proper steps, grasping, lifting, and placing actions.
+
+<DESCRIPTION>
+The current plan has only one mode and does not meet the task requirements. We need to extend the plan to include steps to reach the box, grasp it, lift it, and then move to the table and place it. This involves using the `walk` function to move the robot and the `append_mode` function to update the contact modes for the robot's end-effectors and the box.
+
+1. **Move to the box**: Use the `walk` function to move the robot towards the box.
+2. **Grasp the box**: Use the `append_mode` function to update the left end-effector to grasp the box.
+3. **Lift the box**: Use the `append_mode` function to update the left end-effector to lift the box.
+4. **Move to the table**: Use the `walk` function to move the robot towards the table.
+5. **Place the box on the table**: Use the `append_mode` function to update the left end-effector to place the box on the table.
+
+This plan should ensure that the robot completes the task successfully.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Move to the box
+    walk(plan, 3)  # Take 3 steps to reach the box
+    append_mode(plan, left_ee=(14, 1))  # Grasp the box with the left hand
+    append_mode(plan, left_ee=())  # Lift the box
+
+    # Step 2: Move to the table
+    walk(plan, 3)  # Take 3 steps to reach the table
+
+    # Step 3: Place the box on the table
+    append_mode(plan, left_ee=(6, 8, 1))  # Place the box on the table with the left hand
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

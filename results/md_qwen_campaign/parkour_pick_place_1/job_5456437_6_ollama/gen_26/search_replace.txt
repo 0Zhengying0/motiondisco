@@ -1,0 +1,31 @@
+<NAME>
+Ensure the robot transitions to a standing position before attempting to pick up the white box.
+
+<DESCRIPTION>
+The current plan transitions to a standing position but does not explicitly release the white box before picking it up. This can lead to issues where the robot tries to pick up the box while still in contact with the floor, which might cause the plan to fail. By explicitly releasing the white box before picking it up, we ensure a clean transition and avoid potential conflicts.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Walk to the white box
+    walk_to_destination(plan, 5)
+
+    # Release the white box
+    release_contact(plan, "white_box")
+
+    # Pick up the white box with the left hand
+    pick_up_object(plan, 14, "left_ee")
+=======
+    # Walk to the white box
+    walk_to_destination(plan, 5)
+
+    # Release the white box
+    release_contact(plan, "white_box")
+
+    # Ensure the robot is standing before picking up the box
+    append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))
+
+    # Pick up the white box with the left hand
+    pick_up_object(plan, 14, "left_ee")
+>>>>>>> REPLACE
+</DIFF>

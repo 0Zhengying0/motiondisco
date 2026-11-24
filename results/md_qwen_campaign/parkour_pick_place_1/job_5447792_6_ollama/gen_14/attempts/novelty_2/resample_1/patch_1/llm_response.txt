@@ -1,0 +1,43 @@
+<NAME>
+Add initial steps to approach the white box and prepare for manipulation.
+
+<DESCRIPTION>
+The current plan only has one mode, which is the initial mode. To achieve the task of picking up the white box and placing it on the elevated table, we need to add more modes to approach the white box, manipulate it, and then place it on the table. This will ensure that the plan has enough modes to be feasible and that the IK and TO solvers can work with it.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    # Walk towards the white box
+    walk(plan, 10)
+    # Approach the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+    # Walk towards the elevated table
+    walk(plan, 10)
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(8, 1), white_box=(6, 8, 1))
+    return plan
+>>>>>>> REPLACE
+</DIFF>

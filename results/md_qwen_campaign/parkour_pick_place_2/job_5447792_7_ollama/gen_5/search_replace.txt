@@ -1,0 +1,16 @@
+<NAME>
+Add a step to lift the object and place it on the elevated table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    append_mode(plan, left_ee=(14, 1))
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+    return plan
+=======
+    append_mode(plan, left_ee=(14, 1))
+    append_mode(plan, left_ee=(), white_box=(1, 8, 1))
+    append_mode(plan, left_ee=(14, 1), white_box=(6, 8, 1))
+    return plan
+>>>>>>> REPLACE
+</DIFF>

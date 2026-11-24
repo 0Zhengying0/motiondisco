@@ -1,0 +1,14 @@
+{
+  "generation": 11,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan has issues with the yellow box's contact transitions. Specifically, the yellow box transitions directly from one surface to another without a free state in between, which is not allowed. We need to ensure that the yellow box is properly placed on the table with the correct contact type (1 = sticking).\n\nTo achieve this, we will:\n1. Ensure the yellow box is released before placing it on the table.\n2. Ensure the yellow box is placed with the correct contact type (1 = sticking).\n\nThis will help in making the plan feasible and scoring higher.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T19:45:58.985198",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

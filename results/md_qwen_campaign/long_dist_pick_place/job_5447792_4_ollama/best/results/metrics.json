@@ -1,0 +1,38 @@
+{
+    "combined_score": 0.00017247982722413843,
+    "public": {
+        "num_modes": 22,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 5796.779462641129,
+        "violations": [
+            "mode 0: the motion is not dynamically consistent (it needs 2021879895% of the body weight, 6613096077 N, that no contact provides)",
+            "transition 1->2: no contact changes (noop)",
+            "transition 18->19: no contact changes (noop)",
+            "transition 19->20: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "hard",
+        "to_max_violation": 17.353963192212962,
+        "to_jerk_per_mode": 65489.298239190415
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8571428571428571,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9714285714285715,
+        "efficiency": 0.0,
+        "ik_mode": "hard",
+        "ik_cost": 0.0004583421035624414,
+        "to_mode": "off"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 0: the motion is not dynamically consistent (it needs 2021879895% of the body weight, 6613096077 N, that no contact provides)\n- mode 1: waist_pitch_joint goes 1.26 rad past its limit\n- mode 22: floor penetrates yellow_box by 82 cm in the trajectory\n- mode 1: right_sole stays 12 cm off floor surface; the planned contact is not made",
+    "execution_time_mean": 0.5249929669953417,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

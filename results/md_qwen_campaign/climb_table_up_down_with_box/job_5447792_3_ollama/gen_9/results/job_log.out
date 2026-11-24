@@ -1,0 +1,45 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.51 seconds==========
+[AcadosBuildConfig] Missing build artifacts for 'n_6b736f_6d6f74696f6e646973636f2e636c696d625f7461626c655f75705f646f776e5f776974685f626f78_3230_6e6f6e65_9dfd2e96e3735fab' while force_recompile=False. Enabling recompilation.
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=14]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=14]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=14]: expected () or (env_id,type), got (9, 2, 1)
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/results/extra.json
+[ik_eval] full-plan KSO failed; locating the break (bisect walk)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=18]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=18]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=18]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=18]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=19]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=19]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=19]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=19]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] TypeError: ('ee', 'robot', 'left_ee')[mode=14]: expected () or (env_id,type), got (9, 2, 1)
+[ik_eval] infeasibility diagnosis: kind=prefix, last_feasible=10, first_infeasible=11, total_modes=16
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_up_down_with_box/job_5447792_3_ollama/gen_9/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 16, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['KSO infeasible: first break at mode 10 of 16 (left_ee set down on table_short top, right_ee set down on table_short top); modes 0–9 solve on their own.', 'left_ee: ee/sole entry must be (env_id, contact_type), got (9, 2, 1)', 'left_ee: ee/sole entry must be (env_id, contact_type), got (6, 2, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (11, 2, 1)', 'right_ee: ee/sole entry must be (env_id, contact_type), got (11, 2, 1)'], 'kso_feasible_through_mode': 9, 'kso_first_infeasible_mode': 10, 'kso_break_event': 'left_ee set down on table_short top, right_ee set down on table_short top'}
+  private: {'well_formed_fraction': 0.95, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 0.99, 'efficiency': 0.0, 'ik_mode': 'soft', 'ik_diagnosis': {'kind': 'prefix', 'last_feasible_modes': 10, 'first_infeasible_modes': 11, 'total_modes': 16, 'solver_error': "TypeError: ('ee', 'robot', 'left_ee')[mode=19]: expected () or (env_id,type), got (9, 2, 1)", 'prefix_attempts': 4, 'prefix_trials': [{'modes': 2, 'feasible': True, 'tries': 1}, {'modes': 9, 'feasible': True, 'tries': 1}, {'modes': 12, 'feasible': False, 'tries': 1}, {'modes': 10, 'feasible': True, 'tries': 1}, {'modes': 11, 'feasible': False, 'tries': 1}], 'break_event': 'left_ee set down on table_short top, right_ee set down on table_short top', 'probe': {'fixed_by': None, 'tried': [{'before_mode': 10, 'n_steps': 2, 'event': 'left_ee set down on table_short top, right_ee set down on table_short top', 'modes': 19, 'result': 'still infeasible'}], 'skipped': None}, 'diagnosis_seconds': 122.9, 'events_total': 3, 'events_feasible': 0}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.5050125830020988
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

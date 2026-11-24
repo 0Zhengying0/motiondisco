@@ -1,0 +1,56 @@
+<NAME>
+Improve the contact plan by ensuring proper transitions between contacts and adding more detailed steps for manipulation tasks.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Walk towards the white box
+    walk(plan, 4)
+
+    # Move the left EE towards the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Grasp the white box
+    append_mode(plan, left_ee=(14, 1, 1))
+
+    # Lift the white box
+    walk(plan, 2)
+
+    # Move towards the elevated table
+    walk(plan, 4)
+
+    # Move the left EE towards the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(6, 8, 1))
+=======
+    # Walk towards the white box
+    walk(plan, 4)
+
+    # Move the left EE towards the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Grasp the white box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Lift the white box
+    walk(plan, 2)
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Move towards the elevated table
+    walk(plan, 4)
+
+    # Move the left EE towards the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Release the white box
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>

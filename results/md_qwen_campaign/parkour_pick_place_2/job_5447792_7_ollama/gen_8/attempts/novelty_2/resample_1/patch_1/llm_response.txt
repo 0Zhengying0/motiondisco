@@ -1,0 +1,46 @@
+<NAME>
+Add a basic pick and place plan with walking steps to the initial plan.
+
+<DESCRIPTION>
+The current plan has only one mode and does not meet the requirements of having at least two modes. Additionally, it does not achieve the task of picking up the white box and placing it on the elevated table. By adding a basic pick and place plan with walking steps, we can ensure that the plan has the necessary modes and steps to achieve the task. This will improve the feasibility of the plan and potentially increase the combined score.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    
+    # Picking phase
+    append_mode(plan, left_ee=(14, 1, 1), right_ee=(14, 1, 1))
+    append_mode(plan, left_ee=(14, 1, 1), right_ee=(14, 1, 1), left_sole=(), right_sole=())
+    append_mode(plan, left_ee=(14, 1, 1), right_ee=(14, 1, 1), left_sole=(), right_sole=())
+    
+    # Walking to the table
+    walk(plan, 4)
+    
+    # Placing phase
+    append_mode(plan, left_ee=(14, 1, 1), right_ee=(14, 1, 1), left_sole=(), right_sole=())
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), left_sole=(), right_sole=())
+    
+    return plan
+>>>>>>> REPLACE
+</DIFF>

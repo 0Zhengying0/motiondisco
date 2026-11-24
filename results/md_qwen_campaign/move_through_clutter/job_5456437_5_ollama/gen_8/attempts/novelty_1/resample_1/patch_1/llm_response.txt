@@ -1,0 +1,63 @@
+<NAME>
+Add initial contacts and walking steps to the plan, ensuring the plan has at least 2 modes and is feasible for trajectory optimization.
+
+<DESCRIPTION>
+The current plan has only 8 modes, which is insufficient for the task. The feedback indicates that the plan needs more walking steps to ensure feasibility. Additionally, the initial contacts should be properly set to ensure the robot is ready to start walking. This edit will add more walking steps and ensure the initial contacts are correctly set.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    add_initial_contacts(plan)
+    add_walking_steps(plan)
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    add_initial_contacts(plan)
+    add_walking_steps(plan, steps=10)  # Increase the number of walking steps
+    return plan
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure the final mode matches the discrete contact goal.
+
+<DESCRIPTION>
+The final mode must satisfy the discrete contact goal, which requires both soles to be in contact with the floor. This edit will ensure that the final mode meets this requirement.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def add_walking_steps(plan: Dict[str, List[Tuple]], steps: int = 5):
+    """
+    Add walking steps to the plan.
+    """
+    walk(plan, steps)
+=======
+def add_walking_steps(plan: Dict[str, List[Tuple]], steps: int = 5):
+    """
+    Add walking steps to the plan.
+    """
+    walk(plan, steps)
+    # Ensure the final mode matches the discrete contact goal
+    append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,14 @@
+<NAME>
+Reduce the number of walking steps to improve trajectory optimization cost and smoothness.
+
+<DESCRIPTION>
+The current plan appends 5 walking steps, which results in a higher trajectory optimization cost and jerk per mode. Reducing the number of walking steps can help improve the trajectory optimization cost and smoothness of the plan while still maintaining feasibility.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+walk(plan, 5)  # Append 5 walking steps
+=======
+walk(plan, 3)  # Append 3 walking steps
+>>>>>>> REPLACE
+</DIFF>

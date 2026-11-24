@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "errors": [],
+  "thresholds": {
+    "bounds_m": 1e-06,
+    "support_gap_m": 1e-05,
+    "box_penetration_m": 0.001,
+    "sole_penetration_m": 0.002,
+    "sole_contact_gap_m": 0.001,
+    "simulation_s": 2.0,
+    "settle_s": 0.25,
+    "position_drift_m": 0.005,
+    "angle_drift_rad": 0.03,
+    "linear_speed_m_s": 0.01,
+    "angular_speed_rad_s": 0.05
+  },
+  "stability": {
+    "box_1": {
+      "position_drift_m": 0.00017513052727613498,
+      "angle_drift_rad": 0.0,
+      "linear_speed_m_s": 1.8414255499930062e-10,
+      "angular_speed_rad_s": 1.3972918272563793e-09
+    }
+  },
+  "face_ids": {
+    "floor.surface": 1,
+    "platform_1.top": 2,
+    "platform_1.left": 3,
+    "platform_1.front": 4,
+    "platform_1.right": 5,
+    "platform_1.back": 6,
+    "platform_1.bottom": 7,
+    "box_1.top": 8,
+    "box_1.left": 9,
+    "box_1.front": 10,
+    "box_1.right": 11,
+    "box_1.back": 12,
+    "box_1.bottom": 13
+  },
+  "target_xyz_m": [
+    1.8,
+    0.5,
+    0.7746849933798136
+  ]
+}

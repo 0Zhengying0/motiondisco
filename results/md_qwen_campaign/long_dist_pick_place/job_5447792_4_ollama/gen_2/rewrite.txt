@@ -1,0 +1,40 @@
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+class ContactPlanGenerator:
+    def __init__(self, scene: List[Dict[str, Any]]):
+        self.plan = {ch: list(seq) for ch, seq in get_initial_mode().items()}
+        self.scene = scene
+
+    def append_mode(self, **channel_updates) -> None:
+        helpers.append_mode(self.plan, **channel_updates)
+
+    def walk(self, n_steps) -> None:
+        helpers.walk(self.plan, n_steps)
+
+    def generate_contact_plan(self) -> Dict[str, List[Tuple]]:
+        # Example logic: walk to the table and place the box
+        self.walk(6)  # Walk to the table
+        self.append_mode(left_ee=(8, 1), right_ee=())  # Pick up the box
+        self.walk(6)  # Walk back to the table
+        self.append_mode(left_ee=(), right_ee=(2, 1))  # Place the box on the table
+        return self.plan
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    generator = ContactPlanGenerator(scene)
+    return generator.generate_contact_plan()
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

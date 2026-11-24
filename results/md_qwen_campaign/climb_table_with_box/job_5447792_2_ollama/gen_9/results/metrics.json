@@ -1,0 +1,39 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 17,
+        "goal_match": false,
+        "ik_feasible": null,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "discrete goal: left_ee final mode is (), expected (9, 1)",
+            "discrete goal: white_box final mode is (11, 1, 1), expected ()",
+            "white_box: self_id 9 not in object's surfaces [1, 2, 3, 4, 5, 6]",
+            "white_box: self_id 11 not in object's surfaces [1, 2, 3, 4, 5, 6]",
+            "white_box: self_id 11 not in object's surfaces [1, 2, 3, 4, 5, 6]",
+            "mode 3: no sole in contact",
+            "mode 8: no sole in contact",
+            "mode 10: no sole in contact",
+            "transition 1->2: no contact changes (noop)",
+            "transition 4->5: no contact changes (noop)",
+            "white_box transition 13->14: object teleported from (6, 1, 1) to (9, 1, 1) without going free",
+            "white_box transition 14->15: object teleported from (9, 1, 1) to (11, 1, 1) without going free"
+        ]
+    },
+    "private": {
+        "well_formed_fraction": 0.9647058823529412,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 0.8235294117647058,
+        "no_noop_fraction": 0.875,
+        "object_passive_fraction": 0.875,
+        "structure_score": 0.9076470588235294,
+        "efficiency": 0.0
+    },
+    "execution_time_mean": 0.5071305190067505,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

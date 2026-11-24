@@ -1,0 +1,33 @@
+<NAME>
+Release the white box before changing its contact surface.
+
+<DESCRIPTION>
+The current plan attempts to change the contact surface of the white box without first releasing it, which is not allowed by the solver rules. We need to add a mode where the white box is free before changing its contact surface.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+append_mode(plan, left_ee=(), white_box=(1, 1, 1))
+=======
+# Add a mode where the white box is free before changing its contact surface
+append_mode(plan, left_ee=(), white_box=())
+append_mode(plan, left_ee=(14, 1), white_box=(1, 1, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Release the white box before placing it on the elevated table.
+
+<DESCRIPTION>
+Similarly, the plan attempts to place the white box on the elevated table without first releasing it. We need to add a mode where the white box is free before placing it.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+append_mode(plan, left_ee=(), white_box=(6, 8, 1))
+=======
+# Add a mode where the white box is free before placing it on the elevated table
+append_mode(plan, left_ee=(), white_box=())
+append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

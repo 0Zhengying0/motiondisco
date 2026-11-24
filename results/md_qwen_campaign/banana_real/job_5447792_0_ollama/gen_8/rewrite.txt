@@ -1,0 +1,17 @@
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    
+    # Walk towards the banana
+    walk(plan, 5)
+    
+    # Reach and grasp the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+    
+    return plan
+
+# EVOLVE-BLOCK-END

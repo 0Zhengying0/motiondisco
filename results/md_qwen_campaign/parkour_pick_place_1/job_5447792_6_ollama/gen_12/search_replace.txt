@@ -1,0 +1,13 @@
+<NAME>
+Ensure the white box is placed correctly on the elevated table by releasing it properly.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(1, 8, 1))
+=======
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,19 @@
+<NAME>
+Add more walking steps to improve trajectory optimization.
+
+<DESCRIPTION>
+The current plan has only two modes, which is insufficient for the trajectory optimizer to find a feasible solution. By adding more walking steps, we provide the optimizer with more room to move and find a better path. This should help in reaching the solver tolerance and improving the combined score.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    return plan
+=======
+    plan = get_initial_mode()
+    walk(plan, 5)  # Add 5 walking steps
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    return plan
+>>>>>>> REPLACE
+</DIFF>

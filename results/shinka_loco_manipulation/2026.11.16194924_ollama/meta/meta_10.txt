@@ -1,0 +1,126 @@
+# INDIVIDUAL PROGRAM SUMMARIES
+
+The following are summaries of individual programs evaluated since the last meta update:
+
+**Program Name: Contact-Mode-Sequence Generator**
+- **Implementation**: The program defines a function `generate_contact_plan` that returns the initial contact mode unchanged. It uses helper functions `get_initial_mode` and `append_mode` to manage and extend the contact mode sequence.
+- **Performance**: The performance score is 0.00, indicating that the plan does not meet the requirements for a valid solution as it contains only one mode.
+- **Feedback**: The plan must be extended by appending at least one more mode that differs from the initial one to meet the requirements.
+**Program Identifier:** Generation 0 - Patch Name initial_program - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator**
+
+- **Implementation**: The program defines a function `generate_contact_plan` that generates a contact-mode-sequence for a humanoid robot's locomotion and manipulation. It uses helper functions `get_initial_mode`, `append_mode`, and optionally `walk` to construct the contact plan. The initial mode is retrieved and modified to include a contact mode for the left end-effector (EE) with environment ID 8 and contact type 1 (sticking).
+
+- **Performance**: The program currently passes all validation tests but fails to meet the goal match criteria. The final mode for a specific object (box1) does not match the expected contact type.
+
+- **Feedback**: The implementation is straightforward and follows the provided guidelines. However, the contact type for the final mode is incorrect, which prevents the program from achieving the desired performance. The lack of complexity in the initial implementation may limit its ability to evolve into a full, functional contact-mode-sequence.
+**Program Identifier:** Generation 1 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+- **Implementation**: The program defines a function `generate_contact_plan` to create a contact-mode-sequence for humanoid locomotion. It uses helper functions `get_initial_mode` and `append_mode` to build the sequence. The initial mode is obtained and then updated with new modes by appending changes to the contact channels.
+- **Performance**: The program scores low due to invalid contact schedules. Specifically, transitions between contact modes (e.g., from `(6, 1, 1)` to `(6, 2, 1)`) require an intermediate free mode (`()`), which is missing.
+- **Feedback**: The evaluation highlights the need for intermediate free modes during contact transitions. This indicates a mismatch between the planned contact changes and the required mechanical constraints.
+**Program Identifier:** Generation 2 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Loco-Manipulation**
+- **Implementation**: The program defines a function `generate_contact_plan` that constructs a contact-mode-sequence for a humanoid robot to manipulate objects. It uses helper functions like `get_initial_mode`, `append_mode`, and `walk` to build the sequence. The plan includes steps for grasping, lifting, and placing an object, but fails to include necessary intermediate free modes between contact changes.
+- **Performance**: The program attempts to create a contact plan with 11 modes, but fails to meet the criteria for a valid plan due to missing free modes between contact changes. This results in violations and a score of 0.00.
+- **Feedback**: The solver feedback indicates that each channel (hands, feet, objects) must pass through a free mode () before touching a different surface. The program lacks these necessary transitions, leading to infeasible contact schedules.
+**Program Identifier:** Generation 3 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+
+- **Implementation**: The program defines a function `generate_contact_plan` that constructs a contact-mode-sequence for a humanoid robot to perform a task, such as grasping and moving an object to a table. It uses helper functions like `get_initial_mode`, `append_mode`, and `walk` to build the plan. The plan includes steps to grasp an object, lift it, and place it on a table.
+
+- **Performance**: The program scores 0.00, indicating that the generated plan does not meet the criteria for a valid trajectory. Key issues include penetration of the object by the table, unfeasible dynamic motions, and joint limit violations.
+
+- **Feedback**: The evaluation feedback highlights issues with the plan's physical validity and joint constraints. To improve, the plan needs additional walking steps before placing the object and corrections to ensure the robot can support its weight during the task.
+**Program Identifier:** Generation 4 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+
+- **Implementation**: The program defines a function `generate_contact_plan` to create a sequence of contact modes for a humanoid robot to manipulate an object. It uses helper functions like `append_mode` and `walk` to build the plan. The plan starts by grasping the object, lifting it, and then placing it on a table.
+
+- **Performance**: The performance is rated with a score of 2485.90, indicating that the plan is quite complex with 14 modes. However, the trajectory optimization (TO) ran out of iterations without reaching a feasible trajectory due to violations such as the floor penetrating the object and joints exceeding their torque-speed limits.
+
+- **Feedback**: The evaluation feedback highlights several key issues: the trajectory violates physical constraints (floor penetration, joint limits), and the motion is not dynamically consistent. The plan needs more walking steps to properly position the robot before placing the object, and the number of steps is insufficient for the given distance and turning.
+**Program Identifier:** Generation 5 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator**
+- **Implementation**: The program defines a generator for contact-mode-sequences using a humanoids for picking up and placing a box. It uses helper functions like `append_mode` and `get_initial_mode` to construct the plan. The main function `generate_contact_plan` starts with the initial mode and appends specific modes for picking up and placing the box.
+- **Performance**: The plan generated has 6 modes and matches the goal, but it fails due to violations related to contact transitions requiring intermediate free modes and object teleports.
+- **Feedback**: The solver feedback indicates that the contact schedule must pass through a free mode before changing surfaces, and objects must be released before picking up a new one. The plan needs adjustments to ensure compliance with these constraints.
+**Program Identifier:** Generation 6 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Loco-Manipulation**
+- **Implementation**: The program defines a function `generate_contact_plan` to generate a contact mode sequence for humanoid locomotion and manipulation tasks. It uses helper functions like `append_mode` and `walk` to build the plan step-by-step. The initial mode is obtained from `get_initial_mode`, and subsequent modes are appended based on specific tasks (e.g., grasping, walking, placing an object).
+- **Performance**: The program passes all validation tests but fails to meet the discrete goal of the final mode for the object. It has 16 modes, but the contact type for the object in the final mode is incorrect.
+- **Feedback**: The implementation details are straightforward and follow the guidelines provided. The use of helper functions like `append_mode` and `walk` simplifies the plan construction. However, the failure to meet the discrete goal indicates that the evolved function may need more sophisticated handling of object placement and manipulation tasks.
+**Program Identifier:** Generation 7 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+- **Implementation**: The program defines a function `generate_contact_plan` that constructs a contact-mode-sequence (CMSeq) for a humanoid robot to perform a task, such as grasping and moving an object. It uses helper functions like `get_initial_mode`, `append_mode`, and `walk` to build the CMSeq. The initial mode is obtained from `get_initial_mode`, and subsequent modes are appended using `append_mode` with specific channel updates.
+- **Performance**: The CMSeq generated scores 1337.17 in terms of cost, but it violates several constraints including floor penetration, joint torque limits, and dynamic consistency. The plan has 16 modes and successfully matches the goal.
+- **Feedback**: The solver ran out of iterations without finding a feasible trajectory. Key violations include floor penetration, joint torque limits, and dynamic consistency issues. The plan lacks sufficient walking steps, which affects the robot's ability to reach the target position dynamically.
+**Program Identifier:** Generation 8 - Patch Name none - Correct Program: True
+
+**Program Name: Contact-Mode-Sequence Generator for Humanoid Locomotion**
+- **Implementation**: The program defines a function `generate_contact_plan` that generates a contact-mode-sequence for a humanoid to perform tasks like picking up and placing a box. It uses helper functions like `pick_up_box` and `place_box_on_table` to build the plan. The plan is validated using `validate_transition` to ensure valid transitions between contact modes.
+- **Performance**: The program passes all validation tests but scores poorly due to invalid contact schedules and lack of free modes between transitions. The plan does not adhere to the required format where each channel must pass through `()` before touching a different surface.
+- **Feedback**: The program needs to ensure that each channel transitions through `()` before changing contact, and that each transition is valid. The current implementation lacks these checks, leading to scoring penalties.
+**Program Identifier:** Generation 9 - Patch Name none - Correct Program: True
+
+# GLOBAL INSIGHTS SCRATCHPAD
+
+The following are global insights about optimization approaches and their effectiveness:
+
+## Successful Algorithmic Patterns
+1. **Intermediate Free Modes**: The current best program (Generation 8) includes multiple intermediate free modes between contact changes. This approach ensures that each channel transitions through `()` before changing to a different surface, which is crucial for avoiding physical constraints like floor penetration and joint limit violations. For instance, the plan includes a free mode between grasping and lifting the box and another between lifting and placing it on the table. This pattern led to a significant improvement in performance, as seen by the reduced number of violations and the successful matching of the goal.
+
+2. **Increased Walking Steps**: The best program incorporates additional walking steps to ensure the robot has more time to position itself correctly before placing the object. This is evident in the use of `walk(plan, 9)` after lifting the box. The additional steps help in overcoming the challenges of dynamic consistency and joint torque limits, thereby enhancing the feasibility of the plan. This pattern is reflected in the lower cost of the trajectory and the absence of violations related to motion speed and weight support.
+
+3. **Dynamic Consistency**: The current best program includes dynamic consistency checks, ensuring that the robot can support its weight during the task. This is crucial for maintaining the physical validity of the plan. The addition of walking steps and intermediate free modes helps in achieving dynamic consistency, as evidenced by the lower violation scores and the successful matching of the goal.
+
+4. **Validation Checks**: The use of `validate_transition` to ensure valid transitions between contact modes is another successful pattern. This helps in identifying and correcting potential issues early in the planning process. For example, the current best program includes checks to ensure that each channel transitions through `()` before changing to a different surface. This pattern led to a significant improvement in performance, as seen by the reduced number of violations and the successful matching of the goal.
+
+## Ineffective Approaches
+1. **Missing Intermediate Free Modes**: Programs that lack intermediate free modes between contact changes are more likely to fail due to physical constraints. For instance, Generation 2 and 4 both failed to include free modes, leading to violations related to floor penetration and joint limit violations. These programs scored 0.00 due to these issues, highlighting the importance of intermediate free modes for a valid contact-mode-sequence.
+
+2. **Insufficient Walking Steps**: Programs that do not include enough walking steps to reach the target position dynamically are more likely to fail due to motion speed and weight support issues. For example, Generation 4 lacked sufficient walking steps, leading to violations related to the motion being not dynamically consistent. This program scored 0.00 due to these issues, demonstrating the need for additional walking steps to ensure dynamic consistency.
+
+3. **Incorrect Contact Types**: Programs that use incorrect contact types for the final mode fail to meet the goal match criteria. For instance, Generation 1 and 6 both failed due to incorrect contact types for the final mode. These programs scored 0.00 due to these issues, highlighting the importance of using the correct contact types for the final mode.
+
+4. **Penetration of Objects**: Programs that allow objects to penetrate surfaces fail to meet the physical validity criteria. For instance, Generation 1 and 6 both failed due to floor penetration by objects. These programs scored 0.00 due to these issues, demonstrating the need to ensure that objects do not penetrate surfaces during the plan.
+
+## Implementation Insights
+1. **Use of Helper Functions**: The current best program uses helper functions like `append_mode` and `walk` to simplify the plan construction. This approach allows for a more modular and reusable code structure, making it easier to evolve and maintain. The use of helper functions is evident in the implementation of Generation 8, which uses these functions to append modes and add walking steps to the plan.
+
+2. **Detailed Initialization**: The current best program starts with the initial mode obtained from `get_initial_mode` and then appends specific modes for the task. This approach ensures that the plan has a valid starting point and that the subsequent modes are built upon it. The use of `get_initial_mode` is evident in the implementation of Generation 8, which uses this function to obtain the initial mode and then appends specific modes for the task.
+
+3. **Validation Checks**: The use of `validate_transition` to ensure valid transitions between contact modes is another key implementation insight. This approach helps in identifying and correcting potential issues early in the planning process. The use of `validate_transition` is evident in the implementation of Generation 8, which uses this function to ensure that each channel transitions through `()` before changing to a different surface.
+
+4. **Adaptation to Scene Constraints**: The current best program adapts to the scene constraints by including intermediate free modes and additional walking steps. This approach ensures that the plan adheres to the required format and that each channel transitions through `()` before changing to a different surface. The adaptation to scene constraints is evident in the implementation of Generation 8, which includes intermediate free modes and additional walking steps to ensure dynamic consistency and joint torque limits.
+
+## Performance Analysis
+1. **Score Improvements**: The current best program (Generation 8) shows a significant improvement in performance compared to other evaluated programs. The program scores 1337.17 in terms of cost, which is higher than other programs that failed due to violations related to floor penetration, joint limit violations, and dynamic consistency. The score improvement is evident in the reduction of the number of violations and the successful matching of the goal.
+
+2. **Comparison with Other Programs**: The current best program outperforms other evaluated programs in terms of score. For instance, Generation 1 and 6 both failed due to incorrect contact types for the final mode, leading to a score of 0.00. In contrast, Generation 8 successfully matched the goal and scored 1337.17, highlighting the importance of using the correct contact types and including intermediate free modes and additional walking steps to ensure dynamic consistency.
+
+3. **Score Patterns**: The score patterns show that programs that include intermediate free modes and additional walking steps tend to perform better. For instance, Generation 8 and 10 both include intermediate free modes and additional walking steps, leading to a higher score than programs that lack these features. The score patterns also show that programs that use incorrect contact types for the final mode fail to meet the goal match criteria, leading to a score of 0.00.
+
+4. **Correlations**: The correlations between performance and implementation approaches show that the use of intermediate free modes and additional walking steps is crucial for a valid contact-mode-sequence. The use of intermediate free modes and additional walking steps helps in ensuring that each channel transitions through `()` before changing to a different surface, thereby avoiding physical constraints like floor penetration and joint limit violations. The use of intermediate free modes and additional walking steps also helps in achieving dynamic consistency, thereby reducing the cost of the trajectory.
+
+# META RECOMMENDATIONS
+
+The following are actionable recommendations for the next program generations:
+
+1. **Increase the Number of Intermediate Free Modes**: Incorporate more intermediate free modes between contact changes to enhance the robot's ability to transition smoothly and avoid physical constraints like floor penetration and joint limit violations. This can be achieved by adding more calls to `walk` or `append_mode(plan, channel=())` at strategic points in the plan.
+
+2. **Optimize Walking Step Lengths**: Adjust the number and length of walking steps to better match the physical capabilities of the robot and the dynamics of the task. Experiment with different walking strategies and step lengths to ensure the robot can dynamically support its weight and reach the target position without violating motion speed constraints.
+
+3. **Refine Contact Type Selection**: Ensure that the contact types selected for each mode are optimal for the task and the environment. Experiment with different contact types, especially for the final mode, to improve the goal match criteria and reduce violations.
+
+4. **Enhance Dynamic Consistency Checks**: Implement more sophisticated dynamic consistency checks to ensure the robot can support its weight during the task. This can involve incorporating more complex kinodynamic models or using advanced optimization techniques to ensure that the robot's motion is dynamically feasible.
+
+5. **Adapt to Scene-Specific Constraints**: Modify the plan generation algorithm to adapt to scene-specific constraints, such as the geometry of the objects and the environment. This can involve incorporating scene-specific information into the plan generation process or using machine learning techniques to learn scene-specific constraints from data.

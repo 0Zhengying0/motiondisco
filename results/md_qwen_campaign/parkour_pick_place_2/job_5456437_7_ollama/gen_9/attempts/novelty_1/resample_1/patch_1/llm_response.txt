@@ -1,0 +1,16 @@
+<NAME>
+Add a mode to release the object before placing it on the table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the box on the table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1), white_box=(6, 8, 1))
+=======
+    # Release the box before placing it on the table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=())
+
+    # Place the box on the table
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

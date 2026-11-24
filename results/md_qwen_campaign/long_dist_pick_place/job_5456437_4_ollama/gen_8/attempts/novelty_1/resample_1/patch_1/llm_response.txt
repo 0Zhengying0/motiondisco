@@ -1,0 +1,19 @@
+<NAME>
+Ensure the yellow box is released before placing it on the table.
+
+<DESCRIPTION>
+The current plan attempts to place the yellow box on the table without first releasing it. According to the solver rules, a contact must be released before it touches a different surface. Therefore, we need to add a mode where the yellow box is released before placing it on the table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the yellow box on the table
+    append_mode(plan, left_ee=(2, 2), right_ee=(2, 2), yellow_box=(6, 2, 1))
+=======
+    # Release the yellow box
+    append_mode(plan, left_ee=(), right_ee=(), yellow_box=())
+
+    # Place the yellow box on the table
+    append_mode(plan, left_ee=(2, 2), right_ee=(2, 2), yellow_box=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

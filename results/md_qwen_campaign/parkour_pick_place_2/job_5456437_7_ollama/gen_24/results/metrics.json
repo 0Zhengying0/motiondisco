@@ -1,0 +1,166 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 24,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 23 of 24 (left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top); modes 0\u201322 solve on their own.",
+            "mode 23: left_sole should touch floor surface but stays 0.24 m away from it (in all 2 solves)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "kso_feasible_through_mode": 22,
+        "kso_first_infeasible_mode": 23,
+        "kso_break_event": "left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top"
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 23,
+            "first_infeasible_modes": 24,
+            "total_modes": 24,
+            "solver_error": null,
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 13,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 18,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 21,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 22,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 23,
+                    "feasible": true,
+                    "tries": 1
+                }
+            ],
+            "kso_attempts": 3,
+            "best_max_violation": 0.20231912333382648,
+            "ik_hard_failed": true,
+            "prefix_violation_details": [
+                {
+                    "solver": "kso",
+                    "mode": 23,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 0.2040869484593197,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=29:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 23,
+                    "subject": "right_sole",
+                    "family": "gap",
+                    "value": 0.19771721418959864,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=29:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 23,
+                    "subject": "left_sole",
+                    "family": "gap",
+                    "value": 0.2357951296575982,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=29:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 23,
+                    "subject": "right_sole",
+                    "family": "gap",
+                    "value": 0.14533271712482773,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "floor surface",
+                    "raw": "k=29:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]",
+                    "attempts": 2
+                },
+                {
+                    "solver": "kso",
+                    "mode": 23,
+                    "subject": "right thigh",
+                    "family": "collision",
+                    "value": 0.09360089024540104,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "table_short",
+                    "raw": "k=29:terminal:n_1e134fecf2ceaf9835460da805547677e5f29c08cf5604ff453b2866c5883a99_distance[0]",
+                    "attempts": 1
+                }
+            ],
+            "prefix_tries": 2,
+            "break_event": "left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 23,
+                        "n_steps": 2,
+                        "event": "left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top",
+                        "modes": 27,
+                        "result": "still infeasible"
+                    },
+                    {
+                        "before_mode": 7,
+                        "n_steps": 2,
+                        "event": "left_ee -> white_box top",
+                        "modes": 27,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 381.1,
+            "events_total": 5,
+            "events_feasible": 4
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 23 of 24 (left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top); modes 0\u201322 solve on their own.\nThe 24-mode prefix failed 2 of 2 tries. Its violations:\n- mode 23: left_sole should touch floor surface but stays 0.24 m away from it (in all 2 solves)\n- mode 23: right_sole should touch floor surface but stays 0.20 m away from it (in all 2 solves)\n(1 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nHint (gap): a contact that cannot be reached usually means the body is in the wrong place (walk closer, or put the object down somewhere it can rest)\nFull-plan solves additionally report (later modes; these may follow from the break above):\n- mode 23: right_sole should touch floor surface but stays 0.26 m away from it (in all 3 solves)\n- mode 23: left_sole should touch floor surface but stays 0.25 m away from it (in all 3 solves)\n- mode 23: left thigh penetrates table_short by 0.07 m (in 2 of 3 solves)\n(8 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nRepair probe: inserting walk(plan, 2) before mode 23 (left_ee -> table_tall top, right_ee -> table_tall top, white_box set down on table_tall top), before mode 7 (left_ee -> white_box top) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5218379689904395,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

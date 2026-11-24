@@ -1,0 +1,34 @@
+{
+    "combined_score": 0.00012485093748493574,
+    "public": {
+        "num_modes": 12,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 8008.5513909990295,
+        "violations": [
+            "mode 8: the motion is not dynamically consistent (it needs 11962249457% of the body weight, 39125719169 N, that no contact provides)"
+        ],
+        "to_max_violation": 7.544597782647402,
+        "to_jerk_per_mode": 74828.22107177321
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_cost": 1.2301549466761401,
+        "to_mode": "off"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 8: the motion is not dynamically consistent (it needs 11962249457% of the body weight, 39125719169 N, that no contact provides)\n- mode 9: right_ee stays 407 cm off white_box top; the planned contact is not made\n- mode 9: left_sole slides 254 cm on floor surface although the contact is sticking\n- mode 0: right_ankle_roll_joint goes 0.13 rad past its limit",
+    "execution_time_mean": 0.5003834249946522,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

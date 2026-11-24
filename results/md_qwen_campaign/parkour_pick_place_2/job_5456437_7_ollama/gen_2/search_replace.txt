@@ -1,0 +1,46 @@
+<NAME>
+Release contacts before changing surfaces and ensure proper transitions.
+</NAME>
+
+<DESCRIPTION>
+The current plan has issues with contact transitions, where contacts are changed without passing through a free state first. This violates the solver rules and leads to infeasibility. To fix this, we need to ensure that all contacts are released before they touch a different surface.
+
+We will:
+1. Release the white box contact before moving the left hand to the white box.
+2. Release the left hand contact before moving it to the elevated table.
+3. Ensure proper transitions for all contacts.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Move left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Lift the white box using the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Move left hand to the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(1, 14, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1))
+=======
+    # Release the white box contact
+    append_mode(plan, white_box=())
+
+    # Move left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+
+    # Lift the white box using the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Release the left hand contact
+    append_mode(plan, left_ee=())
+
+    # Move left hand to the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

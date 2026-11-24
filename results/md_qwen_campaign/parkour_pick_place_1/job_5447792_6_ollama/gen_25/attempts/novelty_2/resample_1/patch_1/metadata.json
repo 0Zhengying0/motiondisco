@@ -1,0 +1,14 @@
+{
+  "generation": 25,
+  "novelty_attempt": 2,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan fails because it attempts to change the contact surface for the object without a free mode in between. This is not allowed by the system, which requires an object to transition through a free state before making contact with a new surface. By adding a free mode before placing the object on the table, we ensure that the transition is valid and the plan can be evaluated by the IK and TO solvers.\n\nThis change should resolve the \"Invalid contact schedule\" error and allow the plan to be evaluated further.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T01:12:32.031196",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

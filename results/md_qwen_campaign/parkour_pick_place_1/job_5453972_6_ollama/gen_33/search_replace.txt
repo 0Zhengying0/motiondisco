@@ -1,0 +1,63 @@
+<NAME>
+Improve the plan by ensuring proper transitions between contacts and adding more detailed steps for better execution.
+
+<DESCRIPTION>
+The current plan has several issues with contact transitions, such as direct changes between different surfaces without a free mode in between. Additionally, the plan lacks detailed steps for better execution. This edit will address these issues by ensuring proper transitions and adding more detailed steps.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Grasp the white box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+=======
+    # Step 2: Grasp the white box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+
+    # Step 3: Lift the white box
+    walk(plan, 2)
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Step 4: Move to the elevated table
+    walk(plan, 4)
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+
+    # Step 5: Release the white box
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+
+    # Step 6: Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 5: Release the white box
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+=======
+    # Step 5: Release the white box
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 6: Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+=======
+    # Step 6: Place the white box on the elevated table
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(8, 1), white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>

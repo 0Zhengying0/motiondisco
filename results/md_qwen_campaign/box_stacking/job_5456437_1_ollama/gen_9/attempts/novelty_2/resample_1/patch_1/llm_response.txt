@@ -1,0 +1,74 @@
+<NAME>
+Optimized plan for box stacking
+
+<DESCRIPTION>
+The proposed program aims to optimize the contact plan for stacking boxes on a table. The initial plan had multiple redundant transitions and unnecessary walking steps. The new plan will streamline the process by reducing unnecessary modes and focusing on the essential movements required for stacking the boxes. This should result in a more efficient plan with fewer modes and lower cost.
+
+Key improvements:
+1. Removed redundant transition modes.
+2. Simplified the walking steps to ensure the robot moves only when necessary.
+3. Ensured that the robot's hands and feet are positioned correctly for stacking the boxes.
+
+By making these changes, the plan should be more efficient, with fewer modes and a lower cost, while still achieving the goal of stacking the boxes.
+</DESCRIPTION>
+
+<CODE>
+```python
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    # Initialize the plan with the initial mode
+    plan = get_initial_mode()
+    
+    # Append an initial transition mode to grasp the green box
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+    
+    # Perform a sequence of walking steps to move to the table
+    walk(plan, n_steps=5)
+    
+    # Append a mode to place the green box on the table
+    append_mode(plan, left_ee=(), right_ee=(), green_box=(6, 2, 1))
+    
+    # Append a transition mode to grasp the white box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+    
+    # Perform a sequence of walking steps to move to the table
+    walk(plan, n_steps=5)
+    
+    # Append a mode to place the white box on the green box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 8, 1))
+    
+    # Append a transition mode to grasp the yellow box
+    append_mode(plan, left_ee=(20, 1), right_ee=(20, 1))
+    
+    # Perform a sequence of walking steps to move to the table
+    walk(plan, n_steps=5)
+    
+    # Append a mode to place the yellow box on the white box
+    append_mode(plan, left_ee=(), right_ee=(), yellow_box=(6, 14, 1))
+    
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

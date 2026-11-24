@@ -1,0 +1,40 @@
+<NAME>
+Ensure the robot releases the object before placing it on a new surface to avoid invalid contact schedule errors.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Lift the white box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 2))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Move left_ee to the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Move right_ee to the elevated table
+    append_mode(plan, right_ee=(8, 1))
+
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 8, 1))
+=======
+    # Lift the white box
+    append_mode(plan, left_ee=(), right_ee=(), white_box=(6, 1, 2))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Move left_ee to the elevated table
+    append_mode(plan, left_ee=(8, 1))
+
+    # Move right_ee to the elevated table
+    append_mode(plan, right_ee=(8, 1))
+
+    # Release the white box
+    append_mode(plan, white_box=())
+
+    # Place the white box on the elevated table
+    append_mode(plan, white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,29 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/under_table_pick_place/job_5447792_8_ollama/gen_11/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/under_table_pick_place/job_5447792_8_ollama/gen_11/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/under_table_pick_place/job_5447792_8_ollama/gen_11/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/under_table_pick_place/job_5447792_8_ollama/gen_11/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.50 seconds==========
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/under_table_pick_place/job_5447792_8_ollama/gen_11/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/under_table_pick_place/job_5447792_8_ollama/gen_11/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/under_table_pick_place/job_5447792_8_ollama/gen_11/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 14, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['Invalid contact schedule (no solver run): mode 4->5: left_sole changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)', 'mode 4->5: left_sole changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)', 'mode 7: no sole in contact', 'mode 8: no sole in contact', 'mode 9: no sole in contact', 'mode 10: no sole in contact', 'mode 11: no sole in contact', 'transition 7->8: no contact changes (noop)', 'transition 8->9: no contact changes (noop)', 'transition 9->10: no contact changes (noop)', 'transition 10->11: no contact changes (noop)', 'white_box transition 12->13: object teleported from (6, 1, 1) to (6, 2, 1) without going free'], 'kso_feasible_through_mode': 4, 'kso_first_infeasible_mode': 5}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 0.6428571428571429, 'no_noop_fraction': 0.6923076923076923, 'object_passive_fraction': 0.9230769230769231, 'structure_score': 0.8516483516483516, 'efficiency': 0.0, 'ik_diagnosis': {'kind': 'schedule_error', 'errors': ['mode 4->5: left_sole changes from (1, 1) to (2, 1) without a free () mode in between; release it first: (1, 1) -> () -> (2, 1)', 'mode 12->13: white_box changes from (6, 1, 1) to (6, 2, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 2, 1)'], 'total_modes': 14, 'last_feasible_modes': 5, 'first_infeasible_modes': 6, 'events_total': 4, 'events_feasible': 0}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.5013048189866822
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

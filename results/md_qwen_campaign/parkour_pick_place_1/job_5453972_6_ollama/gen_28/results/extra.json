@@ -1,0 +1,1027 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [],
+      [],
+      [
+        2,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        14,
+        1
+      ],
+      [
+        14,
+        1
+      ],
+      [],
+      [
+        6,
+        8,
+        1
+      ],
+      [
+        6,
+        8,
+        1
+      ],
+      [
+        6,
+        8,
+        1
+      ]
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        15,
+        1
+      ],
+      [],
+      [],
+      [
+        6,
+        8,
+        1
+      ],
+      [
+        6,
+        8,
+        1
+      ]
+    ],
+    "white_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [],
+      [],
+      [],
+      [
+        6,
+        8,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 20,
+    "num_channels": 5,
+    "well_formed_fraction": 0.95,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 0.95,
+    "no_noop_fraction": 0.9473684210526315,
+    "object_passive_fraction": 1.0,
+    "structure_score": 0.9694736842105263,
+    "efficiency": 0.0,
+    "combined_score": 0.9694736842105263,
+    "violations": [
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+      "right_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+      "right_ee: ee/sole entry must be (env_id, contact_type), got (6, 8, 1)",
+      "mode 1: no sole in contact",
+      "transition 12->13: no contact changes (noop)"
+    ]
+  },
+  "goal_match": true,
+  "ik_feasible": false,
+  "ik_cost": null,
+  "to_converged": null,
+  "to_cost": null,
+  "ik_run_path": null,
+  "to_run_path": null,
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": {
+    "kind": "prefix",
+    "last_feasible_modes": 16,
+    "first_infeasible_modes": 17,
+    "total_modes": 20,
+    "solver_error": "TypeError: ('ee', 'robot', 'left_ee')[mode=17]: expected () or (env_id,type), got (6, 8, 1)",
+    "prefix_attempts": 4,
+    "prefix_trials": [
+      {
+        "modes": 2,
+        "feasible": true,
+        "tries": 1
+      },
+      {
+        "modes": 11,
+        "feasible": true,
+        "tries": 1
+      },
+      {
+        "modes": 15,
+        "feasible": true,
+        "tries": 2
+      },
+      {
+        "modes": 17,
+        "feasible": false,
+        "tries": 4
+      },
+      {
+        "modes": 16,
+        "feasible": true,
+        "tries": 4
+      }
+    ],
+    "ik_hard_failed": true,
+    "prefix_violation_details": [
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.4541976633632149,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=19:terminal:Stage_white_box_kin_eqs[0]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.29114341153087153,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=18:path:Stage_white_box_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "right upper arm",
+        "family": "collision",
+        "value": 0.11295174229738209,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "torso",
+        "raw": "k=19:terminal:n_ba1c27301871b1f8b8da3efc849b904a89e124bfc0246c88099703e4a18322e7_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.10261830738504568,
+        "unit": "rad",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "right forearm",
+        "family": "collision",
+        "value": 0.08089204817041187,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "torso",
+        "raw": "k=19:terminal:n_585b757ab34c2bdcdb262830c90caf56f154c45691cee687ee4cbc687136d1fc_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "right_ee",
+        "family": "tilt",
+        "value": 0.07225541429922028,
+        "unit": "rad",
+        "sign": -1.0,
+        "other": "white_box left",
+        "raw": "k=19:terminal:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "torso",
+        "family": "collision",
+        "value": 0.045397036178157046,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "table_short",
+        "raw": "k=19:terminal:n_724584cc165ffa096358abba6f9bedfe607254180608e70c489e63d714a1acc1_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "tilt",
+        "value": 0.040854892237799666,
+        "unit": "rad",
+        "sign": 1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[2]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "drift",
+        "value": 0.03563614587146123,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[5]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "left_ee",
+        "family": "drift",
+        "value": 0.02353449993446017,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[5]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "drift",
+        "value": 0.023235809968853622,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[5]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.02297034206520987,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.019894986978384432,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "left wrist",
+        "family": "collision",
+        "value": 0.018626398775199948,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box",
+        "raw": "k=19:terminal:n_fcfca1317d0cf7c2ea9fef4134b065d7ab9594c4177b543f977dcdc440dd9805_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "tilt",
+        "value": 0.014298431210163855,
+        "unit": "rad",
+        "sign": 1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[1]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.013099017097884306,
+        "unit": "rad",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "slip",
+        "value": 0.011557426285391692,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[3]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.3047430476527888,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=18:path:Stage_white_box_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.3033578551231412,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=19:terminal:Stage_white_box_kin_eqs[0]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.09009922395660057,
+        "unit": "rad",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.04011536774251845,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.033028290101493385,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=17:path:Stage_white_box_kin_eqs[0]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "slip",
+        "value": 0.028699866281610698,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[3]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.01970950283370787,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[6]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "overhang",
+        "value": 0.01945906616895962,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[4]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.01256244313583309,
+        "unit": "rad",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left upper arm",
+        "family": "collision",
+        "value": 0.012539888520881197,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "table_short",
+        "raw": "k=17:path:n_8615a433d06997437df37bf00b8c39e360da525d6a09db996152707a86ca55f6_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "slip",
+        "value": 0.0104273827882959,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[4]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.1375209431273116,
+        "unit": "rad",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "tilt",
+        "value": 0.07008323844799627,
+        "unit": "rad",
+        "sign": -1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[2]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right upper arm",
+        "family": "collision",
+        "value": 0.06537410015050149,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "torso",
+        "raw": "k=18:path:n_ba1c27301871b1f8b8da3efc849b904a89e124bfc0246c88099703e4a18322e7_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "drift",
+        "value": 0.05614540969033633,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[5]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right forearm",
+        "family": "collision",
+        "value": 0.04751072363704579,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "torso",
+        "raw": "k=18:path:n_585b757ab34c2bdcdb262830c90caf56f154c45691cee687ee4cbc687136d1fc_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.0255075633212055,
+        "unit": "rad",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.024549926923359323,
+        "unit": "rad",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.023374426031490925,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "left wrist",
+        "family": "collision",
+        "value": 0.022150659935837633,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box",
+        "raw": "k=18:path:n_fcfca1317d0cf7c2ea9fef4134b065d7ab9594c4177b543f977dcdc440dd9805_distance[0]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "slip",
+        "value": 0.02156056220867192,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[4]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "left_ee",
+        "family": "slip",
+        "value": 0.021149775698170226,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box top",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[4]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "overhang",
+        "value": 0.019882608440979554,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_ineqs[12]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "slip",
+        "value": 0.017924709802338457,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[4]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "overhang",
+        "value": 0.01571940242130912,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_ineqs[8]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "slip",
+        "value": 0.014049370298942598,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[3]",
+        "attempts": 1
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.013131090101075549,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=18:path:Stage_white_box_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 16,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.3503870959595382,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=19:terminal:Stage_white_box_kin_eqs[0]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.34923819524477656,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=18:path:Stage_white_box_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.06468522438832769,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "white_box",
+        "family": "gap",
+        "value": 0.04249354938865971,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "floor surface",
+        "raw": "k=17:path:Stage_white_box_kin_eqs[0]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 15,
+        "subject": "right_ee",
+        "family": "drift",
+        "value": 0.021562183095163594,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box left",
+        "raw": "k=18:path:Stage_n_6565_726f626f74_72696768745f6565_kin_eqs[5]",
+        "attempts": 3
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "drift",
+        "value": 0.012254863936158657,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[5]",
+        "attempts": 2
+      },
+      {
+        "solver": "kso",
+        "mode": 14,
+        "subject": "left_ee",
+        "family": "tilt",
+        "value": 0.010000881829192992,
+        "unit": "rad",
+        "sign": 1.0,
+        "other": "white_box top",
+        "raw": "k=17:path:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[1]",
+        "attempts": 4
+      }
+    ],
+    "prefix_tries": 4,
+    "break_event": "left_ee released, right_ee released, white_box lifted",
+    "probe": {
+      "fixed_by": null,
+      "tried": [
+        {
+          "before_mode": 16,
+          "n_steps": 2,
+          "event": "left_ee released, right_ee released, white_box lifted",
+          "modes": 23,
+          "result": "still infeasible"
+        },
+        {
+          "before_mode": 14,
+          "n_steps": 2,
+          "event": "left_ee -> white_box top",
+          "modes": 23,
+          "result": "still infeasible"
+        }
+      ],
+      "skipped": null
+    },
+    "diagnosis_seconds": 316.9,
+    "events_total": 8,
+    "events_feasible": 4
+  },
+  "kso_violations": null,
+  "to_status": null,
+  "to_violations": null,
+  "to_valid": null,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": null,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "walk|left_sole:->2.1|right_sole:->2.1|walk|left_ee:->14.1|right_ee:->15.1|left_ee:14.1>-,right_ee:15.1>-,white_box:6.1.1>-|left_ee:->6.8.1|right_ee:->6.8.1|white_box:->6.8.1",
+  "plan_novelty": null,
+  "plan_patches": "left_ee:14.1,6.8.1|left_sole:1.1,2.1|right_ee:15.1,6.8.1|right_sole:1.1,2.1|white_box:6.1.1,6.8.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": null,
+  "to_cost_parts": null
+}

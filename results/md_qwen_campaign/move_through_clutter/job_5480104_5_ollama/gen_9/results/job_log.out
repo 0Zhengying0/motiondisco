@@ -1,0 +1,33 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.52 seconds==========
+[ik_eval] 17-mode hard KSO succeeded on attempt 2
+IK trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results/ik_run.pkl
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results/extra.json
+IK trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results/ik_run.pkl
+TO trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results/to_run.pkl
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/move_through_clutter/job_5480104_5_ollama/gen_9/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.07050448797299423
+  public: {'num_modes': 17, 'goal_match': True, 'ik_feasible': True, 'to_converged': True, 'to_valid': True, 'to_cost': 13.183494253345067, 'violations': ['transition 6->7: no contact changes (noop)', 'transition 11->12: no contact changes (noop)', 'transition 15->16: no contact changes (noop)'], 'kso_goal_mode': 'hard', 'to_max_violation': 0.04907549203463191, 'to_jerk_per_mode': 993.599013079245}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 0.8125, 'object_passive_fraction': 1.0, 'structure_score': 0.9625, 'efficiency': 0.0, 'ik_mode': 'hard', 'ik_cost': 0.0007026379187534284, 'to_mode': 'hard'}
+  execution_time_mean: 0.5162850400665775
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

@@ -1,0 +1,80 @@
+{
+  "pass": false,
+  "errors": [
+    {
+      "code": "ROBOT_COLLISION",
+      "subject": "robot",
+      "message": "G1 standing pose collides with the environment",
+      "details": {
+        "robot_body": "right_ankle_roll_link",
+        "other": "table1",
+        "contact_distance_m": -0.010000000000000005
+      }
+    },
+    {
+      "code": "ROBOT_COLLISION",
+      "subject": "robot",
+      "message": "G1 standing pose collides with the environment",
+      "details": {
+        "robot_body": "right_hip_roll_link",
+        "other": "table1",
+        "contact_distance_m": -0.03458703531378071
+      }
+    },
+    {
+      "code": "ROBOT_COLLISION",
+      "subject": "robot",
+      "message": "G1 standing pose collides with the environment",
+      "details": {
+        "robot_body": "right_hip_yaw_link",
+        "other": "table1",
+        "contact_distance_m": -0.03724410919012766
+      }
+    },
+    {
+      "code": "ROBOT_COLLISION",
+      "subject": "robot",
+      "message": "G1 standing pose collides with the environment",
+      "details": {
+        "robot_body": "right_knee_link",
+        "other": "table1",
+        "contact_distance_m": -0.024966831023839564
+      }
+    }
+  ],
+  "mujoco_version": "3.13.0",
+  "thresholds": {
+    "bounds_m": 1e-06,
+    "support_gap_m": 1e-05,
+    "box_penetration_m": 0.001,
+    "sole_penetration_m": 0.002,
+    "sole_contact_gap_m": 0.001,
+    "simulation_s": 2.0,
+    "settle_s": 0.25,
+    "position_drift_m": 0.005,
+    "angle_drift_rad": 0.03,
+    "linear_speed_m_s": 0.01,
+    "angular_speed_rad_s": 0.05
+  },
+  "stability": {},
+  "face_ids": {
+    "floor.surface": 1,
+    "table1.top": 2,
+    "table1.left": 3,
+    "table1.front": 4,
+    "table1.right": 5,
+    "table1.back": 6,
+    "table1.bottom": 7,
+    "box1.top": 8,
+    "box1.left": 9,
+    "box1.front": 10,
+    "box1.right": 11,
+    "box1.back": 12,
+    "box1.bottom": 13
+  },
+  "target_xyz_m": [
+    2.0,
+    0.0,
+    0.7746849933798136
+  ]
+}

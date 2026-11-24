@@ -1,0 +1,54 @@
+<NAME>
+Ensure the final mode of the plan matches the discrete contact goal by placing the white box on the elevated table.
+
+<DESCRIPTION>
+The task requires the white box to be placed on the elevated table, which means its final contact should be with the table's top surface (env_id 8) instead of the floor (env_id 1). The current plan only appends a mode where the left_ee is in contact with the floor, which is not sufficient to achieve the task goal. We need to modify the plan to include modes where the robot picks up the white box and then places it on the elevated table.
+
+1. **Initial Mode**: Start from the initial mode where the robot is standing on the floor with the white box resting on it.
+2. **Pick the Box**: Append modes to pick up the white box. This involves the robot reaching out with an end-effector to grasp the box.
+3. **Place the Box**: Append modes to move the robot to the elevated table and place the box on it.
+
+By following these steps, we ensure that the final mode of the plan matches the discrete contact goal and the IK solver can find a feasible path to achieve it.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(1, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 2)
+
+    # Pick up the white box with the right_ee
+    append_mode(plan, right_ee=(14, 1))
+
+    # Walk to the elevated table
+    walk(plan, 2)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

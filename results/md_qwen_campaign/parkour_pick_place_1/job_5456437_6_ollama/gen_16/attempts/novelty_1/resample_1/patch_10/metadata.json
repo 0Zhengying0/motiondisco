@@ -1,0 +1,14 @@
+{
+  "generation": 16,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 10,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The previous attempts have failed due to the robot changing contact surfaces without first releasing the end-effector. This is a violation of the solver rules, which require an end-effector to be free before touching a different surface. By ensuring that the robot releases the end-effector before moving to a different surface, we can avoid these violations and improve the feasibility of the plan.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 4-line block starting with: '# Step 1: Move to the white box'\n\nFull search pattern:\n```\n# Step 1: Move to the white box\n    append_mode(plan, left_ee=(14, 1), right_ee=(1, 1))\n    # Step 1.5: Release right_ee before moving to the white box\n    append_mode(plan, left_ee=(14, 1), right_ee=())\n```\n\nFound similar code block at line 54 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n-  # Step 1: Move to the white box\n+  \n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-71):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (55 more lines)\n        append_mode(plan, left_ee=(), right_ee=(8, 1), white_box=(6, 8, 1))\n    \n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-19T04:10:16.457323",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

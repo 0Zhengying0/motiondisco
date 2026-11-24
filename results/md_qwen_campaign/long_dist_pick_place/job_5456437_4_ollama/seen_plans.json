@@ -1,0 +1,130 @@
+{
+  "09ec3417a9dd843956fc9f4d6a7372fd575c36a6ee963e298a719de492adb213": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_12",
+    "patches": "left_ee:1.1,8.1|left_sole:1.1|right_ee:1.1,2.2|right_sole:1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1,right_ee:->1.1|walk|left_ee:8.1>1.1,right_ee:1.1>2.2",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "196bc59aeee8ec7ffe5bffbfad804f4d816124b8c7df57013f52908796f128d9": {
+    "combined_score": 0.0002550268142308326,
+    "first_seen_gen": "gen_19",
+    "patches": "left_ee:2.2,8.2|left_sole:1.1|right_ee:2.2,8.2|right_sole:1.1|yellow_box:6.1.1,6.1.2,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.2,right_ee:->8.2|yellow_box:6.1.1>6.1.2|left_ee:8.2>-,right_ee:8.2>-,yellow_box:6.1.2>6.1.1|walk|yellow_box:6.1.1>6.1.2|yellow_box:6.1.2>-|left_ee:->2.2,right_ee:->2.2,yellow_box:->6.2.1",
+    "top_violation": "mode 12: the motion is not dynamically consistent (it needs 576% of the body weight, 1884 N, that no contact provides)"
+  },
+  "27cb3a634dcb8a3b025de544425262e4de716cdf4d700895de4b4eddbddf7f5b": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_7",
+    "patches": "left_ee:2.1,6.1,8.1|left_sole:1.1,3.1,6.1|right_ee:-|right_sole:1.1,4.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|left_ee:8.1>6.1|walk|left_ee:6.1>-,left_sole:1.1>3.1|left_ee:->2.1|walk|left_ee:2.1>-,left_sole:3.1>6.1,right_sole:1.1>4.1",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "296ceef2842e0c8f38bc5e23949c6e63675866a94a5344de2b6b0c1202e7a6f4": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_17",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:2.1|right_sole:1.1|yellow_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1|left_ee:8.1>-|walk|right_ee:->2.1,yellow_box:6.1.1>6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 24->25: yellow_box changes from (6, 1, 1) to (6, 2, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 2, 1)"
+  },
+  "2c26b2aa7f0c47edafd28fca3f3881a9a15bd56c378d44d9c95b330761d9453a": {
+    "combined_score": 0.00032965726773411793,
+    "first_seen_gen": "gen_18",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:2.1|right_sole:1.1|yellow_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1|left_ee:8.1>-|walk|right_ee:->2.1,yellow_box:6.1.1>-|yellow_box:->6.2.1",
+    "top_violation": "mode 25: the motion is not dynamically consistent (it needs 5941480% of the body weight, 19433190 N, that no contact provides)"
+  },
+  "3baa24caf426869ea7960da577cbb7db6b566f43ff523fe50484b1ba7748225c": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "4bd436ce9522c611c8e4aaff4f620e0bc386f31ae2367bd779572d09d52e1ce4": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_10",
+    "patches": "left_ee:2.1,8.1,8.2|left_sole:1.1|right_ee:-|right_sole:1.1|yellow_box:6.1.1,6.1.2,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1|left_ee:8.1>8.2,yellow_box:6.1.1>6.1.2|walk|left_ee:8.2>2.1,yellow_box:6.1.2>6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 16->17: left_ee changes from (8, 2) to (2, 1) without a free () mode in between; release it first: (8, 2) -> () -> (2, 1)"
+  },
+  "5375782f9fa1730447b6a621e63ab608704718654b9c87616d6e05cea9b6c803": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_5",
+    "patches": "left_ee:1.1|left_sole:1.1|right_ee:-|right_sole:1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->1.1",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "73b5dbf9082d5972e19ff411ac45f765269651fc6883138457edbc58806dc80a": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_13",
+    "patches": "left_ee:2.1,8.1|left_sole:1.1,3.1,6.1|right_ee:-|right_sole:1.1,4.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|walk|left_ee:8.1>-,left_sole:1.1>3.1|left_ee:->2.1|walk|left_ee:2.1>-,left_sole:3.1>6.1,right_sole:1.1>4.1|left_ee:->2.1",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "7cb065b63aba2d49eee4e4b64d85f17f3757f9e25c6ab4ab197d7af915342dce": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_16",
+    "patches": "left_ee:1.1,8.1|left_sole:1.1|right_ee:1.1,2.1|right_sole:1.1|yellow_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1,right_ee:->1.1|walk|left_ee:8.1>1.1,right_ee:1.1>2.1,yellow_box:6.1.1>-|yellow_box:->6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 23->24: left_ee changes from (8, 1) to (1, 1) without a free () mode in between; release it first: (8, 1) -> () -> (1, 1)"
+  },
+  "a38f83c14694eff7118a2b28acf67a6bd19e76c6217232378c19833c0d9f1a98": {
+    "combined_score": 0.0003172869969169022,
+    "first_seen_gen": "gen_8",
+    "patches": "left_ee:2.2,8.2|left_sole:1.1|right_ee:2.2,8.2|right_sole:1.1|yellow_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.2,right_ee:->8.2|left_ee:8.2>-,right_ee:8.2>-|walk|yellow_box:6.1.1>-|left_ee:->2.2,right_ee:->2.2,yellow_box:->6.2.1",
+    "top_violation": "mode 24: the motion is not dynamically consistent (it needs 357% of the body weight, 1168 N, that no contact provides)"
+  },
+  "c754b77dbb5e761dfdd45fc08d87a75a619c2def7739d6d64e8e7062850ff92f": {
+    "combined_score": 0.00028785056067868694,
+    "first_seen_gen": "gen_11",
+    "patches": "left_ee:2.2,8.2|left_sole:1.1|right_ee:2.2,8.2|right_sole:1.1|yellow_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.2,right_ee:->8.2|left_ee:8.2>-,right_ee:8.2>-|walk|yellow_box:6.1.1>-|left_ee:->2.2,right_ee:->2.2,yellow_box:->6.2.1",
+    "top_violation": "mode 14: the motion is not dynamically consistent (it needs 254% of the body weight, 830 N, that no contact provides)"
+  },
+  "ce51f1c21013476cdc7a33b2f11fe97417b8bf53c321c0b0fa6bdc77751fd0e2": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_4",
+    "patches": "left_ee:2.1,8.1|left_sole:1.1,3.1,6.1|right_ee:-|right_sole:1.1,4.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|walk|left_ee:8.1>-,left_sole:1.1>3.1|left_ee:->2.1|walk|left_ee:2.1>-,left_sole:3.1>6.1,right_sole:1.1>4.1",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "d66f62a0a2ac966ce2cf325607abdae93d0409fe05b1c2d2d1aafb7527bd74c9": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_6",
+    "patches": "left_ee:2.2,8.2|left_sole:1.1|right_ee:2.2,8.2|right_sole:1.1|yellow_box:6.1.1,6.2.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.2,right_ee:->8.2|left_ee:8.2>-,right_ee:8.2>-|walk|left_ee:->2.2,right_ee:->2.2,yellow_box:6.1.1>6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 24->25: yellow_box changes from (6, 1, 1) to (6, 2, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 2, 1)"
+  },
+  "e85caa806bf2bfcb5223c236b7918003488838c933eb98423631c2f80689d9ab": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_1",
+    "patches": "left_ee:8.1|left_sole:1.1|right_ee:-|right_sole:1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "fdf1aa9a89663205270a1cc0e27060ebd8a46249f10449b1f731e440efba1d22": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_2",
+    "patches": "left_ee:1.1,8.1|left_sole:1.1|right_ee:1.1,2.1|right_sole:1.1|yellow_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|left_ee:->8.1,right_ee:->1.1|walk|left_ee:8.1>1.1,right_ee:1.1>2.1",
+    "top_violation": "discrete goal: yellow_box final mode is (6, 1, 1), expected (6, 2, 1)"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "generation": 16,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan appends 5 walking steps, which results in a higher trajectory optimization cost and jerk per mode. Reducing the number of walking steps can help improve the trajectory optimization cost and smoothness of the plan while still maintaining feasibility.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T00:16:52.899171",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

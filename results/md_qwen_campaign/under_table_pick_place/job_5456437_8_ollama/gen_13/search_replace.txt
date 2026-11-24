@@ -1,0 +1,39 @@
+<NAME>
+Add intermediate steps to ensure proper contact transitions and avoid direct surface changes.
+
+<DESCRIPTION>
+The current plan has several issues where contacts are changed directly without an intermediate free state, which violates the solver rules. To address this, we need to add intermediate modes where each contact is first released before making contact with a new surface. This will ensure that the plan adheres to the solver's requirements and increases the likelihood of a feasible solution.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Pick up the box
+    append_mode(plan, left_ee=(1, 1), right_ee=())
+    append_mode(plan, left_ee=(6, 1), right_ee=())
+    append_mode(plan, left_ee=(6, 2), right_ee=())
+    walk(plan, 3)
+=======
+    # Step 2: Pick up the box
+    append_mode(plan, left_ee=(1, 1), right_ee=())
+    append_mode(plan, left_ee=(), right_ee=())  # Release left_ee
+    append_mode(plan, left_ee=(6, 1), right_ee=())  # Contact left_ee with the box
+    append_mode(plan, left_ee=(6, 1), right_ee=())  # Hold the box
+    append_mode(plan, left_ee=(6, 2), right_ee=())  # Change contact type to sliding
+    walk(plan, 3)
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 3: Place the box on top of the table
+    append_mode(plan, left_ee=(2, 1), right_ee=())
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), white_box=(6, 2, 1))
+=======
+    # Step 3: Place the box on top of the table
+    append_mode(plan, left_ee=(2, 1), right_ee=())
+    append_mode(plan, left_ee=(2, 1), right_ee=())  # Release right_ee
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))  # Contact right_ee with the table
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1), white_box=(6, 2, 1))  # Place the box on the table
+>>>>>>> REPLACE
+</DIFF>

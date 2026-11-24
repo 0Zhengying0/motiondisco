@@ -1,0 +1,14 @@
+{
+  "generation": 20,
+  "novelty_attempt": 2,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 2,
+  "patch_name": "none",
+  "patch_description": "The current plan has issues with the white box contact transitions, causing teleportation errors. To resolve this, we need to ensure that the white box transitions through a free state before changing its contact surface. This will prevent the solver from interpreting the transition as teleportation.\n\nWe will modify the `pick_up_object` and `place_object` functions to include a free state transition for the white box before and after the contact change.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T14:59:56.194195",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

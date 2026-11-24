@@ -1,0 +1,51 @@
+<NAME>
+Improve obstacle avoidance and reaching steps to ensure smoother transitions and better alignment with the task goal.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def add_obstacle_avoidance(plan: Dict[str, List[Tuple]]):
+    """
+    Add obstacle avoidance steps to the plan.
+    """
+    # Example: Add obstacle avoidance steps for the robot's hands and feet
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+=======
+def add_obstacle_avoidance(plan: Dict[str, List[Tuple]]):
+    """
+    Add obstacle avoidance steps to the plan.
+    """
+    # Obstacle avoidance: move hands and feet to avoid obstacles
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def add_reaching_steps(plan: Dict[str, List[Tuple]]):
+    """
+    Add reaching steps to the plan.
+    """
+    # Example: Add reaching steps for the robot's hands and feet
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+=======
+def add_reaching_steps(plan: Dict[str, List[Tuple]]):
+    """
+    Add reaching steps to the plan.
+    """
+    # Reaching steps: move hands and feet to reach the goal
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+    append_mode(plan, left_ee=(1, 2), right_ee=(1, 2))
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1))
+>>>>>>> REPLACE
+</DIFF>

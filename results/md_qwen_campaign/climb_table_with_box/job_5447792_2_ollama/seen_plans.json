@@ -1,0 +1,90 @@
+{
+  "04ac42ad9895c129a583ff524d9c63f6caa30db63253bdfdab9841bde0c3c364": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_12",
+    "patches": "left_ee:9.1|left_sole:1.1,2.1|right_ee:11.1|right_sole:1.1,2.1|white_box:11.1.1,6.1.1,9.1.1",
+    "provisional": false,
+    "signature": "walk|right_sole:->2.1|walk|left_sole:->2.1|left_ee:->9.1|white_box:6.1.1>9.1.1|left_ee:9.1>-,white_box:9.1.1>11.1.1|right_ee:->11.1|left_ee:->9.1,white_box:11.1.1>-",
+    "top_violation": "Invalid contact schedule (no solver run): mode 13->14: white_box changes from (6, 1, 1) to (9, 1, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (9, 1, 1)"
+  },
+  "28f6dccd1d0e9b93d904dfc12b7e17f47e16758a281b9212cf0f6f8d4a99dd14": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_6",
+    "patches": "left_ee:2.1,9.1|left_sole:1.1,2.1|right_ee:11.1,2.1|right_sole:1.1,2.1|white_box:1.2.1,6.1.1",
+    "provisional": false,
+    "signature": "right_ee:->2.1|walk|left_ee:->2.1,right_ee:2.1>-|walk|left_sole:1.1>2.1,right_sole:1.1>2.1|left_ee:2.1>9.1|right_ee:->11.1|left_ee:9.1>-,right_ee:11.1>-,white_box:6.1.1>1.2.1|walk|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "discrete goal: white_box final mode is (1, 2, 1), expected ()"
+  },
+  "4e57f8baad9d93315616a38b7dd9a4803b14d1ceae67a87a834eeb8aaf970c60": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_4",
+    "patches": "left_ee:2.1,9.1|left_sole:1.1,2.1|right_ee:11.1,2.1|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|right_ee:->2.1|walk|left_ee:->2.1,right_ee:2.1>-|walk|left_sole:1.1>2.1,right_sole:1.1>2.1|left_ee:2.1>9.1|right_ee:->11.1",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected ()"
+  },
+  "65609930b18d91eae96c36a8e59d43556915349d52e57724a11d0fb4d7246379": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "discrete goal: left_sole final mode is (1, 1), expected (2, 1)"
+  },
+  "91238478eb88be9213fc13c00c6cfbda9054196adae52448d0e8af29d1d24ab8": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_11",
+    "patches": "left_ee:9.1|left_sole:1.1,2.1|right_ee:11.1|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "left_ee:->9.1,right_ee:->11.1|left_sole:1.1>2.1,right_sole:1.1>2.1",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected ()"
+  },
+  "9144acaeff97cb448fc58e855ec4dcaf508bf7b32f432dd59d7e9af115b33973": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_1",
+    "patches": "left_ee:-|left_sole:1.1,2.1|right_ee:-|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "left_sole:1.1>2.1,right_sole:1.1>2.1",
+    "top_violation": "discrete goal: left_ee final mode is (), expected (9, 1)"
+  },
+  "9724c040cce0e3c51d9e986af64d71089eb948d9a716ed81ad6710fe7cae80ac": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_5",
+    "patches": "left_ee:9.1|left_sole:1.1,2.1|right_ee:11.1|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "left_sole:1.1>2.1,right_sole:1.1>2.1|left_ee:->9.1,right_ee:->11.1",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected ()"
+  },
+  "9dedf51736fc8e748b6ef42c5e958f9f8071b8439599c8ece0422e53a8c34b60": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_3",
+    "patches": "left_ee:9.1|left_sole:1.1,2.1|right_ee:11.1|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "walk|left_sole:->2.1|walk|right_sole:->2.1|left_ee:->9.1|right_ee:->11.1",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected ()"
+  },
+  "b39b676d82c9239c33634070bffa56b57003613b5baabc74e9d5ad3ebc4633eb": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_7",
+    "patches": "left_ee:-|left_sole:1.1,2.1|right_ee:-|right_sole:1.1,2.1|white_box:11.1.1,6.1.1,9.1.1",
+    "provisional": false,
+    "signature": "walk|right_sole:->2.1|walk|left_sole:->2.1|white_box:6.1.1>-|walk|white_box:->9.1.1|white_box:9.1.1>11.1.1",
+    "top_violation": "discrete goal: left_ee final mode is (), expected (9, 1)"
+  },
+  "b3a779f39039a80c64fca3c6e42a2b2d5fed2bad14c480038abfa2fae15975b0": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_9",
+    "patches": "left_ee:9.1|left_sole:1.1,2.1|right_ee:11.1|right_sole:1.1,2.1|white_box:11.1.1,6.1.1,9.1.1",
+    "provisional": false,
+    "signature": "walk|right_sole:->2.1|walk|left_sole:->2.1|left_ee:->9.1|white_box:6.1.1>9.1.1|left_ee:9.1>-,white_box:9.1.1>11.1.1|right_ee:->11.1",
+    "top_violation": "discrete goal: left_ee final mode is (), expected (9, 1)"
+  },
+  "ed8a580ca0db17510463823ad14361b39fc5c147cdf0d13552829a533224fcb5": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_2",
+    "patches": "left_ee:2.1,9.1|left_sole:1.1,2.1|right_ee:11.1,2.1|right_sole:1.1,2.1|white_box:6.1.1",
+    "provisional": false,
+    "signature": "right_ee:->2.1|walk|left_ee:->2.1,right_ee:2.1>-|walk|left_sole:1.1>2.1,right_sole:1.1>2.1|left_ee:2.1>9.1|right_ee:->11.1",
+    "top_violation": "discrete goal: white_box final mode is (6, 1, 1), expected ()"
+  }
+}

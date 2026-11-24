@@ -1,0 +1,35 @@
+{
+    "combined_score": 0.0006164443475578195,
+    "public": {
+        "num_modes": 6,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 1621.2064553949126,
+        "violations": [
+            "mode 6: floor penetrates yellow_box by 30 cm in the trajectory"
+        ],
+        "kso_goal_mode": "hard",
+        "to_max_violation": 10.159588055759684,
+        "to_jerk_per_mode": 6784.12429599937
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.5,
+        "ik_mode": "hard",
+        "ik_cost": 7.003560330813872e-05,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 6: floor penetrates yellow_box by 30 cm in the trajectory\n- mode 3: waist_pitch_joint goes 0.08 rad past its limit\n- modes 2\u20134: in 2 of 3 steps a foot travels more than 0.8 m (up to 1.96 m, left_sole at mode 3); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 2 more walking steps before mode 5 (white_box lifted, yellow_box lifted), e.g. walk(plan, 2)",
+    "execution_time_mean": 0.5298593769839499,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

@@ -1,0 +1,34 @@
+<NAME>
+Add a single walking step to the plan to make it feasible.
+
+<DESCRIPTION>
+The current plan has only one mode, which is the initial mode. The IK solver requires at least two modes (an initial mode and at least one transition). By adding a single walking step, we extend the plan to two modes, which should make it feasible. This change aligns with the requirement that the plan must have at least two modes.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 1)
+    return plan
+>>>>>>> REPLACE
+</DIFF>

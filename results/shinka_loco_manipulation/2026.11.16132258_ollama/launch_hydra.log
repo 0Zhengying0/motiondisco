@@ -1,0 +1,57 @@
+[2026-11-16 13:23:02,584][shinka.core.async_runner][INFO] - Pricing catalog: source=bundled fetched_at=None stale=False sha256=954fcee02e2774d82535a05ccdba548cf12dc6867467370e1d6cf19153b0efa9
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - ASYNC EVOLUTION RUN STARTED
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - Max evaluation jobs: 1
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - Max proposal jobs: 1
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - Target generations: 2
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - Language: python
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - Results directory: results/shinka_loco_manipulation/2026.11.16132258_ollama
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - Log file: results/shinka_loco_manipulation/2026.11.16132258_ollama/evolution_run.log
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - Max API costs: $0.00
+[2026-11-16 13:23:02,586][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-16 13:23:03,208][shinka.database.async_dbase][INFO] - 🔧 AsyncDB initialized with 2 workers, 2 concurrent DB ops (WAL mode)
+[2026-11-16 13:23:25,071][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-16 13:23:25,074][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-16 13:23:25,103][shinka.database.dbase][INFO] - Program b5afc85e-f970-4068-9c9e-1c574ab842bb added to DB - score: 0.0.
+[2026-11-16 13:23:25,114][shinka.database.dbase][INFO] - New best program: b5afc85e-f970-4068-9c9e-1c574ab842bb (gen: 0, score: 0.0000, initialized island: 0).
+[2026-11-16 13:23:25,114][shinka.database.dbase][INFO] - Creating copies of initial program b5afc85e-f970-4068-9c9e-1c574ab842bb for all islands
+[2026-11-16 13:23:25,116][shinka.database.islands][INFO] - Created copy 1042807c... of program b5afc85e... for island 1
+[2026-11-16 13:23:25,117][shinka.database.islands][INFO] - Created 1 copies of program b5afc85e... for islands 1-1
+[2026-11-16 13:23:25,124][shinka.core.summarizer][INFO] - Added program b5afc85e-f970-4068-9c9e-1c574ab842bb to meta memory tracking (correct=True, total: 1)
+[2026-11-16 13:23:25,154][shinka.core.async_runner][INFO] - 🔄 Job monitor task started
+[2026-11-16 13:23:25,154][shinka.core.async_runner][INFO] - API cost budget reached: actual=$0.0000 + in-flight=$0.0000 = $0.0000 >= $0.00. Stopping evolution...
+[2026-11-16 13:23:25,155][shinka.core.async_runner][INFO] - ✅ All running jobs completed. Total programs in database: 0 submitted, 0 still running.
+[2026-11-16 13:23:25,155][shinka.core.async_runner][INFO] - 🛑 Job monitor setting should_stop signal (cost limit reached, all jobs processed)
+[2026-11-16 13:23:25,155][shinka.core.async_runner][INFO] - 🏁 Job monitor setting finalization_complete signal
+[2026-11-16 13:23:25,155][shinka.core.async_runner][INFO] - Job monitor task exited
+[2026-11-16 13:23:25,155][shinka.core.async_runner][INFO] - 🔄 Meta summarizer task started
+[2026-11-16 13:23:25,155][shinka.core.async_runner][INFO] - Meta summarizer task exited
+[2026-11-16 13:23:25,155][shinka.database.async_dbase][INFO] - Forcing final embedding and cluster recomputation...
+[2026-11-16 13:23:25,155][shinka.database.async_dbase][INFO] - Scheduled embedding recomputation after 10 program additions
+[2026-11-16 13:23:25,257][shinka.database.dbase][INFO] - Not enough programs with embeddings (2) to perform clustering. Need at least 4.
+[2026-11-16 13:23:25,257][shinka.database.async_dbase][INFO] - Background embedding recomputation completed
+[2026-11-16 13:23:25,257][shinka.database.async_dbase][INFO] - Final embedding and cluster recomputation complete.
+[2026-11-16 13:23:25,263][shinka.core.async_summarizer][INFO] - Performing final meta summary for 1 remaining programs...
+[2026-11-16 13:23:25,263][shinka.core.async_summarizer][INFO] - ==> Step 1 - Processing 1 programs with async batch query
+[2026-11-16 13:23:25,263][shinka.llm.llm][INFO] - ==> SAMPLING 1 SAMPLES:
+  local/qwen2.5-coder:7b@http://localhost:11434/v1   1.0000
+[2026-11-16 13:23:25,263][shinka.llm.llm][INFO] - ==> SAMPLING: 1/1 ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-16 13:23:36,901][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-16 13:23:36,916][shinka.llm.llm][INFO] - ==> SAMPLING: Individual API costs: ['0.0000']
+[2026-11-16 13:23:36,916][shinka.llm.llm][INFO] - ==> SAMPLING: Total API costs: $0.0000
+[2026-11-16 13:23:36,916][shinka.core.async_summarizer][INFO] - ==> Step 1 - 1/1 individual summaries generated (cost: $0.0000)
+[2026-11-16 13:23:36,917][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-16 13:23:52,244][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-16 13:23:52,256][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-16 13:23:52,256][shinka.core.async_summarizer][INFO] - ==> Step 2 - Global insights generated (cost: $0.0000)
+[2026-11-16 13:23:52,256][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-16 13:24:02,111][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-16 13:24:02,112][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-16 13:24:02,112][shinka.core.async_summarizer][INFO] - ==> Step 3 - Recommendations generated (cost: $0.0000)
+[2026-11-16 13:24:02,112][shinka.core.async_summarizer][INFO] - ==> Meta-analysis completed successfully with 3-step process (total cost: $0.0000)
+[2026-11-16 13:24:02,112][shinka.core.async_summarizer][INFO] - Processed and cleared 1 programs from meta memory (total processed: 1)
+[2026-11-16 13:24:02,244][shinka.core.async_summarizer][INFO] - Wrote meta output to results/shinka_loco_manipulation/2026.11.16132258_ollama/meta/meta_1.txt
+[2026-11-16 13:24:02,244][shinka.core.async_summarizer][INFO] - Final meta summary completed (cost: $0.0000)
+[2026-11-16 13:24:02,755][shinka.database.async_dbase][INFO] - 🔧 Closing async database with monitoring...
+[2026-11-16 13:24:02,755][shinka.database.async_dbase][INFO] - Async database closed

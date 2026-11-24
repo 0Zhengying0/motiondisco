@@ -1,0 +1,10 @@
+{
+  "52e70c329e103756f0ddc03c0bb3b1bf85b8bd274bd4c34a88b4d62503b7f6cf": {
+    "combined_score": 0.18088499385567913,
+    "first_seen_gen": "gen_0",
+    "patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  }
+}

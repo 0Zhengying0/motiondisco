@@ -1,0 +1,14 @@
+{
+  "generation": 24,
+  "novelty_attempt": 2,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan has several issues, including dynamic inconsistency and joint limits violations. To address these, we need to ensure that the robot has enough walking steps before critical transitions, such as changing contact surfaces or grasping objects. This will help the trajectory optimizer to find a feasible path and reduce the number of violations.\n\nWe will add more walking steps before the following transitions:\n1. Moving from the floor to the table.\n2. Grasping the white box.\n3. Placing the white box on the table.\n\nBy adding more walking steps, we give the trajectory optimizer more room to adjust the robot's movement and ensure that all contacts are made smoothly.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 2-line block starting with: '# Grasp the white box'\n\nFull search pattern:\n```\n# Grasp the white box\n    walk(plan, 3)  # Approach the white box\n```\n\nFound similar text (but not exact match):\n  Line 85: # Grasp the white box (\u2713 editable)\n  Line 93: # Place the white box on the table (\u2713 editable)\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-100):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (84 more lines)\n        append_mode(plan, left_ee=(), right_ee=(), white_box=(white_box_self_id, table_env_id, 1))\n    \n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-19T07:27:08.383320",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

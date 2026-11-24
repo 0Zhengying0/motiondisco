@@ -1,0 +1,142 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 15,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 6 of 15 (crate set down on table_short top, left_ee -> crate top, right_ee -> crate top); modes 0\u20135 solve on their own.",
+            "mode 6: crate hangs 0.06 m over the edge of table_short top (in all 4 solves)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "kso_feasible_through_mode": 5,
+        "kso_first_infeasible_mode": 6,
+        "kso_break_event": "crate set down on table_short top, left_ee -> crate top, right_ee -> crate top"
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 6,
+            "first_infeasible_modes": 7,
+            "total_modes": 15,
+            "solver_error": null,
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 8,
+                    "feasible": false,
+                    "tries": 4
+                },
+                {
+                    "modes": 5,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 6,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 7,
+                    "feasible": false,
+                    "tries": 4
+                }
+            ],
+            "kso_attempts": 3,
+            "best_max_violation": 1.0281706601272733,
+            "ik_hard_failed": true,
+            "prefix_violation_details": [
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "crate",
+                    "family": "overhang",
+                    "value": 0.055348382691300047,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "table_short top",
+                    "raw": "k=9:terminal:Stage_crate_kin_ineqs[5]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "crate",
+                    "family": "overhang",
+                    "value": 0.05546110074735561,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "table_short top",
+                    "raw": "k=9:terminal:Stage_crate_kin_ineqs[7]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "crate",
+                    "family": "overhang",
+                    "value": 0.05538644178278668,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "table_short top",
+                    "raw": "k=9:terminal:Stage_crate_kin_ineqs[7]",
+                    "attempts": 4
+                },
+                {
+                    "solver": "kso",
+                    "mode": 6,
+                    "subject": "crate",
+                    "family": "overhang",
+                    "value": 0.05543402072885367,
+                    "unit": "m",
+                    "sign": 1.0,
+                    "other": "table_short top",
+                    "raw": "k=9:terminal:Stage_crate_kin_ineqs[7]",
+                    "attempts": 4
+                }
+            ],
+            "prefix_tries": 4,
+            "break_event": "crate set down on table_short top, left_ee -> crate top, right_ee -> crate top",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 6,
+                        "n_steps": 2,
+                        "event": "crate set down on table_short top, left_ee -> crate top, right_ee -> crate top",
+                        "modes": 18,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 340.0,
+            "events_total": 4,
+            "events_feasible": 1
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 6 of 15 (crate set down on table_short top, left_ee -> crate top, right_ee -> crate top); modes 0\u20135 solve on their own.\nThe 7-mode prefix failed 4 of 4 tries. Its violations:\n- mode 6: crate hangs 0.06 m over the edge of table_short top (in all 4 solves)\nHint (overhang): the patch is too far toward the face's edge; approach so it sits fully on the face\nFull-plan solves additionally report (later modes; these may follow from the break above):\n- mode 12: crate ends up on top of table_short instead of resting with its top face on table_short top (0.16 m too high, 0.14 m into table_short). There is no room for it there; move clear of table_short before putting it down (table_short spans x 0.65\u20131.35, y -0.70\u20130.70; crate's footprint is 0.30 x 0.40, so its centre must be at least 0.20 m outside that span)\n- mode 14: right_sole should touch floor surface but stays 1.04 m away from it (in all 3 solves)\n- mode 14: left_sole should touch floor surface but stays 1.03 m away from it (in all 3 solves)\n... and 4 smaller problems\n(14 other problems appeared in only one solve each: solver noise, not necessarily a flaw of the plan)\nRepair probe: inserting walk(plan, 2) before mode 6 (crate set down on table_short top, left_ee -> crate top, right_ee -> crate top) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5068040210026084,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

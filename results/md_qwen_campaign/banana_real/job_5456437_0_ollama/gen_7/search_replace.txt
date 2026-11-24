@@ -1,0 +1,45 @@
+<NAME>
+Add intermediate modes to approach the banana and establish a stable base before grasping.
+
+<DESCRIPTION>
+The current plan attempts to grasp the banana immediately, which is not feasible given the robot's initial position and the need to establish a stable base. We need to add intermediate modes to move the robot closer to the banana and ensure it has a stable support before attempting to grasp it. This will involve walking steps to move the robot and then using the EEs to approach the banana while maintaining a stable base.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Walk towards the banana
+    walk(plan, 5)
+
+    # Approach the banana with one hand while maintaining a stable base
+    append_mode(plan, left_ee=(9, 1))
+
+    # Grasp the banana with both hands
+    append_mode(plan, right_ee=(11, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,56 @@
+<NAME>
+Ensure the white box transitions through a free state before changing surfaces.
+
+<DESCRIPTION>
+The current plan fails because the white box transitions directly from one surface to another without passing through a free state. This violates the solver's rule that every channel must pass through a free state before touching a different surface. To fix this, we need to ensure that the white box is released from its current surface and then re-grasped on the new surface.
+
+Additionally, the initial mode does not match the expected initial state of the white box. We need to update the initial mode to reflect the correct state of the white box.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+plan = get_initial_mode()
+
+# Move left hand to the white box
+append_mode(plan, left_ee=(14, 1))
+
+# Grasp the white box with the left hand
+append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+=======
+# Update initial mode to reflect the correct state of the white box
+initial_mode = get_initial_mode()
+initial_mode['white_box'] = [(6, 1, 1)]
+plan = initial_mode
+
+# Move left hand to the white box
+append_mode(plan, left_ee=(14, 1))
+
+# Grasp the white box with the left hand
+append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+# Lift the white box off the floor
+append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+
+# Walk to the elevated table
+walk(plan, 4)
+=======
+# Lift the white box off the floor
+append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+
+# Walk to the elevated table
+walk(plan, 4)
+
+# Move the white box towards the elevated table
+append_mode(plan, left_ee=(14, 1), right_sole=(2, 1), white_box=(1, 8, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+# Place the white box on the elevated table
+append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+=======
+# Place the white box on the elevated table
+append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

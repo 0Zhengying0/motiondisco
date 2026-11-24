@@ -1,0 +1,14 @@
+{
+  "generation": 30,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 2,
+  "patch_name": "none",
+  "patch_description": "The current plan has several issues where the robot transitions between contacts without going through a free state, which is required by the solver rules. Specifically, the object `white_box` changes surfaces without a free state in between. By ensuring that each contact change is preceded by a free state, we can make the plan more feasible for the solvers.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T04:43:40.723320",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

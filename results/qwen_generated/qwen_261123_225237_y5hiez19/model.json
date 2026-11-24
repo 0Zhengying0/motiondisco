@@ -1,0 +1,32 @@
+{
+  "host": "http://127.0.0.1:11434",
+  "requested_model": "qwen2.5-coder:14b",
+  "server": {
+    "version": "0.40.16"
+  },
+  "model": {
+    "name": "qwen2.5-coder:14b",
+    "model": "qwen2.5-coder:14b",
+    "modified_at": "2026-11-16T11:40:32.938902+01:00",
+    "size": 8988124298,
+    "digest": "9ec8897f747e246e970bc5cfdda85d22f1123dc2e3d34978a010a75968716849",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen2",
+      "families": [
+        "qwen2"
+      ],
+      "parameter_size": "14.8B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 32768,
+      "embedding_length": 5120,
+      "runner": "ggml"
+    },
+    "capabilities": [
+      "completion",
+      "tools",
+      "insert"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+<NAME>
+Append a second mode to the plan to make it feasible for the IK solver.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    return get_initial_mode()
+=======
+    plan = get_initial_mode()
+    append_mode(plan)
+    return plan
+>>>>>>> REPLACE
+</DIFF>

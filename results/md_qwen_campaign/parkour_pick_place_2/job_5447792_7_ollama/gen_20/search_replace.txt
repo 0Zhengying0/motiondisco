@@ -1,0 +1,44 @@
+<NAME>
+Add intermediate steps to ensure the white box is lifted and moved to the table without violating contact rules.
+
+<DESCRIPTION>
+The current plan has only two modes, which is insufficient to lift the white box and move it to the table without violating contact rules. We need to add intermediate steps to ensure the white box is lifted off the floor, moved to the table, and placed correctly. This will help the solver to find a feasible trajectory.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, white_box=(6, 8, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Lift the white box off the floor
+    append_mode(plan, white_box=())
+    append_mode(plan, white_box=(6, 1, 1))
+
+    # Step 2: Move the white box to the table
+    append_mode(plan, white_box=())
+    append_mode(plan, white_box=(6, 8, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

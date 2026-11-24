@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "scene_id": "qwen_261123_231149_tzxiv1vy",
+  "floor": {
+    "half_extents": [4, 2.5]
+  },
+  "robot": {
+    "initial_xy_yaw": [0.5, -1.2, 0.785] 					}
+  }

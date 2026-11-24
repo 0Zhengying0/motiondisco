@@ -1,0 +1,18 @@
+<NAME>
+Fix contact transitions for the yellow box to meet the discrete goal requirement.
+</NAME>
+
+<DESCRIPTION>
+The current plan has issues with transitioning the yellow box's contact type from (6, 1, 1) to (6, 2, 1) without going through a free () state. To fix this, we need to ensure that the yellow box transitions correctly between contact types by releasing it first and then re-grasping it with the correct contact type.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Place the yellow box on the distant table
+    append_mode(plan, left_ee=(), right_ee=(2, 1), yellow_box=(6, 2, 1))  # Right hand sticks to the table, box sticks to the table
+=======
+    # Place the yellow box on the distant table with correct contact type
+    append_mode(plan, left_ee=(), right_ee=(2, 1), yellow_box=())  # Release the box
+    append_mode(plan, left_ee=(), right_ee=(2, 1), yellow_box=(6, 2, 1))  # Right hand sticks to the table, box sticks to the table with correct contact type
+>>>>>>> REPLACE
+</DIFF>

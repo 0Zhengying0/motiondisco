@@ -1,0 +1,10 @@
+{
+  "69230b2719f9047007127b090f5c009f191173366b521cf3ecb2351923f59178": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_4",
+    "patches": "box1:6.1.1,6.2.1|left_ee:1.1,13.1|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->1.1|left_ee:1.1>-|left_ee:->13.1|box1:6.1.1>-|box1:->6.2.1",
+    "top_violation": "KSO infeasible: first break at mode 3 of 7 (left_ee -> box1 bottom); modes 0\u20132 solve on their own."
+  }
+}

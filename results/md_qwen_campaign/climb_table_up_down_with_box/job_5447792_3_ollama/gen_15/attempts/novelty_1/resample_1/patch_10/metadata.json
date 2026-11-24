@@ -1,0 +1,14 @@
+{
+  "generation": 15,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 10,
+  "success": false,
+  "num_applied": 0,
+  "patch_name": "none",
+  "patch_description": "The current plan has several invalid contact transitions where a hand moves directly from one surface to another without a free mode in between. This violates the solver rules and causes the IK to fail. To fix this, we need to ensure that every contact transition has a free mode in between. Specifically, we need to modify the `lift_box`, `move_box_to_other_side`, and `place_box` functions to add a free mode for each hand before transitioning to a new contact.",
+  "error_msg": "SEARCH text not found in editable regions\n\nLooking for 15-line block starting with: 'def lift_box(plan):'\n\nFull search pattern:\n```\ndef lift_box(plan):\n    # Lift the box\n    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))\n    append_mode(plan, left_ee=(), right_ee=())\n\ndef move_box_to_other_side(plan):\n    # Move the box to the other side of the table\n    walk(plan, 5)\n    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))\n\ndef place_box(plan):\n    # Place the box on the other side of the table\n    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))\n    append_mode(plan, left_ee=(), right_ee=())\n    append_mode(plan, left_ee=(), right_ee=())\n```\n\nFound similar code block at line 46 (\u2713 editable):\n\nDifferences between search pattern and actual code:\n```diff\n+  \n-      append_mode(plan, left_ee=(), right_ee=())\n-      append_mode(plan, left_ee=(), right_ee=())\n+  \n```\n\nEditable regions where you can make changes:\n  Region 1 (lines 7-83):\n    \"\"\"\n    Contact-mode-sequence generator for humanoid loco-manipulation.\n    \n    ... (67 more lines)\n        place_box(plan)\n        return_to_initial_position(plan)\n        return plan\n\nQuick fixes:\n\u2022 Check indentation - search text must match exactly including spaces/tabs\n\u2022 Look for typos in the search text\n\u2022 Try searching for just the first line instead of the full block",
+  "timestamp": "2026-11-17T18:54:59.569194",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

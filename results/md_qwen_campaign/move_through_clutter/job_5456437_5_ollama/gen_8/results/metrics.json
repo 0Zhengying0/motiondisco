@@ -1,0 +1,37 @@
+{
+    "combined_score": 0.00032738949979357993,
+    "public": {
+        "num_modes": 14,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 3053.465707148528,
+        "violations": [
+            "mode 13: left_ee slides 31 cm on floor surface although the contact is sticking",
+            "transition 12->13: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 39.012436503609365,
+        "to_jerk_per_mode": 19656.113438941346
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.9230769230769231,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9846153846153847,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.5276517043761082,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 13: left_ee slides 31 cm on floor surface although the contact is sticking\n- mode 14: left_shoulder_pitch_joint goes 0.18 rad past its limit\n- mode 13: the motion is not dynamically consistent (it needs 30% of the body weight, 99 N, that no contact provides)\n- mode 8: robot right_ankle_roll_link penetrates table_short2 by 16 cm in the trajectory\n- modes 3\u201312: in 2 of 10 steps a foot travels more than 0.8 m (up to 1.38 m, right_sole at mode 9); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 2 more walking steps at the end of the plan, e.g. walk(plan, 2)",
+    "execution_time_mean": 0.5280587110028137,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

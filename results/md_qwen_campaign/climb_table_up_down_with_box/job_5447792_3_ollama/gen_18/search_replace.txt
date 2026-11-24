@@ -1,0 +1,28 @@
+<NAME>
+Release hands before changing surfaces to avoid IK feasibility issues.
+
+<DESCRIPTION>
+The current plan fails IK feasibility checks due to invalid contact schedules where hands change surfaces without passing through a free state. To address this, we need to ensure that hands release their current contact before making a new contact with a different surface. This will help the IK solver to find a feasible trajectory.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Grasp the box with both hands
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+=======
+    # Step 2: Grasp the box with both hands
+    append_mode(plan, left_ee=(), right_ee=())  # Release hands before grasping
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))  # Grasp the box
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 5: Place the box on the floor
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1), left_sole=(1, 1), right_sole=(1, 1))
+=======
+    # Step 5: Place the box on the floor
+    append_mode(plan, left_ee=(), right_ee=())  # Release hands before placing
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1), left_sole=(1, 1), right_sole=(1, 1))  # Place the box
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,16 @@
+<NAME>
+Add a walking sequence to the plan to improve the trajectory optimization cost.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    return plan
+=======
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(2, 1), right_ee=(2, 1))
+    walk(plan, 5)  # Add 5 walking steps
+    return plan
+>>>>>>> REPLACE
+</DIFF>

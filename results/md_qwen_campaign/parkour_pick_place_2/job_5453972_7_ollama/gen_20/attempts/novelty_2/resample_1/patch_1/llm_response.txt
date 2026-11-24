@@ -1,0 +1,38 @@
+<NAME>
+Ensure proper transitions for the white box contact to avoid teleportation.
+
+<DESCRIPTION>
+The current plan has issues with the white box contact transitions, causing teleportation errors. To resolve this, we need to ensure that the white box transitions through a free state before changing its contact surface. This will prevent the solver from interpreting the transition as teleportation.
+
+We will modify the `pick_up_object` and `place_object` functions to include a free state transition for the white box before and after the contact change.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_up_object(plan: Dict[str, List[Tuple]], object_env_id: int) -> None:
+    """Pick up the object by releasing the hand and making contact with the object."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=())
+    append_mode(plan, white_box=(1, object_env_id, 1))
+=======
+def pick_up_object(plan: Dict[str, List[Tuple]], object_env_id: int) -> None:
+    """Pick up the object by releasing the hand and making contact with the object."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=(), white_box=())
+    append_mode(plan, white_box=(1, object_env_id, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_object(plan: Dict[str, List[Tuple]], object_env_id: int, target_env_id: int) -> None:
+    """Place the object on the target environment ID."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=())
+    append_mode(plan, white_box=(6, target_env_id, 1))
+=======
+def place_object(plan: Dict[str, List[Tuple]], object_env_id: int, target_env_id: int) -> None:
+    """Place the object on the target environment ID."""
+    walk(plan, 2)
+    append_mode(plan, left_ee=(), white_box=())
+    append_mode(plan, white_box=(6, target_env_id, 1))
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,21 @@
+<NAME>
+Add steps to pick up the yellow box and place it on the distant table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(8, 1))
+    return plan
+=======
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=(8, 1))  # Move left hand to yellow box
+    append_mode(plan, left_ee=(6, 1))  # Pick up the yellow box
+    walk(plan, 5)  # Move closer to the table
+    append_mode(plan, left_ee=(), left_sole=(3, 1), right_sole=(1, 1))  # Move left hand to table and plant left foot
+    append_mode(plan, left_ee=(2, 1))  # Place the yellow box on the table
+    walk(plan, 5)  # Move back to starting position
+    append_mode(plan, left_ee=(), left_sole=(6, 1), right_sole=(4, 1))  # Final step to ensure the yellow box is placed correctly
+    return plan
+>>>>>>> REPLACE
+</DIFF>

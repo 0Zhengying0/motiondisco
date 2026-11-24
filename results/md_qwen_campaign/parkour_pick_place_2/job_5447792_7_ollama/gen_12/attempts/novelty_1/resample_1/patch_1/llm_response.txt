@@ -1,0 +1,45 @@
+<NAME>
+Add a picking phase to the plan to pick up the white box.
+
+<DESCRIPTION>
+The current plan only returns the initial mode, which is not sufficient to complete the task. We need to add a picking phase to pick up the white box. This involves approaching the box, lifting it, and moving it to the front of the robot.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    
+    # Picking phase
+    pick_box(plan)
+    
+    return plan
+
+def pick_box(plan: Dict[str, List[Tuple]]):
+    # Approach the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+    # Move the box to the front of the robot
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+>>>>>>> REPLACE
+</DIFF>

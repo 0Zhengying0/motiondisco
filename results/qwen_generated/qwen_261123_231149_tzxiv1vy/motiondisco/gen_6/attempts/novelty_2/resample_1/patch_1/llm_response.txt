@@ -1,0 +1,57 @@
+<NAME>
+A novel approach that optimizes the step length and number of walking steps to better align with the robot's capabilities and the task requirements. The key insight is to dynamically adjust the step length based on the distance to the target, ensuring that the robot's motion is more consistent with its dynamics.
+
+<DESCRIPTION>
+The current program uses a fixed step length of 0.4 meters for walking steps. However, the robot's step length and the number of walking steps can significantly impact the trajectory optimization (TO) solver's ability to converge and the final task completion quality. By dynamically adjusting the step length based on the distance to the target, we can ensure that the robot's motion is more consistent with its dynamics, leading to better performance.
+
+The approach involves calculating the distance to the target and determining the number of walking steps required. The step length is then adjusted to ensure that the robot's motion is feasible and consistent with its dynamics. This adjustment is made by considering the robot's step length capabilities and the distance to the target, ensuring that the robot's motion is optimized for both feasibility and quality.
+
+The key insights that led to this design are:
+1. The fixed step length of 0.4 meters may not be optimal for all distances to the target, leading to motion inconsistencies and suboptimal performance.
+2. Dynamically adjusting the step length based on the distance to the target can improve the robot's motion consistency and feasibility, leading to better performance.
+3. The number of walking steps required can be calculated based on the distance to the target and the adjusted step length, ensuring that the robot's motion is feasible and consistent with its dynamics.
+
+By implementing these insights, we can create a more robust and efficient contact plan that better aligns with the robot's capabilities and the task requirements.
+</DESCRIPTION>
+
+<CODE>
+```python
+"""MotionDisco's initial contact plan for generated reach_position tasks."""
+
+from math import ceil, dist
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    task = load_task()
+    start = task.resolved_state.robots[task.robot_id].q[:2]
+    target = task.terminal_goal.robots[task.robot_id].xyz[:2]
+    distance = dist(start, target)
+    
+    # Adjust step length based on distance to target
+    if distance < 1.0:
+        step_length = 0.3
+    elif distance < 2.0:
+        step_length = 0.4
+    else:
+        step_length = 0.5
+    
+    # Calculate number of walking steps required
+    n_steps = ceil(distance / step_length)
+    
+    # Append walking steps to plan
+    walk(plan, n_steps)
+    
+    return plan
+# EVOLVE-BLOCK-END
+
+from _task_loader import load_task
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    scene = get_default_scene()
+    return generate_contact_plan(scene), scene
+```
+</CODE>

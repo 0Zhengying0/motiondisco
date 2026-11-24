@@ -1,0 +1,33 @@
+<NAME>
+Ensure the robot releases the yellow box from the floor before picking it up and places it correctly on the table by adding intermediate modes.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def append_pick_mode(plan: Dict[str, List[Tuple]]) -> None:
+    """Append a mode where the robot picks up the yellow box."""
+    append_mode(plan, left_ee=(8, 1), yellow_box=(1, 1))
+=======
+def append_pick_mode(plan: Dict[str, List[Tuple]]) -> None:
+    """Append a mode where the robot picks up the yellow box."""
+    # Release the yellow box from the floor
+    append_mode(plan, yellow_box=())
+    # Pick up the yellow box with the left hand
+    append_mode(plan, left_ee=(8, 1), yellow_box=(1, 1))
+>>>>>>> REPLACE
+</DIFF>
+
+<DIFF>
+<<<<<<< SEARCH
+def append_place_mode(plan: Dict[str, List[Tuple]]) -> None:
+    """Append a mode where the robot places the yellow box on the table."""
+    append_mode(plan, left_ee=(2, 1), yellow_box=(6, 2, 1))
+=======
+def append_place_mode(plan: Dict[str, List[Tuple]]) -> None:
+    """Append a mode where the robot places the yellow box on the table."""
+    # Release the yellow box from the left hand
+    append_mode(plan, left_ee=(), yellow_box=(1, 1))
+    # Place the yellow box on the table
+    append_mode(plan, left_ee=(2, 1), yellow_box=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

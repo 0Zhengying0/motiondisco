@@ -1,0 +1,506 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        13,
+        1
+      ]
+    ],
+    "right_ee": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "box1": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [],
+      [
+        6,
+        2,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 7,
+    "num_channels": 5,
+    "well_formed_fraction": 1.0,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 0.8333333333333334,
+    "object_passive_fraction": 1.0,
+    "structure_score": 0.9666666666666668,
+    "efficiency": 0.41666666666666663,
+    "combined_score": 1.3833333333333333,
+    "violations": [
+      "transition 3->4: no contact changes (noop)"
+    ]
+  },
+  "goal_match": true,
+  "ik_feasible": false,
+  "ik_cost": null,
+  "to_converged": null,
+  "to_cost": null,
+  "ik_run_path": null,
+  "to_run_path": null,
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": {
+    "kind": "prefix",
+    "last_feasible_modes": 3,
+    "first_infeasible_modes": 4,
+    "total_modes": 7,
+    "solver_error": null,
+    "prefix_attempts": 4,
+    "prefix_trials": [
+      {
+        "modes": 2,
+        "feasible": true,
+        "tries": 1
+      },
+      {
+        "modes": 4,
+        "feasible": false,
+        "tries": 4
+      },
+      {
+        "modes": 3,
+        "feasible": true,
+        "tries": 1
+      }
+    ],
+    "kso_attempts": 3,
+    "best_max_violation": 0.07533118266238353,
+    "prefix_violation_details": [
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.3707018990757667,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "box1 bottom",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left wrist",
+        "family": "collision",
+        "value": 0.010748100927937298,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "box1",
+        "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.3707289042118065,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "box1 bottom",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left wrist",
+        "family": "collision",
+        "value": 0.010721095814833544,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "box1",
+        "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.3707484247369513,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "box1 bottom",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left wrist",
+        "family": "collision",
+        "value": 0.010701575295414137,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "box1",
+        "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left_ee",
+        "family": "gap",
+        "value": 0.3707484247369513,
+        "unit": "m",
+        "sign": -1.0,
+        "other": "box1 bottom",
+        "raw": "k=9:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[0]",
+        "attempts": 4
+      },
+      {
+        "solver": "kso",
+        "mode": 3,
+        "subject": "left wrist",
+        "family": "collision",
+        "value": 0.010701575295414137,
+        "unit": "m",
+        "sign": 1.0,
+        "other": "box1",
+        "raw": "k=9:terminal:n_d2208383a668bac74b5c44726ef4d827539b3299a10d7aafeb0820f0c888d115_distance[0]",
+        "attempts": 4
+      }
+    ],
+    "prefix_tries": 4,
+    "break_event": "left_ee -> box1 bottom",
+    "probe": {
+      "fixed_by": null,
+      "tried": [
+        {
+          "before_mode": 3,
+          "n_steps": 2,
+          "event": "left_ee -> box1 bottom",
+          "modes": 10,
+          "result": "still infeasible"
+        },
+        {
+          "before_mode": 1,
+          "n_steps": 2,
+          "event": "left_ee -> floor surface",
+          "modes": 10,
+          "result": "still infeasible"
+        }
+      ],
+      "skipped": null
+    },
+    "diagnosis_seconds": 344.4,
+    "events_total": 5,
+    "events_feasible": 2
+  },
+  "kso_violations": [
+    {
+      "solver": "kso",
+      "mode": 4,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07565616150499538,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 3,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07563912568620865,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=6:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 5,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07548105771085839,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left wrist",
+      "family": "collision",
+      "value": 0.050615162766604896,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "table1",
+      "raw": "k=9:path:n_d3b4b375387a19b89de2a0f10bc599ac69b15b9af647249eae6753345e5d5163_distance[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left wrist",
+      "family": "collision",
+      "value": 0.050419530283549896,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "table1",
+      "raw": "k=10:terminal:n_d3b4b375387a19b89de2a0f10bc599ac69b15b9af647249eae6753345e5d5163_distance[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 3,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07533118266238353,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=6:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 4,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07520321748918588,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 5,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.075100319079765,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07193597299979193,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "table1 top",
+      "raw": "k=9:path:Stage_box1_kin_eqs[0]",
+      "attempts": 1
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left wrist",
+      "family": "collision",
+      "value": 0.05430119244902475,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "table1",
+      "raw": "k=10:terminal:n_d3b4b375387a19b89de2a0f10bc599ac69b15b9af647249eae6753345e5d5163_distance[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 4,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07568191092660218,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=7:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 3,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07566947719525552,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=6:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 5,
+      "subject": "box1",
+      "family": "gap",
+      "value": 0.07550902597928588,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "floor surface",
+      "raw": "k=8:path:Stage_box1_kin_eqs[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left wrist",
+      "family": "collision",
+      "value": 0.05062002345251306,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "table1",
+      "raw": "k=9:path:n_d3b4b375387a19b89de2a0f10bc599ac69b15b9af647249eae6753345e5d5163_distance[0]",
+      "attempts": 3
+    },
+    {
+      "solver": "kso",
+      "mode": 6,
+      "subject": "left wrist",
+      "family": "collision",
+      "value": 0.05042246712896288,
+      "unit": "m",
+      "sign": 1.0,
+      "other": "table1",
+      "raw": "k=10:terminal:n_d3b4b375387a19b89de2a0f10bc599ac69b15b9af647249eae6753345e5d5163_distance[0]",
+      "attempts": 3
+    }
+  ],
+  "to_status": null,
+  "to_violations": null,
+  "to_valid": null,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": null,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "left_ee:->1.1|left_ee:1.1>-|left_ee:->13.1|box1:6.1.1>-|box1:->6.2.1",
+  "plan_novelty": null,
+  "plan_patches": "box1:6.1.1,6.2.1|left_ee:1.1,13.1|left_sole:1.1|right_ee:-|right_sole:1.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": null,
+  "to_cost_parts": null
+}

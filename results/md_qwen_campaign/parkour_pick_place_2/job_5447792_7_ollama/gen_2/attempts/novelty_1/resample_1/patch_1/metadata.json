@@ -1,0 +1,14 @@
+{
+  "generation": 2,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "Extend plan with a valid final mode",
+  "patch_description": "The current plan has only one mode, which is the initial mode. To satisfy the task, we need to extend the plan with at least one more mode that differs from the initial one and ends with the white_box contacting the table_tall surface. This will ensure that the plan has at least two modes and meets the discrete contact goal.",
+  "error_msg": null,
+  "timestamp": "2026-11-18T03:31:09.147319",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

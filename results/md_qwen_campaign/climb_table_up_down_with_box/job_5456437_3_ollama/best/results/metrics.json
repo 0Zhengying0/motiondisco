@@ -1,0 +1,33 @@
+{
+    "combined_score": 0.3229272421601246,
+    "public": {
+        "num_modes": 2,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": true,
+        "to_valid": true,
+        "to_cost": 2.096672777777437,
+        "violations": [
+            "transition 0->1: no contact changes (noop)"
+        ],
+        "to_max_violation": 0.005005128897423106,
+        "to_jerk_per_mode": 17.85070203667716
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.8,
+        "efficiency": 0.8333333333333334,
+        "ik_mode": "soft",
+        "ik_cost": 0.0,
+        "to_mode": "off"
+    },
+    "execution_time_mean": 0.5174239690240938,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

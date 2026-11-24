@@ -1,0 +1,28 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/gen_12/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/gen_12/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/gen_12/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/gen_12/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.58 seconds==========
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/gen_12/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/gen_12/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/gen_12/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 14, 'goal_match': False, 'ik_feasible': None, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['discrete goal: white_box final mode is (1, 2, 1), expected ()', 'transition 6->7: no contact changes (noop)', 'white_box transition 7->8: object teleported from (6, 1, 1) to (1, 1, 1) without going free', 'white_box transition 12->13: object teleported from (1, 1, 1) to (1, 2, 1) without going free']}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 0.9230769230769231, 'object_passive_fraction': 0.8461538461538461, 'structure_score': 0.9538461538461538, 'efficiency': 0.0}
+  execution_time_mean: 0.575136758008739
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

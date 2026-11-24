@@ -1,0 +1,14 @@
+{
+  "generation": 2,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The refactored program introduces a new function, `build_contact_plan`, which encapsulates the logic for building the contact plan. This function uses helper functions to append modes and perform walking steps. By breaking down the task into smaller functions, the code becomes more modular and easier to manage. The main function, `generate_contact_plan`, remains focused on generating the plan and calls `build_contact_plan` to do the heavy lifting. This separation of concerns improves the code's readability and maintainability.",
+  "error_msg": null,
+  "timestamp": "2026-11-19T00:31:49.333323",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

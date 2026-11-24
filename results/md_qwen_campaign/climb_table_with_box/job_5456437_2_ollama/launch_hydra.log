@@ -1,0 +1,469 @@
+[2026-11-18 23:03:38,291][shinka.core.async_runner][INFO] - Pricing catalog: source=bundled fetched_at=None stale=False sha256=954fcee02e2774d82535a05ccdba548cf12dc6867467370e1d6cf19153b0efa9
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - ASYNC EVOLUTION RUN STARTED
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - Max evaluation jobs: 1
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - Max proposal jobs: 1
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - Target generations: 13
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - Language: python
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - Results directory: results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - Log file: results/md_qwen_campaign/climb_table_with_box/job_5456437_2_ollama/evolution_run.log
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - Max API costs: $100.00
+[2026-11-18 23:03:38,293][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-18 23:03:38,538][shinka.database.async_dbase][INFO] - 🔧 AsyncDB initialized with 2 workers, 2 concurrent DB ops (WAL mode)
+[2026-11-18 23:03:47,426][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:03:47,449][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:03:48,216][shinka.database.dbase][INFO] - Program bc7e7d97-190f-445d-bc89-49f935f07f5b added to DB - score: 0.0.
+[2026-11-18 23:03:48,227][shinka.database.dbase][INFO] - New best program: bc7e7d97-190f-445d-bc89-49f935f07f5b (gen: 0, score: 0.0000, initialized island: 0).
+[2026-11-18 23:03:48,227][shinka.database.dbase][INFO] - Creating copies of initial program bc7e7d97-190f-445d-bc89-49f935f07f5b for all islands
+[2026-11-18 23:03:48,229][shinka.database.islands][INFO] - Created copy c4c649bd... of program bc7e7d97... for island 1
+[2026-11-18 23:03:48,230][shinka.database.islands][INFO] - Created copy fd142c5f... of program bc7e7d97... for island 2
+[2026-11-18 23:03:48,230][shinka.database.islands][INFO] - Created copy 07156d36... of program bc7e7d97... for island 3
+[2026-11-18 23:03:48,231][shinka.database.islands][INFO] - Created 3 copies of program bc7e7d97... for islands 1-3
+[2026-11-18 23:03:48,269][shinka.core.async_runner][INFO] - 🔄 Job monitor task started
+[2026-11-18 23:03:48,269][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=0.00s, evaluation_ewma=0.00s, timing_samples=0, active_proposals=0, running_jobs=0)
+[2026-11-18 23:03:48,281][shinka.database.parents][INFO] - Island 3 => Probabilities: [1.0]
+[2026-11-18 23:03:48,281][shinka.database.parents][INFO] - Island 3 => Scores: [0.0]
+[2026-11-18 23:03:48,281][shinka.database.parents][INFO] - Sampled parent 07156d36-cab1-4870-8476-3cc5145005ea (Gen: 0, Score: 0.0000, Children: 0, Island: 3)
+[2026-11-18 23:03:48,297][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:03:48,297][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:04:20,932][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:04:20,958][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:04:25,404][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:04:25,406][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:04:25,661][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.95']
+[2026-11-18 23:04:25,661][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program due to low similarity (0.945 <= 0.99)
+[2026-11-18 23:04:32,062][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1386877) (gen 1)
+[2026-11-18 23:04:32,067][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1386877): True
+[2026-11-18 23:04:32,067][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1386877) has valid results - correct=True, score=0.0
+[2026-11-18 23:04:32,068][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1386877) (gen 1)...
+[2026-11-18 23:04:32,094][shinka.database.dbase][INFO] - Program 1dc82a19-b203-491a-b24b-5b8551fd5f0a added to DB - score: 0.0.
+[2026-11-18 23:04:32,098][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 1dc82a19-b203-491a-b24b-5b8551fd5f0a successfully added to database for ProcessWithLogging(PID: 1386877) (gen 1)
+[2026-11-18 23:04:32,122][shinka.database.dbase][INFO] - New best program: 1dc82a19-b203-491a-b24b-5b8551fd5f0a (gen: 0 → 1, score: 0.0000 → 0.0000, island: 0 → 3)
+[2026-11-18 23:04:32,189][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1386877) - program 1dc82a19-b203-491a-b24b-5b8551fd5f0a added (gen 1)
+[2026-11-18 23:04:32,189][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:04:32,195][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=37.60s, evaluation_ewma=6.20s, timing_samples=1, active_proposals=0, running_jobs=0)
+[2026-11-18 23:04:32,205][shinka.database.parents][INFO] - Island 3 => Probabilities: [0.3333333333333333, 0.6666666666666666]
+[2026-11-18 23:04:32,206][shinka.database.parents][INFO] - Island 3 => Scores: [0.0, 0.0]
+[2026-11-18 23:04:32,206][shinka.database.parents][INFO] - Sampled parent 1dc82a19-b203-491a-b24b-5b8551fd5f0a (Gen: 1, Score: 0.0000, Children: 0, Island: 3)
+[2026-11-18 23:04:32,210][shinka.database.inspirations][INFO] - Sampled 1 archive inspirations: ['07156d36-cab1-4870-8476-3cc5145005ea (Gen: 0, Score: 0.0000, Island: 3)']
+[2026-11-18 23:04:32,219][shinka.database.inspirations][INFO] - Built context: 1 programs (ascending, scores: ['0.0000'])
+[2026-11-18 23:04:32,219][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:04:32,219][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:04:56,631][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:04:56,632][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:05:01,097][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:05:01,099][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:05:01,348][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['1.00', '0.94']
+[2026-11-18 23:05:01,569][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:05:09,828][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:05:09,829][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:05:09,829][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Rejecting program due to high similarity (0.998 > 0.99)
+[2026-11-18 23:05:10,457][shinka.database.parents][INFO] - Island 3 => Probabilities: [0.3333333333333333, 0.6666666666666666]
+[2026-11-18 23:05:10,457][shinka.database.parents][INFO] - Island 3 => Scores: [0.0, 0.0]
+[2026-11-18 23:05:10,457][shinka.database.parents][INFO] - Sampled parent 1dc82a19-b203-491a-b24b-5b8551fd5f0a (Gen: 1, Score: 0.0000, Children: 0, Island: 3)
+[2026-11-18 23:05:10,554][shinka.database.inspirations][INFO] - Sampled 1 archive inspirations: ['07156d36-cab1-4870-8476-3cc5145005ea (Gen: 0, Score: 0.0000, Island: 3)']
+[2026-11-18 23:05:10,563][shinka.database.inspirations][INFO] - Built context: 1 programs (ascending, scores: ['0.0000'])
+[2026-11-18 23:05:10,563][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:05:10,563][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:06:09,608][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:06:09,641][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:06:15,217][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:06:15,219][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:06:15,339][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.99', '0.95']
+[2026-11-18 23:06:15,467][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:06:25,536][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:06:25,536][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:06:25,536][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program despite high similarity (0.991 > 0.99) due to LLM novelty check (cost: 0.0000).
+[2026-11-18 23:06:32,173][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1403174) (gen 2)
+[2026-11-18 23:06:32,177][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1403174): True
+[2026-11-18 23:06:32,177][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1403174) has valid results - correct=True, score=0.0
+[2026-11-18 23:06:32,178][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1403174) (gen 2)...
+[2026-11-18 23:06:32,206][shinka.database.dbase][INFO] - Program d23b915b-7434-4285-8a9b-48cb7db846cc added to DB - score: 0.0.
+[2026-11-18 23:06:32,211][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program d23b915b-7434-4285-8a9b-48cb7db846cc successfully added to database for ProcessWithLogging(PID: 1403174) (gen 2)
+[2026-11-18 23:06:32,241][shinka.database.dbase][INFO] - New best program: d23b915b-7434-4285-8a9b-48cb7db846cc (gen: 1 → 2, score: 0.0000 → 0.0000, island: 3 → 3)
+[2026-11-18 23:06:32,274][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1403174) - program d23b915b-7434-4285-8a9b-48cb7db846cc added (gen 2)
+[2026-11-18 23:06:32,274][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:06:32,280][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=60.37s, evaluation_ewma=6.28s, timing_samples=2, active_proposals=0, running_jobs=0)
+[2026-11-18 23:06:32,291][shinka.database.parents][INFO] - Island 3 => Probabilities: [0.25, 0.25, 0.5]
+[2026-11-18 23:06:32,291][shinka.database.parents][INFO] - Island 3 => Scores: [0.0, 0.0, 0.0]
+[2026-11-18 23:06:32,291][shinka.database.parents][INFO] - Sampled parent d23b915b-7434-4285-8a9b-48cb7db846cc (Gen: 2, Score: 0.0000, Children: 0, Island: 3)
+[2026-11-18 23:06:32,295][shinka.database.inspirations][INFO] - Sampled 2 archive inspirations: ['07156d36-cab1-4870-8476-3cc5145005ea (Gen: 0, Score: 0.0000, Island: 3)', '1dc82a19-b203-491a-b24b-5b8551fd5f0a (Gen: 1, Score: 0.0000, Island: 3)']
+[2026-11-18 23:06:32,306][shinka.database.inspirations][INFO] - Built context: 2 programs (ascending, scores: ['0.0000', '0.0000'])
+[2026-11-18 23:06:32,306][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:06:32,307][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:07:14,597][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:07:14,597][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:07:19,301][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:07:19,303][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:07:19,521][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['1.00', '0.99', '0.95']
+[2026-11-18 23:07:19,729][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:07:26,615][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:07:26,616][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:07:26,616][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program despite high similarity (1.000 > 0.99) due to LLM novelty check (cost: 0.0000).
+[2026-11-18 23:07:33,166][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1411421) (gen 3)
+[2026-11-18 23:07:33,170][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1411421): True
+[2026-11-18 23:07:33,171][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1411421) has valid results - correct=True, score=0.0
+[2026-11-18 23:07:33,171][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1411421) (gen 3)...
+[2026-11-18 23:07:33,199][shinka.database.dbase][INFO] - Program d6807f8d-4d43-4d91-8675-a10bd57e4355 added to DB - score: 0.0.
+[2026-11-18 23:07:33,203][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program d6807f8d-4d43-4d91-8675-a10bd57e4355 successfully added to database for ProcessWithLogging(PID: 1411421) (gen 3)
+[2026-11-18 23:07:33,228][shinka.database.dbase][INFO] - New best program: d6807f8d-4d43-4d91-8675-a10bd57e4355 (gen: 2 → 3, score: 0.0000 → 0.0000, island: 3 → 3)
+[2026-11-18 23:07:33,255][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1411421) - program d6807f8d-4d43-4d91-8675-a10bd57e4355 added (gen 3)
+[2026-11-18 23:07:33,255][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:07:33,261][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=58.63s, evaluation_ewma=6.29s, timing_samples=3, active_proposals=0, running_jobs=0)
+[2026-11-18 23:07:33,271][shinka.database.parents][INFO] - Island 2 => Probabilities: [1.0]
+[2026-11-18 23:07:33,271][shinka.database.parents][INFO] - Island 2 => Scores: [0.0]
+[2026-11-18 23:07:33,271][shinka.database.parents][INFO] - Sampled parent fd142c5f-ec98-4e4f-81f5-a9a2fb082599 (Gen: 0, Score: 0.0000, Children: 0, Island: 2)
+[2026-11-18 23:07:33,282][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:07:33,283][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:08:04,316][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:08:04,317][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:08:08,585][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:08:08,587][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:08:08,821][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.89']
+[2026-11-18 23:08:08,821][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program due to low similarity (0.894 <= 0.99)
+[2026-11-18 23:08:14,621][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1417287) (gen 4)
+[2026-11-18 23:08:14,625][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1417287): True
+[2026-11-18 23:08:14,625][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1417287) has valid results - correct=True, score=0.0
+[2026-11-18 23:08:14,626][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1417287) (gen 4)...
+[2026-11-18 23:08:14,655][shinka.database.dbase][INFO] - Program ed5441ca-82de-4bbd-aaec-afe03452b1ea added to DB - score: 0.0.
+[2026-11-18 23:08:14,659][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program ed5441ca-82de-4bbd-aaec-afe03452b1ea successfully added to database for ProcessWithLogging(PID: 1417287) (gen 4)
+[2026-11-18 23:08:14,688][shinka.database.dbase][INFO] - New best program: ed5441ca-82de-4bbd-aaec-afe03452b1ea (gen: 3 → 4, score: 0.0000 → 0.0000, island: 3 → 2)
+[2026-11-18 23:08:14,727][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1417287) - program ed5441ca-82de-4bbd-aaec-afe03452b1ea added (gen 4)
+[2026-11-18 23:08:14,727][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:08:14,732][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=51.80s, evaluation_ewma=6.06s, timing_samples=4, active_proposals=0, running_jobs=0)
+[2026-11-18 23:08:14,743][shinka.database.parents][INFO] - Island 0 => Probabilities: [1.0]
+[2026-11-18 23:08:14,743][shinka.database.parents][INFO] - Island 0 => Scores: [0.0]
+[2026-11-18 23:08:14,743][shinka.database.parents][INFO] - Sampled parent bc7e7d97-190f-445d-bc89-49f935f07f5b (Gen: 0, Score: 0.0000, Children: 0, Island: 0)
+[2026-11-18 23:08:14,754][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:08:14,755][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:08:31,846][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:08:31,847][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:08:37,271][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:08:37,273][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:08:37,479][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.99']
+[2026-11-18 23:08:37,666][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:08:47,970][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:08:47,971][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:08:47,971][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program despite high similarity (0.990 > 0.99) due to LLM novelty check (cost: 0.0000).
+[2026-11-18 23:08:54,712][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1436589) (gen 5)
+[2026-11-18 23:08:54,717][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1436589): True
+[2026-11-18 23:08:54,717][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1436589) has valid results - correct=True, score=0.0
+[2026-11-18 23:08:54,717][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1436589) (gen 5)...
+[2026-11-18 23:08:54,744][shinka.database.dbase][INFO] - Program 45b42bbf-2209-42c1-afe7-fa60a186927d added to DB - score: 0.0.
+[2026-11-18 23:08:54,748][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 45b42bbf-2209-42c1-afe7-fa60a186927d successfully added to database for ProcessWithLogging(PID: 1436589) (gen 5)
+[2026-11-18 23:08:54,774][shinka.database.dbase][INFO] - New best program: 45b42bbf-2209-42c1-afe7-fa60a186927d (gen: 4 → 5, score: 0.0000 → 0.0000, island: 2 → 0)
+[2026-11-18 23:08:54,804][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1436589) - program 45b42bbf-2209-42c1-afe7-fa60a186927d added (gen 5)
+[2026-11-18 23:08:54,804][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:08:54,809][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=46.32s, evaluation_ewma=6.18s, timing_samples=5, active_proposals=0, running_jobs=0)
+[2026-11-18 23:08:54,820][shinka.database.parents][INFO] - Island 3 => Probabilities: [0.2, 0.2, 0.2, 0.4]
+[2026-11-18 23:08:54,820][shinka.database.parents][INFO] - Island 3 => Scores: [0.0, 0.0, 0.0, 0.0]
+[2026-11-18 23:08:54,820][shinka.database.parents][INFO] - Sampled parent d6807f8d-4d43-4d91-8675-a10bd57e4355 (Gen: 3, Score: 0.0000, Children: 0, Island: 3)
+[2026-11-18 23:08:54,825][shinka.database.inspirations][INFO] - Sampled 3 archive inspirations: ['07156d36-cab1-4870-8476-3cc5145005ea (Gen: 0, Score: 0.0000, Island: 3)', '1dc82a19-b203-491a-b24b-5b8551fd5f0a (Gen: 1, Score: 0.0000, Island: 3)', 'd23b915b-7434-4285-8a9b-48cb7db846cc (Gen: 2, Score: 0.0000, Island: 3)']
+[2026-11-18 23:08:54,838][shinka.database.inspirations][INFO] - Built context: 3 programs (ascending, scores: ['0.0000', '0.0000', '0.0000'])
+[2026-11-18 23:08:54,838][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:08:54,838][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:09:40,666][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:09:40,667][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:09:45,189][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:09:45,191][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:09:45,433][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['1.00', '1.00', '0.99', '0.95']
+[2026-11-18 23:09:45,600][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:09:51,776][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:09:51,777][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:09:51,777][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Rejecting program due to high similarity (1.000 > 0.99)
+[2026-11-18 23:09:52,056][shinka.database.parents][INFO] - Island 3 => Probabilities: [0.2, 0.2, 0.2, 0.4]
+[2026-11-18 23:09:52,056][shinka.database.parents][INFO] - Island 3 => Scores: [0.0, 0.0, 0.0, 0.0]
+[2026-11-18 23:09:52,056][shinka.database.parents][INFO] - Sampled parent 1dc82a19-b203-491a-b24b-5b8551fd5f0a (Gen: 1, Score: 0.0000, Children: 1, Island: 3)
+[2026-11-18 23:09:52,062][shinka.database.inspirations][INFO] - Sampled 3 archive inspirations: ['07156d36-cab1-4870-8476-3cc5145005ea (Gen: 0, Score: 0.0000, Island: 3)', 'd23b915b-7434-4285-8a9b-48cb7db846cc (Gen: 2, Score: 0.0000, Island: 3)', 'd6807f8d-4d43-4d91-8675-a10bd57e4355 (Gen: 3, Score: 0.0000, Island: 3)']
+[2026-11-18 23:09:52,183][shinka.database.inspirations][INFO] - Built context: 3 programs (ascending, scores: ['0.0000', '0.0000', '0.0000'])
+[2026-11-18 23:09:52,184][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:09:52,184][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:10:44,923][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:10:44,944][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:10:49,277][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:10:49,279][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:10:49,542][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.97', '0.97', '0.97', '0.95']
+[2026-11-18 23:10:49,542][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program due to low similarity (0.969 <= 0.99)
+[2026-11-18 23:10:56,261][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1450743) (gen 6)
+[2026-11-18 23:10:56,264][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1450743): True
+[2026-11-18 23:10:56,265][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1450743) has valid results - correct=True, score=0.0
+[2026-11-18 23:10:56,265][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1450743) (gen 6)...
+[2026-11-18 23:10:56,294][shinka.database.dbase][INFO] - Program 6f6bb848-25eb-4aed-a542-9ad3201cbf2c added to DB - score: 0.0.
+[2026-11-18 23:10:56,300][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 6f6bb848-25eb-4aed-a542-9ad3201cbf2c successfully added to database for ProcessWithLogging(PID: 1450743) (gen 6)
+[2026-11-18 23:10:56,326][shinka.database.dbase][INFO] - New best program: 6f6bb848-25eb-4aed-a542-9ad3201cbf2c (gen: 5 → 6, score: 0.0000 → 0.0000, island: 0 → 3)
+[2026-11-18 23:10:56,354][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1450743) - program 6f6bb848-25eb-4aed-a542-9ad3201cbf2c added (gen 6)
+[2026-11-18 23:10:56,354][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:10:56,360][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=66.91s, evaluation_ewma=6.28s, timing_samples=6, active_proposals=0, running_jobs=0)
+[2026-11-18 23:10:56,370][shinka.database.parents][INFO] - Island 2 => Probabilities: [0.3333333333333333, 0.6666666666666666]
+[2026-11-18 23:10:56,370][shinka.database.parents][INFO] - Island 2 => Scores: [0.0, 0.0]
+[2026-11-18 23:10:56,370][shinka.database.parents][INFO] - Sampled parent fd142c5f-ec98-4e4f-81f5-a9a2fb082599 (Gen: 0, Score: 0.0000, Children: 1, Island: 2)
+[2026-11-18 23:10:56,375][shinka.database.inspirations][INFO] - Sampled 1 archive inspirations: ['ed5441ca-82de-4bbd-aaec-afe03452b1ea (Gen: 4, Score: 0.0000, Island: 2)']
+[2026-11-18 23:10:56,384][shinka.database.inspirations][INFO] - Built context: 1 programs (ascending, scores: ['0.0000'])
+[2026-11-18 23:10:56,384][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:10:56,384][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:11:20,280][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:11:20,281][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:11:25,815][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:11:25,817][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:11:26,057][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.95', '0.95']
+[2026-11-18 23:11:26,057][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program due to low similarity (0.955 <= 0.99)
+[2026-11-18 23:11:31,692][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1452637) (gen 7)
+[2026-11-18 23:11:31,696][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1452637): True
+[2026-11-18 23:11:31,696][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1452637) has valid results - correct=True, score=0.0
+[2026-11-18 23:11:31,697][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1452637) (gen 7)...
+[2026-11-18 23:11:31,727][shinka.database.dbase][INFO] - Program 94dc9af2-6997-4461-a0c3-64f9de7937fa added to DB - score: 0.0.
+[2026-11-18 23:11:31,731][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 94dc9af2-6997-4461-a0c3-64f9de7937fa successfully added to database for ProcessWithLogging(PID: 1452637) (gen 7)
+[2026-11-18 23:11:31,757][shinka.database.dbase][INFO] - New best program: 94dc9af2-6997-4461-a0c3-64f9de7937fa (gen: 6 → 7, score: 0.0000 → 0.0000, island: 3 → 2)
+[2026-11-18 23:11:31,784][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1452637) - program 94dc9af2-6997-4461-a0c3-64f9de7937fa added (gen 7)
+[2026-11-18 23:11:31,784][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:11:31,789][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=55.80s, evaluation_ewma=6.03s, timing_samples=7, active_proposals=0, running_jobs=0)
+[2026-11-18 23:11:31,800][shinka.database.parents][INFO] - Island 1 => Probabilities: [1.0]
+[2026-11-18 23:11:31,800][shinka.database.parents][INFO] - Island 1 => Scores: [0.0]
+[2026-11-18 23:11:31,800][shinka.database.parents][INFO] - Sampled parent c4c649bd-0cc3-4235-ba88-8fc77d20408f (Gen: 0, Score: 0.0000, Children: 0, Island: 1)
+[2026-11-18 23:11:31,811][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:11:31,811][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:11:53,198][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:11:53,199][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:11:57,961][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:11:57,963][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:11:58,202][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.95']
+[2026-11-18 23:11:58,202][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program due to low similarity (0.948 <= 0.99)
+[2026-11-18 23:12:04,615][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1453521) (gen 8)
+[2026-11-18 23:12:04,619][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1453521): True
+[2026-11-18 23:12:04,619][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1453521) has valid results - correct=True, score=0.0
+[2026-11-18 23:12:04,619][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1453521) (gen 8)...
+[2026-11-18 23:12:04,645][shinka.database.dbase][INFO] - Program 3cceaa4c-4ac9-48d9-abfe-145c4c3c3795 added to DB - score: 0.0.
+[2026-11-18 23:12:04,649][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 3cceaa4c-4ac9-48d9-abfe-145c4c3c3795 successfully added to database for ProcessWithLogging(PID: 1453521) (gen 8)
+[2026-11-18 23:12:04,675][shinka.database.dbase][INFO] - New best program: 3cceaa4c-4ac9-48d9-abfe-145c4c3c3795 (gen: 7 → 8, score: 0.0000 → 0.0000, island: 2 → 1)
+[2026-11-18 23:12:04,704][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1453521) - program 3cceaa4c-4ac9-48d9-abfe-145c4c3c3795 added (gen 8)
+[2026-11-18 23:12:04,704][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:12:04,710][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=47.05s, evaluation_ewma=6.07s, timing_samples=8, active_proposals=0, running_jobs=0)
+[2026-11-18 23:12:04,722][shinka.database.parents][INFO] - Island 0 => Probabilities: [0.3333333333333333, 0.6666666666666666]
+[2026-11-18 23:12:04,722][shinka.database.parents][INFO] - Island 0 => Scores: [0.0, 0.0]
+[2026-11-18 23:12:04,722][shinka.database.parents][INFO] - Sampled parent 45b42bbf-2209-42c1-afe7-fa60a186927d (Gen: 5, Score: 0.0000, Children: 0, Island: 0)
+[2026-11-18 23:12:04,726][shinka.database.inspirations][INFO] - Sampled 1 archive inspirations: ['bc7e7d97-190f-445d-bc89-49f935f07f5b (Gen: 0, Score: 0.0000, Island: 0)']
+[2026-11-18 23:12:04,736][shinka.database.inspirations][INFO] - Built context: 1 programs (ascending, scores: ['0.0000'])
+[2026-11-18 23:12:04,736][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:12:04,736][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:12:30,200][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:12:30,201][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:12:35,754][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:12:35,756][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:12:35,946][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.96', '0.95']
+[2026-11-18 23:12:35,946][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program due to low similarity (0.957 <= 0.99)
+[2026-11-18 23:12:41,718][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1455533) (gen 9)
+[2026-11-18 23:12:41,723][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1455533): True
+[2026-11-18 23:12:41,723][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1455533) has valid results - correct=True, score=0.0
+[2026-11-18 23:12:41,724][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1455533) (gen 9)...
+[2026-11-18 23:12:41,752][shinka.database.dbase][INFO] - Program 9b9755b7-2ee6-4d28-b51f-893638be5f3b added to DB - score: 0.0.
+[2026-11-18 23:12:41,756][shinka.database.async_dbase][INFO] - Scheduled embedding recomputation after 10 program additions
+[2026-11-18 23:12:41,756][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 9b9755b7-2ee6-4d28-b51f-893638be5f3b successfully added to database for ProcessWithLogging(PID: 1455533) (gen 9)
+[2026-11-18 23:12:41,783][shinka.database.dbase][INFO] - New best program: 9b9755b7-2ee6-4d28-b51f-893638be5f3b (gen: 8 → 9, score: 0.0000 → 0.0000, island: 1 → 0)
+[2026-11-18 23:12:41,812][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1455533) - program 9b9755b7-2ee6-4d28-b51f-893638be5f3b added (gen 9)
+[2026-11-18 23:12:41,813][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:12:41,818][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=42.39s, evaluation_ewma=5.90s, timing_samples=9, active_proposals=0, running_jobs=0)
+[2026-11-18 23:12:41,829][shinka.database.parents][INFO] - Island 0 => Probabilities: [0.25, 0.25, 0.5]
+[2026-11-18 23:12:41,829][shinka.database.parents][INFO] - Island 0 => Scores: [0.0, 0.0, 0.0]
+[2026-11-18 23:12:41,829][shinka.database.parents][INFO] - Sampled parent 9b9755b7-2ee6-4d28-b51f-893638be5f3b (Gen: 9, Score: 0.0000, Children: 0, Island: 0)
+[2026-11-18 23:12:41,833][shinka.database.inspirations][INFO] - Sampled 2 archive inspirations: ['bc7e7d97-190f-445d-bc89-49f935f07f5b (Gen: 0, Score: 0.0000, Island: 0)', '45b42bbf-2209-42c1-afe7-fa60a186927d (Gen: 5, Score: 0.0000, Island: 0)']
+[2026-11-18 23:12:41,845][shinka.database.inspirations][INFO] - Built context: 2 programs (ascending, scores: ['0.0000', '0.0000'])
+[2026-11-18 23:12:41,845][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:12:41,845][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:12:41,868][shinka.database.dbase][INFO] - Recomputing PCA-reduced embedding features for 13 programs.
+[2026-11-18 23:12:41,868][shinka.database.dbase][INFO] - Computing 2D PCA reduction...
+[2026-11-18 23:12:42,932][shinka.database.dbase][INFO] - 2D PCA reduction completed
+[2026-11-18 23:12:42,933][shinka.database.dbase][INFO] - Computing 3D PCA reduction...
+[2026-11-18 23:12:42,935][shinka.database.dbase][INFO] - 3D PCA reduction completed
+[2026-11-18 23:12:42,935][shinka.database.dbase][INFO] - Computing GMM clustering with 4 clusters...
+[2026-11-18 23:12:43,807][shinka.database.dbase][INFO] - GMM clustering completed
+[2026-11-18 23:12:43,813][shinka.database.dbase][INFO] - Successfully updated embedding features for 13 programs.
+[2026-11-18 23:12:43,814][shinka.database.async_dbase][INFO] - Background embedding recomputation completed
+[2026-11-18 23:12:59,124][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:12:59,125][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:13:04,750][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:13:04,752][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:13:04,971][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.99', '0.96', '0.95']
+[2026-11-18 23:13:05,136][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:13:13,033][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:13:13,033][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:13:13,033][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program despite high similarity (0.995 > 0.99) due to LLM novelty check (cost: 0.0000).
+[2026-11-18 23:13:19,398][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1457925) (gen 10)
+[2026-11-18 23:13:19,402][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1457925): True
+[2026-11-18 23:13:19,402][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1457925) has valid results - correct=True, score=0.0
+[2026-11-18 23:13:19,403][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1457925) (gen 10)...
+[2026-11-18 23:13:19,439][shinka.database.dbase][INFO] - Program 835595f7-329a-455b-b99e-50f3cff58a03 added to DB - score: 0.0.
+[2026-11-18 23:13:19,443][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 835595f7-329a-455b-b99e-50f3cff58a03 successfully added to database for ProcessWithLogging(PID: 1457925) (gen 10)
+[2026-11-18 23:13:19,471][shinka.database.dbase][INFO] - New best program: 835595f7-329a-455b-b99e-50f3cff58a03 (gen: 9 → 10, score: 0.0000 → 0.0000, island: 0 → 0)
+[2026-11-18 23:13:19,501][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1457925) - program 835595f7-329a-455b-b99e-50f3cff58a03 added (gen 10)
+[2026-11-18 23:13:19,501][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:13:19,508][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=39.09s, evaluation_ewma=5.99s, timing_samples=10, active_proposals=0, running_jobs=0)
+[2026-11-18 23:13:19,518][shinka.database.parents][INFO] - Island 1 => Probabilities: [0.3333333333333333, 0.6666666666666666]
+[2026-11-18 23:13:19,518][shinka.database.parents][INFO] - Island 1 => Scores: [0.0, 0.0]
+[2026-11-18 23:13:19,518][shinka.database.parents][INFO] - Sampled parent c4c649bd-0cc3-4235-ba88-8fc77d20408f (Gen: 0, Score: 0.0000, Children: 1, Island: 1)
+[2026-11-18 23:13:19,523][shinka.database.inspirations][INFO] - Sampled 1 archive inspirations: ['3cceaa4c-4ac9-48d9-abfe-145c4c3c3795 (Gen: 8, Score: 0.0000, Island: 1)']
+[2026-11-18 23:13:19,533][shinka.database.inspirations][INFO] - Built context: 1 programs (ascending, scores: ['0.0000'])
+[2026-11-18 23:13:19,533][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:13:19,534][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:13:45,062][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:13:45,063][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:13:49,485][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:13:49,487][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:13:49,736][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['1.00', '0.95']
+[2026-11-18 23:13:49,865][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:13:57,203][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:13:57,204][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:13:57,204][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Rejecting program due to high similarity (1.000 > 0.99)
+[2026-11-18 23:13:57,412][shinka.database.parents][INFO] - Island 3 => Probabilities: [0.15000000000000002, 0.1, 0.15000000000000002, 0.30000000000000004, 0.30000000000000004]
+[2026-11-18 23:13:57,412][shinka.database.parents][INFO] - Island 3 => Scores: [0.0, 0.0, 0.0, 0.0, 0.0]
+[2026-11-18 23:13:57,412][shinka.database.parents][INFO] - Sampled parent 1dc82a19-b203-491a-b24b-5b8551fd5f0a (Gen: 1, Score: 0.0000, Children: 2, Island: 3)
+[2026-11-18 23:13:57,451][shinka.database.inspirations][INFO] - Sampled 4 archive inspirations: ['07156d36-cab1-4870-8476-3cc5145005ea (Gen: 0, Score: 0.0000, Island: 3)', 'd6807f8d-4d43-4d91-8675-a10bd57e4355 (Gen: 3, Score: 0.0000, Island: 3)', '6f6bb848-25eb-4aed-a542-9ad3201cbf2c (Gen: 6, Score: 0.0000, Island: 3)', 'd23b915b-7434-4285-8a9b-48cb7db846cc (Gen: 2, Score: 0.0000, Island: 3)']
+[2026-11-18 23:13:57,466][shinka.database.inspirations][INFO] - Built context: 4 programs (ascending, scores: ['0.0000', '0.0000', '0.0000', '0.0000'])
+[2026-11-18 23:13:57,466][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:13:57,466][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:15:00,041][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:15:00,043][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:15:05,296][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:15:05,298][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:15:05,511][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['1.00', '0.97', '0.97', '0.96', '0.94']
+[2026-11-18 23:15:05,803][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:15:17,308][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:15:17,309][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:15:17,309][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Rejecting program due to high similarity (0.998 > 0.99)
+[2026-11-18 23:15:17,813][shinka.database.parents][INFO] - Island 0 => Probabilities: [0.2, 0.2, 0.2, 0.4]
+[2026-11-18 23:15:17,813][shinka.database.parents][INFO] - Island 0 => Scores: [0.0, 0.0, 0.0, 0.0]
+[2026-11-18 23:15:17,813][shinka.database.parents][INFO] - Sampled parent 835595f7-329a-455b-b99e-50f3cff58a03 (Gen: 10, Score: 0.0000, Children: 0, Island: 0)
+[2026-11-18 23:15:17,960][shinka.database.inspirations][INFO] - Sampled 3 archive inspirations: ['bc7e7d97-190f-445d-bc89-49f935f07f5b (Gen: 0, Score: 0.0000, Island: 0)', '45b42bbf-2209-42c1-afe7-fa60a186927d (Gen: 5, Score: 0.0000, Island: 0)', '9b9755b7-2ee6-4d28-b51f-893638be5f3b (Gen: 9, Score: 0.0000, Island: 0)']
+[2026-11-18 23:15:17,979][shinka.database.inspirations][INFO] - Built context: 3 programs (ascending, scores: ['0.0000', '0.0000', '0.0000'])
+[2026-11-18 23:15:17,979][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:15:17,979][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:15:57,834][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:15:57,834][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:16:02,361][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:16:02,363][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:16:02,673][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['1.00', '0.99', '0.96', '0.95']
+[2026-11-18 23:16:02,934][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:16:09,757][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:16:09,757][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:16:09,757][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Rejecting program due to high similarity (1.000 > 0.99)
+[2026-11-18 23:16:10,060][shinka.database.parents][INFO] - Island 1 => Probabilities: [0.3333333333333333, 0.6666666666666666]
+[2026-11-18 23:16:10,060][shinka.database.parents][INFO] - Island 1 => Scores: [0.0, 0.0]
+[2026-11-18 23:16:10,061][shinka.database.parents][INFO] - Sampled parent 3cceaa4c-4ac9-48d9-abfe-145c4c3c3795 (Gen: 8, Score: 0.0000, Children: 0, Island: 1)
+[2026-11-18 23:16:10,066][shinka.database.inspirations][INFO] - Sampled 1 archive inspirations: ['c4c649bd-0cc3-4235-ba88-8fc77d20408f (Gen: 0, Score: 0.0000, Island: 1)']
+[2026-11-18 23:16:10,097][shinka.database.inspirations][INFO] - Built context: 1 programs (ascending, scores: ['0.0000'])
+[2026-11-18 23:16:10,097][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:16:10,097][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:16:56,620][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:16:56,621][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:17:01,206][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:17:01,208][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:17:01,412][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.99', '0.95']
+[2026-11-18 23:17:01,555][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:17:13,533][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:17:13,533][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:17:13,534][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program despite high similarity (0.991 > 0.99) due to LLM novelty check (cost: 0.0000).
+[2026-11-18 23:39:27,319][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1467304) (gen 11)
+[2026-11-18 23:39:27,323][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1467304): True
+[2026-11-18 23:39:27,323][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1467304) has valid results - correct=True, score=0.001342625900829633
+[2026-11-18 23:39:27,324][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1467304) (gen 11)...
+[2026-11-18 23:39:27,357][shinka.database.dbase][INFO] - Program 388c2c8c-98b3-466c-91e6-ed8ad713232d added to DB - score: 0.001342625900829633.
+[2026-11-18 23:39:27,360][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program 388c2c8c-98b3-466c-91e6-ed8ad713232d successfully added to database for ProcessWithLogging(PID: 1467304) (gen 11)
+[2026-11-18 23:39:27,390][shinka.database.dbase][INFO] - New best program: 388c2c8c-98b3-466c-91e6-ed8ad713232d (gen: 10 → 11, score: 0.0000 → 0.0013, island: 0 → 1)
+[2026-11-18 23:39:27,582][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1467304) - program 388c2c8c-98b3-466c-91e6-ed8ad713232d added (gen 11)
+[2026-11-18 23:39:27,582][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:39:27,588][shinka.core.async_runner][INFO] - Proposal target=1 (sampling_ewma=97.63s, evaluation_ewma=404.27s, timing_samples=11, active_proposals=0, running_jobs=0)
+[2026-11-18 23:39:27,598][shinka.database.parents][INFO] - Island 2 => Probabilities: [0.14285714285714288, 0.4285714285714286, 0.4285714285714286]
+[2026-11-18 23:39:27,598][shinka.database.parents][INFO] - Island 2 => Scores: [0.0, 0.0, 0.0]
+[2026-11-18 23:39:27,598][shinka.database.parents][INFO] - Sampled parent fd142c5f-ec98-4e4f-81f5-a9a2fb082599 (Gen: 0, Score: 0.0000, Children: 2, Island: 2)
+[2026-11-18 23:39:27,604][shinka.database.inspirations][INFO] - Sampled 2 archive inspirations: ['ed5441ca-82de-4bbd-aaec-afe03452b1ea (Gen: 4, Score: 0.0000, Island: 2)', '94dc9af2-6997-4461-a0c3-64f9de7937fa (Gen: 7, Score: 0.0000, Island: 2)']
+[2026-11-18 23:39:27,631][shinka.database.inspirations][INFO] - Built context: 2 programs (ascending, scores: ['0.0000', '0.0000'])
+[2026-11-18 23:39:27,631][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:39:27,631][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:40:08,058][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:40:08,059][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:40:08,529][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:40:45,791][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:40:45,792][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:40:46,299][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:41:26,710][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:41:26,711][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:41:27,188][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:42:11,092][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:42:11,093][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:42:11,377][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:42:46,316][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:42:46,316][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:42:46,718][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.0', '16384']
+[2026-11-18 23:43:24,924][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:43:24,924][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:43:25,325][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:44:02,950][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:44:02,951][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:44:03,258][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '1.0', '16384']
+[2026-11-18 23:44:47,175][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:44:47,176][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:44:47,684][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:45:30,998][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:45:30,999][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:45:31,390][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:46:08,870][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:46:08,871][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:46:09,764][shinka.database.parents][INFO] - Island 2 => Probabilities: [0.14285714285714288, 0.4285714285714286, 0.4285714285714286]
+[2026-11-18 23:46:09,764][shinka.database.parents][INFO] - Island 2 => Scores: [0.0, 0.0, 0.0]
+[2026-11-18 23:46:09,764][shinka.database.parents][INFO] - Sampled parent 94dc9af2-6997-4461-a0c3-64f9de7937fa (Gen: 7, Score: 0.0000, Children: 0, Island: 2)
+[2026-11-18 23:46:09,770][shinka.database.inspirations][INFO] - Sampled 2 archive inspirations: ['fd142c5f-ec98-4e4f-81f5-a9a2fb082599 (Gen: 0, Score: 0.0000, Island: 2)', 'ed5441ca-82de-4bbd-aaec-afe03452b1ea (Gen: 4, Score: 0.0000, Island: 2)']
+[2026-11-18 23:46:09,803][shinka.database.inspirations][INFO] - Built context: 2 programs (ascending, scores: ['0.0000', '0.0000'])
+[2026-11-18 23:46:09,803][shinka.llm.llm][INFO] - ==> SAMPLING:
+  local/qwen2.5-coder:14b@http://localhost:11434/v1   1.0000
+[2026-11-18 23:46:09,803][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:14b@http://localhost:11434/v1', '0.5', '16384']
+[2026-11-18 23:46:59,814][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:46:59,814][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:47:04,516][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/embeddings "HTTP/1.1 200 OK"
+[2026-11-18 23:47:04,518][shinka.embed.embedding][WARNING] - Embedding model 'local/embeddinggemma@http://localhost:11434/v1' has no pricing entry. Defaulting embedding cost to 0.
+[2026-11-18 23:47:04,724][shinka.core.async_novelty_judge][INFO] - Top-5 similarity scores: ['0.99', '0.94', '0.94']
+[2026-11-18 23:47:04,775][shinka.llm.llm][INFO] - ==> QUERYING: ['local/qwen2.5-coder:7b@http://localhost:11434/v1', '0.75', '4096']
+[2026-11-18 23:47:13,376][httpx2][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2026-11-18 23:47:13,377][shinka.llm.llm][INFO] - ==> QUERY: API cost: $0.0000
+[2026-11-18 23:47:13,377][shinka.core.async_novelty_judge][INFO] - NOVELTY CHECK: Accepting program despite high similarity (0.992 > 0.99) due to LLM novelty check (cost: 0.0000).
+[2026-11-18 23:47:23,035][shinka.core.async_runner][INFO] - 🔄 SAFE PROCESSING: Starting job ProcessWithLogging(PID: 1580023) (gen 12)
+[2026-11-18 23:47:23,039][shinka.core.async_runner][INFO] - 📂 RESULTS: Got results for ProcessWithLogging(PID: 1580023): True
+[2026-11-18 23:47:23,039][shinka.core.async_runner][INFO] - ✅ VALID RESULTS: ProcessWithLogging(PID: 1580023) has valid results - correct=True, score=0.0
+[2026-11-18 23:47:23,040][shinka.core.async_runner][INFO] - 💾 DB ADD: Adding program to database for ProcessWithLogging(PID: 1580023) (gen 12)...
+[2026-11-18 23:47:23,071][shinka.database.dbase][INFO] - Program ae03d095-4b76-41de-bb03-d4cc742c8bfa added to DB - score: 0.0.
+[2026-11-18 23:47:23,075][shinka.core.async_runner][INFO] - ✅ DB SUCCESS: Program ae03d095-4b76-41de-bb03-d4cc742c8bfa successfully added to database for ProcessWithLogging(PID: 1580023) (gen 12)
+[2026-11-18 23:47:23,129][shinka.core.async_runner][INFO] - ✅ JOB COMPLETE: Finished processing ProcessWithLogging(PID: 1580023) - program ae03d095-4b76-41de-bb03-d4cc742c8bfa added (gen 12)
+[2026-11-18 23:47:23,129][shinka.core.async_runner][INFO] - ✅ Successfully processed 1/1 jobs
+[2026-11-18 23:47:23,136][shinka.core.async_runner][INFO] - 🛑 Job monitor setting should_stop signal
+[2026-11-18 23:47:23,136][shinka.core.async_runner][INFO] - 🏁 Job monitor setting finalization_complete signal
+[2026-11-18 23:47:23,136][shinka.core.async_runner][INFO] - Job monitor task exited
+[2026-11-18 23:47:23,136][shinka.database.async_dbase][INFO] - Forcing final embedding and cluster recomputation...
+[2026-11-18 23:47:23,136][shinka.database.async_dbase][INFO] - Scheduled embedding recomputation after 10 program additions
+[2026-11-18 23:47:23,240][shinka.database.dbase][INFO] - Recomputing PCA-reduced embedding features for 16 programs.
+[2026-11-18 23:47:23,240][shinka.database.dbase][INFO] - Computing 2D PCA reduction...
+[2026-11-18 23:47:23,242][shinka.database.dbase][INFO] - 2D PCA reduction completed
+[2026-11-18 23:47:23,242][shinka.database.dbase][INFO] - Computing 3D PCA reduction...
+[2026-11-18 23:47:23,244][shinka.database.dbase][INFO] - 3D PCA reduction completed
+[2026-11-18 23:47:23,245][shinka.database.dbase][INFO] - Computing GMM clustering with 4 clusters...
+[2026-11-18 23:47:23,636][shinka.database.dbase][INFO] - GMM clustering completed
+[2026-11-18 23:47:23,642][shinka.database.dbase][INFO] - Successfully updated embedding features for 16 programs.
+[2026-11-18 23:47:23,643][shinka.database.async_dbase][INFO] - Background embedding recomputation completed
+[2026-11-18 23:47:23,643][shinka.database.async_dbase][INFO] - Final embedding and cluster recomputation complete.
+[2026-11-18 23:47:24,152][shinka.database.async_dbase][INFO] - 🔧 Closing async database with monitoring...
+[2026-11-18 23:47:24,152][shinka.database.async_dbase][INFO] - Async database closed

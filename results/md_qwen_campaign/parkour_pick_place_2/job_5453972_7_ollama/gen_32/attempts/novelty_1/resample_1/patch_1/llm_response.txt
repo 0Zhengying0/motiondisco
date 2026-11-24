@@ -1,0 +1,51 @@
+<NAME>
+A more structured approach that breaks down the task into smaller, manageable steps and ensures proper transitions between modes. This approach aims to improve the feasibility of the plan by carefully managing the transitions and ensuring that all contacts are made and broken in a way that respects the solver's constraints.
+
+<DESCRIPTION>
+This approach restructures the task into a series of well-defined steps, ensuring that each transition between modes is valid and respects the solver's constraints. The plan is built by first walking to the white box, picking it up, walking to the elevated table, and then placing it. Each step is carefully planned to ensure that all contacts are made and broken in a way that is feasible for the solver.
+</DESCRIPTION>
+
+<CODE>
+```python
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 5)
+
+    # Reach for the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Pick up the white box
+    append_mode(plan, right_ee=(14, 1), white_box=(1, 14, 1))
+
+    # Walk to the elevated table
+    walk(plan, 5)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

@@ -1,0 +1,56 @@
+<NAME>
+Release soles before changing surfaces to avoid invalid contact schedule
+
+<DESCRIPTION>
+The current plan fails due to an invalid contact schedule where the soles and the white box change surfaces without going through a free state. To fix this, we need to ensure that each channel (soles and the white box) releases its current contact before making a new contact with a different surface. This will prevent the solver from rejecting the plan due to invalid transitions.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def lift_white_box(plan):
+    # Lift the white box by keeping the left hand and adding support with the left sole
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+    # Add an intermediate step to ensure smooth transition
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+=======
+def lift_white_box(plan):
+    # Lift the white box by keeping the left hand and adding support with the left sole
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+    # Release the left sole before changing to the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=())
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def move_to_elevated_table(plan):
+    # Move to the elevated table while holding the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    # Add an intermediate step to ensure smooth transition
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(plan, 5)
+=======
+def move_to_elevated_table(plan):
+    # Move to the elevated table while holding the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    # Release the right sole before changing to the elevated table
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=())
+    walk(plan, 5)
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_white_box_on_table(plan):
+    # Release the white box from the left hand
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Add an intermediate step to ensure smooth transition
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Place the white box on the elevated table
+    append_mode(plan, white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+=======
+def place_white_box_on_table(plan):
+    # Release the white box from the left hand
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Release the left sole before placing the white box
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1), left_sole=())
+    # Place the white box on the elevated table
+    append_mode(plan, white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>

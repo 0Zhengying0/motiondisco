@@ -1,0 +1,53 @@
+--- a/original.py
++++ b/original.py
+@@ -1,41 +1,48 @@
+ # Fixed (not evolved): rewrites of the block below that dropped their own
+ # typing import failed with "name 'List' is not defined".
+ from __future__ import annotations
+ 
+ from typing import Any, Dict, List, Tuple
+ 
+ # EVOLVE-BLOCK-START
+ def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+     """
+     Build a contact_mode_seq for the active task — see the system
+     prompt for scene-specific goals.
+     """
+     # Start with the initial mode
+     plan = get_initial_mode()
+ 
+     # Step 1: Move to the box
+-    walk(plan, 3)  # Take 3 steps to reach the box
++    box_position = [scene[4]['xyz'][0], scene[4]['xyz'][1], scene[4]['xyz'][2]]
++    initial_position = [scene[0]['xyz'][0], scene[0]['xyz'][1], scene[0]['xyz'][2]]
++    distance_to_box = abs(box_position[0] - initial_position[0])
++    num_steps_to_box = int(distance_to_box / 0.4) + 1
++    walk(plan, num_steps_to_box)  # Take the required number of steps to reach the box
+     append_mode(plan, left_ee=(14, 1))  # Grasp the box with the left hand
+     append_mode(plan, left_ee=())  # Lift the box
+ 
+     # Step 2: Move to the table
+-    walk(plan, 3)  # Take 3 steps to reach the table
++    table_position = [scene[3]['xyz'][0], scene[3]['xyz'][1], scene[3]['xyz'][2]]
++    distance_to_table = abs(table_position[0] - box_position[0])
++    num_steps_to_table = int(distance_to_table / 0.4) + 1
++    walk(plan, num_steps_to_table)  # Take the required number of steps to reach the table
+ 
+     # Step 3: Place the box on the table
+     append_mode(plan, left_ee=(6, 8, 1))  # Place the box on the table with the left hand
+ 
+     return plan
+ 
+ 
+ # EVOLVE-BLOCK-END
+ 
+ 
+ # This part remains fixed (not evolved)
+ from env import append_mode, get_default_scene, get_initial_mode, walk
+ 
+ 
+ def run_planning():
+     """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+     scene = get_default_scene()
+     contact_plan = generate_contact_plan(scene)
+     return contact_plan, scene

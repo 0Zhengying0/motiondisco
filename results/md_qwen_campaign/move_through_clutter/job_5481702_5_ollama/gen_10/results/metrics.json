@@ -1,0 +1,36 @@
+{
+    "combined_score": 0.00041990086847957186,
+    "public": {
+        "num_modes": 3,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 2380.5144836945005,
+        "violations": [
+            "mode 3: left_ankle_pitch_joint goes 0.28 rad past its limit"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 7.967505668509361,
+        "to_jerk_per_mode": 63588.531991870834
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.75,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.5429603656289983,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 3: left_ankle_pitch_joint goes 0.28 rad past its limit\n- mode 0: left_sole slides 28 cm on floor surface although the contact is sticking\n- mode 2: the motion is not dynamically consistent (it needs 26% of the body weight, 87 N, that no contact provides)\n- mode 2: right_sole stays 6 cm off floor surface; the planned contact is not made",
+    "execution_time_mean": 0.5805081569997128,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

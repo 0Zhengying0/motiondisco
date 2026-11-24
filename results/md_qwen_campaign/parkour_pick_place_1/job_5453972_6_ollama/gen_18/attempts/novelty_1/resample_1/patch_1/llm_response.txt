@@ -1,0 +1,62 @@
+<NAME>
+Add intermediate steps to ensure smooth transitions and avoid direct surface changes without a free state.
+
+<DESCRIPTION>
+The current plan has several transitions where contacts change directly from one surface to another without an intermediate free state. This can lead to infeasibility as the solver requires contacts to pass through a free state before touching a different surface. By adding intermediate steps where contacts are released before transitioning to a new surface, we can ensure that the solver can handle these transitions correctly.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def move_to_white_box(plan):
+    # Move the left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+=======
+def move_to_white_box(plan):
+    # Move the left hand to the white box
+    append_mode(plan, left_ee=(14, 1))
+    # Add an intermediate step to ensure smooth transition
+    append_mode(plan, left_ee=(14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def lift_white_box(plan):
+    # Lift the white box by keeping the left hand and adding support with the left sole
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+=======
+def lift_white_box(plan):
+    # Lift the white box by keeping the left hand and adding support with the left sole
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+    # Add an intermediate step to ensure smooth transition
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def move_to_elevated_table(plan):
+    # Move to the elevated table while holding the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(plan, 5)
+=======
+def move_to_elevated_table(plan):
+    # Move to the elevated table while holding the white box
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    # Add an intermediate step to ensure smooth transition
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(plan, 5)
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_white_box_on_table(plan):
+    # Release the white box from the left hand
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Place the white box on the elevated table
+    append_mode(plan, white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+=======
+def place_white_box_on_table(plan):
+    # Release the white box from the left hand
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Add an intermediate step to ensure smooth transition
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    # Place the white box on the elevated table
+    append_mode(plan, white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>

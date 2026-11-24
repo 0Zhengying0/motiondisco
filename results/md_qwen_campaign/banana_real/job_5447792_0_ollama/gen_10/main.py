@@ -1,0 +1,37 @@
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Calculate the number of walking steps needed to reach the banana
+    # Assuming the robot can walk about 0.4m per step
+    banana_x = scene[2]['xyz'][0]
+    current_x = scene[0]['xyz'][0]
+    distance_to_banana = abs(banana_x - current_x)
+    steps_needed = int(ceil(distance_to_banana / 0.4)) + 1
+
+    # Walk towards the banana with the calculated number of steps
+    walk(plan, steps_needed)
+
+    # Reach and grasp the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+
+    return plan
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene

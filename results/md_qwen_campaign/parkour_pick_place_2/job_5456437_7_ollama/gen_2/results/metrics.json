@@ -1,0 +1,44 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 7,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "Invalid contact schedule (no solver run): mode 5->6: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)",
+            "mode 5->6: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)",
+            "white_box transition 5->6: object teleported from (1, 14, 1) to (6, 8, 1) without going free"
+        ],
+        "kso_feasible_through_mode": 5,
+        "kso_first_infeasible_mode": 6
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 0.8333333333333334,
+        "structure_score": 0.9666666666666666,
+        "efficiency": 0.41666666666666663,
+        "ik_diagnosis": {
+            "kind": "schedule_error",
+            "errors": [
+                "mode 5->6: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)"
+            ],
+            "total_modes": 7,
+            "last_feasible_modes": 6,
+            "first_infeasible_modes": 7,
+            "events_total": 6,
+            "events_feasible": 5
+        }
+    },
+    "text_feedback": "Solver feedback:\nInvalid contact schedule (no solver run): mode 5->6: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)\n- mode 5->6: white_box changes from (1, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (1, 14, 1) -> () -> (6, 8, 1)\nEvery channel (hands, feet, objects) must pass through () before touching a different surface.",
+    "execution_time_mean": 0.4967327269841917,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

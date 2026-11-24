@@ -1,0 +1,25 @@
+<NAME>
+Ensure the robot releases the object before changing its contact surface.
+
+<DESCRIPTION>
+The current plan fails because it attempts to change the object's contact surface without first releasing it. This violates the solver's rule that a contact must be released before it touches a different surface. To fix this, we need to ensure that the robot releases the object before changing its contact surface. Specifically, we need to add a mode where the object is released before the robot moves to the elevated table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+
+    # Walk to the elevated table
+    walk(plan, 4)
+=======
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+
+    # Release the white box before walking to the elevated table
+    append_mode(plan, left_ee=(), white_box=(), right_sole=(2, 1))
+
+    # Walk to the elevated table
+    walk(plan, 4)
+>>>>>>> REPLACE
+</DIFF>

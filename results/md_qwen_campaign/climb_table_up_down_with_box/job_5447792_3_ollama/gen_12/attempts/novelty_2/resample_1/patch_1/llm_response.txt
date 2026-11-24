@@ -1,0 +1,49 @@
+<NAME>
+Add more detailed hand movements and adjust walking steps for better placement of the box.
+
+<DESCRIPTION>
+The current plan only includes basic walking steps and does not specify detailed hand movements. By adding more detailed hand movements and adjusting the walking steps, we can better position the robot and the box for the task of placing the box on the other side of the table. This should improve the feasibility of the plan and potentially increase the combined score.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 6)
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    walk(plan, 4)  # Adjusted to provide more steps for positioning
+
+    # Approach the box with both hands
+    append_mode(plan, left_ee=(8, 1, 1), right_ee=(12, 1, 1))
+    walk(plan, 2)  # Walk closer to the box
+
+    # Grasp the box
+    append_mode(plan, left_ee=(9, 2, 1), right_ee=(11, 2, 1))
+    append_mode(plan, left_ee=(), right_ee=())  # Lift the box
+
+    # Walk forward to place the box
+    walk(plan, 3)
+    append_mode(plan, left_ee=(6, 2, 1), right_ee=(11, 2, 1))  # Place the box on the other side of the table
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

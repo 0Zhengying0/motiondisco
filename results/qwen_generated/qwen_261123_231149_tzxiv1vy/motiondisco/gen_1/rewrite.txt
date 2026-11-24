@@ -1,0 +1,42 @@
+"""MotionDisco's initial contact plan for generated reach_position tasks."""
+
+from math import ceil, dist
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+    task = load_task()
+    start = task.resolved_state.robots[task.robot_id].q[:2]
+    target = task.terminal_goal.robots[task.robot_id].xyz[:2]
+    num_steps = calculate_steps(start, target)
+    create_walking_plan(plan, num_steps)
+    ensure_final_mode(plan)
+    return plan
+# EVOLVE-BLOCK-END
+
+def calculate_steps(start: Tuple[float, float], target: Tuple[float, float]) -> int:
+    """Calculate the number of steps needed to reach the target."""
+    distance = dist(start, target)
+    return ceil(distance / 0.30)
+
+def create_walking_plan(plan: Dict[str, List[Tuple]], num_steps: int) -> None:
+    """Create a walking plan with the specified number of steps."""
+    walk(plan, num_steps)
+
+def ensure_final_mode(plan: Dict[str, List[Tuple]]) -> None:
+    """Ensure the final mode matches the discrete contact goal."""
+    final_mode = {
+        'left_sole': [(1, 1)],
+        'right_sole': [(1, 1)],
+    }
+    for channel, contacts in final_mode.items():
+        plan[channel].extend(contacts)
+
+from _task_loader import load_task
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    scene = get_default_scene()
+    return generate_contact_plan(scene), scene

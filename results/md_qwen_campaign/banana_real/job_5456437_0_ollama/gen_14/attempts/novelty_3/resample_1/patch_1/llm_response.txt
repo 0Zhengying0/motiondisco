@@ -1,0 +1,52 @@
+<NAME>
+A revised version of the contact plan generator that addresses the issues identified in the previous attempts. The plan now includes a more detailed approach to walking towards the banana, ensuring the crate remains stable, and correctly grasping the banana with both hands.
+
+<DESCRIPTION>
+The revised plan generator addresses the issues identified in previous attempts by ensuring a more detailed approach to walking towards the banana, maintaining the stability of the crate, and correctly grasping the banana with both hands. The plan now includes a sequence of modes that carefully transitions the robot's position and orientation to achieve the goal.
+</DESCRIPTION>
+
+<CODE>
+```python
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    plan = get_initial_mode()
+
+    # Walk towards the banana while maintaining contact with the crate and floor
+    walk(plan, 5)
+
+    # Ensure the crate is stable on the floor
+    append_mode(plan, crate=(6, 1, 1))
+
+    # Approach the banana with one hand while maintaining a stable base
+    append_mode(plan, left_ee=(9, 1))
+
+    # Grasp the banana with both hands
+    append_mode(plan, right_ee=(11, 1))
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

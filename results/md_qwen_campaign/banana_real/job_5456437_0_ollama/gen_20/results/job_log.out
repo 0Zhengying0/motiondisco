@@ -1,0 +1,33 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.50 seconds==========
+[ik_eval] hard-mode KSO failed; trying soft KSO on full plan
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/results/extra.json
+[ik_eval] full-plan KSO failed; locating the break (bisect walk)
+[ik_eval] infeasibility diagnosis: kind=prefix, last_feasible=10, first_infeasible=11, total_modes=11
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/banana_real/job_5456437_0_ollama/gen_20/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.0
+  public: {'num_modes': 11, 'goal_match': True, 'ik_feasible': False, 'to_converged': None, 'to_valid': None, 'to_cost': None, 'violations': ['KSO infeasible: first break at mode 10 of 11 (left_ee -> banana left, right_ee -> banana right); modes 0–9 solve on their own.', 'mode 10: left_sole should touch floor surface but stays 1.15 m away from it (in all 2 solves)'], 'kso_goal_mode': 'soft (hard target missed)', 'kso_feasible_through_mode': 9, 'kso_first_infeasible_mode': 10, 'kso_break_event': 'left_ee -> banana left, right_ee -> banana right'}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 1.0, 'efficiency': 0.08333333333333337, 'ik_mode': 'soft', 'ik_hard_failed': True, 'ik_diagnosis': {'kind': 'prefix', 'last_feasible_modes': 10, 'first_infeasible_modes': 11, 'total_modes': 11, 'solver_error': None, 'prefix_attempts': 4, 'prefix_trials': [{'modes': 2, 'feasible': True, 'tries': 1}, {'modes': 6, 'feasible': True, 'tries': 1}, {'modes': 8, 'feasible': True, 'tries': 1}, {'modes': 9, 'feasible': True, 'tries': 1}, {'modes': 10, 'feasible': True, 'tries': 1}], 'kso_attempts': 3, 'best_max_violation': 1.0232248881019042, 'ik_hard_failed': True, 'prefix_violation_details': [{'solver': 'kso', 'mode': 10, 'subject': 'left_sole', 'family': 'gap', 'value': 1.036118541386194, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 10, 'subject': 'right_sole', 'family': 'gap', 'value': 1.0241538570407565, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 10, 'subject': 'left_ee', 'family': 'tilt', 'value': 0.023254884374811918, 'unit': 'rad', 'sign': -1.0, 'other': 'banana left', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]', 'attempts': 2}, {'solver': 'kso', 'mode': 10, 'subject': 'left_sole', 'family': 'gap', 'value': 1.1513053943317937, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 10, 'subject': 'right_sole', 'family': 'gap', 'value': 1.0571086484077001, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_72696768745f736f6c65_kin_eqs[0]', 'attempts': 2}, {'solver': 'kso', 'mode': 9, 'subject': 'left_sole', 'family': 'slip', 'value': 0.026141943892696307, 'unit': 'm', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=18:path:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[3]', 'attempts': 1}, {'solver': 'kso', 'mode': 10, 'subject': 'left_ee', 'family': 'tilt', 'value': 0.02412613077418641, 'unit': 'rad', 'sign': -1.0, 'other': 'banana left', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_eqs[2]', 'attempts': 2}, {'solver': 'kso', 'mode': 10, 'subject': 'left_sole', 'family': 'tilt', 'value': 0.012709706679004217, 'unit': 'rad', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[1]', 'attempts': 1}, {'solver': 'kso', 'mode': 10, 'subject': 'left_ee', 'family': 'overhang', 'value': 0.011077042525055467, 'unit': 'm', 'sign': 1.0, 'other': 'banana left', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_6c6566745f6565_kin_ineqs[11]', 'attempts': 1}, {'solver': 'kso', 'mode': 10, 'subject': 'left_sole', 'family': 'tilt', 'value': 0.01064672552073024, 'unit': 'rad', 'sign': 1.0, 'other': 'floor surface', 'raw': 'k=19:terminal:Stage_n_6565_726f626f74_6c6566745f736f6c65_kin_eqs[2]', 'attempts': 1}], 'prefix_tries': 2, 'break_event': 'left_ee -> banana left, right_ee -> banana right', 'probe': {'fixed_by': None, 'tried': [{'before_mode': 10, 'n_steps': 2, 'event': 'left_ee -> banana left, right_ee -> banana right', 'modes': 14, 'result': 'still infeasible'}], 'skipped': None}, 'diagnosis_seconds': 242.3, 'events_total': 1, 'events_feasible': 0}}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.504970872978447
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

@@ -1,0 +1,83 @@
+<NAME>
+Add intermediate steps to ensure smooth transitions and avoid direct changes between surfaces.
+
+<DESCRIPTION>
+The current plan is failing due to direct changes between surfaces without intermediate free modes. To address this, we will add intermediate steps to ensure smooth transitions and avoid direct changes between surfaces. This will help the solver to handle the transitions more gracefully and increase the chances of a feasible plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def move_to_white_box(self):
+    # Move the left hand to the white box
+    append_mode(self.plan, left_ee=(14, 1))
+    append_mode(self.plan, left_ee=(14, 1))
+=======
+def move_to_white_box(self):
+    # Move the left hand to the white box
+    append_mode(self.plan, left_ee=(14, 1))
+    append_mode(self.plan, left_ee=(14, 1))
+    append_mode(self.plan, left_ee=(14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def grasp_white_box(self):
+    # Release the white box from the floor
+    append_mode(self.plan, white_box=())
+    # Grasp the white box with the left hand
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1))
+=======
+def grasp_white_box(self):
+    # Release the white box from the floor
+    append_mode(self.plan, white_box=())
+    append_mode(self.plan, white_box=())
+    # Grasp the white box with the left hand
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1))
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def lift_white_box(self):
+    # Lift the white box by keeping the left hand and adding support with the left sole
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+=======
+def lift_white_box(self):
+    # Lift the white box by keeping the left hand and adding support with the left sole
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def move_to_elevated_table(self):
+    # Move to the elevated table while holding the white box
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(self.plan, 5)
+=======
+def move_to_elevated_table(self):
+    # Move to the elevated table while holding the white box
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    append_mode(self.plan, left_ee=(14, 1), white_box=(1, 14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    walk(self.plan, 5)
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_white_box_on_table(self):
+    # Release the white box from the left hand
+    append_mode(self.plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(self.plan, left_ee=(), white_box=(1, 14, 1))
+    # Place the white box on the elevated table
+    append_mode(self.plan, white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+=======
+def place_white_box_on_table(self):
+    # Release the white box from the left hand
+    append_mode(self.plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(self.plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(self.plan, left_ee=(), white_box=(1, 14, 1))
+    # Place the white box on the elevated table
+    append_mode(self.plan, white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(self.plan, white_box=(6, 8, 1), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>

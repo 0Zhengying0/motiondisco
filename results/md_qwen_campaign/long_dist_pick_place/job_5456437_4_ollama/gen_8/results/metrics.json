@@ -1,0 +1,35 @@
+{
+    "combined_score": 0.0003172869969169022,
+    "public": {
+        "num_modes": 27,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 3150.720712531756,
+        "violations": [
+            "mode 24: the motion is not dynamically consistent (it needs 357% of the body weight, 1168 N, that no contact provides)"
+        ],
+        "kso_goal_mode": "hard",
+        "to_max_violation": 12.432522627743646,
+        "to_jerk_per_mode": 2347.5870916705335
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.0,
+        "ik_mode": "hard",
+        "ik_cost": 0.00015901567742856264,
+        "to_mode": "off"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 24: the motion is not dynamically consistent (it needs 357% of the body weight, 1168 N, that no contact provides)\n- mode 25: right_sole slides 114 cm on floor surface although the contact is sticking\n- mode 12: right_ee stays 71 cm off yellow_box top; the planned contact is not made\n- mode 13: table_short penetrates yellow_box by 39 cm in the trajectory",
+    "execution_time_mean": 0.48399762599729,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

@@ -1,0 +1,14 @@
+{
+  "generation": 3,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current plan attempts to transition the box from a sticking contact to a sliding contact without an intermediate free state, which is invalid. The solver requires that any change in contact type must pass through a free state first. By adding an intermediate free state, we ensure that the transition is valid and should improve the feasibility of the plan.",
+  "error_msg": null,
+  "timestamp": "2026-11-16T19:51:41.941041",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

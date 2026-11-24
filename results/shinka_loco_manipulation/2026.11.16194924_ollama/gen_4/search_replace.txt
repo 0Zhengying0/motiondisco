@@ -1,0 +1,17 @@
+<NAME>
+Add a free mode before changing contact type for the box.
+
+<DESCRIPTION>
+The current plan fails because the box's contact type changes from sticking (1) to sliding (2) without a free () mode in between. The solver requires that any contact change from one surface to another must first go through a free state. This change adds a free mode for the box before changing its contact type to ensure compliance with the solver rules.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    append_mode(plan, right_ee=(2, 1))
+    append_mode(plan, box1=(6, 2, 1))
+=======
+    append_mode(plan, right_ee=(2, 1))
+    append_mode(plan, box1=())
+    append_mode(plan, box1=(6, 2, 1))
+>>>>>>> REPLACE
+</DIFF>

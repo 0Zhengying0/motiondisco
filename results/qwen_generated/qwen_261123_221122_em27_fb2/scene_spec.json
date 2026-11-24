@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "scene_id": "qwen_261123_221122_em27_fb2",
+  "floor": {
+    "half_extents": [
+      2.0,
+      1.5
+    ]
+  },
+  "robot": {
+    "initial_xy_yaw": [
+      1.0,
+      0.5,
+      0.0
+    ]
+  },
+  "objects": [
+    {
+      "asset_id": "table_short",
+      "instance_id": "platform_1",
+      "support_object": "floor",
+      "support_surface": "surface",
+      "relative_xy_yaw": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "asset_id": "green_box",
+      "instance_id": "box_1",
+      "support_object": "platform_1",
+      "support_surface": "top",
+      "relative_xy_yaw": [
+        0.1,
+        0.1,
+        0.0
+      ]
+    }
+  ],
+  "task": {
+    "type": "reach_position",
+    "parameters": {
+      "target_xy": [
+        1.8,
+        0.5
+      ]
+    }
+  }
+}

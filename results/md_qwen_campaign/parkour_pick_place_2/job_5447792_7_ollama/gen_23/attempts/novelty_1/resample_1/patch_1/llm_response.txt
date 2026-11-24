@@ -1,0 +1,43 @@
+<NAME>
+Ensure the robot's feet remain in contact during the entire plan to avoid IK feasibility issues.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_box(plan: Dict[str, List[Tuple]]):
+    # Approach the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+    # Move the box to the front of the robot
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+=======
+def pick_box(plan: Dict[str, List[Tuple]]):
+    # Approach the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    # Lift the box
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+    # Move the box to the front of the robot
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+>>>>>>> REPLACE
+</DIFF>
+
+<NAME>
+Ensure the robot's feet remain in contact during the entire plan to avoid IK feasibility issues.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def place_box(plan: Dict[str, List[Tuple]]):
+    # Move the box towards the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+    # Place the box on the table
+    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), left_sole=(), right_sole=())
+=======
+def place_box(plan: Dict[str, List[Tuple]]):
+    # Move the box towards the table
+    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(1, 1), right_sole=(1, 1))
+    # Place the box on the table
+    append_mode(plan, left_ee=(), right_ee=(), left_sole=(8, 1), right_sole=(8, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

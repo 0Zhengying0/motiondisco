@@ -1,0 +1,117 @@
+<NAME>
+Use a state-based approach to ensure all transitions between surfaces are valid by explicitly releasing contacts before changing surfaces.
+
+<DESCRIPTION>
+The previous implementations have repeatedly failed due to invalid contact schedules, where contacts are changed directly from one surface to another without an intermediate free state. This new approach introduces a state-based mechanism to ensure that all transitions are valid. It uses helper functions to manage the release and transition of contacts, ensuring that each contact passes through a free state before changing surfaces. This should help avoid the common issue of direct surface transitions and improve the feasibility of the generated contact plans.
+</DESCRIPTION>
+
+<CODE>
+```python
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+"""
+Contact-mode-sequence generator for humanoid loco-manipulation.
+
+Only this one function is evolved by ShinkaEvolve. The notation, the
+task, the scene IDs and how plans are judged are described in the
+system prompt.
+
+A `contact_mode_seq` is a dict of channels -> list of contact tuples
+(one entry per mode). Channels are:
+
+    "left_ee", "right_ee"     : (env_id, contact_type)            or () for free
+    "left_sole", "right_sole" : (env_id, contact_type)            or () for free
+    "<object_label>"          : (self_id, env_id, contact_type)   or () for free
+
+contact_type: 1 = sticking, 2 = sliding (see the system prompt).
+All channels in the dict must have the same length (= number of modes).
+
+Helpers available in this module's namespace (do NOT redefine):
+
+    get_initial_mode() -> Dict[str, List[Tuple]]
+        Returns the scene's initial contact mode as a single-mode
+        contact_mode_seq (length-1 channel lists). Use this as mode 0
+        of your plan and append further modes from there.
+
+    append_mode(plan, **channel_updates) -> None
+        Appends one new mode to ``plan``. Channels not mentioned
+        keep their previous value.
+
+    walk(plan, n_steps) -> None
+        Optional shorthand: appends n_steps alternating steps (right
+        foot lifts first), finishing in double support on the same
+        surfaces.
+"""
+
+def release_contact(plan: Dict[str, List[Tuple]], channel: str) -> None:
+    """Release the contact for the specified channel."""
+    append_mode(plan, **{channel: ()})
+
+def transition_to_surface(plan: Dict[str, List[Tuple]], channel: str, env_id: int, contact_type: int) -> None:
+    """Transition the specified channel to the given surface."""
+    release_contact(plan, channel)
+    append_mode(plan, **{channel: (env_id, contact_type)})
+
+def pick_up_object(plan: Dict[str, List[Tuple]], object_env_id: int, ee_channel: str) -> None:
+    """Pick up the object using the specified end-effector."""
+    append_mode(plan, **{ee_channel: (object_env_id, 1), "white_box": (1, object_env_id, 1)})
+
+def walk_to_destination(plan: Dict[str, List[Tuple]], n_steps: int) -> None:
+    """Walk to the destination using the specified number of steps."""
+    walk(plan, n_steps)
+
+def place_object(plan: Dict[str, List[Tuple]], object_self_id: int, object_env_id: int, ee_channel: str) -> None:
+    """Place the object on the specified destination using the specified end-effector."""
+    append_mode(plan, **{ee_channel: (object_env_id, 1), "white_box": (object_self_id, object_env_id, 1)})
+
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Transition to a standing position
+    transition_to_surface(plan, "left_sole", 2, 1)
+    transition_to_surface(plan, "right_sole", 2, 1)
+
+    # Walk to the white box
+    walk_to_destination(plan, 5)
+
+    # Pick up the white box with the right hand
+    release_contact(plan, "white_box")
+    pick_up_object(plan, 14, "right_ee")
+
+    # Walk to the elevated table
+    walk_to_destination(plan, 5)
+
+    # Place the box on the elevated table
+    release_contact(plan, "white_box")
+    place_object(plan, 6, 8, "right_ee")
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

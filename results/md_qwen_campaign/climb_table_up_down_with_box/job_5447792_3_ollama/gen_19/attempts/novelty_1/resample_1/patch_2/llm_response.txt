@@ -1,0 +1,24 @@
+<NAME>
+Ensure proper hand release before transitioning between surfaces.
+
+<DESCRIPTION>
+The previous plan failed due to abrupt transitions between grasping and placing the box. The solver requires that hands be released before changing surfaces. By adding explicit steps to release hands before and after these transitions, we can ensure that the plan is feasible and avoids the errors encountered previously.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Step 2: Grasp the box with both hands
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))
+>>>>>>> REPLACE
+    # Step 2: Grasp the box with both hands
+    append_mode(plan, left_ee=(), right_ee=())  # Release hands before grasping
+    append_mode(plan, left_ee=(8, 1), right_ee=(8, 1))  # Grasp the box
+
+<<<<<<< SEARCH
+    # Step 5: Place the box on the floor
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1), left_sole=(1, 1), right_sole=(1, 1))
+>>>>>>> REPLACE
+    # Step 5: Place the box on the floor
+    append_mode(plan, left_ee=(), right_ee=())  # Release hands before placing
+    append_mode(plan, left_ee=(1, 1), right_ee=(1, 1), left_sole=(1, 1), right_sole=(1, 1))  # Place the box
+</DIFF>

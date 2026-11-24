@@ -1,0 +1,20 @@
+<NAME>
+Add initial planning steps to move the robot towards the banana and prepare for grasping.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    return get_initial_mode()
+=======
+    # Get the initial mode
+    plan = get_initial_mode()
+
+    # Step 1: Move towards the banana
+    walk(plan, 5)  # 5 steps to reach the banana
+
+    # Step 2: Prepare to grasp the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

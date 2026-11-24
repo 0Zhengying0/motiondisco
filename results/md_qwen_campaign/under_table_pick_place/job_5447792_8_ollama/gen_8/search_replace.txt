@@ -1,0 +1,51 @@
+<NAME>
+Add initial walking steps before picking up the box to ensure the robot is positioned correctly under the table.
+
+<DESCRIPTION>
+To improve the plan, we need to ensure that the robot is correctly positioned under the table before attempting to pick up the white box. Adding initial walking steps will help the robot move to the correct position and ensure that the feet are properly planted on the floor. This will make the subsequent manipulation tasks more feasible and likely to succeed.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Append a transition mode where the robot lifts the white box
+    append_mode(plan, left_ee=(26, 1), right_ee=(), left_sole=(), right_sole=())
+
+    # Append a mode where the robot places the white box on the table top
+    append_mode(plan, left_ee=(), right_ee=(2, 1), left_sole=(), right_sole=(), white_box=(1, 2, 1))
+
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Append initial walking steps to position the robot under the table
+    walk(plan, 3)
+
+    # Append a transition mode where the robot lifts the white box
+    append_mode(plan, left_ee=(26, 1), right_ee=(), left_sole=(), right_sole=())
+
+    # Append a mode where the robot places the white box on the table top
+    append_mode(plan, left_ee=(), right_ee=(2, 1), left_sole=(), right_sole=(), white_box=(1, 2, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

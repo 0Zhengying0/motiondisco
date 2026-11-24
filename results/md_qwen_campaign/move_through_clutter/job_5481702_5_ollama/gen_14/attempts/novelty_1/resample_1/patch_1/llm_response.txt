@@ -1,0 +1,27 @@
+<NAME>
+Improve trajectory optimization by reducing the number of steps and ensuring better contact transitions.
+
+<DESCRIPTION>
+The current plan has 3 modes and fails trajectory optimization due to joint limits and inconsistent contacts. By reducing the number of steps and ensuring smoother transitions, we can improve the feasibility of the trajectory. Specifically, we will:
+1. Remove unnecessary steps.
+2. Ensure better contact transitions to avoid sliding contacts where sticking contacts are required.
+3. Adjust the number of walking steps to balance between reaching the target and maintaining joint limits.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+walk(plan, 1)
+=======
+# Remove unnecessary step
+# Ensure better contact transitions
+append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+walk(plan, 2)
+append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+walk(plan, 1)
+append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+walk(plan, 1)
+append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+walk(plan, 2)
+append_mode(plan, left_sole=(1, 1), right_sole=(1, 1))
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,31 @@
+<NAME>
+Ensure the white box is properly released before grasping and placing it on the elevated table.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Grasp the white box with the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+    
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    
+    # Move the white box towards the elevated table
+    append_mode(plan, left_ee=(14, 1), right_sole=(2, 1), white_box=(1, 8, 1))
+    
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+=======
+    # Grasp the white box with the left hand
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+    
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    
+    # Move the white box towards the elevated table
+    append_mode(plan, left_ee=(14, 1), right_sole=(2, 1), white_box=(1, 8, 1))
+    
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

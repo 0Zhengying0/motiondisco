@@ -1,0 +1,1053 @@
+{
+  "schema_version": 1,
+  "faro": {
+    "commit": "458afa0cef22b498a68aaccb232e08942880f333",
+    "source_tree_dirty": false
+  },
+  "units": {
+    "half_extents": "m",
+    "full_size": "m",
+    "mass": "kg"
+  },
+  "dimension_axes": {
+    "Plane": [
+      "x",
+      "y"
+    ],
+    "FixedBox": [
+      "x",
+      "y",
+      "z"
+    ],
+    "MovableBox": [
+      "x",
+      "y",
+      "z"
+    ]
+  },
+  "plane_dimensions": "Bounded XY contact surface. Collision shape is an infinite half-space.",
+  "contact_type_codes": {
+    "1": {
+      "name": "unilateral_sticking",
+      "solver_supported": true
+    },
+    "2": {
+      "name": "sliding",
+      "solver_supported": true
+    },
+    "3": {
+      "name": "bilateral",
+      "solver_supported": false
+    }
+  },
+  "contact_permissions": "contact_types apply to every surface. face_contact_types add permissions to named surfaces. surface_allowed_contact_types is the effective union from FARO.",
+  "scene_count": 9,
+  "object_instance_count": 37,
+  "unique_object_count": 15,
+  "scenes": [
+    {
+      "scene": "motiondisco.banana_real",
+      "source_file": "submodules/faro/src/scenes/motiondisco/banana_real/scene.py",
+      "sha256": "aa3ab58e157ac472232fda62efe9b09ed990bd8d86e7dd05845bc65c419f37e2",
+      "object_instance_count": 4
+    },
+    {
+      "scene": "motiondisco.box_stacking",
+      "source_file": "submodules/faro/src/scenes/motiondisco/box_stacking/scene.py",
+      "sha256": "a1bad035eb2cd71c85f51c3432c7b94928a7f8c95eb737d35b15874268253c22",
+      "object_instance_count": 5
+    },
+    {
+      "scene": "motiondisco.climb_table_up_down_with_box",
+      "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_up_down_with_box/scene.py",
+      "sha256": "f59d6809141d90e627bc6bb83abe389f6c1a12006ddbc9190f550ee5ceb08eb4",
+      "object_instance_count": 3
+    },
+    {
+      "scene": "motiondisco.climb_table_with_box",
+      "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_with_box/scene.py",
+      "sha256": "6fa4333795e083a3725343b3f545804861f46260d072793104ab96ea3aed1d36",
+      "object_instance_count": 3
+    },
+    {
+      "scene": "motiondisco.long_dist_pick_place",
+      "source_file": "submodules/faro/src/scenes/motiondisco/long_dist_pick_place/scene.py",
+      "sha256": "87f1b6465e9cb82a72d8857020eb57eb9a85f9483d63b9783b7a3f8314505dc5",
+      "object_instance_count": 3
+    },
+    {
+      "scene": "motiondisco.move_through_clutter",
+      "source_file": "submodules/faro/src/scenes/motiondisco/move_through_clutter/scene.py",
+      "sha256": "def89f57b2d51e2bc4174dd7d41049bdf842452ffa0264a2c8e6775b7dfa0f19",
+      "object_instance_count": 5
+    },
+    {
+      "scene": "motiondisco.parkour_pick_place_1",
+      "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_1/scene.py",
+      "sha256": "c5cf311595d9ef877d05cfc9f4865413681e1a3cb550325ff1ac568cda0696cb",
+      "object_instance_count": 4
+    },
+    {
+      "scene": "motiondisco.parkour_pick_place_2",
+      "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_2/scene.py",
+      "sha256": "aadcf4d604b00a886e2246ea5dff42845c6f867aff30feb07ff9ca97d2def797",
+      "object_instance_count": 4
+    },
+    {
+      "scene": "motiondisco.under_table_pick_place",
+      "source_file": "submodules/faro/src/scenes/motiondisco/under_table_pick_place/scene.py",
+      "sha256": "d27f0ea5bc9e9de35ee3f749c57f3802754b2303db42352aac2827d5b67daf51",
+      "object_instance_count": 6
+    }
+  ],
+  "objects": [
+    {
+      "id": "plane-a78d7d19abbc3f63",
+      "faro_type": "Plane",
+      "half_extents": [
+        5.0,
+        3.5
+      ],
+      "full_size": [
+        10.0,
+        7.0
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "surface"
+      ],
+      "surface_allowed_contact_types": {
+        "surface": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "floor",
+          "scene": "motiondisco.banana_real",
+          "source_file": "submodules/faro/src/scenes/motiondisco/banana_real/scene.py"
+        }
+      ],
+      "names": [
+        "floor"
+      ]
+    },
+    {
+      "id": "fixedbox-6202fea8a3169b58",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.35,
+        0.7,
+        0.365
+      ],
+      "full_size": [
+        0.7,
+        1.4,
+        0.73
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "table_short",
+          "scene": "motiondisco.banana_real",
+          "source_file": "submodules/faro/src/scenes/motiondisco/banana_real/scene.py"
+        },
+        {
+          "name": "table_short",
+          "scene": "motiondisco.box_stacking",
+          "source_file": "submodules/faro/src/scenes/motiondisco/box_stacking/scene.py"
+        },
+        {
+          "name": "table_short",
+          "scene": "motiondisco.climb_table_up_down_with_box",
+          "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_up_down_with_box/scene.py"
+        },
+        {
+          "name": "table_short",
+          "scene": "motiondisco.climb_table_with_box",
+          "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_with_box/scene.py"
+        },
+        {
+          "name": "table_short",
+          "scene": "motiondisco.long_dist_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/long_dist_pick_place/scene.py"
+        },
+        {
+          "name": "table_short1",
+          "scene": "motiondisco.move_through_clutter",
+          "source_file": "submodules/faro/src/scenes/motiondisco/move_through_clutter/scene.py"
+        },
+        {
+          "name": "table_short2",
+          "scene": "motiondisco.move_through_clutter",
+          "source_file": "submodules/faro/src/scenes/motiondisco/move_through_clutter/scene.py"
+        },
+        {
+          "name": "table_short",
+          "scene": "motiondisco.parkour_pick_place_1",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_1/scene.py"
+        },
+        {
+          "name": "table_short",
+          "scene": "motiondisco.parkour_pick_place_2",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_2/scene.py"
+        }
+      ],
+      "names": [
+        "table_short",
+        "table_short1",
+        "table_short2"
+      ]
+    },
+    {
+      "id": "fixedbox-d4a9e9ce5be5aa5b",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.03,
+        0.03,
+        0.075
+      ],
+      "full_size": [
+        0.06,
+        0.06,
+        0.15
+      ],
+      "mass": null,
+      "color_rgba": [
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "banana",
+          "scene": "motiondisco.banana_real",
+          "source_file": "submodules/faro/src/scenes/motiondisco/banana_real/scene.py"
+        }
+      ],
+      "names": [
+        "banana"
+      ]
+    },
+    {
+      "id": "movablebox-ab993ec7d50081e2",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.15,
+        0.2,
+        0.15
+      ],
+      "full_size": [
+        0.3,
+        0.4,
+        0.3
+      ],
+      "mass": 2.078,
+      "color_rgba": [
+        0.58,
+        0.29,
+        0.0,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "crate",
+          "scene": "motiondisco.banana_real",
+          "source_file": "submodules/faro/src/scenes/motiondisco/banana_real/scene.py"
+        }
+      ],
+      "names": [
+        "crate"
+      ]
+    },
+    {
+      "id": "plane-d62d43c7c11bbf28",
+      "faro_type": "Plane",
+      "half_extents": [
+        10.0,
+        10.0
+      ],
+      "full_size": [
+        20.0,
+        20.0
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "surface"
+      ],
+      "surface_allowed_contact_types": {
+        "surface": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "floor",
+          "scene": "motiondisco.box_stacking",
+          "source_file": "submodules/faro/src/scenes/motiondisco/box_stacking/scene.py"
+        },
+        {
+          "name": "floor",
+          "scene": "motiondisco.climb_table_up_down_with_box",
+          "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_up_down_with_box/scene.py"
+        },
+        {
+          "name": "floor",
+          "scene": "motiondisco.climb_table_with_box",
+          "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_with_box/scene.py"
+        },
+        {
+          "name": "floor",
+          "scene": "motiondisco.long_dist_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/long_dist_pick_place/scene.py"
+        },
+        {
+          "name": "floor",
+          "scene": "motiondisco.under_table_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/under_table_pick_place/scene.py"
+        }
+      ],
+      "names": [
+        "floor"
+      ]
+    },
+    {
+      "id": "movablebox-6e17c796b699bf9b",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.1025,
+        0.095,
+        0.115
+      ],
+      "full_size": [
+        0.205,
+        0.19,
+        0.23
+      ],
+      "mass": 0.626,
+      "color_rgba": [
+        0.23,
+        0.23,
+        0.09,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "green_box",
+          "scene": "motiondisco.box_stacking",
+          "source_file": "submodules/faro/src/scenes/motiondisco/box_stacking/scene.py"
+        }
+      ],
+      "names": [
+        "green_box"
+      ]
+    },
+    {
+      "id": "movablebox-3bb12f88b0280aba",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.1325,
+        0.1275,
+        0.135
+      ],
+      "full_size": [
+        0.265,
+        0.255,
+        0.27
+      ],
+      "mass": 1.18,
+      "color_rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "white_box",
+          "scene": "motiondisco.box_stacking",
+          "source_file": "submodules/faro/src/scenes/motiondisco/box_stacking/scene.py"
+        },
+        {
+          "name": "white_box",
+          "scene": "motiondisco.climb_table_up_down_with_box",
+          "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_up_down_with_box/scene.py"
+        },
+        {
+          "name": "white_box",
+          "scene": "motiondisco.climb_table_with_box",
+          "source_file": "submodules/faro/src/scenes/motiondisco/climb_table_with_box/scene.py"
+        },
+        {
+          "name": "white_box",
+          "scene": "motiondisco.move_through_clutter",
+          "source_file": "submodules/faro/src/scenes/motiondisco/move_through_clutter/scene.py"
+        },
+        {
+          "name": "white_box",
+          "scene": "motiondisco.parkour_pick_place_1",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_1/scene.py"
+        },
+        {
+          "name": "white_box",
+          "scene": "motiondisco.parkour_pick_place_2",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_2/scene.py"
+        },
+        {
+          "name": "white_box",
+          "scene": "motiondisco.under_table_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/under_table_pick_place/scene.py"
+        }
+      ],
+      "names": [
+        "white_box"
+      ]
+    },
+    {
+      "id": "movablebox-0f7d3360e73aedd1",
+      "faro_type": "MovableBox",
+      "half_extents": [
+        0.175,
+        0.175,
+        0.185
+      ],
+      "full_size": [
+        0.35,
+        0.35,
+        0.37
+      ],
+      "mass": 1.12,
+      "color_rgba": [
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "yellow_box",
+          "scene": "motiondisco.box_stacking",
+          "source_file": "submodules/faro/src/scenes/motiondisco/box_stacking/scene.py"
+        },
+        {
+          "name": "yellow_box",
+          "scene": "motiondisco.long_dist_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/long_dist_pick_place/scene.py"
+        },
+        {
+          "name": "yellow_box",
+          "scene": "motiondisco.move_through_clutter",
+          "source_file": "submodules/faro/src/scenes/motiondisco/move_through_clutter/scene.py"
+        }
+      ],
+      "names": [
+        "yellow_box"
+      ]
+    },
+    {
+      "id": "plane-b94cab15be7c0f58",
+      "faro_type": "Plane",
+      "half_extents": [
+        3.0,
+        1.2
+      ],
+      "full_size": [
+        6.0,
+        2.4
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "surface"
+      ],
+      "surface_allowed_contact_types": {
+        "surface": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "floor",
+          "scene": "motiondisco.move_through_clutter",
+          "source_file": "submodules/faro/src/scenes/motiondisco/move_through_clutter/scene.py"
+        }
+      ],
+      "names": [
+        "floor"
+      ]
+    },
+    {
+      "id": "plane-c18828e61fc0b070",
+      "faro_type": "Plane",
+      "half_extents": [
+        1.9,
+        0.7
+      ],
+      "full_size": [
+        3.8,
+        1.4
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "surface"
+      ],
+      "surface_allowed_contact_types": {
+        "surface": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "floor",
+          "scene": "motiondisco.parkour_pick_place_1",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_1/scene.py"
+        }
+      ],
+      "names": [
+        "floor"
+      ]
+    },
+    {
+      "id": "fixedbox-b0595ceb7c9b68f2",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.395,
+        0.395,
+        0.565
+      ],
+      "full_size": [
+        0.79,
+        0.79,
+        1.13
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "table_tall",
+          "scene": "motiondisco.parkour_pick_place_1",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_1/scene.py"
+        },
+        {
+          "name": "table_tall",
+          "scene": "motiondisco.parkour_pick_place_2",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_2/scene.py"
+        }
+      ],
+      "names": [
+        "table_tall"
+      ]
+    },
+    {
+      "id": "plane-dca51a95145ea7f8",
+      "faro_type": "Plane",
+      "half_extents": [
+        1.5,
+        0.7
+      ],
+      "full_size": [
+        3.0,
+        1.4
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.8,
+        0.8,
+        0.8,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "surface"
+      ],
+      "surface_allowed_contact_types": {
+        "surface": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "floor",
+          "scene": "motiondisco.parkour_pick_place_2",
+          "source_file": "submodules/faro/src/scenes/motiondisco/parkour_pick_place_2/scene.py"
+        }
+      ],
+      "names": [
+        "floor"
+      ]
+    },
+    {
+      "id": "fixedbox-d6eba7570aa58bf0",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.35,
+        0.7,
+        0.035
+      ],
+      "full_size": [
+        0.7,
+        1.4,
+        0.07
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "table_top_short",
+          "scene": "motiondisco.under_table_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/under_table_pick_place/scene.py"
+        }
+      ],
+      "names": [
+        "table_top_short"
+      ]
+    },
+    {
+      "id": "fixedbox-a3a7dd61b42e242e",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.35,
+        0.035,
+        0.365
+      ],
+      "full_size": [
+        0.7,
+        0.07,
+        0.73
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "table_side_left",
+          "scene": "motiondisco.under_table_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/under_table_pick_place/scene.py"
+        },
+        {
+          "name": "table_side_right",
+          "scene": "motiondisco.under_table_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/under_table_pick_place/scene.py"
+        }
+      ],
+      "names": [
+        "table_side_left",
+        "table_side_right"
+      ]
+    },
+    {
+      "id": "fixedbox-8b48d3a8ee84f93d",
+      "faro_type": "FixedBox",
+      "half_extents": [
+        0.035,
+        0.7,
+        0.365
+      ],
+      "full_size": [
+        0.07,
+        1.4,
+        0.73
+      ],
+      "mass": null,
+      "color_rgba": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "contact_types": [
+        1
+      ],
+      "face_contact_types": {},
+      "surfaces": [
+        "top",
+        "left",
+        "front",
+        "right",
+        "back",
+        "bottom"
+      ],
+      "surface_allowed_contact_types": {
+        "top": [
+          1
+        ],
+        "left": [
+          1
+        ],
+        "front": [
+          1
+        ],
+        "right": [
+          1
+        ],
+        "back": [
+          1
+        ],
+        "bottom": [
+          1
+        ]
+      },
+      "occurrences": [
+        {
+          "name": "table_back",
+          "scene": "motiondisco.under_table_pick_place",
+          "source_file": "submodules/faro/src/scenes/motiondisco/under_table_pick_place/scene.py"
+        }
+      ],
+      "names": [
+        "table_back"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "generation": 15,
+  "novelty_attempt": 2,
+  "resample_attempt": 2,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The current approach focuses on generating a contact mode sequence by appending modes one by one without a clear structure. This often leads to infeasible plans due to abrupt transitions between contact states. The novel approach addresses this by first defining a high-level sequence of actions (e.g., move to object, grasp, lift, walk, place) and then refining these actions into detailed contact modes. This structured planning ensures that each transition is valid and feasible, adhering to the solver's constraints. The algorithm also incorporates a feedback loop to iteratively refine the plan based on solver feedback, ensuring that the final plan is both feasible and optimized.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T23:36:10.296205",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

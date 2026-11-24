@@ -1,0 +1,60 @@
+--- a/original.py
++++ b/original.py
+@@ -1,54 +1,54 @@
+ # Fixed (not evolved): rewrites of the block below that dropped their own
+ # typing import failed with "name 'List' is not defined".
+ from __future__ import annotations
+ 
+ from typing import Any, Dict, List, Tuple
+ 
+ # EVOLVE-BLOCK-START
+ def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+     """
+     Build a contact_mode_seq for the active task — see the system
+     prompt for scene-specific goals.
+ 
+     The body below returns the initial mode unchanged (1 mode, which
+     scores 0 since a plan needs at least 2 modes); evolution is
+     expected to extend it into a full plan.
+     """
+     plan = get_initial_mode()
+ 
+     # Picking phase
+     pick_box(plan)
+ 
+     # Walking to the table
+     walk(plan, 4)
+ 
+     # Placing phase
+     place_box(plan)
+ 
+     return plan
+ 
+ def pick_box(plan: Dict[str, List[Tuple]]):
+     # Approach the box
+-    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1))
++    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(1, 1), right_sole=(1, 1))
+     # Lift the box
+     append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+     # Move the box to the front of the robot
+     append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
+ 
+ def place_box(plan: Dict[str, List[Tuple]]):
+     # Move the box towards the table
+-    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(), right_sole=())
++    append_mode(plan, left_ee=(14, 1), right_ee=(14, 1), left_sole=(1, 1), right_sole=(1, 1))
+     # Place the box on the table
+-    append_mode(plan, left_ee=(6, 8, 1), right_ee=(6, 8, 1), left_sole=(), right_sole=())
++    append_mode(plan, left_ee=(), right_ee=(), left_sole=(8, 1), right_sole=(8, 1), white_box=(6, 8, 1))
+ # EVOLVE-BLOCK-END
+ 
+ 
+ # This part remains fixed (not evolved)
+ from env import append_mode, get_default_scene, get_initial_mode, walk
+ 
+ 
+ def run_planning():
+     """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+     scene = get_default_scene()
+     contact_plan = generate_contact_plan(scene)
+     return contact_plan, scene

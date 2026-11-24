@@ -1,0 +1,52 @@
+{
+  "active_proposals_at_start": 1,
+  "api_costs": 0.0,
+  "archive_inspiration_ids": [
+    "1584cbc6-aba6-4564-8479-6d6238debad9",
+    "c0eb1e48-d11a-43c3-aea8-e03e440706fd",
+    "11a11ba6-f8fb-4952-bf5d-555cf40feb21"
+  ],
+  "artifacts": {
+    "attempt_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/attempts/novelty_3/resample_1/patch_1",
+    "attempt_metadata_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/attempts/novelty_3/resample_1/patch_1/metadata.json",
+    "attempt_patch_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/attempts/novelty_3/resample_1/patch_1/patch.txt",
+    "generated_code_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/main.py",
+    "generation_diff_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/edit.diff",
+    "generation_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25",
+    "generation_original_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/original.py",
+    "generation_search_replace_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/search_replace.txt",
+    "llm_response_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/attempts/novelty_3/resample_1/patch_1/llm_response.txt",
+    "results_dir": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/results"
+  },
+  "attempts": {
+    "novelty_attempt": 3,
+    "patch_attempt": 1,
+    "resample_attempt": 1
+  },
+  "code_embedding_available": true,
+  "downstream_eval_submitted": false,
+  "embed_cost": 0.0,
+  "error_attempt": null,
+  "failure_class": "novelty_rejected",
+  "failure_json_path": "results/md_qwen_campaign/parkour_pick_place_2/job_5447792_7_ollama/gen_25/failure.json",
+  "failure_reason": "**NOT_NOVEL**\n\nExplanation: The proposed code is essentially the same as the existing code with only a minor difference in the `append_mode` calls for releasing the box on the elevated table. In the existing code, `append_mode(plan, left_ee=())` is used, while in the proposed code, `append_mode(plan, left_ee=(), white_box=())` is used. This change does not introduce any meaningful functional differences, as both calls achieve the same result of releasing the box. Therefore, the codes are not meaningfully different.",
+  "failure_stage": "novelty",
+  "generated_code_available": true,
+  "generation": 25,
+  "language": "python",
+  "last_error_msg": null,
+  "max_similarity": 0.9957575798034668,
+  "node_kind": "failed_proposal",
+  "novelty_checks_performed": 1,
+  "novelty_cost": 0.0,
+  "novelty_explanation": "**NOT_NOVEL**\n\nExplanation: The proposed code is essentially the same as the existing code with only a minor difference in the `append_mode` calls for releasing the box on the elevated table. In the existing code, `append_mode(plan, left_ee=())` is used, while in the proposed code, `append_mode(plan, left_ee=(), white_box=())` is used. This change does not introduce any meaningful functional differences, as both calls achieve the same result of releasing the box. Therefore, the codes are not meaningfully different.",
+  "parent_id": "815506a3-da1b-4b86-aecd-ea01c2ad5b40",
+  "patch_description": "The current plan fails because it attempts to change the box's contact surface without first releasing it. This violates the solver's rule that a contact must be released before it touches a different surface. To fix this, we need to ensure that the robot releases the box before changing its contact surface. Specifically, we need to add a mode where the robot releases the box before moving to the elevated table.",
+  "patch_name": "none",
+  "patch_type": "diff",
+  "proposal_started_at": 1794971381.251023,
+  "sampling_worker_id": null,
+  "system_prompt_id": null,
+  "timestamp": "2026-11-18T04:10:41.163282",
+  "top_k_inspiration_ids": []
+}

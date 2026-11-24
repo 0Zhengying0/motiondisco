@@ -1,0 +1,36 @@
+<NAME>
+Extend the contact plan to include a valid transition mode to satisfy the IK solver's requirement for at least 2 modes.
+
+<DESCRIPTION>
+The current contact plan has only one mode, which is the initial mode. The IK solver requires at least 2 modes: the initial mode and at least one transition mode. By appending a valid transition mode that differs from the initial one, we can satisfy this requirement and potentially improve the score.
+
+The transition mode should ensure that at least one channel changes from its initial state. For simplicity, we can change the left_ee channel to indicate that the left hand is free, which is a valid and different state from the initial mode.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    append_mode(plan, left_ee=())
+    return plan
+>>>>>>> REPLACE
+</DIFF>

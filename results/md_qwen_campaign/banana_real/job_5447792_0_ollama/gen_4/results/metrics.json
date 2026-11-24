@@ -1,0 +1,21 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "is_duplicate": true,
+        "plan_hash": "9a8f6981d2a9a4fda0d952bd59d223c6af6ed0ec6e6b63eaf9622221306ed6da",
+        "first_seen_gen": "gen_3",
+        "violations": [
+            "duplicate plan (hash 9a8f6981; first seen gen_3)"
+        ]
+    },
+    "private": {
+        "prior_combined_score": 0.0,
+        "prior_top_violation": "KSO infeasible: first break at mode 1 of 2 (left_ee -> banana left, right_ee -> banana right); even the first transition fails."
+    },
+    "text_feedback": "Duplicate plan: this contact_mode_seq is identical to one evaluated at gen_3 (combined_score=0.00). Prior outcome: KSO infeasible: first break at mode 1 of 2 (left_ee -> banana left, right_ee -> banana right); even the first transition fails.. Propose a plan that differs from it.",
+    "execution_time_mean": 0.5096861400015769,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

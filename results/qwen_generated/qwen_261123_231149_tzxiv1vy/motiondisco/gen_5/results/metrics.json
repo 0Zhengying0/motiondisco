@@ -1,0 +1,49 @@
+{
+    "combined_score": 0.1,
+    "public": {
+        "num_modes": 7,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": true,
+        "to_valid": false,
+        "to_cost": 19.694742723171856,
+        "violations": [],
+        "task_completion": {
+            "met": false,
+            "target_xyz_m": [
+                2.0,
+                0.0,
+                0.7746849933798136
+            ],
+            "maximum_error_m": 0.1,
+            "final_xyz_m": [
+                1.8999651892475429,
+                -0.09999658081629192,
+                0.7611127714082913
+            ],
+            "error_m": 0.142093225547432
+        },
+        "kso_goal_mode": "hard",
+        "to_max_violation": 0.04691197085733734,
+        "to_jerk_per_mode": 906.2474078947591,
+        "task_quality": 0.8755852653978194,
+        "to_quality": 0.06777974029907151
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.41666666666666663,
+        "ik_mode": "hard",
+        "ik_cost": 0.08097919194558806,
+        "to_mode": "hard"
+    },
+    "execution_time_mean": 0.5016356599517167,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

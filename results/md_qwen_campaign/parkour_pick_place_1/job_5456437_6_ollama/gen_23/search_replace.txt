@@ -1,0 +1,52 @@
+<NAME>
+Add initial movement to the white box and finalize the placement.
+
+<DESCRIPTION>
+This change aims to improve the plan by adding initial movement to the white box and ensuring the final placement is correct. The current plan only transitions to a standing position but does not complete the task of picking up the white box and placing it on the elevated table. By adding the necessary steps for picking up the white box and placing it on the elevated table, we ensure the plan meets the task requirements.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+    # Transition to a standing position
+    append_mode(plan, left_sole=(2, 1), right_sole=(2, 1))
+    return plan
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Move to the white box
+    move_ee(plan, "right_ee", (14, 1))
+    release_ee(plan, "left_ee")
+
+    # Step 2: Pick up the white box
+    pick_up_object(plan, "right_ee", 14)
+
+    # Step 3: Move to the elevated table
+    move_ee(plan, "right_ee", (1, 1))
+    move_ee(plan, "left_ee", (8, 1))
+    append_mode(plan, white_box=(1, 14, 1))
+
+    # Step 4: Place the white box on the elevated table
+    place_object(plan, "right_ee", 8)
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,37 @@
+{
+    "combined_score": 0.00040719807588815394,
+    "public": {
+        "num_modes": 10,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": false,
+        "to_valid": false,
+        "to_cost": 2454.8072820429347,
+        "violations": [
+            "mode 9: right_ee slides 25 cm on floor surface although the contact is sticking",
+            "transition 8->9: no contact changes (noop)"
+        ],
+        "kso_goal_mode": "soft (hard target missed)",
+        "to_max_violation": 20.496367996663807,
+        "to_jerk_per_mode": 23058.00578823052
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.8888888888888888,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9777777777777779,
+        "efficiency": 0.16666666666666663,
+        "ik_mode": "soft",
+        "ik_hard_failed": true,
+        "ik_cost": 1.6198746103750377,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nTrajectory optimization (TO) ran out of iterations without reaching a feasible trajectory; the trajectory is not physically valid:\n- mode 9: right_ee slides 25 cm on floor surface although the contact is sticking\n- mode 10: left_shoulder_pitch_joint goes 0.13 rad past its limit\n- mode 5: yellow_box penetrates robot right_hip_roll_link by 15 cm in the trajectory\n- mode 9: the motion is not dynamically consistent (it needs 20% of the body weight, 65 N, that no contact provides)\n- modes 3\u20138: in 2 of 6 steps a foot travels more than 0.8 m (up to 1.37 m, left_sole at mode 6); with normal 0.4 m steps a foot travels at most about 0.8 m. Too few steps for the distance or the turning. Give it about 2 more walking steps at the end of the plan, e.g. walk(plan, 2)",
+    "execution_time_mean": 0.5390829980606213,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

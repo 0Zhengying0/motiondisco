@@ -1,0 +1,48 @@
+<NAME>
+A more structured approach that breaks down the task into clear steps, focusing on locomotion and manipulation, and ensures the final mode meets the discrete contact goal.
+
+<DESCRIPTION>
+This new approach systematically breaks down the task into clear steps. It first moves the robot to a position near the box, picks up the box, then walks to the table, and finally places the box on the table. This structured approach ensures that each step is well-defined and that the final mode meets the discrete contact goal. The plan is built by appending modes that correspond to these steps, using the `append_mode` and `walk` helpers to manage the robot's movements.
+</DESCRIPTION>
+
+<CODE>
+```python
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+    """
+    # Start with the initial mode
+    plan = get_initial_mode()
+
+    # Step 1: Move to the box
+    walk(plan, 3)  # Take 3 steps to reach the box
+    append_mode(plan, left_ee=(14, 1))  # Grasp the box with the left hand
+    append_mode(plan, left_ee=())  # Lift the box
+
+    # Step 2: Move to the table
+    walk(plan, 3)  # Take 3 steps to reach the table
+
+    # Step 3: Place the box on the table
+    append_mode(plan, left_ee=(6, 8, 1))  # Place the box on the table with the left hand
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

@@ -1,0 +1,56 @@
+<NAME>
+Improve the stacking sequence by ensuring smoother transitions and reducing dynamic inconsistencies.
+
+<DESCRIPTION>
+The current plan has several issues, including dynamic inconsistencies and inefficient transitions. To improve the performance, we need to ensure smoother transitions between modes and reduce the dynamic load on the robot. This can be achieved by:
+
+1. Adding intermediate modes to ensure smooth transitions.
+2. Adjusting the number of walking steps to provide enough space for manipulation.
+3. Ensuring that the robot's base pose is correctly managed during transitions.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Lift the green box with the right hand
+    append_mode(plan, right_ee=(8, 1))
+
+    # Walk 2 steps forward to have space to place the box
+    walk(plan, 2)
+
+    # Place the green box on the table
+    append_mode(plan, right_ee=(), green_box=(6, 2, 1))
+
+    # Lift the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Walk 2 steps forward to have space to place the box
+    walk(plan, 2)
+
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=())
+
+    # Place the white box on the green box
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+=======
+    # Lift the green box with the right hand
+    append_mode(plan, right_ee=(8, 1))
+
+    # Walk 3 steps forward to have space to place the box
+    walk(plan, 3)
+
+    # Place the green box on the table
+    append_mode(plan, right_ee=(), green_box=(6, 2, 1))
+
+    # Lift the white box with the right hand
+    append_mode(plan, right_ee=(14, 1))
+
+    # Walk 3 steps forward to have space to place the box
+    walk(plan, 3)
+
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=())
+
+    # Place the white box on the green box
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

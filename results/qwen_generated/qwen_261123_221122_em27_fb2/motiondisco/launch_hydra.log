@@ -1,0 +1,13 @@
+[2026-11-23 23:12:26,057][shinka.core.async_runner][INFO] - Pricing catalog: source=bundled fetched_at=None stale=False sha256=954fcee02e2774d82535a05ccdba548cf12dc6867467370e1d6cf19153b0efa9
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - ASYNC EVOLUTION RUN STARTED
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - Max evaluation jobs: 1
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - Max proposal jobs: 1
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - Target generations: 3
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - Language: python
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - Results directory: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - Log file: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/qwen_generated/qwen_261123_221122_em27_fb2/motiondisco/evolution_run.log
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - Max API costs: $100.00
+[2026-11-23 23:12:26,059][shinka.core.async_runner][INFO] - ================================================================================
+[2026-11-23 23:12:26,880][shinka.database.async_dbase][INFO] - 🔧 AsyncDB initialized with 2 workers, 2 concurrent DB ops (WAL mode)

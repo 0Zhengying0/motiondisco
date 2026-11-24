@@ -1,0 +1,30 @@
+<NAME>
+Add intermediate mode to release and regrasp the white box during the move to the elevated table to avoid invalid contact schedule.
+
+<DESCRIPTION>
+The current plan fails due to invalid contact schedules where the white box transitions directly between different surfaces without an intermediate free mode. By adding intermediate modes to release and regrasp the white box during the move, we can avoid this issue and ensure that each contact transition is valid.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    
+    # Move the white box to the elevated table
+    append_mode(plan, left_ee=(14, 1), right_sole=(2, 1), white_box=(1, 8, 1))
+    
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+=======
+    # Lift the white box off the floor
+    append_mode(plan, left_ee=(14, 1), white_box=(), right_sole=(2, 1))
+    
+    # Move the white box to the elevated table with intermediate release and regrasp
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=())
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(1, 8, 1))
+    append_mode(plan, left_ee=(14, 1), right_sole=(2, 1), white_box=(1, 8, 1))
+    
+    # Place the white box on the elevated table
+    append_mode(plan, left_ee=(), right_sole=(2, 1), white_box=(6, 8, 1))
+>>>>>>> REPLACE
+</DIFF>

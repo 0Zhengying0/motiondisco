@@ -1,0 +1,4 @@
+{
+    "correct": false,
+    "error": "name 'append_object_manipulation_mode' is not defined"
+}

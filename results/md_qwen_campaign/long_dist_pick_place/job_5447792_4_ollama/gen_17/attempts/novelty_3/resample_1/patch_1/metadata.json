@@ -1,0 +1,14 @@
+{
+  "generation": 17,
+  "novelty_attempt": 3,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 4,
+  "patch_name": "none",
+  "patch_description": "none",
+  "error_msg": null,
+  "timestamp": "2026-11-17T19:53:08.218738",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

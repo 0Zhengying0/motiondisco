@@ -1,0 +1,14 @@
+{
+  "generation": 14,
+  "novelty_attempt": 1,
+  "resample_attempt": 1,
+  "patch_attempt": 1,
+  "success": true,
+  "num_applied": 1,
+  "patch_name": "none",
+  "patch_description": "The proposed approach models the environment and robot's movements as a graph. Each node in the graph represents a possible state of the robot, including its position, orientation, and contact configuration. Edges represent transitions between states, considering physical constraints such as step length, contact changes, and obstacle avoidance.\n\nThe robot's path is planned using a shortest path algorithm, such as Dijkstra's algorithm, on this graph. The algorithm aims to find the shortest path from the initial state to the goal state, considering both the number of modes and the feasibility of the path. This approach aims to optimize the trajectory, reduce the number of modes, and ensure that the plan is feasible.\n\nThe graph-based approach also allows for more flexibility in the robot's movements, as it can consider various contact configurations and transitions. This can lead to more efficient and natural movements, especially in cluttered environments.\n\nBy using a graph-based approach, the proposed algorithm aims to achieve better performance than the previous implementations, with lower mode counts and higher feasibility rates.",
+  "error_msg": null,
+  "timestamp": "2026-11-17T23:15:08.444198",
+  "llm_cost": 0.0,
+  "llm_model": "qwen2.5-coder:14b"
+}

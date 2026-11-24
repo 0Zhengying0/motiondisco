@@ -1,0 +1,82 @@
+{
+  "133afc8fcbc7592b76ac9e85380e8b29a1690356823ce7ca242acab22e54d41b": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_2",
+    "patches": "box1:6.1.1,6.2.1|left_ee:8.1|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|box1:6.1.1>6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: box1 changes from (6, 1, 1) to (6, 2, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 2, 1)"
+  },
+  "190f56dde5bdfc42487b3395665fc04bacfcf0328182b956315251a790705362": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_3",
+    "patches": "box1:6.1.1,6.2.1|left_ee:8.1,8.2|left_sole:1.1|right_ee:2.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|left_ee:8.1>8.2|walk|right_ee:->2.1|box1:6.1.1>6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 9->10: box1 changes from (6, 1, 1) to (6, 2, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 2, 1)"
+  },
+  "2348abe9be5ab3a74a2ecbe2cf1b4203ef90ffacd3e79a06a4e19e81a7e0545d": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_6",
+    "patches": "box1:1.1.1,6.1.1,6.2.1|left_ee:2.1,9.1|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->9.1|box1:6.1.1>1.1.1|left_ee:9.1>2.1|box1:1.1.1>6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 1->2: box1 changes from (6, 1, 1) to (1, 1, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 1, 1)"
+  },
+  "31c8ad56236c18a35749798ede7c9dc24f6a4258272054678b29e45c1fe08526": {
+    "combined_score": 0.0004021065040822749,
+    "first_seen_gen": "gen_5",
+    "patches": "box1:6.1.1,6.2.1|left_ee:8.1,8.2|left_sole:1.1|right_ee:2.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|left_ee:8.1>8.2|walk|right_ee:->2.1|box1:6.1.1>-|box1:->6.2.1",
+    "top_violation": "mode 12: floor penetrates box1 by 17 cm in the trajectory"
+  },
+  "389ad8edf475f57bc3c8fbe7f00f505b4744a7ff0cb492d998ba1ad3c1041650": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_0",
+    "patches": "box1:6.1.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "(no transitions)",
+    "top_violation": "discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "60511591eb2181c22d01f9ab69b71ff33956d1ce240229f5be7b6502dc19924e": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_9",
+    "patches": "box1:1.1.1,6.1.1,6.2.1|left_ee:2.1,9.1|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->9.1|box1:6.1.1>1.1.1|left_ee:9.1>2.1|box1:1.1.1>6.2.1",
+    "top_violation": "Invalid contact schedule (no solver run): mode 2->3: box1 changes from (6, 1, 1) to (1, 1, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (1, 1, 1)"
+  },
+  "8cdb9fb0bf2ee4a46b8a7276e28434db32033733303bf44ea22b6b3c9811759e": {
+    "combined_score": 0.0007472879447631239,
+    "first_seen_gen": "gen_8",
+    "patches": "box1:6.1.1,6.2.1|left_ee:8.1,8.2|left_sole:1.1|right_ee:2.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|left_ee:8.1>8.2|walk|right_ee:->2.1|box1:6.1.1>-|box1:->6.2.1",
+    "top_violation": "mode 15: floor penetrates box1 by 18 cm in the trajectory"
+  },
+  "b275cb7528313cb499924aa0625241f3afdb17452cd30545dd2efc382cddfea7": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_1",
+    "patches": "box1:6.1.1|left_ee:8.1|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1",
+    "top_violation": "discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "d2fd4260266242d66ffe6fafaef7fcb7d828af069e4a7b08641293edeba5ba70": {
+    "combined_score": 0.0,
+    "first_seen_gen": "gen_7",
+    "patches": "box1:6.1.1|left_ee:8.1,8.2|left_sole:1.1|right_ee:2.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|left_ee:8.1>8.2|walk|right_ee:->2.1|box1:6.1.1>-|box1:->6.1.1",
+    "top_violation": "discrete goal: box1 final mode is (6, 1, 1), expected (6, 2, 1)"
+  },
+  "f6e5e4e987e2468510bf9cea222c975e1dc8d8fb41c4e96b8aa1dcd1c8ab5dd0": {
+    "combined_score": 0.0006576442160578112,
+    "first_seen_gen": "gen_4",
+    "patches": "box1:6.1.1,6.2.1|left_ee:8.1,8.2|left_sole:1.1|right_ee:2.1|right_sole:1.1",
+    "provisional": false,
+    "signature": "left_ee:->8.1|left_ee:8.1>8.2|walk|right_ee:->2.1|box1:6.1.1>-|box1:->6.2.1",
+    "top_violation": "mode 11: table1 penetrates box1 by 23 cm in the trajectory"
+  }
+}

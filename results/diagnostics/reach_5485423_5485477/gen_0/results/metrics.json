@@ -1,0 +1,50 @@
+{
+    "combined_score": 0.18088499385567913,
+    "public": {
+        "num_modes": 8,
+        "goal_match": true,
+        "ik_feasible": true,
+        "to_converged": true,
+        "to_valid": true,
+        "to_cost": 12.770797292336601,
+        "violations": [],
+        "task_completion": {
+            "met": true,
+            "target_xyz_m": [
+                2.0,
+                0.0,
+                0.7746849933798136
+            ],
+            "maximum_error_m": 0.1,
+            "final_xyz_m": [
+                1.9949880003303766,
+                -0.005007519749216086,
+                0.7696736299597159
+            ],
+            "error_m": 0.008678084930178272
+        },
+        "kso_goal_mode": "hard",
+        "to_max_violation": 0.01839808338269222,
+        "to_jerk_per_mode": 819.1371564793938,
+        "task_quality": 0.9913965763112829,
+        "to_quality": 0.09065213411326181
+    },
+    "private": {
+        "well_formed_fraction": 1.0,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 1.0,
+        "object_passive_fraction": 1.0,
+        "structure_score": 1.0,
+        "efficiency": 0.33333333333333337,
+        "ik_mode": "hard",
+        "ik_cost": 0.09189526594863391,
+        "to_mode": "hard"
+    },
+    "text_feedback": "Solver feedback:\nScore 0.181 = 0.1 + 0.9 x task_quality 0.99 x to_quality 0.09. to_quality = 1/(1 + 100 x max violation 0.018 + 0.01 x jerk/mode 819); control jerk dominates.",
+    "execution_time_mean": 1.312364456942305,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

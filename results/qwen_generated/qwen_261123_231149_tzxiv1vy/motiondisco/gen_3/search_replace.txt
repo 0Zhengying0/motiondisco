@@ -1,0 +1,20 @@
+<NAME>
+Improve step length and add intermediate support for a longer step.
+
+<DESCRIPTION>
+The current plan uses a step length of 0.4 meters, which is close to the robot's step length limit. This can cause the trajectory optimizer (TO) to struggle, especially for longer distances. By reducing the step length to 0.3 meters and adding intermediate support, we can give the TO more room to plan the robot's movement, potentially improving the plan's feasibility and quality.
+
+Additionally, by ensuring that the robot has a stable support surface before taking a longer step, we can reduce the risk of dynamic inconsistencies and improve the overall plan's performance.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+walk(plan, ceil(dist(start, target) / 0.4))
+=======
+# Reduce step length to 0.3 meters and add intermediate support
+walk(plan, ceil(dist(start, target) / 0.3))
+# Add an intermediate support step if the distance is more than 1 meter
+if dist(start, target) > 1.0:
+    walk(plan, 1)
+>>>>>>> REPLACE
+</DIFF>

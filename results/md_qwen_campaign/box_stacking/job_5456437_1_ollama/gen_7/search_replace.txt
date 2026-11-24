@@ -1,0 +1,30 @@
+<NAME>
+Ensure proper transitions for object contacts by adding intermediate free modes.
+
+<DESCRIPTION>
+The current plan fails due to invalid contact schedules where objects transition directly from one surface to another without an intermediate free mode. This is a common issue in contact planning where objects must be released before touching a different surface. To fix this, we will modify the `pick_up_object` and `place_object` functions to ensure that objects are properly released and picked up with intermediate free modes.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def pick_up_object(plan: Dict[str, List[Tuple]], ee_channel: str, object_channel: str, object_env_id: int) -> None:
+    append_mode(plan, **{ee_channel: (object_env_id, 1)})
+    append_mode(plan, **{ee_channel: (), object_channel: (1, 6, 1)})
+=======
+def pick_up_object(plan: Dict[str, List[Tuple]], ee_channel: str, object_channel: str, object_env_id: int) -> None:
+    append_mode(plan, **{ee_channel: (object_env_id, 1)})
+    append_mode(plan, **{ee_channel: ()})
+    append_mode(plan, **{ee_channel: (), object_channel: (1, 6, 1)})
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def place_object(plan: Dict[str, List[Tuple]], ee_channel: str, object_channel: str, object_env_id: int) -> None:
+    append_mode(plan, **{ee_channel: (object_env_id, 1)})
+    append_mode(plan, **{ee_channel: (), object_channel: (1, object_env_id, 1)})
+=======
+def place_object(plan: Dict[str, List[Tuple]], ee_channel: str, object_channel: str, object_env_id: int) -> None:
+    append_mode(plan, **{ee_channel: (object_env_id, 1)})
+    append_mode(plan, **{ee_channel: ()})
+    append_mode(plan, **{ee_channel: (), object_channel: (1, object_env_id, 1)})
+>>>>>>> REPLACE
+</DIFF>

@@ -1,0 +1,24 @@
+<NAME>
+Improve the plan by ensuring the robot's base is stable while reaching for the banana. This involves walking towards the banana with more steps and ensuring the soles remain in contact with the floor.
+
+<DESCRIPTION>
+The current plan has issues with the robot's base stability, causing the IK solver to fail. By walking towards the banana with more steps and ensuring the soles remain in contact with the floor, we can improve the stability of the robot's base. This should help the IK solver find a feasible plan.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+    # Walk towards the banana with more steps
+    walk(plan, 6)
+=======
+    # Walk towards the banana with more steps
+    walk(plan, 8)
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+    # Change left_ee and right_ee to stick to the banana
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1))
+=======
+    # Change left_ee and right_ee to stick to the banana while maintaining soles in contact with the floor
+    append_mode(plan, left_ee=(9, 1), right_ee=(11, 1), left_sole=(1, 1), right_sole=(1, 1))
+>>>>>>> REPLACE
+</DIFF>

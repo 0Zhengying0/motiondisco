@@ -1,0 +1,50 @@
+{
+  "2b6975a594a79b1ec4884d73aa12288a40dff791966f1594d43c4768c220fc54": {
+    "combined_score": 0.1,
+    "first_seen_gen": "gen_7",
+    "patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": "transition 7->8: no contact changes (noop)"
+  },
+  "40c3de724e3fcab093eaf5913c8b70ce5a06a71d86612f20dc42a7912c9dd2eb": {
+    "combined_score": 0.1,
+    "first_seen_gen": "gen_8",
+    "patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": "transition 5->6: no contact changes (noop)"
+  },
+  "4177a90fcdfd5de28e796a68383cc4a0fc33fc20a69227e74b365133dc66527b": {
+    "combined_score": 0.1,
+    "first_seen_gen": "gen_9",
+    "patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": "transition 6->7: no contact changes (noop)"
+  },
+  "52e70c329e103756f0ddc03c0bb3b1bf85b8bd274bd4c34a88b4d62503b7f6cf": {
+    "combined_score": 0.1,
+    "first_seen_gen": "gen_0",
+    "patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  },
+  "536c45d803c0b5f29f4d68f5a540a016e81675269d26878ce58220db8151783a": {
+    "combined_score": 0.1,
+    "first_seen_gen": "gen_2",
+    "patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": "mode 3: the robot motion is inconsistent with its dynamics (residual 0.0111)"
+  },
+  "f649559d1bc6752f579ec2b80ef64532f1d6efa5a84a4fd338ea87f6495bd4bf": {
+    "combined_score": 0.1,
+    "first_seen_gen": "gen_5",
+    "patches": "box1:6.2.1|left_ee:-|left_sole:1.1|right_ee:-|right_sole:1.1",
+    "provisional": false,
+    "signature": "walk",
+    "top_violation": ""
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "contact_mode_seq": {
+    "left_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "right_sole": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "left_ee": [
+      [],
+      [
+        14,
+        2
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      []
+    ],
+    "right_ee": [
+      [],
+      [
+        14,
+        4
+      ],
+      [
+        4,
+        14,
+        1
+      ],
+      [
+        4,
+        14,
+        1
+      ],
+      [
+        4,
+        14,
+        1
+      ],
+      [
+        4,
+        14,
+        1
+      ],
+      [
+        4,
+        14,
+        1
+      ],
+      []
+    ],
+    "white_box": [
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        1,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        14,
+        1
+      ],
+      [
+        6,
+        8,
+        1
+      ]
+    ]
+  },
+  "scored": {
+    "num_modes": 8,
+    "num_channels": 5,
+    "well_formed_fraction": 0.725,
+    "equal_length_bool": 1.0,
+    "at_least_one_sole_fraction": 1.0,
+    "no_noop_fraction": 1.0,
+    "object_passive_fraction": 0.7142857142857143,
+    "structure_score": 0.8878571428571428,
+    "efficiency": 0.33333333333333337,
+    "combined_score": 1.2211904761904762,
+    "violations": [
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)",
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)",
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)",
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)",
+      "left_ee: ee/sole entry must be (env_id, contact_type), got (6, 14, 1)",
+      "right_ee: contact_type 4 not in (1, 2)",
+      "right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)",
+      "right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)",
+      "right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)",
+      "right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)",
+      "right_ee: ee/sole entry must be (env_id, contact_type), got (4, 14, 1)",
+      "white_box transition 1->2: object teleported from (6, 1, 1) to (6, 14, 1) without going free",
+      "white_box transition 6->7: object teleported from (6, 14, 1) to (6, 8, 1) without going free"
+    ]
+  },
+  "goal_match": true,
+  "ik_feasible": false,
+  "ik_cost": null,
+  "to_converged": null,
+  "to_cost": null,
+  "ik_run_path": null,
+  "to_run_path": null,
+  "ik_import_error": null,
+  "to_import_error": null,
+  "ik_diagnosis": {
+    "kind": "schedule_error",
+    "errors": [
+      "mode 1->2: left_ee changes from (14, 2) to (6, 14, 1) without a free () mode in between; release it first: (14, 2) -> () -> (6, 14, 1)",
+      "mode 1->2: right_ee changes from (14, 4) to (4, 14, 1) without a free () mode in between; release it first: (14, 4) -> () -> (4, 14, 1)",
+      "mode 1->2: white_box changes from (6, 1, 1) to (6, 14, 1) without a free () mode in between; release it first: (6, 1, 1) -> () -> (6, 14, 1)",
+      "mode 6->7: white_box changes from (6, 14, 1) to (6, 8, 1) without a free () mode in between; release it first: (6, 14, 1) -> () -> (6, 8, 1)"
+    ],
+    "total_modes": 8,
+    "last_feasible_modes": 2,
+    "first_infeasible_modes": 3,
+    "events_total": 3,
+    "events_feasible": 1
+  },
+  "kso_violations": null,
+  "to_status": null,
+  "to_violations": null,
+  "to_valid": null,
+  "to_physical": null,
+  "to_goal": null,
+  "to_fail_reason": null,
+  "to_rescues": null,
+  "to_segments": null,
+  "to_polish": null,
+  "to_solved_modes": null,
+  "plan_repairs": null,
+  "original_contact_mode_seq": null,
+  "plan_signature": "left_ee:->14.2,right_ee:->14.4|left_ee:14.2>6.14.1,right_ee:14.4>4.14.1,white_box:6.1.1>6.14.1|walk|left_ee:6.14.1>-,right_ee:4.14.1>-,white_box:6.14.1>6.8.1",
+  "plan_novelty": null,
+  "plan_patches": "left_ee:14.2,6.14.1|left_sole:1.1|right_ee:14.4,4.14.1|right_sole:1.1|white_box:6.1.1,6.14.1,6.8.1",
+  "score_mode": "legacy",
+  "task_quality": null,
+  "to_quality": null,
+  "to_converged_raw": null,
+  "to_cost_parts": null
+}

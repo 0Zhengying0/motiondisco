@@ -1,0 +1,45 @@
+<NAME>
+Add initial steps to pick up the box and place it on the table.
+
+<DESCRIPTION>
+The current plan only contains the initial mode and does not achieve the task of picking up the box and placing it on the table. We need to add more modes to pick up the box, move it to the table, and place it down. This involves lifting the box with one hand, moving it to the table, and then placing it down with the other hand.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    return get_initial_mode()
+=======
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    """
+    Build a contact_mode_seq for the active task — see the system
+    prompt for scene-specific goals.
+
+    The body below returns the initial mode unchanged (1 mode, which
+    scores 0 since a plan needs at least 2 modes); evolution is
+    expected to extend it into a full plan.
+    """
+    plan = get_initial_mode()
+
+    # Step 1: Grasp the box with the left hand
+    append_mode(plan, left_ee=(8, 1))
+
+    # Step 2: Lift the box and move it to the table
+    append_mode(plan, left_ee=(8, 2))
+    walk(plan, 5)  # Assuming a step length of about 0.4m, 5 steps should be enough to move the box to the table
+
+    # Step 3: Place the box down on the table with the right hand
+    append_mode(plan, right_ee=(2, 1))
+    append_mode(plan, box1=(6, 2, 1))
+
+    return plan
+>>>>>>> REPLACE
+</DIFF>

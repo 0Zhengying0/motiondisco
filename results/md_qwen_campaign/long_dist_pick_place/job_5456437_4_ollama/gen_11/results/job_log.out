@@ -1,0 +1,34 @@
+/mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco
+Launching evaluation of function:
+_target_: examples.loco_manipulation.evaluate.main
+program_path: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/main.py
+results_dir: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results
+scene: ${task.scene}
+initial_condition: ${task.initial_condition}
+description: ${task.description}
+score_mode: ${task.score_mode}
+diversity: ${task.diversity}
+
+Evaluating program: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/main.py
+Saving results to: /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results
+==========Running program evaluation 1/1...==========
+==========Run 1/1 completed in 0.52 seconds==========
+[ik_eval] 17-mode hard KSO succeeded on attempt 2
+IK trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results/ik_run.pkl
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results/extra.json
+IK trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results/ik_run.pkl
+TO trajectory saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results/to_run.pkl
+Plan details saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results/extra.json
+Correctness and error status saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results/correct.json
+Metrics saved to /mnt/proj1/eu-26-37/it4i-dianyu/Zhengying/motiondisco/results/md_qwen_campaign/long_dist_pick_place/job_5456437_4_ollama/gen_11/results/metrics.json
+Evaluation completed successfully.
+Metrics:
+  combined_score: 0.00028785056067868694
+  public: {'num_modes': 17, 'goal_match': True, 'ik_feasible': True, 'to_converged': False, 'to_valid': False, 'to_cost': 3473.0248469282974, 'violations': ['mode 14: the motion is not dynamically consistent (it needs 254% of the body weight, 830 N, that no contact provides)'], 'kso_goal_mode': 'hard', 'to_max_violation': 7.1743334200424105, 'to_jerk_per_mode': 3914.439359542775}
+  private: {'well_formed_fraction': 1.0, 'equal_length_bool': 1.0, 'at_least_one_sole_fraction': 1.0, 'no_noop_fraction': 1.0, 'object_passive_fraction': 1.0, 'structure_score': 1.0, 'efficiency': 0.0, 'ik_mode': 'hard', 'ik_cost': 0.0001275438163902997, 'to_mode': 'off'}
+  text_feedback: <string_too_long_to_display>
+  execution_time_mean: 0.5164171490177978
+  execution_time_std: 0.0
+  num_valid_runs: 1
+  num_invalid_runs: 0
+  all_validation_errors: []

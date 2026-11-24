@@ -1,0 +1,58 @@
+<NAME>
+A new approach that optimizes the sequence of actions by explicitly handling the constraints of object contact transitions. This approach ensures that the object transitions between surfaces are handled correctly, avoiding the need for intermediate free states, thus simplifying the plan and potentially improving performance.
+
+<DESCRIPTION>
+This new approach focuses on optimizing the sequence of actions to ensure that the object transitions between surfaces are handled correctly. By explicitly managing the contact transitions, we avoid the need for intermediate free states, which simplifies the plan and potentially improves performance. The approach involves:
+1. Walking to the white box.
+2. Picking up the white box with the right_ee.
+3. Releasing the white box.
+4. Walking to the elevated table.
+5. Placing the white box on the elevated table.
+
+The key difference is in how the object transitions are managed, ensuring that the contact transitions are handled correctly without intermediate free states.
+</DESCRIPTION>
+
+<CODE>
+```python
+# Fixed (not evolved): rewrites of the block below that dropped their own
+# typing import failed with "name 'List' is not defined".
+from __future__ import annotations
+
+from typing import Any, Dict, List, Tuple
+
+# EVOLVE-BLOCK-START
+def generate_contact_plan(scene: List[Dict[str, Any]]) -> Dict[str, List[Tuple]]:
+    plan = get_initial_mode()
+
+    # Walk to the white box
+    walk(plan, 2)
+
+    # Pick up the white box with the right_ee
+    append_mode(plan, right_ee=(14, 1))
+
+    # Release the white box
+    append_mode(plan, right_ee=(), white_box=(6, 1, 1))
+
+    # Walk to the elevated table
+    walk(plan, 2)
+
+    # Place the white box on the elevated table
+    append_mode(plan, right_ee=(), white_box=(6, 8, 1))
+
+    return plan
+
+
+# EVOLVE-BLOCK-END
+
+
+# This part remains fixed (not evolved)
+from env import append_mode, get_default_scene, get_initial_mode, walk
+
+
+def run_planning():
+    """Run the contact-mode-sequence generator. Returns (contact_plan, scene)."""
+    scene = get_default_scene()
+    contact_plan = generate_contact_plan(scene)
+    return contact_plan, scene
+```
+</CODE>

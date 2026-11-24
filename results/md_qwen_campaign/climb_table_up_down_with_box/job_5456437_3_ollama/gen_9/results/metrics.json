@@ -1,0 +1,100 @@
+{
+    "combined_score": 0.0,
+    "public": {
+        "num_modes": 21,
+        "goal_match": true,
+        "ik_feasible": false,
+        "to_converged": null,
+        "to_valid": null,
+        "to_cost": null,
+        "violations": [
+            "KSO infeasible: first break at mode 7 of 21 (left_ee set down on floor surface); modes 0\u20136 solve on their own.",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)",
+            "left_ee: ee/sole entry must be (env_id, contact_type), got (8, 1, 1)",
+            "transition 14->15: no contact changes (noop)",
+            "transition 19->20: no contact changes (noop)"
+        ],
+        "kso_feasible_through_mode": 6,
+        "kso_first_infeasible_mode": 7,
+        "kso_break_event": "left_ee set down on floor surface"
+    },
+    "private": {
+        "well_formed_fraction": 0.9428571428571428,
+        "equal_length_bool": 1.0,
+        "at_least_one_sole_fraction": 1.0,
+        "no_noop_fraction": 0.9,
+        "object_passive_fraction": 1.0,
+        "structure_score": 0.9685714285714286,
+        "efficiency": 0.0,
+        "ik_mode": "soft",
+        "ik_diagnosis": {
+            "kind": "prefix",
+            "last_feasible_modes": 7,
+            "first_infeasible_modes": 8,
+            "total_modes": 21,
+            "solver_error": "TypeError: ('ee', 'robot', 'left_ee')[mode=9]: expected () or (env_id,type), got (8, 1, 1)",
+            "prefix_attempts": 4,
+            "prefix_trials": [
+                {
+                    "modes": 2,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 11,
+                    "feasible": false,
+                    "tries": 1
+                },
+                {
+                    "modes": 6,
+                    "feasible": true,
+                    "tries": 1
+                },
+                {
+                    "modes": 8,
+                    "feasible": false,
+                    "tries": 1
+                },
+                {
+                    "modes": 7,
+                    "feasible": true,
+                    "tries": 1
+                }
+            ],
+            "break_event": "left_ee set down on floor surface",
+            "probe": {
+                "fixed_by": null,
+                "tried": [
+                    {
+                        "before_mode": 7,
+                        "n_steps": 2,
+                        "event": "left_ee set down on floor surface",
+                        "modes": 24,
+                        "result": "still infeasible"
+                    },
+                    {
+                        "before_mode": 5,
+                        "n_steps": 2,
+                        "event": "left_ee -> table_short top, right_ee -> table_short top",
+                        "modes": 24,
+                        "result": "still infeasible"
+                    }
+                ],
+                "skipped": null
+            },
+            "diagnosis_seconds": 11.3,
+            "events_total": 6,
+            "events_feasible": 2
+        }
+    },
+    "text_feedback": "Solver feedback:\nKSO infeasible: first break at mode 7 of 21 (left_ee set down on floor surface); modes 0\u20136 solve on their own.\nRepair probe: inserting walk(plan, 2) before mode 7 (left_ee set down on floor surface), before mode 5 (left_ee -> table_short top, right_ee -> table_short top) did not make the plan feasible; the fix is elsewhere.",
+    "execution_time_mean": 0.5244388860010076,
+    "execution_time_std": 0.0,
+    "num_valid_runs": 1,
+    "num_invalid_runs": 0,
+    "all_validation_errors": []
+}

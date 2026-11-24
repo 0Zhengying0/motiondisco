@@ -1,0 +1,30 @@
+<NAME>
+Ensure proper contact transitions for the white box and feet.
+
+<DESCRIPTION>
+The current plan has issues with contact transitions, specifically with the white box and the feet. The solver feedback indicates that contacts must pass through a free state before touching a different surface. This edit ensures that the white box and feet transition properly by adding intermediate modes where necessary.
+</DESCRIPTION>
+
+<DIFF>
+<<<<<<< SEARCH
+def grasp_white_box(plan):
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+=======
+def grasp_white_box(plan):
+    append_mode(plan, left_ee=(), white_box=(1, 14, 1))
+    append_mode(plan, left_ee=(14, 1), white_box=())
+    append_mode(plan, left_ee=(14, 1), white_box=(1, 14, 1))
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+def release_white_box(plan):
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+=======
+def release_white_box(plan):
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(), right_sole=())
+    append_mode(plan, left_ee=(), white_box=(), left_sole=(8, 1), right_sole=(8, 1))
+>>>>>>> REPLACE
+</DIFF>
